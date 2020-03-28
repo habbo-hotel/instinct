@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { UserService } from '../../user.service';
 import {
+  registerDecorator,
+  ValidationOptions,
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
@@ -22,4 +24,16 @@ export class UserExistsConstraint implements ValidatorConstraintInterface {
   defaultMessage() {
     return 'User does not exist';
   }
+}
+
+export function UserExists(validationOptions?: ValidationOptions) {
+  return function(object: object, propertyName: string) {
+    registerDecorator({
+      target: object.constructor,
+      propertyName,
+      options: validationOptions,
+      constraints: [],
+      validator: UserExists,
+    });
+  };
 }

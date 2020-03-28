@@ -1,9 +1,9 @@
-import { IsString, Validate } from 'class-validator';
-import { UserExistsConstraint } from '../user/constraint/user-exists';
+import { IsString } from 'class-validator';
+import { UserExists } from '../user/constraint/user-exists';
 
 export class NewSessionDTO {
   @IsString()
-  @Validate(UserExistsConstraint)
+  @UserExists()
   username!: string;
 
   @IsString()

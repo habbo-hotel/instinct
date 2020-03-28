@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
+import { userSession } from 'app/service/user';
+import { User } from 'fashionkilla-interfaces';
 import React, { useContext, useState } from 'react';
 import { SessionContext, SessionInterface } from 'app/context';
 import { RegisterModalState, defaultRegisterModalState } from './';
 import { Form, Input, Icon, ModalButton, redirect, Loading } from 'components';
-import { User } from 'fashionkilla-interfaces';
-import { userSession } from '../../../app/service/user';
 
 export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
@@ -35,32 +35,22 @@ export function RegisterModal() {
   return (
     <ModalButton button="Register" className="mr-2" header="Create an Account">
       <Loading isLoading={state.showSpinner} text="Creating your account...">
-        <Form className="register-form" onSubmit={tryRegister}>
-          <div>
-            <label className="username-input">
-              <Input name="username" placeholder="Username" value={state.username} onChange={setValue} type="text" />
-              <Icon type="user" />
-            </label>
-          </div>
-          <div>
-            <label className="password-input">
-              <Input name="email" placeholder="Email" value={state.email} onChange={setValue} type="email" />
-              <Icon type="user" />
-            </label>
-          </div>
-          <label className="password-input">
-            <Input name="password" placeholder="Password" value={state.password} onChange={setValue} type="password" />
+        <Form className="login-form" onSubmit={tryRegister}>
+          <label className="username-input">
+            <Input name="username" placeholder="Username" value={state.username} onChange={setValue} type="text" />
             <Icon type="user" />
           </label>
+          <label className="username-input">
+            <Input name="email" placeholder="Email" value={state.email} onChange={setValue} type="email" />
+            <Icon type="envelope" />
+          </label>
           <label className="password-input">
-            <Input
-              name="password_again"
-              placeholder="Password Again"
-              value={state.passwordAgain}
-              onChange={setValue}
-              type="password"
-            />
-            <Icon type="user" />
+            <Input name="password" placeholder="Password" value={state.password} onChange={setValue} type="password" />
+            <Icon type="lock" />
+          </label>
+          <label className="password-input">
+            <Input name="passwordAgain" placeholder="Password Again" value={state.passwordAgain} onChange={setValue} type="password" />
+            <Icon type="lock" />
           </label>
           <button className="rounded-button blue plain" disabled={disabled} type="submit">
             Create Account
