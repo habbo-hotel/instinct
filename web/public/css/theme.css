@@ -2746,7 +2746,7 @@ input:-webkit-autofill{
 
 /* Page - Games ranking */
 .page-container[data-page = "games_ranking"] .page-header{
-    background-image: url(../images/header-leaderboards.png);
+    background-image: url(../img/header/games.png);
     background-color: #2ea15e;
 }
 
