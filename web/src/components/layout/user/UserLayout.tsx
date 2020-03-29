@@ -20,7 +20,7 @@ export function UserLayout({ children, section = 'home', style }: UserLayoutProp
         </Link>
         <button className="rounded-button white">
           {healthContext.onlineUsers}
-          <Icon className="ml-2" type="user"/>
+          <Icon className="ml-2" type="user" />
         </button>
       </Header>
       <NavBar />
