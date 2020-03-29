@@ -49,7 +49,13 @@ export function RegisterModal() {
             <Icon type="lock" />
           </label>
           <label className="password-input">
-            <Input name="passwordAgain" placeholder="Password Again" value={state.passwordAgain} onChange={setValue} type="password" />
+            <Input
+              name="passwordAgain"
+              placeholder="Password Again"
+              value={state.passwordAgain}
+              onChange={setValue}
+              type="password"
+            />
             <Icon type="lock" />
           </label>
           <button className="rounded-button blue plain" disabled={disabled} type="submit">
