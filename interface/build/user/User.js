@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.exampleUser = {
     id: 1,
     username: 'Test',
+    motto: 'I am a test!',
     credits: 1,
     pixels: 1,
     online: false,

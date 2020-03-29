@@ -19,6 +19,7 @@ export const jwtSecret: string = getEnvOrFail('JWT_SECRET');
 export const jwtExpires = Number(getEnvOrFail('JWT_EXPIRES'));
 
 // Defaults - User
+export const defaultUserMotto: string = getEnvOrFail("DEFAULT_USER_MOTTO");
 export const defaultUserLook: string = getEnvOrFail('DEFAULT_USER_LOOK');
 export const defaultUserCredits = Number(getEnvOrFail('DEFAULT_USER_CREDITS'));
 export const defaultUserPixels = Number(getEnvOrFail('DEFAULT_USER_PIXELS'));

@@ -1,6 +1,7 @@
 export interface User {
   id: number;
   username: string;
+  motto: string;
   credits: number;
   pixels: number;
   online: boolean;
@@ -10,6 +11,7 @@ export interface User {
 export const exampleUser: User = {
   id: 1,
   username: 'Test',
+  motto: 'I am a test!',
   credits: 1,
   pixels: 1,
   online: false,

@@ -1,6 +1,6 @@
 {
   "name": "fashionkilla-interfaces",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Shared interfaces across FASHIONKILLA",
   "license": "MIT",
   "private": false,

@@ -2,7 +2,7 @@ import { getRepository } from 'typeorm';
 import { UserEntity } from '../../entity/user';
 import {
   defaultUserCredits,
-  defaultUserLook,
+  defaultUserLook, defaultUserMotto,
   defaultUserPixels,
 } from '../../../config';
 
@@ -11,6 +11,7 @@ export function userFactory(
 ): Promise<UserEntity> {
   return getRepository(UserEntity).save({
     username: 'Test',
+    motto: defaultUserMotto,
     email: 'test@testing.com',
     password: 'password',
     figure: defaultUserLook,

@@ -6,6 +6,7 @@ export function userWire(userEntity: UserEntity): User {
   return {
     id: userEntity.id!,
     username: userEntity.username,
+    motto: userEntity.motto,
     credits: userEntity.credits,
     pixels: userEntity.pixels,
     online: userEntity.online === 1,
@@ -20,6 +21,9 @@ export class UserEntity {
 
   @Column()
   username!: string;
+
+  @Column()
+  motto!: string;
 
   @Column({ name: 'mail' })
   email!: string;

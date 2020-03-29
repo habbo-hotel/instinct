@@ -6,7 +6,7 @@ import { UserEntity, userWire } from '../database/entity';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   defaultUserCredits,
-  defaultUserLook,
+  defaultUserLook, defaultUserMotto,
   defaultUserPixels,
 } from '../config';
 
@@ -18,6 +18,7 @@ export class UserController {
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
     const user: UserEntity = await this.userService.create({
       username: newUser.username,
+      motto: defaultUserMotto,
       password: newUser.password,
       email: newUser.email,
       figure: defaultUserLook,
