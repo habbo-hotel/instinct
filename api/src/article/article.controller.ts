@@ -2,12 +2,10 @@ import { ArticlePipe } from './article.pipe';
 import { NewArticleDTO } from './article.dto';
 import { Article } from 'fashionkilla-interfaces';
 import { ArticleService } from './article.service';
-import { HasSession } from '../session/has-session.decorator';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ArticleEntity, articleWire } from '../database/entity/article';
 
 @Controller('articles')
-@HasSession()
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
@@ -17,7 +15,13 @@ export class ArticleController {
     return articleWire(article);
   }
 
-  @Get('articleID')
+  @Get()
+  async getAll(): Promise<Article[]> {
+    const articles: ArticleEntity[] = await this.articleService.getAll();
+    return articles.map(article => articleWire(article));
+  }
+
+  @Get(':articleID')
   getByID(@Param('articleID', ArticlePipe) article: ArticleEntity): Article {
     return articleWire(article);
   }

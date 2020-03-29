@@ -14,9 +14,11 @@ export class UserExistsConstraint implements ValidatorConstraintInterface {
 
   async validate(username: string) {
     try {
+      console.log('USER: ', username);
       await this.userService.getByUsername(username);
       return true;
-    } catch {
+    } catch (e) {
+      console.log('LFLFLF');
       return false;
     }
   }

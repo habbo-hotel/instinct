@@ -10,11 +10,25 @@ export class ArticleService {
     private readonly articleRepo: Repository<ArticleEntity>,
   ) {}
 
-  create(article: ArticleEntity): Promise<ArticleEntity> {
-    return this.articleRepo.save(article);
+  private readonly eagerRelations: Array<keyof ArticleEntity> = ['author'];
+
+  async create(article: ArticleEntity): Promise<ArticleEntity> {
+    const newArticle: ArticleEntity = await this.articleRepo.save(article);
+    return this.getByID(newArticle.id!);
+  }
+
+  getAll(): Promise<ArticleEntity[]> {
+    return this.articleRepo.find({
+      relations: this.eagerRelations,
+    });
   }
 
   getByID(articleID: number): Promise<ArticleEntity> {
-    return this.articleRepo.findOneOrFail(articleID);
+    return this.articleRepo.findOneOrFail({
+      where: {
+        id: articleID,
+      },
+      relations: this.eagerRelations,
+    });
   }
 }

@@ -52,7 +52,6 @@ export class ArticleEntity {
   @ManyToOne(
     () => UserEntity,
     user => user.articles,
-    { eager: true },
   )
   @JoinColumn({ name: 'users_id' })
   author?: UserEntity;
