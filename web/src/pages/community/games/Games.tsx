@@ -1,5 +1,7 @@
 import React from 'react';
 import { Card, Column, Container, Jumbotron, Row, setURL, UserLayout } from 'components';
+import { TopCredits } from './top-credits';
+import { TopPixels } from './top-pixels';
 
 setURL('community/games', <Games/>);
 
@@ -9,10 +11,11 @@ export function Games() {
       <Jumbotron title="Leaderboard"/>
       <Container>
         <Row>
-          <Column side="left">
-            <Card header="Credits">
-              <p>Coming soon</p>
-            </Card>
+          <Column side="left" style={{ width: '48%' }}>
+            <TopCredits/>
+          </Column>
+          <Column side="right" style={{ width: '48%' }}>
+            <TopPixels/>
           </Column>
         </Row>
       </Container>
