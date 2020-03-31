@@ -5,6 +5,7 @@ export interface User {
     motto: string;
     credits: number;
     pixels: number;
+    points: number;
     online: boolean;
     figure: string;
     rank?: Omit<Rank, 'users'>;

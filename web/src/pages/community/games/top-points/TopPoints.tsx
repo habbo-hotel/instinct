@@ -5,11 +5,11 @@ import { Avatar, Card, Loading } from 'components';
 import React, { useEffect, useState }  from 'react';
 import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
 
-export function TopPixels() {
+export function TopPoints() {
   const [ state, setState ] = useState<GamesCardState>(defaultGamesCardState);
 
-  async function fetchMostPixels(): Promise<void> {
-    const users: User[] = await userSession.getMostPixels();
+  async function fetchMostPoints(): Promise<void> {
+    const users: User[] = await userSession.getMostPoints();
     setState({
       users,
       showSpinner: false,
@@ -17,7 +17,7 @@ export function TopPixels() {
   }
 
   useEffect(() => {
-    fetchMostPixels();
+    fetchMostPoints();
   });
 
   return (
@@ -27,7 +27,7 @@ export function TopPixels() {
           <thead>
           <tr>
             <th colSpan={2}>Username</th>
-            <th>Most Pixels</th>
+            <th>Most Points</th>
           </tr>
           </thead>
           <tbody>
@@ -45,7 +45,7 @@ export function TopPixels() {
                   </Link>
                 </td>
                 <td>
-                  <span>{user.pixels}</span>
+                  <span>{user.points}</span>
                 </td>
               </tr>
             ))

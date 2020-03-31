@@ -1,7 +1,8 @@
 import React from 'react';
-import { Column, Container, Jumbotron, Row, setURL, UserLayout } from 'components';
-import { TopCredits } from './top-credits';
 import { TopPixels } from './top-pixels';
+import { TopPoints } from './top-points';
+import { TopCredits } from './top-credits';
+import { Container, Jumbotron, Row, setURL, UserLayout } from 'components';
 
 setURL('community/games', <Games />);
 
@@ -11,12 +12,15 @@ export function Games() {
       <Jumbotron title="Leaderboard" />
       <Container>
         <Row>
-          <Column side="left" style={{ width: '48%' }}>
-            <TopCredits />
-          </Column>
-          <Column side="right" style={{ width: '48%' }}>
-            <TopPixels />
-          </Column>
+         <div className="col-4">
+           <TopCredits />
+         </div>
+          <div className="col-4">
+            <TopPixels/>
+          </div>
+          <div className="col-4">
+            <TopPoints/>
+          </div>
         </Row>
       </Container>
     </UserLayout>
