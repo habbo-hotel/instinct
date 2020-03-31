@@ -11,7 +11,7 @@ export function Staff() {
   const [ { ranks, showSpinner }, setState ] = useState<StaffState>(defaultStaffState);
 
   async function fetchRanks(): Promise<void> {
-    const ranks: Rank[] = await rankService.getAll();
+    const ranks: Rank[] = await rankService.getStaff();
     setState({
       ranks,
       showSpinner: false,

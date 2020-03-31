@@ -10,6 +10,11 @@ class RankService implements RankInterface {
     return ranks.data;
   }
 
+  async getStaff() {
+    const ranks: AxiosResponse<Rank[]> = await backendAPI.get('ranks/staff');
+    return ranks.data;
+  }
+
   async getByID(rankID: string): Promise<any> {
     const rank: AxiosResponse<Rank> = await backendAPI.get(`ranks/${rankID}`);
     return rank.data;

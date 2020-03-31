@@ -1,7 +1,7 @@
-import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RankEntity } from '../database/entity/rank';
+import { MoreThanOrEqual, Repository } from 'typeorm';
 
 @Injectable()
 export class RankService {
@@ -12,13 +12,22 @@ export class RankService {
 
   private readonly eagerRelations: Array<keyof RankEntity> = [];
 
-  async getAll(): Promise<RankEntity[]> {
+  getAll(): Promise<RankEntity[]> {
     return this.rankRepository.find({
       relations: this.eagerRelations,
     });
   }
 
-  async getByID(rankID: number): Promise<RankEntity> {
+  getStaff(): Promise<RankEntity[]> {
+    return this.rankRepository.find({
+      where: {
+        level: MoreThanOrEqual(5),
+      },
+      relations: this.eagerRelations,
+    });
+  }
+
+  getByID(rankID: number): Promise<RankEntity> {
     return this.rankRepository.findOneOrFail({
       where: {
         id: rankID,

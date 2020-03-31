@@ -14,6 +14,12 @@ export class RankController {
     return ranks.map(rank => rankWire(rank));
   }
 
+  @Get('staff')
+  async getStaff(): Promise<Rank[]> {
+    const ranks: RankEntity[] = await this.rankService.getStaff();
+    return ranks.map(rank => rankWire(rank));
+  }
+
   @Get(':rankID')
   getByID(@Param('rankID', RankPipe) rank: RankEntity): Rank {
     return rankWire(rank);
