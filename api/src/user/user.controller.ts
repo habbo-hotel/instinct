@@ -1,3 +1,4 @@
+import * as Moment from 'moment';
 import { UserPipe } from './user.pipe';
 import { NewUserDTO } from './user.dto';
 import { UserService } from './user.service';
@@ -6,8 +7,12 @@ import { UserEntity, userWire } from '../database/entity';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   defaultUserCredits,
-  defaultUserLook, defaultUserMotto,
+  defaultUserHomeRoom,
+  defaultUserLook,
+  defaultUserMotto,
   defaultUserPixels,
+  defaultUserPoints,
+  defaultUserRank,
 } from '../config';
 
 @Controller('users')
@@ -16,15 +21,27 @@ export class UserController {
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
+    const currentTimestamp: number = Moment().unix();
     const user: UserEntity = await this.userService.create({
       username: newUser.username,
       motto: defaultUserMotto,
       password: newUser.password,
+      rankID: defaultUserRank,
       email: newUser.email,
+      mailVerified: 0,
+      accountCreated: currentTimestamp,
+      accountDayOfBirth: 0,
+      lastLogin: currentTimestamp,
+      lastOnline: currentTimestamp,
+      gender: 'M',
       figure: defaultUserLook,
       credits: defaultUserCredits,
       pixels: defaultUserPixels,
+      points: defaultUserPoints,
       online: 0,
+      ipRegister: '127.0.0.1',
+      ipCurrent: '127.0.0.1',
+      homeRoom: defaultUserHomeRoom,
     });
     return userWire(user);
   }

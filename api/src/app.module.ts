@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import { Module } from '@nestjs/common';
+import { RankModule } from './rank/rank.module';
 import { UserModule } from './user/user.module';
 import { HealthModule } from './health/health.module';
 import { CommonModule } from './common/common.module';
@@ -9,12 +10,13 @@ import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
-    ArticleModule,
-    CommonModule,
     UserModule,
+    RankModule,
+    CommonModule,
+    ArticleModule,
     HealthModule,
-    DatabaseModule,
     SessionModule,
+    DatabaseModule,
   ],
 })
 export class AppModule {}

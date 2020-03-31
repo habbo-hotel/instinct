@@ -1,3 +1,5 @@
+import { Rank } from '../';
+
 export interface User {
   id: number;
   username: string;
@@ -6,6 +8,7 @@ export interface User {
   pixels: number;
   online: boolean;
   figure: string;
+  rank?: Omit<Rank, 'users'>;
 }
 
 export const exampleUser: User = {

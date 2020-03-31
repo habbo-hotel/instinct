@@ -19,7 +19,12 @@ export const jwtSecret: string = getEnvOrFail('JWT_SECRET');
 export const jwtExpires = Number(getEnvOrFail('JWT_EXPIRES'));
 
 // Defaults - User
-export const defaultUserMotto: string = getEnvOrFail("DEFAULT_USER_MOTTO");
+export const defaultUserRank = Number(getEnvOrFail('DEFAULT_USER_RANK'));
+export const defaultUserMotto: string = getEnvOrFail('DEFAULT_USER_MOTTO');
 export const defaultUserLook: string = getEnvOrFail('DEFAULT_USER_LOOK');
 export const defaultUserCredits = Number(getEnvOrFail('DEFAULT_USER_CREDITS'));
 export const defaultUserPixels = Number(getEnvOrFail('DEFAULT_USER_PIXELS'));
+export const defaultUserPoints = Number(getEnvOrFail('DEFAULT_USER_POINTS'));
+export const defaultUserHomeRoom = Number(
+  getEnvOrFail('DEFAULT_USER_HOME_ROOM'),
+);

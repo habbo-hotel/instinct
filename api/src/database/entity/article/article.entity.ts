@@ -1,15 +1,12 @@
 import * as Moment from 'moment';
-import { UserEntity, userWire } from '../';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Article } from 'fashionkilla-interfaces';
+import { Article, exampleUser } from 'fashionkilla-interfaces';
 
 export function articleWire(articleEntity: ArticleEntity): Article {
   return {
@@ -19,7 +16,7 @@ export function articleWire(articleEntity: ArticleEntity): Article {
     datePosted: Moment(articleEntity.createdAt).unix(),
     description: articleEntity.description,
     content: articleEntity.content,
-    author: userWire(articleEntity.author!),
+    author: exampleUser,
   };
 }
 
@@ -48,11 +45,4 @@ export class ArticleEntity {
 
   @Column({ name: 'users_id' })
   userID!: number;
-
-  @ManyToOne(
-    () => UserEntity,
-    user => user.articles,
-  )
-  @JoinColumn({ name: 'users_id' })
-  author?: UserEntity;
 }

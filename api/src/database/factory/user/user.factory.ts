@@ -2,7 +2,8 @@ import { getRepository } from 'typeorm';
 import { UserEntity } from '../../entity/user';
 import {
   defaultUserCredits,
-  defaultUserLook, defaultUserMotto,
+  defaultUserLook,
+  defaultUserMotto,
   defaultUserPixels,
 } from '../../../config';
 
@@ -14,6 +15,7 @@ export function userFactory(
     motto: defaultUserMotto,
     email: 'test@testing.com',
     password: 'password',
+    rankID: 0,
     figure: defaultUserLook,
     credits: defaultUserCredits,
     pixels: defaultUserPixels,

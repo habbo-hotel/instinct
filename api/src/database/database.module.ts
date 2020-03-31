@@ -17,7 +17,7 @@ import {
       password: databasePass,
       database: databaseName,
       entities: databaseEntities,
-      synchronize: true,
+      synchronize: false,
     }),
     TypeOrmModule.forFeature(databaseEntities),
   ],

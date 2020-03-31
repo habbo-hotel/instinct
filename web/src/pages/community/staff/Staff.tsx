@@ -1,11 +1,27 @@
-import React, { useContext } from 'react';
-import { ConfigContext, ConfigInterface } from 'app/context';
-import { Card, Container, Column, UserLayout, setURL, Jumbotron, Row } from 'components';
+import { Rank } from 'fashionkilla-interfaces';
+import { defaultStaffState, StaffState } from './';
+import React, { useEffect, useState } from 'react';
+import { rankService } from '../../../app/service/rank';
+import { UserContainer } from '../../../components/template/user-container';
+import { Card, Container, Column, UserLayout, setURL, Jumbotron, Row, Loading } from 'components';
 
 setURL('community/staff', <Staff />);
 
 export function Staff() {
-  const configContext: ConfigInterface = useContext(ConfigContext);
+  const [ { ranks, showSpinner }, setState ] = useState<StaffState>(defaultStaffState);
+
+  async function fetchRanks(): Promise<void> {
+    const ranks: Rank[] = await rankService.getAll();
+    setState({
+      ranks,
+      showSpinner: false,
+    });
+  }
+
+  useEffect(() => {
+    fetchRanks();
+  }, []);
+
   return (
     <UserLayout section="community_team">
       <Jumbotron title="Staff Team">
@@ -15,22 +31,26 @@ export function Staff() {
         </p>
       </Jumbotron>
       <Container>
-        <Row>
-          <Column side="left">
-            <Card header="Administration">
-              <p>
-                Administrators manage and maintain {configContext.siteName}, identifying system requirements, and
-                monitoring the community performance.
-              </p>
-            </Card>
-            <Card header="Moderation">
-              <p>
-                Moderators are Staff members of {configContext.siteName} who are responsible for ensuring the safety of
-                the users in the community and responding to Calls for Help.
-              </p>
-            </Card>
-          </Column>
-        </Row>
+        <Loading isLoading={showSpinner}>
+          <Row>
+            <Column side="left">
+              {
+                ranks.map(rank => (
+                  <Card key={rank.id} header={rank.name}>
+                    {
+                      rank.users!.map(user => (
+                        <UserContainer
+                          key={user.id}
+                          user={user}
+                        />
+                      ))
+                    }
+                  </Card>
+                ))
+              }
+            </Column>
+          </Row>
+        </Loading>
       </Container>
     </UserLayout>
   );
