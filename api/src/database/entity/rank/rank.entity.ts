@@ -18,6 +18,6 @@ export class RankEntity {
   @Column({ name: 'rank_name' })
   name!: string;
 
-  @Column({ name: 'badge_code' })
+  @Column({ name: 'badge' })
   badge!: string;
 }

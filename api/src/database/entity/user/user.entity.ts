@@ -1,6 +1,12 @@
 import { RankEntity } from '../rank';
 import { User } from 'fashionkilla-interfaces';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -62,6 +68,7 @@ export class UserEntity {
   rankID!: number;
 
   @ManyToOne(() => RankEntity)
+  @JoinColumn({ name: 'rank' })
   rank?: RankEntity;
 
   @Column({ name: 'credits' })

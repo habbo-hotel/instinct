@@ -1,7 +1,7 @@
 import { RankPipe } from './rank.pipe';
-import { Controller, Get, Param } from '@nestjs/common';
-import { exampleRank, Rank } from 'fashionkilla-interfaces';
 import { RankService } from './rank.service';
+import { Rank } from 'fashionkilla-interfaces';
+import { Controller, Get, Param } from '@nestjs/common';
 import { RankEntity, rankWire } from '../database/entity/rank';
 
 @Controller('ranks')
