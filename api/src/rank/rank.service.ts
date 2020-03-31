@@ -10,7 +10,7 @@ export class RankService {
     private readonly rankRepository: Repository<RankEntity>,
   ) {}
 
-  private readonly eagerRelations: Array<keyof RankEntity> = [];
+  private readonly eagerRelations: Array<keyof RankEntity> = ['users'];
 
   getAll(): Promise<RankEntity[]> {
     return this.rankRepository.find({

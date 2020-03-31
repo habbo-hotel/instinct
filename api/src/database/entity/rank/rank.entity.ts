@@ -1,12 +1,13 @@
 import { Rank } from 'fashionkilla-interfaces';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { UserEntity, userWire } from '../user';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 export function rankWire(rankEntity: RankEntity): Rank {
   return {
     id: rankEntity.id!,
     name: rankEntity.name,
     badge: rankEntity.badge,
-    users: [],
+    users: rankEntity.users!.map(user => userWire(user)),
   };
 }
 
@@ -23,4 +24,8 @@ export class RankEntity {
 
   @Column({ default: 1 })
   level!: number;
+
+  @OneToMany(() => UserEntity, user => user.rank)
+  users?: UserEntity[];
+
 }

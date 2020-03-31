@@ -34,20 +34,22 @@ export function Staff() {
         <Loading isLoading={showSpinner}>
           <Row>
             <Column side="left">
-              {
-                ranks.map(rank => (
-                  <Card key={rank.id} header={rank.name}>
-                    {
-                      rank.users!.map(user => (
-                        <UserContainer
-                          key={user.id}
-                          user={user}
-                        />
-                      ))
-                    }
-                  </Card>
-                ))
-              }
+              <div className="members-container">
+                {
+                  ranks.map(rank => (
+                    <Card key={rank.id} header={rank.name}>
+                      {
+                        rank.users!.map(user => (
+                          <UserContainer
+                            key={user.id}
+                            user={user}
+                          />
+                        ))
+                      }
+                    </Card>
+                  ))
+                }
+              </div>
             </Column>
           </Row>
         </Loading>
