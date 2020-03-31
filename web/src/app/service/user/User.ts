@@ -4,7 +4,6 @@ import { backendAPI } from '../../BackendAPI';
 import { User } from 'fashionkilla-interfaces';
 
 export class UserSession implements UserInterface {
-
   async create(username: string, password: string, email: string): Promise<User> {
     const user: AxiosResponse<User> = await backendAPI.post('users', { username, password, email });
     return user.data;
@@ -29,7 +28,6 @@ export class UserSession implements UserInterface {
     const users: AxiosResponse<User[]> = await backendAPI.get('users/leaderboard/points');
     return users.data;
   }
-
 }
 
 export const userSession: UserInterface = new UserSession();

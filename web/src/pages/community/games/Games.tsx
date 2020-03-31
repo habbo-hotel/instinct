@@ -12,14 +12,14 @@ export function Games() {
       <Jumbotron title="Leaderboard" />
       <Container>
         <Row>
-         <div className="col-4">
-           <TopCredits />
-         </div>
           <div className="col-4">
-            <TopPixels/>
+            <TopCredits />
           </div>
           <div className="col-4">
-            <TopPoints/>
+            <TopPixels />
+          </div>
+          <div className="col-4">
+            <TopPoints />
           </div>
         </Row>
       </Container>

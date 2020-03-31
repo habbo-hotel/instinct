@@ -10,5 +10,4 @@ export interface UserInterface {
   getMostPixels(): Promise<User[]>;
 
   getMostPoints(): Promise<User[]>;
-
 }
