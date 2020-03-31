@@ -4,7 +4,6 @@ import { backendAPI } from '../../BackendAPI';
 import { Rank } from 'fashionkilla-interfaces';
 
 class RankService implements RankInterface {
-
   async getAll() {
     const ranks: AxiosResponse<Rank[]> = await backendAPI.get('ranks');
     return ranks.data;
@@ -19,7 +18,6 @@ class RankService implements RankInterface {
     const rank: AxiosResponse<Rank> = await backendAPI.get(`ranks/${rankID}`);
     return rank.data;
   }
-
 }
 
 export const rankService: RankInterface = new RankService();

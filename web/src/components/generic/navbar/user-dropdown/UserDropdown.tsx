@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Avatar, Icon, NavBarChildLink } from 'components';
 import { SessionInterface, SessionContext } from 'app/context';
+import { Link } from 'react-router-dom';
 
 export function UserDropdown() {
   const sessionContext = useContext<SessionInterface>(SessionContext);
@@ -11,7 +12,7 @@ export function UserDropdown() {
 
   return (
     <>
-      <a href="#">
+      <Link to={`/profile/${sessionContext.user.username}`}>
         <div className="account-avatar">
           <Avatar
             look={`${sessionContext.user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`}
@@ -21,7 +22,7 @@ export function UserDropdown() {
           {sessionContext.user.username}
           <Icon className="ml-2" type="caret-down" />
         </span>
-      </a>
+      </Link>
       <ul className="navigation-submenu">
         <NavBarChildLink to="/preferences">Account Settings</NavBarChildLink>
         <NavBarChildLink to={`/profile/${sessionContext.user.username}`} />

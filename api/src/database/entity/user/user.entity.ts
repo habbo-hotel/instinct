@@ -5,8 +5,10 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { PhotoEntity } from '../photo';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -97,4 +99,10 @@ export class UserEntity {
 
   @Column({ name: 'home_room', default: 0 })
   homeRoom!: number;
+
+  @OneToMany(
+    () => PhotoEntity,
+    photo => photo.user,
+  )
+  photos?: PhotoEntity[];
 }

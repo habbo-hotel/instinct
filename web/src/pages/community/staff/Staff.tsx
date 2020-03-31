@@ -8,7 +8,7 @@ import { Card, Container, Column, UserLayout, setURL, Jumbotron, Row, Loading } 
 setURL('community/staff', <Staff />);
 
 export function Staff() {
-  const [ { ranks, showSpinner }, setState ] = useState<StaffState>(defaultStaffState);
+  const [{ ranks, showSpinner }, setState] = useState<StaffState>(defaultStaffState);
 
   async function fetchRanks(): Promise<void> {
     const ranks: Rank[] = await rankService.getStaff();
@@ -35,20 +35,13 @@ export function Staff() {
           <Row>
             <Column side="left">
               <div className="members-container">
-                {
-                  ranks.map(rank => (
-                    <Card key={rank.id} header={rank.name}>
-                      {
-                        rank.users!.map(user => (
-                          <UserContainer
-                            key={user.id}
-                            user={user}
-                          />
-                        ))
-                      }
-                    </Card>
-                  ))
-                }
+                {ranks.map(rank => (
+                  <Card key={rank.id} header={rank.name}>
+                    {rank.users!.map(user => (
+                      <UserContainer key={user.id} user={user} />
+                    ))}
+                  </Card>
+                ))}
               </div>
             </Column>
           </Row>

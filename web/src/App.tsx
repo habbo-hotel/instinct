@@ -1,5 +1,5 @@
 import './pages';
-import React, { useState } from 'react';
+import React from 'react';
 import { Footer, Router } from 'components';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';

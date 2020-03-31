@@ -25,7 +25,9 @@ export class RankEntity {
   @Column({ default: 1 })
   level!: number;
 
-  @OneToMany(() => UserEntity, user => user.rank)
+  @OneToMany(
+    () => UserEntity,
+    user => user.rank,
+  )
   users?: UserEntity[];
-
 }

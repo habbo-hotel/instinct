@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Column, Container, Jumbotron, Row, setURL, UserLayout } from 'components';
+import { Column, Container, Jumbotron, Row, setURL, UserLayout } from 'components';
 import { TopCredits } from './top-credits';
 import { TopPixels } from './top-pixels';
 
