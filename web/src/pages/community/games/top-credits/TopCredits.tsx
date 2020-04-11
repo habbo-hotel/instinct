@@ -18,7 +18,7 @@ export function TopCredits() {
 
   useEffect(() => {
     fetchMostCredits();
-  });
+  }, []);
 
   return (
     <article className="default-section ranking-container">

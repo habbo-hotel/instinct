@@ -18,7 +18,7 @@ export function TopPixels() {
 
   useEffect(() => {
     fetchMostPixels();
-  });
+  }, []);
 
   return (
     <article className="default-section ranking-container">

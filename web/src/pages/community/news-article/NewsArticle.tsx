@@ -21,7 +21,7 @@ export function NewsArticle() {
 
   useEffect(() => {
     fetchArticle();
-  });
+  }, []);
 
   return (
     <UserLayout section="article">

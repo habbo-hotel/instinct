@@ -19,7 +19,7 @@ export function Photos() {
 
   useEffect(() => {
     fetchPhotos();
-  });
+  }, []);
 
   return (
     <UserLayout section="community_photos">

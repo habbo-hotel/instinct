@@ -18,7 +18,7 @@ export function TopPoints() {
 
   useEffect(() => {
     fetchMostPoints();
-  });
+  }, []);
 
   return (
     <article className="default-section ranking-container">
