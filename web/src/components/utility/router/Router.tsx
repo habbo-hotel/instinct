@@ -7,6 +7,7 @@ const routerHistory: History = createBrowserHistory();
 
 const routes: RouteProps[] = [];
 
+let landingRoute: ReactNode | undefined;
 let notFoundRoute: ReactNode | undefined;
 
 export function Router() {
@@ -16,7 +17,8 @@ export function Router() {
         {routes.map((route: RouteProps, index: number) => (
           <Route key={index} {...route} />
         ))}
-        {notFoundRoute && notFoundRoute}
+        {landingRoute && <Route path="/" children={landingRoute} exact/> }
+        {notFoundRoute && <Route children={notFoundRoute}/> }
       </Switch>
     </BrowserRouter>
   );
@@ -24,6 +26,7 @@ export function Router() {
 
 export function setURL(url: string, component: ReactNode): void {
   routes.push({
+    exact: true,
     path: `/${url}`,
     children: component,
   });
@@ -31,6 +34,10 @@ export function setURL(url: string, component: ReactNode): void {
 
 export function set404(component: ReactNode): void {
   notFoundRoute = component;
+}
+
+export function setLanding(component: ReactNode): void {
+  landingRoute = component;
 }
 
 export function redirect(path: string): void {
