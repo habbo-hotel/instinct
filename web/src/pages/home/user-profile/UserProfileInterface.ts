@@ -8,4 +8,4 @@ export interface UserProfileState {
 export const defaultUserProfileState: UserProfileState = {
   user: undefined,
   isLoading: true,
-}
+};

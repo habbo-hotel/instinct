@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { userService} from 'app/service';
+import { userService } from 'app/service';
 import { Avatar, Loading } from 'components';
 import { User } from 'fashionkilla-interfaces';
 import React, { useEffect, useState } from 'react';

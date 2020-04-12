@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyProfile } from './my-profile';
-import { UserLayout, setURL, Container, Column } from 'components';
+import { UserLayout, setURL, Container, Column, RecentNews } from 'components';
 
 setURL('home', <Home />);
 
@@ -9,7 +9,10 @@ export function Home() {
     <UserLayout>
       <Container>
         <Column side="left">
-          <MyProfile/>
+          <MyProfile />
+        </Column>
+        <Column side="right">
+          <RecentNews />
         </Column>
       </Container>
     </UserLayout>

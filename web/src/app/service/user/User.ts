@@ -33,7 +33,6 @@ export class UserService implements UserInterface {
     const users: AxiosResponse<User[]> = await backendAPI.get('users/leaderboard/points');
     return users.data;
   }
-
 }
 
 export const userService: UserInterface = new UserService();

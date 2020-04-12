@@ -17,8 +17,8 @@ export function Router() {
         {routes.map((route: RouteProps, index: number) => (
           <Route key={index} {...route} />
         ))}
-        {landingRoute && <Route path="/" children={landingRoute} exact/> }
-        {notFoundRoute && <Route children={notFoundRoute}/> }
+        {landingRoute && <Route path="/" children={landingRoute} exact />}
+        {notFoundRoute && <Route children={notFoundRoute} />}
       </Switch>
     </BrowserRouter>
   );

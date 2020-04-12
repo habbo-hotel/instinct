@@ -3,14 +3,14 @@ import { useParams } from 'react-router';
 import { userService } from 'app/service';
 import { User } from 'fashionkilla-interfaces';
 import React, { useEffect, useState } from 'react';
-import { defaultUserProfileState, UserProfileState, } from './';
+import { defaultUserProfileState, UserProfileState } from './';
 import { Container, Column, Row, UserLayout, setURL, Icon, Avatar, Loading } from 'components';
 
 setURL('profile/:username', <UserProfile />);
 
 export function UserProfile() {
-  const { username }= useParams<Record<'username', string>>();
-  const [ state, setState ] = useState<UserProfileState>(defaultUserProfileState);
+  const { username } = useParams<Record<'username', string>>();
+  const [state, setState] = useState<UserProfileState>(defaultUserProfileState);
 
   async function fetchUser(): Promise<void> {
     const user: User = await userService.getByUsername(username);
@@ -37,7 +37,7 @@ export function UserProfile() {
                     className="header-content flex-container flex-vertical-center"
                     style={{ backgroundColor: '#47AEE' }}
                   >
-                    <Avatar look={state.user?.figure || ''} direction={2} headDirection={2} size="l"/>
+                    <Avatar look={state.user?.figure || ''} direction={2} headDirection={2} size="l" />
                     <div className="header-details">
                       <div className="header-title">{state.user?.username}</div>
                       <div className="header-description" />
@@ -68,11 +68,11 @@ export function UserProfile() {
                   <div className="details-container">
                     <Icon type="hotel" />
                     Currently
-                    {
-                      state.user?.online
-                        ?  <strong className="online">online</strong>
-                        :  <strong className="offline">offline</strong>
-                    }
+                    {state.user?.online ? (
+                      <strong className="online">online</strong>
+                    ) : (
+                      <strong className="offline">offline</strong>
+                    )}
                   </div>
                   <div className="details-container">
                     <Icon type="door-open" />

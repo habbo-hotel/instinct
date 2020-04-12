@@ -50,7 +50,7 @@
     "@types/reactstrap": "^8.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "gts": "^2.0.0",
+    "gts": "^1.1.2",
     "node-sass": "^4.13.1",
     "typescript": "^3.8.3"
   },

@@ -1,20 +1,28 @@
 import React from 'react';
 import { AvatarProps } from './';
 
-export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, headOnly, size, look }: AvatarProps) {
-
+export function Avatar({
+  className = 'pixelated',
+  action,
+  direction,
+  gesture,
+  headDirection,
+  headOnly,
+  size,
+  look,
+}: AvatarProps) {
   if (look === undefined) {
-    return <i className="fa fa-spinner fa-spin"/>
+    return <i className="fa fa-spinner fa-spin" />;
   }
 
-  let source: string = `https://www.habbo.com.br/habbo-imaging/avatarimage?figure=${look}`;
+  let source = `https://www.habbo.com.br/habbo-imaging/avatarimage?figure=${look}`;
 
   if (action) {
     source += `&action=${action}`;
   }
 
   if (direction) {
-    source += `&direction=${direction}`
+    source += `&direction=${direction}`;
   }
 
   if (gesture) {
@@ -33,8 +41,5 @@ export function Avatar({ className = 'pixelated', action, direction, gesture, he
     source += '&headonly=true';
   }
 
-  return (
-    <img alt="player avatar" src={source} className={className} />
-  );
+  return <img alt="player avatar" src={source} className={className} />;
 }
-
