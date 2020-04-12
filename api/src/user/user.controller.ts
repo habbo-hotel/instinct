@@ -50,4 +50,11 @@ export class UserController {
   getUserByID(@Param('userID', UserPipe) user: UserEntity): User {
     return userWire(user);
   }
+
+  @Get('profile/:username')
+  async getUserByUsername(@Param('username') username: string): Promise<User> {
+    const user: UserEntity = await this.userService.getByUsername(username);
+    return userWire(user);
+  }
+
 }

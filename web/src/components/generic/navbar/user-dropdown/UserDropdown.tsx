@@ -25,7 +25,7 @@ export function UserDropdown() {
       </Link>
       <ul className="navigation-submenu">
         <NavBarChildLink to="/preferences">Account Settings</NavBarChildLink>
-        <NavBarChildLink to={`/profile/${sessionContext.user.username}`} />
+        <NavBarChildLink to={`/profile/${sessionContext.user.username}`}>My Profile</NavBarChildLink>
         <NavBarChildLink to="/logout">Logout</NavBarChildLink>
       </ul>
     </>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { userSession } from 'app/service';
+import { userService} from 'app/service';
+import { Avatar, Loading } from 'components';
 import { User } from 'fashionkilla-interfaces';
-import { Avatar, Card, Loading } from 'components';
 import React, { useEffect, useState } from 'react';
 import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
 
@@ -9,7 +9,7 @@ export function TopCredits() {
   const [state, setState] = useState<GamesCardState>(defaultGamesCardState);
 
   async function fetchMostCredits(): Promise<void> {
-    const users: User[] = await userSession.getMostCredits();
+    const users: User[] = await userService.getMostCredits();
     setState({
       users,
       showSpinner: false,

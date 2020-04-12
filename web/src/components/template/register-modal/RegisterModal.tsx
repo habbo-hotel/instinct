@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { userSession } from 'app/service/user';
+import { userService } from 'app/service';
 import { User } from 'fashionkilla-interfaces';
 import React, { useContext, useState } from 'react';
 import { SessionContext, SessionInterface } from 'app/context';
@@ -23,7 +23,7 @@ export function RegisterModal() {
   async function tryRegister(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      const newUser: User = await userSession.create(state.username, state.password, state.email);
+      const newUser: User = await userService.create(state.username, state.password, state.email);
       await sessionContext.forceStart(newUser);
       redirect('home');
     } catch {
