@@ -1,3 +1,4 @@
+import './NewsArticle.scss';
 import { useParams } from 'react-router';
 import { articleService } from 'app/service';
 import { Article } from 'fashionkilla-interfaces';
