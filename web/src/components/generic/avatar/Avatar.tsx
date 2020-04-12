@@ -1,7 +1,7 @@
 import React from 'react';
 import { AvatarProps } from './';
 
-export function Avatar({ action, direction, gesture, headDirection, size, look }: AvatarProps) {
+export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, size, look }: AvatarProps) {
   let source: string = `https://www.habbo.com.br/habbo-imaging/avatarimage?figure=${look}`;
 
   if (action) {
@@ -25,7 +25,7 @@ export function Avatar({ action, direction, gesture, headDirection, size, look }
   }
 
   return (
-    <img alt="player avatar" src={source} className="pixelated" />
+    <img alt="player avatar" src={source} className={className} />
   );
 }
 

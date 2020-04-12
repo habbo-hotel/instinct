@@ -1,12 +1,17 @@
 import React from 'react';
-import { ArticleList, UserLayout, setURL } from 'components';
+import { MyProfile } from './my-profile';
+import { UserLayout, setURL, Container, Column } from 'components';
 
 setURL('home', <Home />);
 
 export function Home() {
   return (
     <UserLayout>
-      <ArticleList />
+      <Container>
+        <Column side="left">
+          <MyProfile/>
+        </Column>
+      </Container>
     </UserLayout>
   );
 }

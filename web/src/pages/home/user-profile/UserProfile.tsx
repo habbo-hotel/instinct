@@ -23,7 +23,7 @@ export function UserProfile() {
   useEffect(() => {
     setState(defaultUserProfileState);
     fetchUser();
-  }, [username]);
+  }, [fetchUser, username]);
 
   return (
     <UserLayout section="profile">
