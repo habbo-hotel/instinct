@@ -1,4 +1,4 @@
-import { RankEntity } from '../rank';
+import { RankEntity, rankWire } from '../rank';
 import { User } from 'fashionkilla-interfaces';
 import {
   Column,
@@ -20,6 +20,8 @@ export function userWire(userEntity: UserEntity): User {
     points: userEntity.points,
     online: userEntity.online === 1,
     figure: userEntity.figure,
+    rank:
+      userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
   };
 }
 

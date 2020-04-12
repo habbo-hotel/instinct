@@ -56,5 +56,4 @@ export class UserController {
     const user: UserEntity = await this.userService.getByUsername(username);
     return userWire(user);
   }
-
 }

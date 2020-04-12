@@ -1,7 +1,12 @@
 import React from 'react';
 import { AvatarProps } from './';
 
-export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, size, look }: AvatarProps) {
+export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, headOnly, size, look }: AvatarProps) {
+
+  if (look === undefined) {
+    return <i className="fa fa-spinner fa-spin"/>
+  }
+
   let source: string = `https://www.habbo.com.br/habbo-imaging/avatarimage?figure=${look}`;
 
   if (action) {
@@ -22,6 +27,10 @@ export function Avatar({ className = 'pixelated', action, direction, gesture, he
 
   if (size) {
     source += `&size=${size}`;
+  }
+
+  if (headOnly) {
+    source += '&headonly=true';
   }
 
   return (

@@ -3,7 +3,7 @@ import { articleService } from 'app/service';
 import { Article } from 'fashionkilla-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultNewsArticleState, NewsArticleParameters, NewsArticleState } from './';
-import { Card, Container, Column, RecentNews, Jumbotron, UserLayout, setURL, Loading } from 'components';
+import { Card, Container, Column, RecentNews, Jumbotron, UserLayout, setURL, Loading, Avatar } from 'components';
 
 setURL('community/news/:articleID', <NewsArticle />);
 
@@ -20,6 +20,7 @@ export function NewsArticle() {
   }
 
   useEffect(() => {
+    setState(defaultNewsArticleState);
     fetchArticle();
   }, [articleID, fetchArticle]);
 
@@ -36,14 +37,14 @@ export function NewsArticle() {
         <Container>
           <Column side="left">
             <Card>
-              <div>{state.article?.content}</div>
+              <div dangerouslySetInnerHTML={{ __html: state.article?.content ?? '' }}/>
               <div className="article-author flex-container flex-vertical-center mt-3">
                 <div className="author-image">
-                  <img src="https://playrise.me/riseweb/images/avatar-frank.png" alt="" />
+                  <Avatar look={state.article?.author?.figure} headOnly/>
                 </div>
                 <div className="author-details">
                   <div className="author-name">{state.article?.author?.username}</div>
-                  <div className="author-function">Administrator</div>
+                  <div className="author-function">{state.article?.author.rank?.name}</div>
                 </div>
               </div>
             </Card>
