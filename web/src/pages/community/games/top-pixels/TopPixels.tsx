@@ -34,7 +34,9 @@ export function TopPixels() {
               <tr key={user.id}>
                 <td>
                   <div className="account-avatar">
-                    <Avatar look={user.figure} />
+                    <Link to={`/profile/${user.username}`}>
+                      <Avatar look={user.figure} />
+                    </Link>
                   </div>
                 </td>
                 <td>
