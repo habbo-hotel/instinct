@@ -40,7 +40,7 @@ export function NewsArticle() {
               <div dangerouslySetInnerHTML={{ __html: state.article?.content ?? '' }} />
               <div className="article-author flex-container flex-vertical-center mt-3">
                 <div className="author-image">
-                  <Avatar look={state.article?.author?.figure} headOnly />
+                  <Avatar look={state.article?.author?.figure || ''} headOnly />
                 </div>
                 <div className="author-details">
                   <div className="author-name">{state.article?.author?.username}</div>
