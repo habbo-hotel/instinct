@@ -13,11 +13,9 @@ export function NavBar() {
           <NavBarChildLink to="/community/staff">Staff</NavBarChildLink>
           <NavBarChildLink to="/community/news">News</NavBarChildLink>
           <NavBarChildLink to="/community/photos">Photos</NavBarChildLink>
-          <NavBarChildLink to="/community/marketplace">Marketplace</NavBarChildLink>
         </NavBarDropdown>
         <NavBarLink to="/community/games">High Scores</NavBarLink>
         <NavBarLink to="/groups">My Groups</NavBarLink>
-        <NavBarLink to="/help">Help Tool</NavBarLink>
         <li className="navigation-item navigation-right-side-item has-items">
           <UserDropdown />
         </li>
