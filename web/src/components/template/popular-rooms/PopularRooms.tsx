@@ -6,10 +6,10 @@ export function PopularRooms() {
   const [state] = useState<PopularRoomsState>(defaultPopularRoomsState);
 
   return (
-    <Card header="Popular Rooms">
-      <Loading isLoading={state.showSpinner}>
+    <Loading isLoading={state.showSpinner}>
+      <Card header="Popular Rooms">
         <p>Coming soon</p>
-      </Loading>
-    </Card>
+      </Card>
+    </Loading>
   );
 }

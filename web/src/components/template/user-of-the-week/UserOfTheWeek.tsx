@@ -6,10 +6,10 @@ export function UserOfTheWeek() {
   const [state] = useState<UserOfTheWeekState>(defaultUserOfTheWeekState);
 
   return (
-    <Card header="User of the week">
-      <Loading isLoading={state.showSpinner}>
+    <Loading isLoading={state.showSpinner}>
+      <Card header="User of the week">
         <p>Coming soon</p>
-      </Loading>
-    </Card>
+      </Card>
+    </Loading>
   );
 }
