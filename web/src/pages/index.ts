@@ -1,4 +1,5 @@
 import './auth';
 import './community';
-import './home';
 import './error';
+import './groups';
+import './home';
