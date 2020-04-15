@@ -6,6 +6,8 @@ export * from './login-modal';
 export * from './navbar';
 export * from './photo-container';
 export * from './popular-groups';
+export * from './popular-rooms';
 export * from './recent-news';
 export * from './register-modal';
 export * from './user-container';
+export * from './user-of-the-week';

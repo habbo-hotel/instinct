@@ -13,12 +13,12 @@ class LocalStorageService implements LocalStorageInterface {
     return value;
   }
 
-  // Sets a index with its value in localStorage
+  // Sets a index.ts with its value in localStorage
   set(index: string, value: string): void {
     localStorage.setItem(index, value);
   }
 
-  // Removes a value from localStorage by its index if it exists
+  // Removes a value from localStorage by its index.ts if it exists
   delete(index: string): void {
     localStorage.removeItem(index);
   }
