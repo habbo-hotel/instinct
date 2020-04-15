@@ -8,11 +8,7 @@ export function PhotoContainer({ photo }: PhotoContainerProps) {
   return (
     <div className="photo-container">
       <div className="photo-content">
-        <Link
-          className="photo-picture"
-          style={{ backgroundImage: `url(${photo.imagePath})` }}
-          to={`/community/photos/${photo.id}`}
-        />
+        <Link className="photo-picture" style={{ backgroundImage: `url(${photo.imagePath})` }} to={`/community/photos/${photo.id}`} />
         <Link className="photo-meta flex-container flex-vertical-center" to={`/profile/${photo.user!.username}`}>
           <div className="photo-meta-left-side">
             <Avatar look={photo.user!.figure} />

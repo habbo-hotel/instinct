@@ -1,10 +1,15 @@
-import Moment from 'moment';
+import './UserProfile.scss';
+import { Rooms } from './rooms';
+import { Badges } from './badges';
+import { Groups } from './groups';
+import { Friends } from './friends';
 import { useParams } from 'react-router';
 import { userService } from 'app/service';
 import { User } from 'fashionkilla-interfaces';
+import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
-import { Container, Column, Row, UserLayout, setURL, Icon, Avatar, Loading } from 'components';
+import { Container, Column, UserLayout, setURL, Loading, Jumbotron } from 'components';
 
 setURL('profile/:username', <UserProfile />);
 
@@ -29,72 +34,17 @@ export function UserProfile() {
   return (
     <UserLayout section="profile">
       <Loading isLoading={state.isLoading}>
+        <Jumbotron title={`The profile of ${state.user?.username}`} />
         <Container>
-          <Row>
-            <Column side="right">
-              <aside id="profile" className="default-section">
-                <div className="profile-header">
-                  <div
-                    className="header-content flex-container flex-vertical-center"
-                    style={{ backgroundColor: '#47AEE' }}
-                  >
-                    <Avatar look={state.user?.figure || ''} direction={2} headDirection={2} size="l" />
-                    <div className="header-details">
-                      <div className="header-title">{state.user?.username}</div>
-                      <div className="header-description" />
-                      <div className="profile-icon">
-                        <img
-                          alt="credits"
-                          src="https://playrise.me/riseweb/images/icon-credits.png"
-                          style={{ position: 'relative', top: 8 }}
-                        />{' '}
-                        {state.user?.credits}
-                      </div>
-                      <div className="profile-icon">
-                        <img
-                          alt="diamonds"
-                          src="https://playrise.me/riseweb/images/icon-diamonds.png"
-                          style={{ position: 'relative', top: 8 }}
-                        />
-                        {state.user?.points}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="profile-content">
-                  <div className="details-container">
-                    <Icon type="user" />
-                    Registered since <b>{Moment().format('MM/DD/YYYY')}</b>
-                  </div>
-                  <div className="details-container">
-                    <Icon type="hotel" />
-                    Currently&nbsp;
-                    {state.user?.online ? (
-                      <strong className="online">online</strong>
-                    ) : (
-                      <strong className="offline">offline</strong>
-                    )}
-                  </div>
-                  <div className="details-container">
-                    <Icon type="door-open" />
-                    Last logged in
-                  </div>
-                  <div className="details-container">
-                    <Icon type="headphones-alt" />
-                    <a href="https://youtu.be/GfxcnX7XWfg" target="_blank" rel="noopener noreferrer">
-                      https://youtu.be/GfxcnX7XWfg
-                    </a>
-                  </div>
-                </div>
-
-                <div className="profile-askfriend-button" data-id="1">
-                  <button className="rounded-button custom">
-                    Edit Profile
-                  </button>
-                </div>
-              </aside>
-            </Column>
-          </Row>
+          <Column side="right">
+            <UserContainer user={state.user} />
+          </Column>
+          <Column side="left">
+            <Badges user={state.user} />
+            <Friends user={state.user} />
+            <Groups user={state.user} />
+            <Rooms user={state.user} />
+          </Column>
         </Container>
       </Loading>
     </UserLayout>

@@ -27,12 +27,7 @@ export function LoginModal() {
   }
 
   return (
-    <ModalButton
-      button="Login"
-      className="text-white"
-      header="Login to your account"
-      style={{ background: 'transparent' }}
-    >
+    <ModalButton button="Login" className="text-white" header="Login to your account" style={{ background: 'transparent' }}>
       <Loading isLoading={state.showSpinner} text="Attempting to login...">
         <Form className="login-form" onSubmit={tryLogin}>
           <label className="username-input">

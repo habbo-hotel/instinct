@@ -1,14 +1,8 @@
+import * as Moment from 'moment';
+import { PhotoEntity } from '../photo';
 import { RankEntity, rankWire } from '../rank';
 import { User } from 'fashionkilla-interfaces';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { PhotoEntity } from '../photo';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -20,8 +14,9 @@ export function userWire(userEntity: UserEntity): User {
     points: userEntity.points,
     online: userEntity.online === 1,
     figure: userEntity.figure,
-    rank:
-      userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
+    joinDate: Moment.unix(userEntity.accountCreated).toISOString(),
+    lastLoginDate: Moment.unix(userEntity.lastLogin).toISOString(),
+    rank: userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
   };
 }
 

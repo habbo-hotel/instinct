@@ -10,8 +10,7 @@ export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
   const sessionContext = useContext<SessionInterface>(SessionContext);
 
-  const disabled: boolean =
-    state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
+  const disabled: boolean = state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
 
   function setValue<T extends keyof RegisterModalState>(key: T, value: RegisterModalState[T]): void {
     setState({
@@ -49,13 +48,7 @@ export function RegisterModal() {
             <Icon type="lock" />
           </label>
           <label className="password-input">
-            <Input
-              name="passwordAgain"
-              placeholder="Password Again"
-              value={state.passwordAgain}
-              onChange={setValue}
-              type="password"
-            />
+            <Input name="passwordAgain" placeholder="Password Again" value={state.passwordAgain} onChange={setValue} type="password" />
             <Icon type="lock" />
           </label>
           <button className="rounded-button blue plain" disabled={disabled} type="submit">

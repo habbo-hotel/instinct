@@ -14,9 +14,7 @@ export function UserDropdown() {
     <>
       <Link to={`/profile/${sessionContext.user.username}`}>
         <div className="account-avatar">
-          <Avatar
-            look={`${sessionContext.user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`}
-          />
+          <Avatar look={`${sessionContext.user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`} />
         </div>
         <span>
           {sessionContext.user.username}

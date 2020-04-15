@@ -1,16 +1,7 @@
 import React from 'react';
 import { AvatarProps } from './';
 
-export function Avatar({
-  className = 'pixelated',
-  action,
-  direction,
-  gesture,
-  headDirection,
-  headOnly,
-  size,
-  look,
-}: AvatarProps) {
+export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, headOnly, size, look }: AvatarProps) {
   if (look === undefined) {
     return <i className="fa fa-spinner fa-spin" />;
   }

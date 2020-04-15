@@ -18,16 +18,12 @@ export function Staff() {
         showSpinner: false,
       });
     }
-
   }, []);
 
   return (
     <UserLayout section="community_team">
       <Jumbotron title="Staff Team">
-        <p>
-          These volunteer players represent the official team and are responsible for maintaining order and security
-          inside the hotel.
-        </p>
+        <p>These volunteer players represent the official team and are responsible for maintaining order and security inside the hotel.</p>
       </Jumbotron>
       <Container>
         <Loading isLoading={showSpinner}>

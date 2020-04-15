@@ -9,3 +9,7 @@ export const defaultUserProfileState: UserProfileState = {
   user: undefined,
   isLoading: true,
 };
+
+export interface UserProfileWidgetProps {
+  user?: User;
+}

@@ -3208,8 +3208,8 @@ input:-webkit-autofill{
 
 /* Page - Profile */
 .page-container[data-page = "profile"] .page-header{
-    background-image: url(../images/header-profile.png);
-    background-color: #1baea6;
+    background-image: url(../img/header/profile.png);
+    background-color: #27282f;
 }
 
 .page-container[data-page = "profile"] .page-header h1{
@@ -3227,7 +3227,7 @@ input:-webkit-autofill{
 }
 
 .page-container[data-page = "profile"] .profile-header{
-    background-image: url(../images/web/pages/profile/user-background.png);
+    background-image: url(../img/header/profile_card.png);
     background-position: center;
     margin: -20px -20px 20px;
     height: 230px;
@@ -3351,6 +3351,12 @@ input:-webkit-autofill{
     line-height: normal;
 }
 
+.page-container[data-page="profile"] .badges {
+    height: 92px;
+    width: 55%;
+    margin-bottom: -33px;
+}
+
 .page-container[data-page = "profile"] .default-section[data-section = "badges"] .items-container .item-container .item-icon,
 .page-container[data-page = "profile"] .default-section[data-section = "groups"] .items-container .item-container .item-icon{
     width: 50px;
@@ -3370,10 +3376,6 @@ input:-webkit-autofill{
     border-radius: 50px;
     width: 100px;
     height: 100px;
-}
-
-.page-container[data-page = "profile"] .default-section[data-section = "rooms"] .items-container .item-container .item-icon{
-    background-image: url(../images/web/pages/profile/room-icon.png);
 }
 
 /* Page - Registration */
