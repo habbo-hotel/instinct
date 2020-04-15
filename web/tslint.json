@@ -8,6 +8,7 @@
   "rules": {
     "variable-name": false,
     "no-any": false,
-    "ban-ts-ignore": false
+    "ban-ts-ignore": false,
+    "react-hooks/exhaustive-deps": false
   }
 }

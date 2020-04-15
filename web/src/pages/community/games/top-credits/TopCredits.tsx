@@ -8,15 +8,14 @@ import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
 export function TopCredits() {
   const [state, setState] = useState<GamesCardState>(defaultGamesCardState);
 
-  async function fetchMostCredits(): Promise<void> {
-    const users: User[] = await userService.getMostCredits();
-    setState({
-      users,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchMostCredits(): Promise<void> {
+      const users: User[] = await userService.getMostCredits();
+      setState({
+        users,
+        showSpinner: false,
+      });
+    }
     fetchMostCredits();
   }, []);
 

@@ -1,1 +1,0 @@
-{"version":3,"file":"Article.js","sourceRoot":"","sources":["../../src/article/Article.ts"],"names":[],"mappings":";;AAAA,yBAAwC;AAY3B,QAAA,cAAc,GAAY;IACrC,EAAE,EAAE,CAAC;IACL,KAAK,EAAE,cAAc;IACrB,WAAW,EAAE,kBAAkB;IAC/B,OAAO,EAAE,uBAAuB;IAChC,UAAU,EAAE,CAAC,IAAI,IAAI,EAAE,GAAG,IAAI;IAC9B,SAAS,EAAE,oBAAoB;IAC/B,MAAM,EAAE,eAAW;CACpB,CAAC"}

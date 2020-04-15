@@ -12,15 +12,14 @@ export function NewsArticle() {
   const { articleID } = useParams<NewsArticleParameters>();
   const [state, setState] = useState<NewsArticleState>(defaultNewsArticleState);
 
-  async function fetchArticle(): Promise<void> {
-    const article: Article = await articleService.getByID(articleID);
-    setState({
-      article,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchArticle(): Promise<void> {
+      const article: Article = await articleService.getByID(articleID);
+      setState({
+        article,
+        showSpinner: false,
+      });
+    }
     setState(defaultNewsArticleState);
     fetchArticle();
   }, [articleID]);

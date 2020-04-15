@@ -7,15 +7,14 @@ import { articleService } from '../../../app/service/article';
 export function ArticleList() {
   const [{ articles, showSpinner }, setState] = useState<ArticleListState>(defaultArticleListState);
 
-  async function getArticles(): Promise<void> {
-    const articles: Article[] = await articleService.getAll();
-    setState({
-      articles,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function getArticles(): Promise<void> {
+      const articles: Article[] = await articleService.getAll();
+      setState({
+        articles,
+        showSpinner: false,
+      });
+    }
     getArticles();
   }, []);
 

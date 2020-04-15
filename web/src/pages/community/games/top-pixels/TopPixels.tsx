@@ -8,15 +8,14 @@ import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
 export function TopPixels() {
   const [state, setState] = useState<GamesCardState>(defaultGamesCardState);
 
-  async function fetchMostPixels(): Promise<void> {
-    const users: User[] = await userService.getMostPixels();
-    setState({
-      users,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchMostPixels(): Promise<void> {
+      const users: User[] = await userService.getMostPixels();
+      setState({
+        users,
+        showSpinner: false,
+      });
+    }
     fetchMostPixels();
   }, []);
 

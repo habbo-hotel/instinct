@@ -12,18 +12,19 @@ export function UserProfile() {
   const { username } = useParams<Record<'username', string>>();
   const [state, setState] = useState<UserProfileState>(defaultUserProfileState);
 
-  async function fetchUser(): Promise<void> {
-    const user: User = await userService.getByUsername(username);
-    setState({
-      user,
-      isLoading: false,
-    });
-  }
-
   useEffect(() => {
     setState(defaultUserProfileState);
+
+    async function fetchUser(): Promise<void> {
+      const user: User = await userService.getByUsername(username);
+      setState({
+        user,
+        isLoading: false,
+      });
+    }
+
     fetchUser();
-  }, [fetchUser, username]);
+  }, [username]);
 
   return (
     <UserLayout section="profile">
@@ -67,7 +68,7 @@ export function UserProfile() {
                   </div>
                   <div className="details-container">
                     <Icon type="hotel" />
-                    Currently
+                    Currently&nbsp;
                     {state.user?.online ? (
                       <strong className="online">online</strong>
                     ) : (
@@ -87,9 +88,9 @@ export function UserProfile() {
                 </div>
 
                 <div className="profile-askfriend-button" data-id="1">
-                  <a className="rounded-button custom" href="https://playrise.me/settings/profile">
+                  <button className="rounded-button custom">
                     Edit Profile
-                  </a>
+                  </button>
                 </div>
               </aside>
             </Column>

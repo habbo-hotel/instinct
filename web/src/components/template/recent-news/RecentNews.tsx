@@ -10,15 +10,15 @@ import { defaultRecentNewsState, RecentNewsState } from './';
 export function RecentNews() {
   const [state, setState] = useState<RecentNewsState>(defaultRecentNewsState);
 
-  async function fetchArticles(): Promise<void> {
-    const articles: Article[] = await articleService.getAll();
-    setState({
-      articles,
-      isLoading: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchArticles(): Promise<void> {
+      const articles: Article[] = await articleService.getAll();
+      setState({
+        articles,
+        isLoading: false,
+      });
+    }
+
     setState(defaultRecentNewsState);
     fetchArticles();
   }, []);

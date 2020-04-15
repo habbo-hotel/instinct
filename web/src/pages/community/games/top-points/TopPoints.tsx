@@ -8,15 +8,14 @@ import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
 export function TopPoints() {
   const [state, setState] = useState<GamesCardState>(defaultGamesCardState);
 
-  async function fetchMostPoints(): Promise<void> {
-    const users: User[] = await userService.getMostPoints();
-    setState({
-      users,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchMostPoints(): Promise<void> {
+      const users: User[] = await userService.getMostPoints();
+      setState({
+        users,
+        showSpinner: false,
+      });
+    }
     fetchMostPoints();
   }, []);
 

@@ -9,15 +9,14 @@ setURL('community/photos', <Photos />);
 export function Photos() {
   const [state, setState] = useState<PhotosState>(defaultPhotosState);
 
-  async function fetchPhotos(): Promise<void> {
-    const photos: Photo[] = await photoService.getAll();
-    setState({
-      photos,
-      showSpinner: false,
-    });
-  }
-
   useEffect(() => {
+    async function fetchPhotos(): Promise<void> {
+      const photos: Photo[] = await photoService.getAll();
+      setState({
+        photos,
+        showSpinner: false,
+      });
+    }
     fetchPhotos();
   }, []);
 
