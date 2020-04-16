@@ -1,5 +1,7 @@
+import { Room } from 'fashionkilla-interfaces';
+
 export interface PopularRoomsState {
-  rooms: [];
+  rooms: Room[];
   showSpinner: boolean;
 }
 
