@@ -28,12 +28,12 @@ export class GroupEntity {
   @JoinColumn({ name: 'room_id' })
   room?: RoomEntity;
 
-  @Column({ type: 'int', length: 3 })
+  @Column({ type: 'int' })
   state!: number;
 
   @Column({ type: 'varchar', length: 256 })
   badge!: string;
 
-  @Column({ name: 'date_created', type: 'int', length: 11 })
+  @Column({ name: 'date_created', type: 'int' })
   dateCreated!: number;
 }

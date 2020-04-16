@@ -1,5 +1,7 @@
+import { Group } from 'fashionkilla-interfaces';
+
 export interface PopularGroupsState {
-  groups: [];
+  groups: Group[];
   showSpinner: boolean;
 }
 
