@@ -1,8 +1,10 @@
 export * from './rank';
 export * from './user';
+export * from './room';
 export * from './photo';
 export * from './article';
 
+import { RoomEntity } from './room';
 import { RankEntity } from './rank';
 import { UserEntity } from './user';
 import { PhotoEntity } from './photo';
@@ -13,4 +15,5 @@ export const databaseEntities: Function[] = [
   PhotoEntity,
   RankEntity,
   UserEntity,
+  RoomEntity,
 ];

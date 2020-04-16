@@ -1,4 +1,5 @@
 import * as Moment from 'moment';
+import { RoomEntity } from '../room';
 import { PhotoEntity } from '../photo';
 import { RankEntity, rankWire } from '../rank';
 import { User } from 'fashionkilla-interfaces';
@@ -103,4 +104,7 @@ export class UserEntity {
     photo => photo.user,
   )
   photos?: PhotoEntity[];
+
+  @OneToMany(() => RoomEntity, room => room.owner)
+  rooms?: RoomEntity[];
 }
