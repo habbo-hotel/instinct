@@ -6,7 +6,7 @@ import { ThemeContext, ThemeContextInterface } from 'app/context';
 export function Footer() {
   const themeContext = useContext<ThemeContextInterface>(ThemeContext);
 
-  if (themeContext.showFooter) {
+  if (!themeContext.showFooter) {
     return null;
   }
 
