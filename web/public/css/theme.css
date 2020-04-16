@@ -2886,7 +2886,7 @@ input:-webkit-autofill{
 
 /* Page - Settings */
 .page-container[data-page ^= "settings_"] .page-header{
-    background-image: url(../images/header-settings.png);
+    background-image: url(../img/header/preferences.png);
     background-position: 84px center;
     background-color: #999999;
 }
