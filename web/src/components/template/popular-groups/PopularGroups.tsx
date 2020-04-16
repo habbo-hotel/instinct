@@ -1,3 +1,4 @@
+import './PopularGroup.scss';
 import { groupService } from 'app/service';
 import { Card, Loading } from 'components';
 import { Group } from 'fashionkilla-interfaces';
@@ -24,7 +25,7 @@ export function PopularGroups() {
       <Card header="Popular Groups" subHeader="Who do you want to join?">
         {state.groups.map(group => (
           <div
-            id="popularGroups"
+            className="popular-group"
             style={{
               backgroundImage:
                 "url('https://images.cosmicproject.online/library/c_images/Badgeparts/generated/b010034s025175s025173s029114.png') 10px 50% no-repeat",
