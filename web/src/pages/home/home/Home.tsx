@@ -10,6 +10,7 @@ export function Home() {
       <Container>
         <Column side="left">
           <MyProfile />
+          <br />
           <PopularRooms />
         </Column>
         <Column side="right">
