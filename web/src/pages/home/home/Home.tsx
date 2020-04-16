@@ -15,7 +15,9 @@ export function Home() {
         </Column>
         <Column side="right">
           <RecentNews />
+          <br/>
           <PopularGroups />
+          <br/>
           <UserOfTheWeek />
         </Column>
       </Container>

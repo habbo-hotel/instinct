@@ -1,5 +1,5 @@
-import { User } from '../../../interface';
 import { NewSessionDTO } from './session.dto';
+import { User } from 'fashionkilla-interfaces';
 import { SessionService } from './session.service';
 import { HasSession } from './has-session.decorator';
 import { GetSession } from './get-session.decorator';
