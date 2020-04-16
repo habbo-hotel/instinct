@@ -26,7 +26,7 @@ export function PopularRooms() {
         <table className="rooms table table-striped">
           <tbody>
             {state.rooms.map(room => (
-              <tr>
+              <tr key={room.id}>
                 <td style={{ textAlign: 'center' }}>
                   <img src="/img/icons/room/1.gif" />
                 </td>
