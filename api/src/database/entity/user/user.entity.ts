@@ -105,6 +105,9 @@ export class UserEntity {
   )
   photos?: PhotoEntity[];
 
-  @OneToMany(() => RoomEntity, room => room.owner)
+  @OneToMany(
+    () => RoomEntity,
+    room => room.owner,
+  )
   rooms?: RoomEntity[];
 }

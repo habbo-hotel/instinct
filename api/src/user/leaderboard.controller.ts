@@ -5,9 +5,7 @@ import { UserEntity, userWire } from '../database/entity/user';
 
 @Controller('users/leaderboard')
 export class UserLeaderBoardController {
-  constructor(
-    private readonly userLeaderBoardService: UserLeaderBoardService,
-  ) {}
+  constructor(private readonly userLeaderBoardService: UserLeaderBoardService) {}
 
   @Get('credits')
   async getMostCredits(): Promise<User[]> {

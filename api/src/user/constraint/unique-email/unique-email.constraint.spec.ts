@@ -29,16 +29,12 @@ describe('UniqueEmailConstraint', () => {
 
   describe('validate', () => {
     it('will return false if email already exists', async () => {
-      const result: boolean = await uniqueEmailConstraint.validate(
-        mockUser.email,
-      );
+      const result: boolean = await uniqueEmailConstraint.validate(mockUser.email);
       expect(result).toBeFalsy();
     });
 
     it('will return true if email  does not exist', async () => {
-      const result: boolean = await uniqueEmailConstraint.validate(
-        'fake@email.com',
-      );
+      const result: boolean = await uniqueEmailConstraint.validate('fake@email.com');
       expect(result).toBeTruthy();
     });
   });

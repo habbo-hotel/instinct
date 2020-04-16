@@ -45,9 +45,7 @@ describe('PhotoController', () => {
 
   describe('GET `/photos/:photoID`', () => {
     it('will return HTTP OK with a single photo with its user', async () => {
-      const response: any = await supertest(httpServer).get(
-        `/photos/${mockPhoto.id!}`,
-      );
+      const response: any = await supertest(httpServer).get(`/photos/${mockPhoto.id!}`);
       expect(response.status).toEqual(HttpStatus.OK);
       expect(response.data).toEqual(photoWire(mockPhoto));
     });

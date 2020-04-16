@@ -25,6 +25,4 @@ export const defaultUserLook: string = getEnvOrFail('DEFAULT_USER_LOOK');
 export const defaultUserCredits = Number(getEnvOrFail('DEFAULT_USER_CREDITS'));
 export const defaultUserPixels = Number(getEnvOrFail('DEFAULT_USER_PIXELS'));
 export const defaultUserPoints = Number(getEnvOrFail('DEFAULT_USER_POINTS'));
-export const defaultUserHomeRoom = Number(
-  getEnvOrFail('DEFAULT_USER_HOME_ROOM'),
-);
+export const defaultUserHomeRoom = Number(getEnvOrFail('DEFAULT_USER_HOME_ROOM'));

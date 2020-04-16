@@ -12,10 +12,7 @@ export class SessionController {
 
   @Post()
   createSession(@Body() newSession: NewSessionDTO): Promise<string> {
-    return this.sessionService.loginWithCredentials(
-      newSession.username,
-      newSession.password,
-    );
+    return this.sessionService.loginWithCredentials(newSession.username, newSession.password);
   }
 
   @Get()

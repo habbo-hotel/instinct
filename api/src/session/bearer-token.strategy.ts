@@ -7,10 +7,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UserEntity, userWire } from '../database/entity/user';
 
 @Injectable()
-export class BearerTokenStrategy extends PassportStrategy(
-  Strategy,
-  'bearer-token',
-) {
+export class BearerTokenStrategy extends PassportStrategy(Strategy, 'bearer-token') {
   constructor(private readonly userService: UserService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

@@ -29,16 +29,12 @@ describe('UniqueUsernameConstraint', () => {
 
   describe('validate', () => {
     it('will return false if username already exists', async () => {
-      const result: boolean = await uniqueUsernameConstraint.validate(
-        mockUser.username,
-      );
+      const result: boolean = await uniqueUsernameConstraint.validate(mockUser.username);
       expect(result).toBeFalsy();
     });
 
     it('will return true if username does not exist', async () => {
-      const result: boolean = await uniqueUsernameConstraint.validate(
-        'FAKE_USER',
-      );
+      const result: boolean = await uniqueUsernameConstraint.validate('FAKE_USER');
       expect(result).toBeTruthy();
     });
   });

@@ -1,17 +1,18 @@
 import { UserEntity } from '../user';
-import { Injectable } from '@nestjs/common';
-import { Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Column, JoinColumn, PrimaryGeneratedColumn, ManyToOne, Entity } from 'typeorm';
 
-@Injectable()
+@Entity('rooms')
 export class RoomEntity {
-
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({ default: 0, name: 'owner_id', type: 'int', length: 11 })
+  @Column({ default: 0, name: 'owner_id', type: 'int' })
   ownerID!: number;
 
-  @ManyToOne(() => UserEntity, user => user.rooms)
+  @ManyToOne(
+    () => UserEntity,
+    user => user.rooms,
+  )
   @JoinColumn({ name: 'owner_id' })
   owner?: UserEntity;
 
@@ -30,10 +31,9 @@ export class RoomEntity {
   @Column({ default: '', type: 'varchar', length: 20 })
   password!: string;
 
-  @Column({ type: 'int', length: 11 })
+  @Column({ type: 'int' })
   users!: number;
 
-  @Column({ type: 'int', length: 11 })
+  @Column({ name: 'users_max', type: 'int' })
   usersMax!: number;
-
 }

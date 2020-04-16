@@ -34,9 +34,7 @@ describe('UserExistsConstraint', () => {
     });
 
     it('will return true if user does exist', async () => {
-      const result: boolean = await userExistsConstraint.validate(
-        mockUser.username,
-      );
+      const result: boolean = await userExistsConstraint.validate(mockUser.username);
       expect(result).toBeTruthy();
     });
   });

@@ -1,11 +1,5 @@
 import { UserEntity, userWire } from '../user';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Photo } from 'fashionkilla-interfaces';
 
 export function photoWire(photoEntity: PhotoEntity): Photo {

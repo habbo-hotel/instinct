@@ -12,15 +12,9 @@ export class SessionService {
     private readonly bearerTokenService: BearerTokenService,
   ) {}
 
-  async loginWithCredentials(
-    username: string,
-    password: string,
-  ): Promise<string> {
+  async loginWithCredentials(username: string, password: string): Promise<string> {
     const user: UserEntity = await this.userService.getByUsername(username);
-    const samePassword: boolean = await this.hashService.compare(
-      password,
-      user.password,
-    );
+    const samePassword: boolean = await this.hashService.compare(password, user.password);
 
     if (!samePassword) {
       throw new UnauthorizedException('That is not the right password');

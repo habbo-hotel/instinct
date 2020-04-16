@@ -1,15 +1,8 @@
 import { getRepository } from 'typeorm';
 import { UserEntity } from '../../entity/user';
-import {
-  defaultUserCredits,
-  defaultUserLook,
-  defaultUserMotto,
-  defaultUserPixels,
-} from '../../../config';
+import { defaultUserCredits, defaultUserLook, defaultUserMotto, defaultUserPixels } from '../../../config';
 
-export function userFactory(
-  changes?: Partial<UserEntity>,
-): Promise<UserEntity> {
+export function userFactory(changes?: Partial<UserEntity>): Promise<UserEntity> {
   return getRepository(UserEntity).save({
     username: 'Test',
     motto: defaultUserMotto,

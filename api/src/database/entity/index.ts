@@ -10,10 +10,4 @@ import { UserEntity } from './user';
 import { PhotoEntity } from './photo';
 import { ArticleEntity } from './article';
 
-export const databaseEntities: Function[] = [
-  ArticleEntity,
-  PhotoEntity,
-  RankEntity,
-  UserEntity,
-  RoomEntity,
-];
+export const databaseEntities: Function[] = [ArticleEntity, PhotoEntity, RankEntity, UserEntity, RoomEntity];

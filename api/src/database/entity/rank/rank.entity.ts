@@ -7,10 +7,7 @@ export function rankWire(rankEntity: RankEntity): Rank {
     id: rankEntity.id!,
     name: rankEntity.name,
     badge: rankEntity.badge,
-    users:
-      rankEntity.users !== undefined
-        ? rankEntity.users!.map(user => userWire(user))
-        : undefined,
+    users: rankEntity.users !== undefined ? rankEntity.users!.map(user => userWire(user)) : undefined,
   };
 }
 

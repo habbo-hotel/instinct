@@ -1,15 +1,7 @@
 import * as Moment from 'moment';
 import { UserEntity, userWire } from '../user';
 import { Article } from 'fashionkilla-interfaces';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 export function articleWire(articleEntity: ArticleEntity): Article {
   return {

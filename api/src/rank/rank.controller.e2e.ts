@@ -61,9 +61,7 @@ describe('RankController', () => {
 
   describe('GET `/ranks/:rankID`', () => {
     it('will return a HTTP OK with a rank with its users if it exists', async () => {
-      const response: any = await supertest(httpServer).get(
-        `/ranks/${mockRank.id!}`,
-      );
+      const response: any = await supertest(httpServer).get(`/ranks/${mockRank.id!}`);
       expect(response.status).toEqual(HttpStatus.OK);
       expect(response.data).toEqual(rankWire(mockRank));
     });

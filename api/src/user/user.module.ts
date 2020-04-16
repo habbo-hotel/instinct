@@ -11,12 +11,7 @@ import { UserLeaderBoardController } from './leaderboard.controller';
 @Module({
   imports: [CommonModule, DatabaseModule],
   controllers: [UserController, UserLeaderBoardController],
-  providers: [
-    UserPipe,
-    UserService,
-    UserLeaderBoardService,
-    ...userConstraints,
-  ],
+  providers: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],
   exports: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],
 })
 export class UserModule {}

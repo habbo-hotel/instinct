@@ -1,12 +1,7 @@
 import { databaseEntities } from './';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  databaseHost,
-  databaseUser,
-  databasePass,
-  databaseName,
-} from '../config';
+import { databaseHost, databaseUser, databasePass, databaseName } from '../config';
 
 @Module({
   imports: [

@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { Module } from '@nestjs/common';
 import { RankModule } from './rank/rank.module';
+import { RoomModule } from './room/room.module';
 import { UserModule } from './user/user.module';
 import { PhotoModule } from './photo/photo.module';
 import { HealthModule } from './health/health.module';
@@ -13,6 +14,7 @@ import { DatabaseModule } from './database/database.module';
   imports: [
     UserModule,
     RankModule,
+    RoomModule,
     PhotoModule,
     CommonModule,
     ArticleModule,
