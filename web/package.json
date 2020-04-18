@@ -10,7 +10,6 @@
     "react-dom": "^16.13.1",
     "react-loading-overlay": "^1.0.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
     "react-toastify": "^5.5.0",
     "reactstrap": "^8.4.1"
   },
@@ -52,6 +51,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "gts": "^1.1.2",
     "node-sass": "^4.13.1",
+    "react-scripts": "^3.4.1",
     "typescript": "^3.8.3"
   },
   "proxy": "http://localhost:3000"
