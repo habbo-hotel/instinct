@@ -37,11 +37,11 @@ export function PopularRooms() {
                 </td>
                 <td>
                   <img src="/img/icons/room/visitors.gif" />
-                  <b>0</b>
+                  <b style={{ marginLeft: 5 }}>0</b>
                 </td>
                 <td style={{ width: 150, paddingLeft: 20 }}>
                   <Link className="button" to={`/rooms/${room.id}`}>
-                    Goto room
+                    Visit Room
                   </Link>
                 </td>
               </tr>

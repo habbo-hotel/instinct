@@ -1,15 +1,15 @@
 import React from 'react';
 import Moment from 'moment';
+import { Avatar } from 'components';
 import { Link } from 'react-router-dom';
 import { PhotoContainerProps } from './';
-import { Avatar, PhotoView } from 'components';
 
 export function PhotoContainer({ photo }: PhotoContainerProps) {
   return (
     <>
       <div className="photo-container">
         <div className="photo-content">
-          <Link className="photo-picture" style={{ backgroundImage: `url(${photo.imagePath})` }} to={`/community/photos/${photo.id}`} />
+          <div className="photo-picture" style={{ backgroundImage: `url(${photo.imagePath})` }}/>
           <Link className="photo-meta flex-container flex-vertical-center" to={`/profile/${photo.user!.username}`}>
             <div className="photo-meta-left-side">
               <Avatar look={photo.user!.figure} />
@@ -21,7 +21,6 @@ export function PhotoContainer({ photo }: PhotoContainerProps) {
           </Link>
         </div>
       </div>
-      <PhotoView photo={photo}/>
     </>
   );
 }
