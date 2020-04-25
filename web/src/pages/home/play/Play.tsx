@@ -1,8 +1,10 @@
 import React from 'react';
-import { setURL } from 'components';
+import { Client, setURL } from 'components';
 
 setURL('play', <PlayPage />);
 
 export function PlayPage() {
-  return <>Play Hotel</>;
+  return (
+    <Client/>
+  )
 }
