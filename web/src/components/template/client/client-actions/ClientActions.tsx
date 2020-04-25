@@ -1,7 +1,10 @@
 import './ClientActions.scss';
-import React, { useState } from 'react';
+import { redirect } from 'components';
+import { HealthContext } from 'app/context';
+import React, { useContext, useState } from 'react';
 
 export function ClientActions() {
+  const healthContext = useContext(HealthContext);
   const [ isExpanded, setExpanded ] = useState<boolean>(false);
 
   async function toggleFullScreen(): Promise<void> {
@@ -15,13 +18,13 @@ export function ClientActions() {
 
   return (
     <div className="actions">
-      <button>Web</button>
+      <button onClick={() => redirect('home')}>Web</button>
       <button onClick={toggleFullScreen}>
         <i className={isExpanded ? 'fas fa-compress' : 'fas fa-expand'}/>
       </button>
       <button style={{ cursor: 'default' }}>
         <i className="fa fa-user mr-2"/>
-        <b>0</b>
+        <b>{healthContext.onlineUsers}</b>
       </button>
     </div>
   )
