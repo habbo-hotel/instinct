@@ -22,7 +22,7 @@ export class UserService {
   }
 
   async createSSO(userID: number): Promise<string> {
-    const authTicket: string = 'fashionkilla_' + Random.generate(25) + '_' + userID;
+    const authTicket: string = 'fashionkilla_' + Random.generate(50) + '_' + userID;
     await this.userRepository.update(userID, { authTicket });
     return authTicket;
   }

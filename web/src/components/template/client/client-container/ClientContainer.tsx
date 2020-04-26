@@ -19,7 +19,6 @@ export function ClientContainer() {
   }, []);
 
   useEffect(() => {
-
     function setupGame(): void {
       const variables: Record<string, string> = {
         'connection.info.host': configContext.emulatorIP,
@@ -38,8 +37,8 @@ export function ClientContainer() {
         'flash.client.url': configContext.swfBaseURL,
         'client.starting.revolving': configContext.loadingMessage,
         'processlog.enabled': '1',
-        'use.sso.ticket': sso!,
-        'sso.ticket': '123',
+        'use.sso.ticket': '1',
+        'sso.ticket': sso!,
         'flash.client.origin': 'popup',
         'client.allow.cross.domain': '1',
         'client.notify.cross.domain': '0'
@@ -59,9 +58,5 @@ export function ClientContainer() {
     }
   }, [configContext, sso]);
 
-  return (
-    <>
-      <div id="client-area"/>
-    </>
-  )
+  return <div id="client-area"/>
 }
