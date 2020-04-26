@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { HealthContext, HealthInterface, HealthProviderProps } from './index';
+import { defaultHealthInterface, HealthContext, HealthInterface, HealthProviderProps } from './index';
 
 export class HealthProvider extends PureComponent<HealthProviderProps> {
   setStore = (changes: Partial<HealthInterface>): void => {
@@ -7,8 +7,7 @@ export class HealthProvider extends PureComponent<HealthProviderProps> {
   };
 
   state: HealthInterface = {
-    uptime: 0,
-    onlineUsers: 0,
+    ...defaultHealthInterface,
     setStore: this.setStore,
   };
 
