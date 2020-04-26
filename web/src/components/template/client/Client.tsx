@@ -20,11 +20,16 @@ export function Client() {
   return (
     <UserGuard>
       <div className={`hotel-container ${themeContext.showClient ? 'visible' : 'not-visible' }`}>
-        <ClientActions/>
         {
-          flashEnabled
-            ? <ClientContainer/>
-            : <FlashDisabled/>
+          flashEnabled && (
+            <>
+              <ClientActions/>
+              <ClientContainer/>
+            </>
+          )
+        }
+        {
+          !flashEnabled && <FlashDisabled/>
         }
       </div>
     </UserGuard>

@@ -1,4 +1,5 @@
 export * from './article';
+export * from './client';
 export * from './group';
 export * from './local-storage';
 export * from './photo';
