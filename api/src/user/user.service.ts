@@ -7,6 +7,11 @@ import { HashService } from '../common/hash.service';
 
 @Injectable()
 export class UserService {
+
+  readonly eagerRelations: Array<keyof UserEntity> = [
+    'rooms',
+  ];
+
   constructor(
     private readonly hashService: HashService,
 
@@ -28,7 +33,12 @@ export class UserService {
   }
 
   getByID(userID: number): Promise<UserEntity> {
-    return this.userRepository.findOneOrFail(userID);
+    return this.userRepository.findOneOrFail({
+      where: {
+        id: userID,
+      },
+      relations: this.eagerRelations,
+    });
   }
 
   getByUsername(username: string): Promise<UserEntity> {
@@ -36,6 +46,7 @@ export class UserService {
       where: {
         username,
       },
+      relations: this.eagerRelations,
     });
   }
 
@@ -44,6 +55,7 @@ export class UserService {
       where: {
         email,
       },
+      relations: this.eagerRelations,
     });
   }
 }
