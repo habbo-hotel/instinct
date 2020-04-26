@@ -1,10 +1,15 @@
-import React from 'react';
-import { Client, setURL } from 'components';
+import { setURL } from 'components';
+import { ThemeContext } from 'app/context';
+import React, { useContext, useEffect } from 'react';
 
 setURL('play', <PlayPage />);
 
 export function PlayPage() {
-  return (
-    <Client/>
-  )
+  const themeContext = useContext(ThemeContext);
+
+  useEffect(() => {
+    themeContext.toggleClient!(true);
+  });
+
+  return null;
 }

@@ -1,12 +1,25 @@
 // @ts-ignore this dependency does not support Typescript
 import Flash from 'swfobject';
 import { ConfigContext } from 'app/context';
-import React, { useContext, useEffect } from 'react';
+import { sessionService } from 'app/service';
+import React, { useContext, useEffect, useState } from 'react';
 
 export function ClientContainer() {
+  const [ sso, setSSO ] = useState<string>();
   const configContext = useContext(ConfigContext);
 
   useEffect(() => {
+
+    async function fetchSSO(): Promise<void> {
+      const sso: string = await sessionService.createSSO();
+      setSSO(sso);
+    }
+
+    fetchSSO();
+  }, []);
+
+  useEffect(() => {
+
     function setupGame(): void {
       const variables: Record<string, string> = {
         'connection.info.host': configContext.emulatorIP,
@@ -25,7 +38,7 @@ export function ClientContainer() {
         'flash.client.url': configContext.swfBaseURL,
         'client.starting.revolving': configContext.loadingMessage,
         'processlog.enabled': '1',
-        'use.sso.ticket': '1',
+        'use.sso.ticket': sso!,
         'sso.ticket': '123',
         'flash.client.origin': 'popup',
         'client.allow.cross.domain': '1',
@@ -41,8 +54,10 @@ export function ClientContainer() {
       Flash.embedSWF(configContext.swfHabbo, 'client-area', '100%', '100%', '10.0.0', '', variables, parameters, null);
     }
 
-    setupGame();
-  })
+    if (sso !== undefined) {
+      setupGame();
+    }
+  }, [configContext, sso]);
 
   return (
     <>

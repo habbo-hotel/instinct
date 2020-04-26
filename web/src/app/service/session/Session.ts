@@ -40,6 +40,11 @@ class SessionService implements SessionInterface {
       : localStorageService.delete(this.localStorageKey);
   }
 
+  async createSSO(): Promise<string> {
+    const sso: AxiosResponse<string> = await backendAPI.post('session/sso');
+    return sso.data;
+  }
+
   logout(): void {
     localStorageService.delete(this.localStorageKey);
   }

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { ThemeContextInterface, ThemeContext } from './';
+import { ThemeContextInterface, ThemeContext, defaultThemeContextInterface } from './';
 
 export class ThemeContextProvider extends PureComponent {
   setStore = (changes: Partial<ThemeContextInterface>): void => {
@@ -7,8 +7,9 @@ export class ThemeContextProvider extends PureComponent {
   };
 
   state: ThemeContextInterface = {
-    showFooter: true,
+    ...defaultThemeContextInterface,
     setStore: this.setStore,
+    toggleClient: visible => this.setStore({ showClient: visible })
   };
 
   render() {

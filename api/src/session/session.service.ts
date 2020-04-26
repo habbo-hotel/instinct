@@ -22,4 +22,5 @@ export class SessionService {
 
     return this.bearerTokenService.signToken(user.id!);
   }
+
 }

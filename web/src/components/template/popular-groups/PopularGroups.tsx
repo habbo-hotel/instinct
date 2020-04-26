@@ -18,7 +18,7 @@ export function PopularGroups() {
     }
 
     fetchPopularGroups();
-  });
+  }, []);
 
   return (
     <Loading isLoading={state.showSpinner}>

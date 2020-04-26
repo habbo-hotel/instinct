@@ -1,4 +1,5 @@
 import { Repository } from 'typeorm';
+import *  as Random from 'randomstring';
 import { UserEntity } from '../database';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -18,6 +19,12 @@ export class UserService {
       ...user,
       password: this.hashService.generate(user.password),
     });
+  }
+
+  async createSSO(userID: number): Promise<string> {
+    const authTicket: string = 'fashionkilla_' + Random.generate(25) + '_' + userID;
+    await this.userRepository.update(userID, { authTicket });
+    return authTicket;
   }
 
   getByID(userID: number): Promise<UserEntity> {

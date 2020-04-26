@@ -14,6 +14,10 @@ export interface SessionInterface {
   // Throws exception upon failure
   attemptBearerToken(authToken: string): Promise<User>;
 
+  // Creates a SSO for client use
+  // Throws exception upon failure
+  createSSO(): Promise<string>;
+
   // Removes the user's bearer token from localStorage
   logout(): void;
 }
