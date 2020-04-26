@@ -14,8 +14,6 @@ export function RoomPage() {
   const { roomID } = useParams<Record<'roomID', string>>();
   const [state, setState] = useState<RoomState>(defaultRoomState);
 
-  console.log(sessionContext.user);
-
   useEffect(() => {
     async function fetchRoom(): Promise<void> {
       const room: Room = await roomService.getByID(Number(roomID));
