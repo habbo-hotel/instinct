@@ -8,7 +8,7 @@ export function groupWire(groupEntity: GroupEntity): Group {
     id: groupEntity.id!,
     name: groupEntity.name,
     desc: groupEntity.description,
-    user: userWire(groupEntity.user!),
+    user: groupEntity.user ? userWire(groupEntity.user!) : undefined,
     badge: groupEntity.badge,
     roomID: groupEntity.roomID,
     dateCreated: Moment.unix(groupEntity.dateCreated).toISOString(),

@@ -2,7 +2,7 @@ import { exampleUser, User } from '../user';
 
 export interface Room {
   id: number;
-  user: User;
+  user?: User;
   name: string;
   desc: string;
   currentUsers: number;

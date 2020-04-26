@@ -5,7 +5,7 @@ import { Room } from 'fashionkilla-interfaces';
 export function roomWire(roomEntity: RoomEntity): Room {
   return {
     id: roomEntity.id!,
-    user: userWire(roomEntity.owner!),
+    user: roomEntity.owner ? userWire(roomEntity.owner!) : undefined,
     name: roomEntity.name,
     desc: roomEntity.description,
     currentUsers: roomEntity.users,

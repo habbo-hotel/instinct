@@ -2,8 +2,8 @@ import * as Moment from 'moment';
 import { UserPipe } from './user.pipe';
 import { NewUserDTO } from './user.dto';
 import { UserService } from './user.service';
-import { Room, User } from 'fashionkilla-interfaces';
-import { RoomEntity, roomWire, UserEntity, userWire } from '../database/entity';
+import { Room, User, UserProfile } from 'fashionkilla-interfaces';
+import { badgeWire, groupWire, roomWire, UserEntity, userWire } from '../database/entity';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   defaultUserCredits,
@@ -57,8 +57,14 @@ export class UserController {
   }
 
   @Get('profile/:username')
-  async getUserByUsername(@Param('username') username: string): Promise<User> {
+  async getUserByUsername(@Param('username') username: string): Promise<UserProfile> {
     const user: UserEntity = await this.userService.getByUsername(username);
-    return userWire(user);
+    return {
+      user: userWire(user),
+      rooms: user.rooms!.map(room => roomWire(room)),
+      badges: user.badges!.map(badge => badgeWire(badge)),
+      friends: user.friends!.map(user => userWire(user)),
+      groups: user.groups!.map(group => groupWire(group)),
+    }
   }
 }

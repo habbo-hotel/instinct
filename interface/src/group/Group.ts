@@ -5,7 +5,7 @@ export interface Group {
   id: number;
   name: string;
   desc: string;
-  user: User;
+  user?: User;
   badge: string;
   roomID: number;
   dateCreated: string; // ISO Date

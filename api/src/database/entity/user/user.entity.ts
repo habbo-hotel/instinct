@@ -3,7 +3,18 @@ import { RoomEntity } from '../room';
 import { PhotoEntity } from '../photo';
 import { RankEntity, rankWire } from '../rank';
 import { User } from 'fashionkilla-interfaces';
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { UserBadgesEntity } from './user-badges.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
+import { GroupEntity } from '../group';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -110,4 +121,25 @@ export class UserEntity {
     room => room.owner,
   )
   rooms?: RoomEntity[];
+
+  @OneToMany(() => UserBadgesEntity, badge => badge.user)
+  badges?: UserBadgesEntity[];
+
+  @ManyToMany(() => UserEntity)
+  @JoinTable({
+    name: 'messenger_friendships',
+    joinColumn: {
+      name: 'user_one_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'user_two_id',
+      referencedColumnName: 'id',
+    }
+  })
+  friends?: UserEntity[];
+
+  @OneToMany(() => GroupEntity, group => group.user)
+  groups?: GroupEntity[];
+
 }
