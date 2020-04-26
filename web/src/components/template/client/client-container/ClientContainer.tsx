@@ -1,7 +1,52 @@
-import React from 'react';
+// @ts-ignore this dependency does not support Typescript
+import Flash from 'swfobject';
+import { ConfigContext } from 'app/context';
+import React, { useContext, useEffect } from 'react';
 
 export function ClientContainer() {
+  const configContext = useContext(ConfigContext);
+
+  useEffect(() => {
+    function setupGame(): void {
+      const variables: Record<string, string> = {
+        'connection.info.host': configContext.emulatorIP,
+        'connection.info.port': configContext.emulatorPort,
+        'url.prefix': configContext.siteLink,
+        'site.url': configContext.siteLink,
+        'client.reload.url': `${configContext.siteLink}/client`,
+        'client.fatal.error.url': `${configContext.siteLink}/client`,
+        'client.connection.failed.url': `${configContext.siteLink}/client`,
+        'external.variables.txt': configContext.swfExternalVariables,
+        'external.texts.txt': configContext.swfExternalTexts,
+        'productdata.load.url': configContext.swfProductData,
+        'furnidata.load.url': configContext.swfFurniData,
+        'external.figurepartlist.txt': configContext.swfFigureData,
+        'external.override.variables.txt': `${configContext.swfBaseURL}}/override/variables.txt`,
+        'flash.client.url': configContext.swfBaseURL,
+        'client.starting.revolving': configContext.loadingMessage,
+        'processlog.enabled': '1',
+        'use.sso.ticket': '1',
+        'sso.ticket': '123',
+        'flash.client.origin': 'popup',
+        'client.allow.cross.domain': '1',
+        'client.notify.cross.domain': '0'
+      }
+
+      const parameters: Record<string, string> = {
+        'base': configContext.swfBaseURL,
+        'allowScriptAccess': 'always',
+        'menu': 'false'
+      }
+
+      Flash.embedSWF(configContext.swfHabbo, 'client-area', '100%', '100%', '10.0.0', '', variables, parameters, null);
+    }
+
+    setupGame();
+  })
+
   return (
-    <p>LOL</p>
+    <>
+      <div id="client-area"/>
+    </>
   )
 }
