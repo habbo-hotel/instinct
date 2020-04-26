@@ -1,6 +1,7 @@
 export * from './about-modal';
 export * from './article-card';
 export * from './article-list';
+export * from './badge';
 export * from './client';
 export * from './footer';
 export * from './frank-box';

@@ -1,15 +1,15 @@
-import { User } from 'fashionkilla-interfaces';
+import { UserProfile } from 'fashionkilla-interfaces';
 
 export interface UserProfileState {
-  user?: User;
+  profile?: UserProfile;
   isLoading: boolean;
 }
 
 export const defaultUserProfileState: UserProfileState = {
-  user: undefined,
+  profile: undefined,
   isLoading: true,
 };
 
 export interface UserProfileWidgetProps {
-  user?: User;
+  profile?: UserProfile;
 }

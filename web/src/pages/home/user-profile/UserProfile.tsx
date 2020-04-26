@@ -5,7 +5,6 @@ import { Groups } from './groups';
 import { Friends } from './friends';
 import { useParams } from 'react-router';
 import { userService } from 'app/service';
-import { User } from 'fashionkilla-interfaces';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
@@ -21,9 +20,9 @@ export function UserProfile() {
     setState(defaultUserProfileState);
 
     async function fetchUser(): Promise<void> {
-      const user: User = await userService.getByUsername(username);
+      const profile = await userService.getByUsername(username);
       setState({
-        user,
+        profile,
         isLoading: false,
       });
     }
@@ -34,16 +33,16 @@ export function UserProfile() {
   return (
     <UserLayout section="profile">
       <Loading isLoading={state.isLoading}>
-        <Jumbotron title={`The profile of ${state.user?.username}`} />
+        <Jumbotron title={`The profile of ${state.profile?.user.username}`} />
         <Container>
           <Column side="right">
-            <UserContainer user={state.user} />
+            <UserContainer profile={state.profile} />
           </Column>
           <Column side="left">
-            <Badges user={state.user} />
-            <Friends user={state.user} />
-            <Groups user={state.user} />
-            <Rooms user={state.user} />
+            <Badges profile={state.profile} />
+            <Friends profile={state.profile} />
+            <Groups profile={state.profile} />
+            <Rooms profile={state.profile} />
           </Column>
         </Container>
       </Loading>

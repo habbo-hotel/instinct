@@ -1,7 +1,19 @@
 import React from 'react';
-import { Card } from 'components';
+import { Badge, Card } from 'components';
 import { UserProfileWidgetProps } from '../';
 
-export function Badges({ user }: UserProfileWidgetProps) {
-  return <Card header="Badges">This user doesn't have any badges</Card>;
+export function Badges({ profile }: UserProfileWidgetProps) {
+  return (
+    <Card header="Badges">
+      <div className="items-container">
+        <div className="item-container">
+          {
+            profile?.badges.map(badge => (
+              <Badge badge={badge} key={badge.id}/>
+            ))
+          }
+        </div>
+      </div>
+    </Card>
+  )
 }

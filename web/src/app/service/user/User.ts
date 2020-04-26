@@ -1,7 +1,7 @@
 import { UserInterface } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
-import { User } from 'fashionkilla-interfaces';
+import { User, UserProfile } from 'fashionkilla-interfaces';
 
 export class UserService implements UserInterface {
   async create(username: string, password: string, email: string): Promise<User> {
@@ -9,8 +9,8 @@ export class UserService implements UserInterface {
     return user.data;
   }
 
-  async getByUsername(username: string): Promise<User> {
-    const user: AxiosResponse<User> = await backendAPI.get(`users/profile/${username}`);
+  async getByUsername(username: string): Promise<UserProfile> {
+    const user: AxiosResponse<UserProfile> = await backendAPI.get(`users/profile/${username}`);
     return user.data;
   }
 

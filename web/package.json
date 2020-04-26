@@ -5,7 +5,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "events": "^3.1.0",
-    "fashionkilla-interfaces": "0.3.2",
+    "fashionkilla-interfaces": "0.3.6",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
