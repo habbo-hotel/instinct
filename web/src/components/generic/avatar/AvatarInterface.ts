@@ -7,4 +7,5 @@ export interface AvatarProps {
   headDirection?: number;
   headOnly?: boolean;
   size?: 'l' | 's' | 'n';
+  onClick?: () => void;
 }
