@@ -1,15 +1,20 @@
-import { useParams } from 'react-router-dom';
+import './Room.scss';
+import { SessionContext } from 'app/context';
 import { Room } from 'fashionkilla-interfaces';
 import { defaultRoomState, RoomState } from './';
-import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { clientService, roomService } from 'app/service';
-import { Column, Container, Loading, setURL, UserLayout } from 'components';
+import React, { useContext, useEffect, useState } from 'react';
+import { Card, Column, Container, Jumbotron, Loading, setURL, UserLayout } from 'components';
 
 setURL('rooms/:roomID', <RoomPage />);
 
 export function RoomPage() {
+  const sessionContext = useContext(SessionContext);
   const { roomID } = useParams<Record<'roomID', string>>();
   const [state, setState] = useState<RoomState>(defaultRoomState);
+
+  console.log(sessionContext.user);
 
   useEffect(() => {
     async function fetchRoom(): Promise<void> {
@@ -29,12 +34,20 @@ export function RoomPage() {
   }
 
   return (
-    <UserLayout>
+    <UserLayout section="community_rooms">
+      <Jumbotron title={state.room?.name}>
+        Owned by <Link to={`/profile/${state.room?.user?.username}`}>{state.room?.user?.username}</Link>
+      </Jumbotron>
       <Loading isLoading={state.showSpinner}>
         <Container>
           <Column side="left">
-            <h1>Room {state.room?.name}</h1>
-            <button onClick={enterRoom}>Enter Room</button>
+            <Card header="Room Information">
+              <ul>
+                <li>Max Users: <b>{state.room?.maxUsers}</b></li>
+                <li>Current Users: <b>{state.room?.currentUsers}</b></li>
+              </ul>
+              <button className="rounded-button blue plain" disabled={!sessionContext.user?.online} onClick={enterRoom}>Enter Room</button>
+            </Card>
           </Column>
         </Container>
       </Loading>

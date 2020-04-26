@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { sessionService } from 'app/service';
 import { exampleUser, User } from 'fashionkilla-interfaces';
+import { ClientEvent, clientService, sessionService } from 'app/service';
 import { SessionContext, SessionInterface, SessionProviderProps } from './';
 
 export class SessionContextProvider extends PureComponent<SessionProviderProps> {
@@ -10,6 +10,7 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
 
   componentDidMount() {
     this.init();
+    clientService.eventListener.on(ClientEvent.ENTERED_HOTEL, this.hasEnteredHotel);
   }
 
   init = async (): Promise<void> => {
@@ -43,6 +44,11 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
       startedAt: new Date(),
     });
   };
+
+  private hasEnteredHotel = () => {
+    console.log('Hotel has been entered');
+  }
+
 
   state: SessionInterface = {
     startedAt: undefined,

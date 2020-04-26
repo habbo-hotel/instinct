@@ -48,6 +48,7 @@ class SessionService implements SessionInterface {
   logout(): void {
     localStorageService.delete(this.localStorageKey);
   }
+
 }
 
 export const sessionService: SessionInterface = new SessionService();

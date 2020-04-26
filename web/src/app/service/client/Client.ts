@@ -1,12 +1,18 @@
-import { ClientService } from './';
+import EventEmitter from 'events';
+import { ClientEvent, ClientService } from './';
 
 class ClientServiceImplementation implements ClientService {
+
+  // @ts-ignore - Unsure why this isn't working
+  readonly eventListener = new EventEmitter();
 
   constructor() {
     (window as any).FlashExternalInterface = {};
 
     (window as any).FlashExternalInterface.logLoginStep = (step: string) => {
-      console.log(step);
+      if (step === 'client.init.config.loaded') {
+        this.eventListener.emit(ClientEvent.ENTERED_HOTEL);
+      }
     };
   }
 

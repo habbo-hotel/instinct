@@ -5,7 +5,7 @@ export function Jumbotron({ className = '', children, style, title }: JumbotronP
   return (
     <header className={`page-header flex-container flex-vertical-center ${className}`} style={style}>
       <div className="page-header-content">
-        <h1>{title}</h1>
+        {title && <h1>{title}</h1>}
         {children}
       </div>
     </header>
