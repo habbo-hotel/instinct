@@ -5,6 +5,7 @@ import { UserGuard } from 'components';
 import React, { useContext } from 'react';
 import { ClientActions } from './client-actions';
 import { FlashDisabled } from './flash-disabled';
+import { LoadingScreen } from './loading-screen';
 import { ClientContainer } from './client-container';
 import { SessionContext, ThemeContext } from 'app/context';
 
@@ -24,6 +25,7 @@ export function Client() {
           flashEnabled && (
             <>
               <ClientActions/>
+              <LoadingScreen/>
               <ClientContainer/>
             </>
           )

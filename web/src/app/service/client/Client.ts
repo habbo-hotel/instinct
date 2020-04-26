@@ -7,11 +7,32 @@ class ClientServiceImplementation implements ClientService {
   readonly eventListener = new EventEmitter();
 
   constructor() {
-    (window as any).FlashExternalInterface = {};
+
+    if ((window as any).FlashExternalInterface === undefined) {
+      (window as any).FlashExternalInterface = {};
+    }
 
     (window as any).FlashExternalInterface.logLoginStep = (step: string) => {
-      if (step === 'client.init.config.loaded') {
-        this.eventListener.emit(ClientEvent.ENTERED_HOTEL);
+
+      const stepToProgress: Record<string, number> = {
+        'client.init.swf.loaded': 10,
+        'client.init.core.init': 15,
+        'client.init.socket.ok': 25,
+        'client.init.handshake.start': 30,
+        'client.init.auth.ok': 50,
+        'client.init.localization.loaded': 60,
+        'client.init.core.running': 75,
+        'client.init.config.loaded': 100,
+      };
+
+      if (stepToProgress[step]) {
+        const progress: number = stepToProgress[step] ?? 0;
+
+        this.eventListener.emit(ClientEvent.LOADING_PROGRESS, progress);
+
+        if (progress === 100) {
+          this.eventListener.emit(ClientEvent.ENTERED_HOTEL);
+        }
       }
     };
   }

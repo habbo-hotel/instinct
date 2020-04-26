@@ -6,5 +6,6 @@ export interface ClientService {
 }
 
 export enum ClientEvent {
+  LOADING_PROGRESS = 'loadingProgress',
   ENTERED_HOTEL = 'enteredHotelEvent',
 }
