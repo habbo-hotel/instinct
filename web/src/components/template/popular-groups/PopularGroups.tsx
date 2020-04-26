@@ -1,11 +1,13 @@
 import './PopularGroup.scss';
 import { groupService } from 'app/service';
 import { Card, Loading } from 'components';
+import { ConfigContext } from 'app/context';
 import { Group } from 'fashionkilla-interfaces';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { defaultPopularGroupsState, PopularGroupsState } from './';
 
 export function PopularGroups() {
+  const configContext = useContext(ConfigContext);
   const [state, setState] = useState<PopularGroupsState>(defaultPopularGroupsState);
 
   useEffect(() => {
@@ -26,15 +28,12 @@ export function PopularGroups() {
         {state.groups.map(group => (
           <div
             className="popular-group"
-            style={{
-              backgroundImage:
-                "url('https://images.cosmicproject.online/library/c_images/Badgeparts/generated/b010034s025175s025173s029114.png') 10px 50% no-repeat",
-            }}
+            style={{ background: `url(${configContext.groupBadgeURL}/${group.badge}.png) 10px no-repeat`, }}
             key={group.id}
           >
-            <div className="countGroupMembers">N/A</div>
-            <div className="groupName">{group.name}</div>
-            <div className="groupDesc">{group.desc}</div>
+            <div className="user-count">0</div>
+            <div className="name">{group.name}</div>
+            <div className="desc">{group.desc}</div>
           </div>
         ))}
       </Card>
