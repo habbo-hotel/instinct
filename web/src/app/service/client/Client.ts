@@ -12,8 +12,7 @@ class ClientServiceImplementation implements ClientService {
       (window as any).FlashExternalInterface = {};
     }
 
-    (window as any).FlashExternalInterface.logLoginStep = (step: string) => {
-
+    (window as any).FlashExternalInterface.logLoginStep = (step: string): void => {
       const stepToProgress: Record<string, number> = {
         'client.init.swf.loaded': 10,
         'client.init.core.init': 15,
@@ -35,11 +34,11 @@ class ClientServiceImplementation implements ClientService {
         }
       }
     };
+
   }
 
   enterRoom(roomID: number): void {
-    console.log('Entering room: ', roomID);
-    // @ts-ignore
+    // @ts-ignore - openlink is a property made up by flash
     return document.getElementById('client-area')!.openlink('navigator/goto/' + roomID);
   }
 
