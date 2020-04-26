@@ -1,5 +1,5 @@
 import './ClientActions.scss';
-import { redirect } from 'components';
+import { Icon, redirect } from 'components';
 import { HealthContext } from 'app/context';
 import React, { useContext, useState } from 'react';
 
@@ -20,10 +20,10 @@ export function ClientActions() {
     <div className="actions">
       <button onClick={() => redirect('home')}>Web</button>
       <button onClick={toggleFullScreen}>
-        <i className={isExpanded ? 'fas fa-compress' : 'fas fa-expand'}/>
+        <Icon className="mr-0" family="fas" type={isExpanded ? 'compress' : 'expand'}/>
       </button>
       <button style={{ cursor: 'default' }}>
-        <i className="fa fa-user mr-2"/>
+        <Icon family="fas" type="user"/>
         <b>{healthContext.onlineUsers}</b>
       </button>
     </div>
