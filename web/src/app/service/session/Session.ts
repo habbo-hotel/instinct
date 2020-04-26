@@ -45,6 +45,11 @@ class SessionService implements SessionInterface {
     return sso.data;
   }
 
+  async getCurrentUser(): Promise<User> {
+    const user: AxiosResponse<User> = await backendAPI.get('session');
+    return user.data;
+  }
+
   logout(): void {
     localStorageService.delete(this.localStorageKey);
   }

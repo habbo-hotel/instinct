@@ -18,6 +18,8 @@ export interface SessionInterface {
   // Throws exception upon failure
   createSSO(): Promise<string>;
 
+  getCurrentUser(): Promise<User>;
+
   // Removes the user's bearer token from localStorage
   logout(): void;
 }

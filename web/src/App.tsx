@@ -1,15 +1,16 @@
 import './pages';
 import React from 'react';
-import { Client, Router } from 'components';
+import { ContextProviders } from 'app/context';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import { ContextProviders } from './app/context';
+import { Client, DataPolling, Router } from 'components';
 
 export function App() {
   return (
     <ContextProviders>
       <Router />
       <Client/>
+      <DataPolling/>
       <ToastContainer />
     </ContextProviders>
   );
