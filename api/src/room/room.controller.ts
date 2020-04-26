@@ -1,6 +1,6 @@
 import { RoomPipe } from './room.pipe';
 import { RoomService } from './room.service';
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 import { Controller, Get, Param } from '@nestjs/common';
 import { RoomEntity, roomWire } from '../database/entity/room';
 

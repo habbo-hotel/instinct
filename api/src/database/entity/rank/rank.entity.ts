@@ -1,4 +1,4 @@
-import { Rank } from 'fashionkilla-interfaces';
+import { Rank } from 'instinct-interfaces';
 import { UserEntity, userWire } from '../user';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 

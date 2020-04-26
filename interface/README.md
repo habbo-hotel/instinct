@@ -1,2 +1,2 @@
-## FASHIONKILLA - Common Interfaces
-This library is for common interfaces shared between FASHIONKILLA applications.
+## Instinct - Common Interfaces
+This library is for common interfaces shared between Instinct applications.

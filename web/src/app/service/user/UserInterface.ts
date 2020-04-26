@@ -1,4 +1,4 @@
-import { User, UserProfile } from 'fashionkilla-interfaces';
+import { User, UserProfile } from 'instinct-interfaces';
 
 export interface UserInterface {
   create(username: string, password: string, email: string): Promise<User>;

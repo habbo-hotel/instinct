@@ -1,6 +1,6 @@
 import { ArticlePipe } from './article.pipe';
 import { NewArticleDTO } from './article.dto';
-import { Article } from 'fashionkilla-interfaces';
+import { Article } from 'instinct-interfaces';
 import { ArticleService } from './article.service';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ArticleEntity, articleWire } from '../database/entity/article';

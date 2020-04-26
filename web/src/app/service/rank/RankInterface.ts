@@ -1,4 +1,4 @@
-import { Rank } from 'fashionkilla-interfaces';
+import { Rank } from 'instinct-interfaces';
 
 export interface RankInterface {
   getAll(): Promise<Rank[]>;

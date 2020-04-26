@@ -1,7 +1,7 @@
 import { ArticleInterface } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
-import { Article } from 'fashionkilla-interfaces';
+import { Article } from 'instinct-interfaces';
 
 class ArticleService implements ArticleInterface {
   async getAll() {

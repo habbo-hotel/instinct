@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 import { userService } from 'app/service';
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 import React, { useContext, useState } from 'react';
 import { SessionContext, SessionInterface } from 'app/context';
 import { RegisterModalState, defaultRegisterModalState } from './';

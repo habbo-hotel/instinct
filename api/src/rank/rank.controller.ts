@@ -1,6 +1,6 @@
 import { RankPipe } from './rank.pipe';
 import { RankService } from './rank.service';
-import { Rank } from 'fashionkilla-interfaces';
+import { Rank } from 'instinct-interfaces';
 import { Controller, Get, Param } from '@nestjs/common';
 import { RankEntity, rankWire } from '../database/entity/rank';
 

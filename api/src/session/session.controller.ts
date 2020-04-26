@@ -1,5 +1,5 @@
 import { NewSessionDTO } from './session.dto';
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 import { SessionService } from './session.service';
 import { UserService } from '../user/user.service';
 import { HasSession } from './has-session.decorator';

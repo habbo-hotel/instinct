@@ -1,6 +1,6 @@
 import { UserEntity, userWire } from '../user';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Photo } from 'fashionkilla-interfaces';
+import { Photo } from 'instinct-interfaces';
 
 export function photoWire(photoEntity: PhotoEntity): Photo {
   return {

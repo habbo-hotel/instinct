@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { roomService } from 'app/service';
 import { Card, Loading } from 'components';
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultPopularRoomsState, PopularRoomsState } from './';
 

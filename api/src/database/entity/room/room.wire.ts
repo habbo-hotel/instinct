@@ -1,6 +1,6 @@
 import { RoomEntity } from './';
 import { userWire } from '../user';
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 
 export function roomWire(roomEntity: RoomEntity): Room {
   return {

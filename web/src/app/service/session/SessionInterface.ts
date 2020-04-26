@@ -1,4 +1,4 @@
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 
 export interface SessionInterface {
   // Fetches user bearer token if it exists

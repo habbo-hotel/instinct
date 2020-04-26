@@ -1,6 +1,6 @@
 import './Room.scss';
 import { SessionContext } from 'app/context';
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
 import { Link, useParams } from 'react-router-dom';
 import { clientService, roomService } from 'app/service';

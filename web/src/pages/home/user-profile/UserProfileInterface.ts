@@ -1,4 +1,4 @@
-import { UserProfile } from 'fashionkilla-interfaces';
+import { UserProfile } from 'instinct-interfaces';
 
 export interface UserProfileState {
   profile?: UserProfile;

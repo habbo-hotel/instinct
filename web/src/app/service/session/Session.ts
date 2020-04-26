@@ -1,6 +1,6 @@
 import { SessionInterface } from './';
 import { AxiosResponse } from 'axios';
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 import { localStorageService } from 'app/service';
 import { backendAPI, setAPIToken } from 'app/BackendAPI';
 

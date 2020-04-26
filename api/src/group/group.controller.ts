@@ -1,6 +1,6 @@
 import { GroupPipe } from './group.pipe';
 import { GroupService } from './group.service';
-import { Group } from 'fashionkilla-interfaces';
+import { Group } from 'instinct-interfaces';
 import { Controller, Get, Param } from '@nestjs/common';
 import { GroupEntity, groupWire } from '../database/entity/group';
 

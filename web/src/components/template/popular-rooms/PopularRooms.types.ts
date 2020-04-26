@@ -1,4 +1,4 @@
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 
 export interface PopularRoomsState {
   rooms: Room[];

@@ -1,7 +1,7 @@
 <img src="https://i.imgur.com/IpdgRjM.png" />
 
 # Introduction
-Fashionkilla is a modern content management system created for Habbo Retros.
+Instinct is a modern content management system created for Habbo Retros.
 
 It is built to support the LTS version of Arcturus Morningstar.
 
@@ -14,7 +14,7 @@ LeChris - Sole Maintainer
 <br/>
 Raizer - Base Designer
 <br/>
-A$AP Rocky - Inspiring the name [here](https://www.youtube.com/watch?v=F6VfsJ7LAlE)
+Roy Woods - Inspiring the name [here](https://www.youtube.com/watch?v=_5lUSTmkM_0)
 
 ## Tech Stack
 * NodeJS

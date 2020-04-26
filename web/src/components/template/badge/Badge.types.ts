@@ -1,4 +1,4 @@
-import { Badge } from 'fashionkilla-interfaces';
+import { Badge } from 'instinct-interfaces';
 
 export interface BadgeProps {
   badge: Badge;

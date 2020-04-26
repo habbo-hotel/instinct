@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { exampleUser, User } from 'fashionkilla-interfaces';
+import { exampleUser, User } from 'instinct-interfaces';
 import { ClientEvent, clientService, sessionService } from 'app/service';
 import { SessionContext, SessionInterface, SessionProviderProps } from './';
 

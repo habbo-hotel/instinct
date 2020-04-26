@@ -1,7 +1,7 @@
 import * as Moment from 'moment';
 import { userWire } from '../user';
 import { GroupEntity } from './group.entity';
-import { Group } from 'fashionkilla-interfaces';
+import { Group } from 'instinct-interfaces';
 
 export function groupWire(groupEntity: GroupEntity): Group {
   return {

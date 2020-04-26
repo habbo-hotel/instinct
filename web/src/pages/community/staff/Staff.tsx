@@ -1,4 +1,4 @@
-import { Rank } from 'fashionkilla-interfaces';
+import { Rank } from 'instinct-interfaces';
 import { defaultStaffState, StaffState } from './';
 import React, { useEffect, useState } from 'react';
 import { rankService } from '../../../app/service/rank';

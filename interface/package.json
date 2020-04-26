@@ -1,7 +1,7 @@
 {
-  "name": "fashionkilla-interfaces",
-  "version": "0.3.6",
-  "description": "Shared interfaces across FASHIONKILLA",
+  "name": "instinct-interfaces",
+  "version": "1.0.0",
+  "description": "Shared interfaces across Instinct",
   "license": "MIT",
   "private": false,
   "main": "build/",

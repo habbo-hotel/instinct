@@ -1,7 +1,7 @@
 import { UserInterface } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
-import { User, UserProfile } from 'fashionkilla-interfaces';
+import { User, UserProfile } from 'instinct-interfaces';
 
 export class UserService implements UserInterface {
   async create(username: string, password: string, email: string): Promise<User> {

@@ -1,4 +1,4 @@
-## FASHIONKILLA - API
+## Instinct - API
 
 ### Setting Up
 1. `cd api`

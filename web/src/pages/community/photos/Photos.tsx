@@ -1,5 +1,5 @@
 import { photoService } from 'app/service';
-import { Photo } from 'fashionkilla-interfaces';
+import { Photo } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultPhotosState, PhotosState } from './';
 import { UserLayout, setURL, Jumbotron, Container, Row, PhotoContainer, Loading } from 'components';

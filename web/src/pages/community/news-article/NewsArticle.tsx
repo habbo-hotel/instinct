@@ -1,7 +1,7 @@
 import './NewsArticle.scss';
 import { useParams } from 'react-router';
 import { articleService } from 'app/service';
-import { Article } from 'fashionkilla-interfaces';
+import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultNewsArticleState, NewsArticleParameters, NewsArticleState } from './';
 import { Card, Container, Column, RecentNews, Jumbotron, UserLayout, setURL, Loading, Avatar } from 'components';

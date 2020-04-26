@@ -1,11 +1,13 @@
 {
-  "name": "web",
-  "version": "0.1.0",
-  "private": true,
+  "scripts": {
+    "start": "PORT=3001 react-scripts start",
+    "build": "react-scripts build",
+    "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
+    "fix": "gts clean && gts fix"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "events": "^3.1.0",
-    "fashionkilla-interfaces": "0.3.6",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -14,27 +16,6 @@
     "react-toastify": "^5.5.0",
     "reactstrap": "^8.4.1",
     "swfobject": "^2.2.1"
-  },
-  "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
-    "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
-    "fix": "gts clean && gts fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.5.0",
@@ -52,9 +33,25 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "gts": "^2.0.0",
+    "instinct-interfaces": "^1.0.0",
     "node-sass": "^4.13.1",
     "react-scripts": "^3.4.1",
     "typescript": "^3.8.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "proxy": "http://localhost:3000"
 }

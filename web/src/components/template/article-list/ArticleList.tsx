@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArticleCard, Container, Jumbotron, Loading } from 'components';
 import { ArticleListState, defaultArticleListState } from './';
-import { Article } from 'fashionkilla-interfaces';
+import { Article } from 'instinct-interfaces';
 import { articleService } from '../../../app/service/article';
 
 export function ArticleList() {

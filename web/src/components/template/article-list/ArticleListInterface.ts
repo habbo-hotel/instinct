@@ -1,4 +1,4 @@
-import { Article } from 'fashionkilla-interfaces';
+import { Article } from 'instinct-interfaces';
 
 export interface ArticleListState {
   articles: Article[];

@@ -1,7 +1,7 @@
 import { RankInterface } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
-import { Rank } from 'fashionkilla-interfaces';
+import { Rank } from 'instinct-interfaces';
 
 class RankService implements RankInterface {
   async getAll() {

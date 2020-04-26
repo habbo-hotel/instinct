@@ -1,4 +1,4 @@
-import { Photo } from 'fashionkilla-interfaces';
+import { Photo } from 'instinct-interfaces';
 
 export interface PhotosState {
   photos: Photo[];

@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 import { SessionInterface } from './';
-import { exampleUser, User } from 'fashionkilla-interfaces';
+import { exampleUser, User } from 'instinct-interfaces';
 
 export const SessionContext = createContext<SessionInterface>({
   setStore: () => {},

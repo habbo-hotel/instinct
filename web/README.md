@@ -1,4 +1,4 @@
-## FASHIONKILLA - Frontend
+## Instinct - Frontend
 
 ### Setting Up
 1. `npm install`

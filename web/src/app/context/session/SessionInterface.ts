@@ -1,5 +1,5 @@
 import { UserSession } from 'app/interface';
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 
 export interface SessionInterface extends UserSession {
   setStore: (changes: Partial<SessionInterface>) => void;

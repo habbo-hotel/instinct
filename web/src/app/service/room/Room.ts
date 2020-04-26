@@ -1,7 +1,7 @@
 import { RoomService } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from 'app/BackendAPI';
-import { Room } from 'fashionkilla-interfaces';
+import { Room } from 'instinct-interfaces';
 
 class RoomServiceImplementation implements RoomService {
   async getAll() {

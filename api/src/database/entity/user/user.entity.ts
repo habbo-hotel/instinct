@@ -2,7 +2,7 @@ import * as Moment from 'moment';
 import { RoomEntity } from '../room';
 import { PhotoEntity } from '../photo';
 import { RankEntity, rankWire } from '../rank';
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 import { UserBadgesEntity } from './user-badges.entity';
 import {
   Column,

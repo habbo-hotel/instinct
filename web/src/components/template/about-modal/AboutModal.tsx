@@ -7,7 +7,7 @@ export function AboutModal({ isOpen, onToggle }: AboutModalProps) {
   const healthContext = useContext(HealthContext);
   return (
     <>
-      <ModalOverlay header="FASHIONKILLA" isOpen={isOpen} onToggle={onToggle}>
+      <ModalOverlay header="Instinct" isOpen={isOpen} onToggle={onToggle}>
         <div className="text-dark">
           <p>High performance, scalable content management system developed with Typescript, React and Nest.</p>
           <h5>Version</h5>

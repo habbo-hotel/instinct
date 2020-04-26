@@ -1,4 +1,4 @@
-import { User } from 'fashionkilla-interfaces';
+import { User } from 'instinct-interfaces';
 
 export interface UserSession {
   user?: User;
