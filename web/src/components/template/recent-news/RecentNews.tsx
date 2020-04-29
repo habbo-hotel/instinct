@@ -32,7 +32,7 @@ export function RecentNews() {
               <div className="related-article-thumbnail" style={{ backgroundImage: `url(${article.imagePath})` }} />
               <div className="related-article-details">
                 <div className="related-article-title">{article.title}</div>
-                <div className="related-article-date">{Moment(article.datePosted).format('MMM DD, YYYY')}</div>
+                <div className="related-article-date">{Moment.unix(article.datePosted).format('MMM DD, YYYY')}</div>
               </div>
             </Link>
           ))}

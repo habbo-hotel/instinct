@@ -1,47 +1,75 @@
-import * as Moment from 'moment';
-import { UserEntity, userWire } from '../user';
 import { Article } from 'instinct-interfaces';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { UserEntity, userWire } from '../user';
+import { ArticleCategoryEntity } from './article-category.entity';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+export enum ArticleForm {
+  None = 'none',
+  Photo = 'photo',
+  Badge = 'badge',
+  Look = 'look',
+  Word = 'word',
+}
+
+export enum ArticleVisibility {
+  Show = '1',
+  Hidden = '0',
+}
 
 export function articleWire(articleEntity: ArticleEntity): Article {
   return {
     id: articleEntity.id!,
     title: articleEntity.title,
-    imagePath: articleEntity.imagePath,
-    datePosted: Moment(articleEntity.createdAt).unix(),
-    description: articleEntity.description,
-    content: articleEntity.content,
+    imagePath: articleEntity.image,
+    datePosted: articleEntity.timestamp,
+    description: articleEntity.shortStory,
+    content: articleEntity.fullStory,
     author: userWire(articleEntity.author!),
   };
 }
 
-@Entity('articles')
+@Entity('website_news')
 export class ArticleEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
   @Column()
+  slug?: string;
+
+  @Column()
   title!: string;
 
-  @Column()
-  description!: string;
+  @Column({ name: 'short_story' })
+  shortStory!: string;
+
+  @Column({ name: 'full_story' })
+  fullStory!: string;
 
   @Column()
-  content!: string;
+  header!: string;
 
-  @Column({ name: 'image_path' })
-  imagePath!: string;
+  @Column({ name: 'category' })
+  categoryID!: number;
 
-  @CreateDateColumn({ name: 'created_at' })
-  createdAt?: Date;
+  @ManyToOne(() => ArticleCategoryEntity, category => category.articles)
+  category?: ArticleCategoryEntity;
 
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt?: Date;
+  @Column({ type: 'enum' })
+  form!: ArticleForm;
 
-  @Column({ name: 'users_id' })
+  @Column({ type: 'enum' })
+  hidden!: ArticleVisibility;
+
+  @Column({ name: 'images' })
+  image!: string;
+
+  @CreateDateColumn({ name: 'timestamp', type: 'int' })
+  timestamp!: number;
+
+  @Column({ name: 'author' })
   userID!: number;
 
   @ManyToOne(() => UserEntity)
-  @JoinColumn({ name: 'users_id' })
+  @JoinColumn({ name: 'author' })
   author?: UserEntity;
 }

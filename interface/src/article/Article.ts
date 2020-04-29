@@ -1,13 +1,15 @@
 import { exampleUser, User } from '../';
+import { ArticleCategory, exampleArticleCategory } from './';
 
 export interface Article {
   id: number;
   title: string;
   description: string;
   content: string;
-  datePosted: number; // Epoch time
+  datePosted: number;
   imagePath: string;
   author: User;
+  category: ArticleCategory;
 }
 
 export const exampleArticle: Article = {
@@ -18,4 +20,5 @@ export const exampleArticle: Article = {
   datePosted: +new Date() / 1000,
   imagePath: '/img/article-1.png',
   author: exampleUser,
+  category: exampleArticleCategory,
 };

@@ -27,6 +27,14 @@ export function Photos() {
       </Jumbotron>
       <Container>
         <Loading isLoading={state.showSpinner}>
+          {
+            state.photos.length === 0 && (
+              <>
+                <h3>Hmmm...</h3>
+                <p>It looks like there aren't any pictures.  Maybe you could be the first!</p>
+              </>
+            )
+          }
           <Row>
             <div className="photos-container">
               <div className="photo-container">

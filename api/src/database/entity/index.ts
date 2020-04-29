@@ -12,5 +12,6 @@ import { PhotoEntity } from './photo';
 import { GroupEntity } from './group';
 import { UserBadgesEntity } from './user';
 import { ArticleEntity } from './article';
+import { ArticleCategoryEntity } from './article';
 
-export const databaseEntities: Function[] = [ArticleEntity, PhotoEntity, GroupEntity, RankEntity, UserEntity, UserBadgesEntity, RoomEntity];
+export const databaseEntities: Function[] = [ArticleEntity, ArticleCategoryEntity, PhotoEntity, GroupEntity, RankEntity, UserEntity, UserBadgesEntity, RoomEntity];

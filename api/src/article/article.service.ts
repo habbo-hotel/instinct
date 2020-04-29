@@ -10,7 +10,7 @@ export class ArticleService {
     private readonly articleRepo: Repository<ArticleEntity>,
   ) {}
 
-  private readonly eagerRelations: string[] = ['author', 'author.rank'];
+  private readonly eagerRelations: string[] = ['author', 'author.rank', 'category'];
 
   async create(article: ArticleEntity): Promise<ArticleEntity> {
     const newArticle: ArticleEntity = await this.articleRepo.save(article);

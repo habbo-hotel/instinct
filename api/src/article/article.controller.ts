@@ -1,3 +1,4 @@
+import * as Moment from 'moment';
 import { ArticlePipe } from './article.pipe';
 import { NewArticleDTO } from './article.dto';
 import { Article } from 'instinct-interfaces';
@@ -11,7 +12,10 @@ export class ArticleController {
 
   @Post()
   async create(@Body() newArticle: NewArticleDTO): Promise<Article> {
-    const article: ArticleEntity = await this.articleService.create(newArticle);
+    const article: ArticleEntity = await this.articleService.create({
+      ...newArticle,
+      timestamp: Moment().unix(),
+    });
     return articleWire(article);
   }
 

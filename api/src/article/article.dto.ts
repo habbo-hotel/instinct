@@ -1,17 +1,30 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { ArticleForm, ArticleVisibility } from '../database/entity/article';
 
 export class NewArticleDTO {
   @IsString()
   title!: string;
 
   @IsString()
-  description!: string;
+  header!: string;
+
+  @IsNumber()
+  categoryID!: number;
 
   @IsString()
-  content!: string;
+  shortStory!: string;
 
   @IsString()
-  imagePath!: string;
+  fullStory!: string;
+
+  @IsEnum(ArticleForm)
+  form!: ArticleForm;
+
+  @IsEnum(ArticleVisibility)
+  hidden!: ArticleVisibility;
+
+  @IsString()
+  image!: string;
 
   @IsNumber()
   userID!: number;
