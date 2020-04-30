@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Jumbotron, Loading, Row, setURL, UserLayout } from 'components';
+import { Container, Jumbotron, Loading, Row, setURL, TabCard, UserLayout } from 'components';
 
 setURL('preferences', <PreferencesPage />);
 
@@ -12,7 +12,23 @@ export function PreferencesPage() {
         </Jumbotron>
         <Container>
           <Row>
-            <p>Coming Soon</p>
+            <article className="default-section">
+              <TabCard
+                header="Preferences"
+                tabs={[
+                  {
+                    name: 'Update Security',
+                    icon: 'lock',
+                    children: 'security rules',
+                  },
+                  {
+                    name: 'Email Preferences',
+                    icon: 'envelope',
+                    children: 'email',
+                  }
+                ]}
+              />
+            </article>
           </Row>
         </Container>
       </Loading>
