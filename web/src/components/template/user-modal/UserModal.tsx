@@ -1,8 +1,8 @@
+import { UserModalProps } from './';
 import React, { useState } from 'react';
-import { FriendContainerProps } from './';
 import { Avatar, Button, ModalOverlay, redirect } from 'components';
 
-export function FriendContainer({ user }: FriendContainerProps) {
+export function UserModal({ children, user }: UserModalProps) {
   const [ showModal, setModal ] = useState<boolean>(false);
 
   function toggleModal(): void {
@@ -11,8 +11,10 @@ export function FriendContainer({ user }: FriendContainerProps) {
 
   return (
     <>
-      <Avatar look={user.figure} onClick={toggleModal} headOnly/>
-      <ModalOverlay header={`Hey, I'm ${user.username}`} isOpen={showModal} onToggle={toggleModal}>
+      <div onClick={toggleModal} style={{ cursor: 'pointer '}}>
+        {children}
+      </div>
+      <ModalOverlay header={user.username} isOpen={showModal} onToggle={toggleModal}>
         <div>
           <Avatar look={user.figure}/>
           <Button color="primary" onClick={() => redirect(`profile/${user.username}`)}>
@@ -20,6 +22,7 @@ export function FriendContainer({ user }: FriendContainerProps) {
           </Button>
         </div>
       </ModalOverlay>
-    </>
+     </>
   )
+
 }

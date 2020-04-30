@@ -1,8 +1,7 @@
 import React from 'react';
 import { take } from 'lodash';
-import { Card } from 'components';
 import { UserProfileWidgetProps } from '../';
-import { FriendContainer } from './friend-container';
+import { Avatar, Card, UserModal } from 'components';
 
 export function Friends({ profile }: UserProfileWidgetProps) {
   return (
@@ -16,7 +15,9 @@ export function Friends({ profile }: UserProfileWidgetProps) {
         {
           take(profile?.friends, 5).map(user => (
             <div className="item-container" key={user.id}>
-              <FriendContainer user={user}/>
+              <UserModal user={user}>
+                <Avatar look={user.figure} headOnly/>
+              </UserModal>
             </div>
           ))
         }

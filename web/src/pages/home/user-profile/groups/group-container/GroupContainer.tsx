@@ -13,7 +13,7 @@ export function GroupContainer({ group }: GroupContainerProps) {
 
   return (
     <>
-      <img alt={`${group.name} badge`} src={`${configContext.groupBadgeURL}/${group.badge}.png`} onClick={toggleModal}/>
+      <img alt={`${group.name} badge`} src={`${configContext.groupBadgeURL}/${group.badge}.png`} onClick={toggleModal} style={{ cursor: 'pointer' }}/>
       <ModalOverlay header={group.name} isOpen={showModal} onToggle={toggleModal}>
         <p>Group pages are coming soon.</p>
       </ModalOverlay>

@@ -19,7 +19,7 @@ export function Client() {
   }
 
   return (
-    <UserGuard>
+    <UserGuard redirect={false}>
       <div className={`hotel-container ${themeContext.showClient ? 'visible' : 'not-visible' }`}>
         {
           flashEnabled && (

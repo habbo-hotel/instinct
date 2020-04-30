@@ -15,4 +15,5 @@ export * from './popular-rooms';
 export * from './recent-news';
 export * from './register-modal';
 export * from './user-container';
+export * from './user-modal';
 export * from './user-of-the-week';
