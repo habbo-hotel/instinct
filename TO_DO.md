@@ -3,4 +3,3 @@
   * Problem lies with `class-validator` and its container with Nest
   
 ## Web
-* Client does not automatically close when logging out
