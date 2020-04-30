@@ -1,15 +1,6 @@
-import { Rank } from 'instinct-interfaces';
-import { UserEntity, userWire } from '../user';
+import { UserEntity } from '../user';
+import { PermissionStatus } from './rank.types';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-
-export function rankWire(rankEntity: RankEntity): Rank {
-  return {
-    id: rankEntity.id!,
-    name: rankEntity.name,
-    badge: rankEntity.badge,
-    users: rankEntity.users !== undefined ? rankEntity.users!.map(user => userWire(user)) : undefined,
-  };
-}
 
 @Entity('permissions')
 export class RankEntity {
@@ -30,4 +21,8 @@ export class RankEntity {
     user => user.rank,
   )
   users?: UserEntity[];
+
+  @Column({ name: 'website_show_staff', type: 'enum', default: '0' })
+  websiteShowStaff!: PermissionStatus;
+
 }
