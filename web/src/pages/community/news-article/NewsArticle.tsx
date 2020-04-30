@@ -1,4 +1,5 @@
 import './NewsArticle.scss';
+import * as Moment from 'moment';
 import { useParams } from 'react-router';
 import { articleService } from 'app/service';
 import { Article } from 'instinct-interfaces';
@@ -30,9 +31,9 @@ export function NewsArticle() {
         <Jumbotron
           className="text-center"
           title={state.article?.title ?? ''}
-          style={{ backgroundImage: `url('${state.article?.imagePath}')`, backgroundSize: '100%' }}
+          style={{ backgroundImage: `url('${state.article?.headerImage}')`, backgroundSize: '100%' }}
         >
-          <p>Campaigns & Activities - Feb 2, 2020</p>
+          <p>{state.article?.category.name} - {Moment.unix(state.article?.datePosted || 0).format('MMMM DD, YYYY')}</p>
         </Jumbotron>
         <Container>
           <Column side="left">

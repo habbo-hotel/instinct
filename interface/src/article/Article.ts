@@ -7,7 +7,8 @@ export interface Article {
   description: string;
   content: string;
   datePosted: number;
-  imagePath: string;
+  headerImage: string;
+  thumbnailImage: string;
   author: User;
   category: ArticleCategory;
 }
@@ -18,7 +19,8 @@ export const exampleArticle: Article = {
   description: 'Testing the news',
   content: 'I am testing the news',
   datePosted: +new Date() / 1000,
-  imagePath: '/img/article-1.png',
+  headerImage: '/img/article-1.png',
+  thumbnailImage: '/img/article-1.png',
   author: exampleUser,
   category: exampleArticleCategory,
 };

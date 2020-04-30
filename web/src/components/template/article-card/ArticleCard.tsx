@@ -8,10 +8,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <Link
         className="article-content pixelated"
         to={`/community/news/${article.id}`}
-        style={{ backgroundImage: `url('${article.imagePath}')` }}
+        style={{ backgroundImage: `url('${article.thumbnailImage}')` }}
       >
         <div className="article-header">
-          <div className="article-category">Campaigns & Activities</div>
+          <div className="article-category">{article.category.name}</div>
           <div className="article-separation" style={{ backgroundColor: '#f28600' }} />
           <div className="article-title">{article.title}</div>
         </div>

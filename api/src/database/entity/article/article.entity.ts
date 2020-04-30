@@ -1,5 +1,4 @@
-import { Article } from 'instinct-interfaces';
-import { UserEntity, userWire } from '../user';
+import { UserEntity } from '../user';
 import { ArticleCategoryEntity } from './article-category.entity';
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
@@ -14,18 +13,6 @@ export enum ArticleForm {
 export enum ArticleVisibility {
   Show = '1',
   Hidden = '0',
-}
-
-export function articleWire(articleEntity: ArticleEntity): Article {
-  return {
-    id: articleEntity.id!,
-    title: articleEntity.title,
-    imagePath: articleEntity.image,
-    datePosted: articleEntity.timestamp,
-    description: articleEntity.shortStory,
-    content: articleEntity.fullStory,
-    author: userWire(articleEntity.author!),
-  };
 }
 
 @Entity('website_news')
@@ -52,6 +39,7 @@ export class ArticleEntity {
   categoryID!: number;
 
   @ManyToOne(() => ArticleCategoryEntity, category => category.articles)
+  @JoinColumn({ name: 'category' })
   category?: ArticleCategoryEntity;
 
   @Column({ type: 'enum' })

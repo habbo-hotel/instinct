@@ -29,7 +29,7 @@ export function RecentNews() {
         <div className="related-articles-container">
           {state.articles.map(article => (
             <Link className="related-article-container" key={article.id} to={`/community/news/${article.id}`}>
-              <div className="related-article-thumbnail" style={{ backgroundImage: `url(${article.imagePath})` }} />
+              <div className="related-article-thumbnail" style={{ backgroundImage: `url(${article.thumbnailImage})` }} />
               <div className="related-article-details">
                 <div className="related-article-title">{article.title}</div>
                 <div className="related-article-date">{Moment.unix(article.datePosted).format('MMM DD, YYYY')}</div>
