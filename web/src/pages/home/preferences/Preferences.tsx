@@ -1,4 +1,5 @@
 import React from 'react';
+import { preferenceTabs } from './tabs';
 import { Container, Jumbotron, Loading, Row, setURL, TabCard, UserLayout } from 'components';
 
 setURL('preferences', <PreferencesPage />);
@@ -13,21 +14,7 @@ export function PreferencesPage() {
         <Container>
           <Row>
             <article className="default-section">
-              <TabCard
-                header="Preferences"
-                tabs={[
-                  {
-                    name: 'Update Security',
-                    icon: 'lock',
-                    children: 'security rules',
-                  },
-                  {
-                    name: 'Email Preferences',
-                    icon: 'envelope',
-                    children: 'email',
-                  }
-                ]}
-              />
+              <TabCard header="Preferences" tabs={preferenceTabs}/>
             </article>
           </Row>
         </Container>

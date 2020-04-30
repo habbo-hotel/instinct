@@ -10,7 +10,7 @@ export function Form({ children, className, onSubmit }: FormProps) {
   }
 
   return (
-    <form className={className || 'form-control'} onSubmit={handleOnSubmit}>
+    <form className={className ?? 'form-control'} onSubmit={handleOnSubmit}>
       {children}
     </form>
   );
