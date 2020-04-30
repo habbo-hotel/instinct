@@ -1,8 +1,6 @@
-import * as Moment from 'moment';
+import { RankEntity } from '../rank';
 import { RoomEntity } from '../room';
 import { PhotoEntity } from '../photo';
-import { RankEntity, rankWire } from '../rank';
-import { User } from 'instinct-interfaces';
 import { UserBadgesEntity } from './user-badges.entity';
 import {
   Column,
@@ -15,22 +13,6 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm';
 import { GroupEntity } from '../group';
-
-export function userWire(userEntity: UserEntity): User {
-  return {
-    id: userEntity.id!,
-    username: userEntity.username,
-    motto: userEntity.motto!,
-    credits: userEntity.credits,
-    pixels: userEntity.pixels,
-    points: userEntity.points,
-    online: userEntity.online === 1,
-    figure: userEntity.figure,
-    joinDate: Moment.unix(userEntity.accountCreated).toISOString(),
-    lastLoginDate: Moment.unix(userEntity.lastLogin).toISOString(),
-    rank: userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
-  };
-}
 
 @Entity('users')
 export class UserEntity {
@@ -141,5 +123,8 @@ export class UserEntity {
 
   @OneToMany(() => GroupEntity, group => group.user)
   groups?: GroupEntity[];
+
+  @ManyToMany(() => GroupEntity, group => group.members)
+  joinedGroups?: GroupEntity[];
 
 }

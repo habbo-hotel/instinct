@@ -9,7 +9,7 @@ import { HashService } from '../common/hash.service';
 export class UserService {
 
   readonly eagerRelations: Array<keyof UserEntity> = [
-    'groups',
+    'joinedGroups',
     'badges',
     'rooms',
     'friends',

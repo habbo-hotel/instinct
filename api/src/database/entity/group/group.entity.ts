@@ -1,6 +1,6 @@
 import { UserEntity } from '../user';
 import { RoomEntity } from '../room';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity('guilds')
 export class GroupEntity {
@@ -36,4 +36,16 @@ export class GroupEntity {
 
   @Column({ name: 'date_created', type: 'int' })
   dateCreated!: number;
+
+  @ManyToMany(() => UserEntity, user => user.joinedGroups)
+  @JoinTable({
+    name: "guilds_members",
+    joinColumn: {
+      name: "guild_id",
+    },
+    inverseJoinColumn: {
+      name: "user_id",
+    }
+  })
+  members?: UserEntity[];
 }
