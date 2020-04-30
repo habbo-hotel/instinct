@@ -16,16 +16,16 @@ export function UserContainer({ profile }: UserProfileWidgetProps) {
             <div className="profile-icon">
               <img alt="credits" src="/img/icons/credits.png" style={{ position: 'initial' }} />
               &nbsp;
-              {profile?.user.credits}
+              {profile?.user.credits.toLocaleString()}
             </div>
             <div className="profile-icon">
               <img alt="duckets" src="/img/icons/duckets.png" style={{ position: 'initial' }} />
               &nbsp;
-              {profile?.user.pixels}
+              {profile?.user.pixels.toLocaleString()}
             </div>
             <div className="profile-icon">
               <img alt="diamonds" src="/img/icons/diamonds.png" style={{ position: 'initial' }} />
-              &nbsp;{profile?.user.points}
+              &nbsp;{profile?.user.points.toLocaleString()}
             </div>
           </div>
         </div>
