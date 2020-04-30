@@ -19,10 +19,7 @@ export enum ArticleVisibility {
 export class ArticleEntity {
   @PrimaryGeneratedColumn()
   id?: number;
-
-  @Column()
-  slug?: string;
-
+  
   @Column()
   title!: string;
 
@@ -41,12 +38,6 @@ export class ArticleEntity {
   @ManyToOne(() => ArticleCategoryEntity, category => category.articles)
   @JoinColumn({ name: 'category' })
   category?: ArticleCategoryEntity;
-
-  @Column({ type: 'enum' })
-  form!: ArticleForm;
-
-  @Column({ type: 'enum' })
-  hidden!: ArticleVisibility;
 
   @Column({ name: 'images' })
   image!: string;

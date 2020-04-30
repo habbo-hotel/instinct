@@ -26,6 +26,14 @@ export function ArticleList() {
       <Container>
         <div className="articles-container">
           <Loading isLoading={showSpinner}>
+            {
+              articles.length === 0 && (
+                <>
+                  <h3>Hmmm...</h3>
+                  <p>It looks like there aren't any articles.</p>
+                </>
+              )
+            }
             {articles.map(article => (
               <ArticleCard article={article} key={article.id} />
             ))}
