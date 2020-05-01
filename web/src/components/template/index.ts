@@ -1,4 +1,5 @@
 export * from './about-modal';
+export * from './admin-navbar';
 export * from './article-card';
 export * from './article-list';
 export * from './badge';

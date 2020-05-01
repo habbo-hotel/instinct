@@ -25,4 +25,7 @@ export class RankEntity {
   @Column({ name: 'website_show_staff', type: 'enum', default: '0' })
   websiteShowStaff!: PermissionStatus;
 
+  @Column({ name: 'website_show_admin_panel', type: 'enum', default: '0' })
+  websiteShowAdminPanel!: PermissionStatus;
+
 }

@@ -58,3 +58,4 @@ SET FOREIGN_KEY_CHECKS = 1;
 -------
 ALTER TABLE permissions
 ADD COLUMN website_show_staff enum('0', '1') NOT NULL DEFAULT '0' COMMENT 'People with this permission will be visible on the staff page'
+ADD COLUMN website_show_admin_panel enum('0', '1') NOT NULL DEFAULT '0' COMMENT 'People with this permission can see the admin panel'

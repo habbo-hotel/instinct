@@ -1,10 +1,11 @@
-import { exampleUser, User } from '../';
+import { examplePermissions, User, Permissions } from '../';
 
 export interface Rank {
   id: number;
   name: string;
   badge: string;
   users?: User[];
+  permissions: Permissions;
 }
 
 export const exampleRank: Rank = {
@@ -12,4 +13,5 @@ export const exampleRank: Rank = {
   name: 'Developers',
   badge: 'ADM',
   users: [],
+  permissions: examplePermissions,
 };

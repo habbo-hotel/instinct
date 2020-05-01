@@ -1,3 +1,4 @@
+import './admin';
 import './auth';
 import './community';
 import './error';
