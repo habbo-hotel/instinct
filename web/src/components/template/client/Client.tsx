@@ -21,10 +21,10 @@ export function Client() {
   return (
     <UserGuard redirect={false}>
       <div className={`hotel-container ${themeContext.showClient ? 'visible' : 'not-visible' }`}>
+        <ClientActions/>
         {
           flashEnabled && (
             <>
-              <ClientActions/>
               <LoadingScreen/>
               <ClientContainer/>
             </>
