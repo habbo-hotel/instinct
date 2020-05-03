@@ -1,2 +1,2 @@
 export * from './Photo';
-export * from './PhotoInterface';
+export * from './Photo.types';

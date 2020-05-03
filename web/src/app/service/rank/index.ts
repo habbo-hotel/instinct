@@ -1,2 +1,2 @@
 export * from './Rank';
-export * from './RankInterface';
+export * from './Rank.types';

@@ -1,2 +1,2 @@
 export * from './Container';
-export * from './ContainerInterface';
+export * from './Container.types';

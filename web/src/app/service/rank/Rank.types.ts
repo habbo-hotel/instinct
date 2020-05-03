@@ -1,6 +1,6 @@
 import { Rank } from 'instinct-interfaces';
 
-export interface RankInterface {
+export interface RankTypes {
   getAll(): Promise<Rank[]>;
 
   getStaff(): Promise<Rank[]>;

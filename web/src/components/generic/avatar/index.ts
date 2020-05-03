@@ -1,2 +1,2 @@
 export * from './Avatar';
-export * from './AvatarInterface';
+export * from './Avatar.types';

@@ -1,2 +1,2 @@
-export * from './Guest';
-export * from './GuestInterface';
+export * from './GuestGuard';
+export * from './GuestGuard.types';

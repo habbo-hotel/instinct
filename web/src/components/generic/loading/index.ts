@@ -1,2 +1,2 @@
 export * from './Loading';
-export * from './LoadingInterface';
+export * from './Loading.types';

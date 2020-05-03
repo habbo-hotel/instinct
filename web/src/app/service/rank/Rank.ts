@@ -1,9 +1,9 @@
-import { RankInterface } from './';
+import { RankTypes } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
 import { Rank } from 'instinct-interfaces';
 
-class RankService implements RankInterface {
+class RankService implements RankTypes {
   async getAll() {
     const ranks: AxiosResponse<Rank[]> = await backendAPI.get('ranks');
     return ranks.data;
@@ -20,4 +20,4 @@ class RankService implements RankInterface {
   }
 }
 
-export const rankService: RankInterface = new RankService();
+export const rankService: RankTypes = new RankService();

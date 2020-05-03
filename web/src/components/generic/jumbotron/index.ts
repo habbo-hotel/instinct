@@ -1,2 +1,2 @@
 export * from './Jumbotron';
-export * from './JumbotronInterface';
+export * from './Jumbotron.types';

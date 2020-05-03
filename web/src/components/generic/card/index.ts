@@ -1,2 +1,2 @@
 export * from './Card';
-export * from './CardInterface';
+export * from './Card.types';

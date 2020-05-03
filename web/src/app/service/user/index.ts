@@ -1,2 +1,2 @@
 export * from './User';
-export * from './UserInterface';
+export * from './User.types';

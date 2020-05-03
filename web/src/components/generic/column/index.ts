@@ -1,2 +1,2 @@
 export * from './Column';
-export * from './ColumnInterface';
+export * from './Column.types';

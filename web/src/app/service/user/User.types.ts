@@ -1,6 +1,6 @@
 import { User, UserProfile } from 'instinct-interfaces';
 
-export interface UserInterface {
+export interface UserTypes {
   create(username: string, password: string, email: string): Promise<User>;
 
   getByUsername(username: string): Promise<UserProfile>;

@@ -8,6 +8,7 @@ export function AdminNavBar() {
         <NavBarLabel>Menu</NavBarLabel>
         <NavBarLink className="main-link-item" to="/" />
         <NavBarLink to="/admin">Dashboard</NavBarLink>
+        <NavBarLink to="/admin/website">Configure Website</NavBarLink>
         <li className="navigation-item navigation-right-side-item has-items">
           <UserDropdown />
         </li>

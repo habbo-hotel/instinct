@@ -1,2 +1,2 @@
 export * from './UserGuard';
-export * from './UserGuardInterface';
+export * from './UserGuard.types';

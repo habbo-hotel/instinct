@@ -1,2 +1,2 @@
 export * from './ModalOverlay';
-export * from './ModalOverlayInterface';
+export * from './ModalOverlay.types';

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { exampleUser, User } from 'instinct-interfaces';
 import { ClientEvent, clientService, sessionService } from 'app/service';
-import { SessionContext, SessionInterface, SessionProviderProps } from './';
+import { SessionContext, SessionTypes, SessionProviderProps } from './';
 
 export class SessionContextProvider extends PureComponent<SessionProviderProps> {
-  setStore = (changes: Partial<SessionInterface>): void => {
+  setStore = (changes: Partial<SessionTypes>): void => {
     return this.setState(changes);
   };
 
@@ -50,7 +50,7 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
   }
 
 
-  state: SessionInterface = {
+  state: SessionTypes = {
     startedAt: undefined,
     user: exampleUser,
     setStore: this.setStore,

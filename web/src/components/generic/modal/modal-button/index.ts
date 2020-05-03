@@ -1,2 +1,2 @@
 export * from './ModalButton';
-export * from './ModalButtonInterface';
+export * from './ModalButton.types';

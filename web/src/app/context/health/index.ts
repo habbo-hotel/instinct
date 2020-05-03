@@ -1,4 +1,4 @@
 export * from './HealthContext';
-export * from './HealthInterface';
+export * from './Health.types';
 export * from './HealthProvider';
-export * from './HealthProviderInterface';
+export * from './HealthProvider.types';

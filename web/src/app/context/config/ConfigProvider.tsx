@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
-import { ConfigContext, ConfigProviderProps, ConfigInterface, defaultConfigInterface } from './';
+import { ConfigContext, ConfigProviderProps, ConfigTypes, defaultConfigInterface } from './';
 
 export class ConfigProvider extends PureComponent<ConfigProviderProps> {
-  setStore = (changes: Partial<ConfigInterface>): void => {
+  setStore = (changes: Partial<ConfigTypes>): void => {
     return this.setState(changes);
   };
 
-  state: ConfigInterface = {
+  state: ConfigTypes = {
     ...defaultConfigInterface,
     setStore: this.setStore,
   };

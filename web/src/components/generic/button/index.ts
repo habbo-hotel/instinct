@@ -1,2 +1,2 @@
 export * from './Button';
-export * from './ButtonInterface';
+export * from './Button.types';

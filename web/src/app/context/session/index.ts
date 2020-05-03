@@ -1,4 +1,4 @@
-export * from './SessionInterface';
+export * from './Session.types';
 export * from './SessionContext';
 export * from './SessionProvider';
-export * from './SessionProviderInterface';
+export * from './SessionProvider.types';

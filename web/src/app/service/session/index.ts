@@ -1,2 +1,2 @@
 export * from './Session';
-export * from './SessionInterface';
+export * from './Session.types';

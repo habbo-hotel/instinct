@@ -1,2 +1,2 @@
 export * from './PhotoContainer';
-export * from './PhotoContainerInterface';
+export * from './PhotoContainer.types';

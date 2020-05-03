@@ -1,4 +1,4 @@
 import './UserProfile';
 
 export * from './UserProfile';
-export * from './UserProfileInterface';
+export * from './UserProfile.types';

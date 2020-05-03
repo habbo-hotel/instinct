@@ -1,2 +1,2 @@
 export * from './NavBarDropdown';
-export * from './NavBarDropDownInterface';
+export * from './NavBarDropDown.types';

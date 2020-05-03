@@ -1,2 +1,2 @@
 export * from './Label';
-export * from './LabelInterface';
+export * from './Label.types';

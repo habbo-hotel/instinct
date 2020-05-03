@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { SessionInterface } from './';
+import { SessionTypes } from './';
 import { exampleUser, User } from 'instinct-interfaces';
 
-export const SessionContext = createContext<SessionInterface>({
+export const SessionContext = createContext<SessionTypes>({
   setStore: () => {},
   login: async (username: string, password: string) => exampleUser,
   logout: () => {},

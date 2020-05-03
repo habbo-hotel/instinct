@@ -1,6 +1,6 @@
-import { LocalStorageInterface } from './';
+import { LocalStorageTypes } from './';
 
-class LocalStorageService implements LocalStorageInterface {
+class LocalStorageService implements LocalStorageTypes {
   // Fetches value from localStorage
   // Throws exception upon undefined
   get(index: string): string {
@@ -24,4 +24,4 @@ class LocalStorageService implements LocalStorageInterface {
   }
 }
 
-export const localStorageService: LocalStorageInterface = new LocalStorageService();
+export const localStorageService: LocalStorageTypes = new LocalStorageService();

@@ -2,13 +2,13 @@ import { toast } from 'react-toastify';
 import { userService } from 'app/service';
 import { User } from 'instinct-interfaces';
 import React, { useContext, useState } from 'react';
-import { SessionContext, SessionInterface } from 'app/context';
+import { SessionContext, SessionTypes } from 'app/context';
 import { RegisterModalState, defaultRegisterModalState } from './';
 import { Form, Input, Icon, ModalButton, redirect, Loading } from 'components';
 
 export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
-  const sessionContext = useContext<SessionInterface>(SessionContext);
+  const sessionContext = useContext<SessionTypes>(SessionContext);
 
   const disabled: boolean = state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
 

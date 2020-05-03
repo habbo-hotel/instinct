@@ -1,6 +1,6 @@
 import { User } from 'instinct-interfaces';
 
-export interface SessionInterface {
+export interface SessionTypes {
   // Fetches user bearer token if it exists
   // Attempts to fetch user with the bearer token
   // Upon failure will logout and return undefined

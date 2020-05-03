@@ -1,9 +1,9 @@
-import { UserInterface } from './';
+import { UserTypes } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
 import { User, UserProfile } from 'instinct-interfaces';
 
-export class UserService implements UserInterface {
+export class UserService implements UserTypes {
   async create(username: string, password: string, email: string): Promise<User> {
     const user: AxiosResponse<User> = await backendAPI.post('users', { username, password, email });
     return user.data;
@@ -35,4 +35,4 @@ export class UserService implements UserInterface {
   }
 }
 
-export const userService: UserInterface = new UserService();
+export const userService: UserTypes = new UserService();

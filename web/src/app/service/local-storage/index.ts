@@ -1,2 +1,2 @@
 export * from './LocalStorage';
-export * from './LocalStorageInterface';
+export * from './LocalStorage.types';

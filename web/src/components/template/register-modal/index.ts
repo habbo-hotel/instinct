@@ -1,2 +1,2 @@
 export * from './RegisterModal';
-export * from './RegisterModalInterface';
+export * from './RegisterModal.types';

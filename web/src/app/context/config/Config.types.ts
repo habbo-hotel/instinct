@@ -1,8 +1,8 @@
-export interface ConfigInterface {
+export interface ConfigTypes {
   siteName: string;
+  siteLink: string;
   emulatorIP: string;
   emulatorPort: string;
-  siteLink: string;
   swfHabbo: string;
   swfExternalVariables: string;
   swfExternalTexts: string;
@@ -14,11 +14,11 @@ export interface ConfigInterface {
   swfOverrideTexts: string;
   loadingMessage: string;
   groupBadgeURL: string;
-  setStore?: (changes: Partial<ConfigInterface>) => void;
+  setStore?: (changes: Partial<ConfigTypes>) => void;
 }
 
 
-export const defaultConfigInterface: ConfigInterface = {
+export const defaultConfigInterface: ConfigTypes = {
   siteName: 'Habbo',
   emulatorIP: '127.0.0.1',
   emulatorPort: '3002',

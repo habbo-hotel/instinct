@@ -1,2 +1,2 @@
 export * from './GuestLayout';
-export * from './GuestLayoutInterface';
+export * from './GuestLayout.types';

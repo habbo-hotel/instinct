@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
-import { defaultHealthInterface, HealthContext, HealthInterface, HealthProviderProps } from './index';
+import { defaultHealthInterface, HealthContext, HealthTypes, HealthProviderProps } from './index';
 
 export class HealthProvider extends PureComponent<HealthProviderProps> {
-  setStore = (changes: Partial<HealthInterface>): void => {
+  setStore = (changes: Partial<HealthTypes>): void => {
     return this.setState(changes);
   };
 
-  state: HealthInterface = {
+  state: HealthTypes = {
     ...defaultHealthInterface,
     setStore: this.setStore,
   };

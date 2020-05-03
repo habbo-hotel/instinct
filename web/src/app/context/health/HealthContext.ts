@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { defaultHealthInterface, HealthInterface } from './HealthInterface';
+import { defaultHealthInterface, HealthTypes } from './Health.types';
 
-export const HealthContext = createContext<HealthInterface>(defaultHealthInterface);
+export const HealthContext = createContext<HealthTypes>(defaultHealthInterface);

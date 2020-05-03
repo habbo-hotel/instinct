@@ -1,2 +1,2 @@
 export * from './ArticleCard';
-export * from './ArticleCardInterface';
+export * from './ArticleCard.types';

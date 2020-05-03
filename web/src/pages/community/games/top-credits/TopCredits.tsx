@@ -3,7 +3,7 @@ import { userService } from 'app/service';
 import { Avatar, Loading } from 'components';
 import { User } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
-import { GamesCardState, defaultGamesCardState } from '../GamesInterface';
+import { GamesCardState, defaultGamesCardState } from '../Games.types';
 
 export function TopCredits() {
   const [state, setState] = useState<GamesCardState>(defaultGamesCardState);

@@ -1,2 +1,2 @@
 export * from './LoginModal';
-export * from './LoginModalInterface';
+export * from './LoginModal.types';

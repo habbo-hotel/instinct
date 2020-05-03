@@ -2,10 +2,10 @@ import './MyProfile.scss';
 import { Avatar } from 'components';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { SessionContext, SessionInterface } from 'app/context';
+import { SessionContext, SessionTypes } from 'app/context';
 
 export function MyProfile() {
-  const { user }: SessionInterface = useContext<SessionInterface>(SessionContext);
+  const { user }: SessionTypes = useContext<SessionTypes>(SessionContext);
   return (
     <article className="default-section profile-section">
       <div className="background-image">

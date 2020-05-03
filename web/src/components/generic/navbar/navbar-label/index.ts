@@ -1,2 +1,2 @@
 export * from './NavBarLabel';
-export * from './NavBarLabelInterface';
+export * from './NavBarLabel.types';

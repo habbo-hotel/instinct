@@ -1,2 +1,2 @@
 export * from './ArticleList';
-export * from './ArticleListInterface';
+export * from './ArticleList.types';

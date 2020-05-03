@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { ConfigInterface, defaultConfigInterface } from './ConfigInterface';
+import { ConfigTypes, defaultConfigInterface } from './';
 
-export const ConfigContext = createContext<ConfigInterface>(defaultConfigInterface);
+export const ConfigContext = createContext<ConfigTypes>(defaultConfigInterface);

@@ -1,2 +1,2 @@
 export * from './UserLayout';
-export * from './UserLayoutInterface';
+export * from './UserLayout.types';

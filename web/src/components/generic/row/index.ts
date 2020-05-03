@@ -1,2 +1,2 @@
 export * from './Row';
-export * from './RowInterface';
+export * from './Row.types';

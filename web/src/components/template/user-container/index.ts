@@ -1,2 +1,2 @@
 export * from './UserContainer';
-export * from './UserContainerInterface';
+export * from './UserContainer.types';

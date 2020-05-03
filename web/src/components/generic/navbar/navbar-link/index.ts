@@ -1,2 +1,2 @@
 export * from './NavBarLink';
-export * from './NavBarLinkInterface';
+export * from './NavBarLink.types';

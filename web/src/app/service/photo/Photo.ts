@@ -1,9 +1,9 @@
-import { PhotoInterface } from './';
+import { PhotoTypes } from './';
 import { AxiosResponse } from 'axios';
 import { Photo } from '../../../../../interface/src/photo';
 import { backendAPI } from '../../BackendAPI';
 
-class PhotoService implements PhotoInterface {
+class PhotoService implements PhotoTypes {
   async getAll() {
     const photos: AxiosResponse<Photo[]> = await backendAPI.get('photos');
     return photos.data;
@@ -15,4 +15,4 @@ class PhotoService implements PhotoInterface {
   }
 }
 
-export const photoService: PhotoInterface = new PhotoService();
+export const photoService: PhotoTypes = new PhotoService();

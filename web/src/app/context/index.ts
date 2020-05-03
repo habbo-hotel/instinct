@@ -3,4 +3,4 @@ export * from './health';
 export * from './session';
 export * from './theme';
 export * from './ContextProviders';
-export * from './ContextProvidersInterface';
+export * from './ContextProviders.types';

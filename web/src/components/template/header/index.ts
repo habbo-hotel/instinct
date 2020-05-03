@@ -1,2 +1,2 @@
 export * from './Header';
-export * from './HeaderInterface';
+export * from './Header.types';

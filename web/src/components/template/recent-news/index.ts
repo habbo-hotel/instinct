@@ -1,2 +1,2 @@
 export * from './RecentNews';
-export * from './RecentNewsInterface';
+export * from './RecentNews.types';

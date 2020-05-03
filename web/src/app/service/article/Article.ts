@@ -1,9 +1,9 @@
-import { ArticleInterface } from './';
+import { ArticleTypes } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI } from '../../BackendAPI';
 import { Article } from 'instinct-interfaces';
 
-class ArticleService implements ArticleInterface {
+class ArticleService implements ArticleTypes {
   async getAll() {
     const articles: AxiosResponse<Article[]> = await backendAPI.get('articles');
     return articles.data;
@@ -15,4 +15,4 @@ class ArticleService implements ArticleInterface {
   }
 }
 
-export const articleService: ArticleInterface = new ArticleService();
+export const articleService: ArticleTypes = new ArticleService();

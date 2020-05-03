@@ -1,2 +1,2 @@
 export * from './Article';
-export * from './ArticleInterface';
+export * from './Article.types';
