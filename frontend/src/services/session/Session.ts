@@ -2,7 +2,7 @@ import { SessionService } from './';
 import { AxiosResponse } from 'axios';
 import { User } from 'instinct-interfaces';
 import { backendAPI, setAPIToken } from 'api';
-import { localStorageService } from 'service';
+import { localStorageService } from 'services';
 
 class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { exampleUser, User } from 'instinct-interfaces';
-import { ClientEvent, clientService, sessionService } from 'service';
+import { ClientEvent, clientService, sessionService } from 'services';
 import { SessionContext, SessionTypes, SessionProviderProps } from './';
 
 export class SessionContextProvider extends PureComponent<SessionProviderProps> {
