@@ -1,5 +1,6 @@
 import { Children } from 'components';
 
-export interface HealthProviderProps {
+export interface RowProps {
   children: Children;
+  className?: string;
 }

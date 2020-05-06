@@ -1,5 +1,5 @@
 import { Children } from 'components';
 
-export interface HealthProviderProps {
+export interface NavBarLabelProps {
   children: Children;
 }

@@ -1,4 +1,4 @@
-import { Children } from 'component';
+import { Children } from 'components';
 
 export interface ConfigProviderProps {
   children: Children;

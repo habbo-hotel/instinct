@@ -1,4 +1,4 @@
 export * from './api';
-export * from './component';
+export * from './components';
 export * from './context';
 export * from './service';

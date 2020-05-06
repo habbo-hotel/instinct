@@ -1,4 +1,4 @@
-import { Children } from 'component';
+import { Children } from 'components';
 
 export interface SessionProviderProps {
   children: Children;
