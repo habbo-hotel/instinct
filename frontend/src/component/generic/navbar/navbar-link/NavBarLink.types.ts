@@ -1,3 +1,3 @@
-import { LinkProps, RouteComponentProps } from 'react-router-dom';
+import { LinkProps } from 'react-router-dom';
 
-export type NavBarLinkProps = LinkProps & RouteComponentProps;
+export type NavBarLinkProps = LinkProps;
