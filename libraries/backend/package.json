@@ -5,7 +5,7 @@
   "main": "build/",
   "scripts": {
     "build": "tsc -p .",
-    "deploy:unsafe": "gts clean && npm run build && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json && npm publish build",
+    "deploy:unsafe": "gts clean && npm run build && cp package.json build/package.json && cp package-lock.json build/package-lock.json && npm publish build",
     "deploy": "gts clean && npm run test && npm run deploy:unsafe",
     "fix": "gts clean && gts fix",
     "test": "gts clean && tsc && gts check && jest --coverage --forceExit && gts clean",
