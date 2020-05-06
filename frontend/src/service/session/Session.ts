@@ -1,10 +1,10 @@
-import { SessionTypes } from './';
+import { SessionService } from './';
 import { AxiosResponse } from 'axios';
 import { User } from 'instinct-interfaces';
 import { backendAPI, setAPIToken } from 'api';
 import { localStorageService } from 'service';
 
-class SessionService implements SessionTypes {
+class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';
 
   async init(): Promise<User | undefined> {
@@ -55,4 +55,4 @@ class SessionService implements SessionTypes {
   }
 }
 
-export const sessionService: SessionTypes = new SessionService();
+export const sessionService: SessionService = new SessionServiceImplementation();
