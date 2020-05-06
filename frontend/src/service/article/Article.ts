@@ -1,6 +1,6 @@
+import { backendAPI } from 'api';
 import { ArticleTypes } from './';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from '../../BackendAPI';
 import { Article } from 'instinct-interfaces';
 
 class ArticleService implements ArticleTypes {

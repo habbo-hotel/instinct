@@ -1,6 +1,6 @@
+import { backendAPI } from 'api';
 import { GroupService } from './';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from 'app/BackendAPI';
 import { Group } from 'instinct-interfaces';
 
 class GroupServiceImplementation implements GroupService {

@@ -1,6 +1,6 @@
 import { UserTypes } from './';
+import { backendAPI } from 'api';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from '../../BackendAPI';
 import { User, UserProfile } from 'instinct-interfaces';
 
 export class UserService implements UserTypes {

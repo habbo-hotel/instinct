@@ -1,7 +1,7 @@
 import { PhotoTypes } from './';
+import { backendAPI } from 'api';
 import { AxiosResponse } from 'axios';
-import { Photo } from '../../../../../interface/src/photo';
-import { backendAPI } from '../../BackendAPI';
+import { Photo } from 'instinct-interfaces';
 
 class PhotoService implements PhotoTypes {
   async getAll() {

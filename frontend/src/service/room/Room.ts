@@ -1,6 +1,6 @@
 import { RoomService } from './';
+import { backendAPI } from 'api';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from 'app/BackendAPI';
 import { Room } from 'instinct-interfaces';
 
 class RoomServiceImplementation implements RoomService {

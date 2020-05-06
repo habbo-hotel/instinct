@@ -1,7 +1,17 @@
 import React from 'react';
 import { AvatarProps } from './';
 
-export function Avatar({ className = 'pixelated', action, direction, gesture, headDirection, headOnly, size, look, onClick }: AvatarProps) {
+export function Avatar({
+  className = 'pixelated',
+  action,
+  direction,
+  gesture,
+  headDirection,
+  headOnly,
+  size,
+  look,
+  onClick,
+}: AvatarProps) {
   if (look === undefined) {
     return <i className="fa fa-spinner fa-spin" />;
   }
@@ -32,5 +42,5 @@ export function Avatar({ className = 'pixelated', action, direction, gesture, he
     source += '&headonly=true';
   }
 
-  return <img alt="player avatar" src={source} className={className} onClick={onClick}/>;
+  return <img alt="player avatar" src={source} className={className} onClick={onClick} />;
 }

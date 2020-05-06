@@ -6,5 +6,5 @@ export interface ButtonProps {
   color?: BackgroundColor;
   children: Children;
   style?: object;
-  type?: 'button'|'submit';
+  type?: 'button' | 'submit';
 }

@@ -1,8 +1,8 @@
+import { backendAPI } from 'api';
 import { SessionTypes } from './';
 import { AxiosResponse } from 'axios';
 import { User } from 'instinct-interfaces';
-import { localStorageService } from 'app/service';
-import { backendAPI, setAPIToken } from 'app/BackendAPI';
+import { localStorageService } from 'service';
 
 class SessionService implements SessionTypes {
   readonly localStorageKey = 'session';
@@ -53,7 +53,6 @@ class SessionService implements SessionTypes {
   logout(): void {
     localStorageService.delete(this.localStorageKey);
   }
-
 }
 
 export const sessionService: SessionTypes = new SessionService();

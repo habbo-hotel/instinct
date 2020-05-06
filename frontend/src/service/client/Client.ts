@@ -2,12 +2,10 @@ import EventEmitter from 'events';
 import { ClientEvent, ClientService } from './';
 
 class ClientServiceImplementation implements ClientService {
-
   // @ts-ignore - Unsure why this isn't working
   readonly eventListener = new EventEmitter();
 
   constructor() {
-
     if ((window as any).FlashExternalInterface === undefined) {
       (window as any).FlashExternalInterface = {};
     }
@@ -34,14 +32,12 @@ class ClientServiceImplementation implements ClientService {
         }
       }
     };
-
   }
 
   enterRoom(roomID: number): void {
     // @ts-ignore - openlink is a property made up by flash
     return document.getElementById('client-area')!.openlink('navigator/goto/' + roomID);
   }
-
 }
 
 export const clientService: ClientService = new ClientServiceImplementation();

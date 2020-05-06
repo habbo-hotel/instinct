@@ -1,6 +1,6 @@
 import { RankTypes } from './';
+import { backendAPI } from 'api';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from '../../BackendAPI';
 import { Rank } from 'instinct-interfaces';
 
 class RankService implements RankTypes {
