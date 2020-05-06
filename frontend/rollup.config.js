@@ -1,6 +1,4 @@
-import babel from 'rollup-plugin-babel';
-import autoprefixer from 'autoprefixer';
-import postcss from 'rollup-plugin-postcss';
+import scss from 'rollup-plugin-scss'
 import filesize from 'rollup-plugin-filesize';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -17,19 +15,7 @@ const GLOBALS = {
 
 const PLUGINS = [
   typescript(),
-  postcss({
-    extract: true,
-    plugins: [
-      autoprefixer,
-    ],
-  }),
-  babel({
-    exclude: 'node_modules/**',
-    extensions: [
-      '.ts',
-      '.tsx'
-    ]
-  }),
+  scss(),
   localResolve(),
   resolve({
     browser: true,

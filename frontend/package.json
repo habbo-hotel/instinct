@@ -1,6 +1,6 @@
 {
   "name": "instinct-frontend",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Shared components across Instinct Apps",
   "scripts": {
     "build": "rollup -c",
@@ -64,9 +64,9 @@
     "jest": "^25.3.0",
     "jsdom": "16.2.2",
     "jsdom-global": "3.0.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
-    "npm": "^6.14.4",
+    "npm": "^6.14.5",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-test-renderer": "^16.13.1",
     "reactstrap": "^8.4.1",
@@ -75,6 +75,7 @@
     "rollup-plugin-filesize": "^7.0.0",
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-postcss": "^3.1.0",
+    "rollup-plugin-scss": "^2.4.0",
     "rollup-plugin-typescript2": "^0.27.0",
     "sass-loader": "^8.0.2",
     "thread-loader": "^2.1.3",
