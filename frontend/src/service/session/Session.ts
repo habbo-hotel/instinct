@@ -1,7 +1,7 @@
-import { backendAPI } from 'api';
 import { SessionTypes } from './';
 import { AxiosResponse } from 'axios';
 import { User } from 'instinct-interfaces';
+import { backendAPI, setAPIToken } from 'api';
 import { localStorageService } from 'service';
 
 class SessionService implements SessionTypes {

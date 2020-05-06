@@ -1,7 +1,7 @@
 import './TabCard.scss';
 import { TabCardProps } from './index';
 import React, { useState } from 'react';
-import { Icon, TabItem } from 'components';
+import { Icon, TabItem } from 'component';
 
 export function TabCard({ header, tabs }: TabCardProps) {
   const [active, setActive] = useState<number>(0);

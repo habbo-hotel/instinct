@@ -1,4 +1,4 @@
-import { Children } from 'components';
+import { Children } from 'component';
 
 export interface ModalOverlayProps {
   children: Children;

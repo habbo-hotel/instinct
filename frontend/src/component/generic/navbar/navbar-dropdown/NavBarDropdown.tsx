@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'components/index';
+import { Icon } from 'component';
 import { Link } from 'react-router-dom';
 import { NavBarDropdownProps } from './index';
 

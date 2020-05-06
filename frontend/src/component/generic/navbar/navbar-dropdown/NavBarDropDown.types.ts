@@ -1,4 +1,4 @@
-import { Children } from 'components/index';
+import { Children } from 'component';
 
 export interface NavBarDropdownProps {
   children: Children;

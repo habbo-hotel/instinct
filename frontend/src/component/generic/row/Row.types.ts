@@ -1,4 +1,4 @@
-import { Children } from '../../common.type';
+import { Children } from 'component';
 
 export interface RowProps {
   children: Children;
