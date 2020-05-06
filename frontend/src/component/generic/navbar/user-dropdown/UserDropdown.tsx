@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { Avatar, Icon, NavBarChildLink } from '../../';
-import { SessionTypes, SessionContext } from 'app/context';
-import { Link } from 'react-router-dom';
+import { SessionTypes, SessionContext } from 'context';
 
 export function UserDropdown() {
   const sessionContext = useContext<SessionTypes>(SessionContext);

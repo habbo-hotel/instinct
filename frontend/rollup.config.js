@@ -41,6 +41,8 @@ const PLUGINS = [
 const EXTERNAL = [
   'react',
   'react-dom',
+  'react-is',
+  'instinct-interfaces',
 ];
 
 const OUTPUT_DATA = [
