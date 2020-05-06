@@ -1,0 +1,36 @@
+.page-container .related-articles-container .related-article-container {
+  display: block;
+  text-decoration: none;
+  line-height: normal;
+
+  :not(:first-child) {
+    margin-top: 13px;
+  }
+
+  .related-article-thumbnail{
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+  }
+
+  .related-article-details{
+    padding-top: 5px;
+  }
+
+  .related-article-title{
+    font-weight: 400;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .related-article-date{
+    font-size: 12px;
+    font-weight: 400;
+    color: #969696;
+  }
+
+}
