@@ -4,9 +4,8 @@ import { useParams } from 'react-router';
 import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { articleService } from 'instinct-frontend';
-import { RecentNews, UserLayout, setURL } from 'components';
 import { defaultNewsArticleState, NewsArticleParameters, NewsArticleState } from './';
-import { Avatar, Card, Container, Column, Jumbotron, Loading } from 'instinct-frontend';
+import { Avatar, Card, Container, Column, Jumbotron, Loading, RecentNews, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('community/news/:articleID', <NewsArticle />);
 

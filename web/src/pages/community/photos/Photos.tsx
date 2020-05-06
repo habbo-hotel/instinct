@@ -2,8 +2,7 @@ import { Photo } from 'instinct-interfaces';
 import { photoService } from 'instinct-frontend';
 import React, { useEffect, useState } from 'react';
 import { defaultPhotosState, PhotosState } from './';
-import { UserLayout, setURL, PhotoContainer } from 'components';
-import { Container, Jumbotron, Row, Loading } from 'instinct-frontend';
+import { Container, Jumbotron, Row, Loading, UserLayout, setURL, PhotoContainer } from 'instinct-frontend';
 
 setURL('community/photos', <Photos />);
 

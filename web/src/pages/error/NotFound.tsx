@@ -1,6 +1,6 @@
 import './ErrorPage.scss';
 import React from 'react';
-import { set404 } from 'components';
+import { set404 } from 'instinct-frontend';
 
 set404(<NotFound />);
 

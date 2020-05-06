@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleList, setURL, UserLayout } from 'components';
+import { ArticleList, setURL, UserLayout } from 'instinct-frontend';
 
 setURL('community/news', <News />);
 

@@ -1,6 +1,6 @@
 import './ErrorPage.scss';
 import React from 'react';
-import { setURL } from 'components';
+import { setURL } from 'instinct-frontend';
 
 setURL('500', <ServerError />);
 

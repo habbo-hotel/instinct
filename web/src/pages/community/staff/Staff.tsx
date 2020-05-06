@@ -1,8 +1,7 @@
 import { Rank } from 'instinct-interfaces';
 import { defaultStaffState, StaffState } from './';
 import React, { useEffect, useState } from 'react';
-import { UserContainer, UserLayout, setURL } from 'components';
-import { Card, Container, Column, rankService, Jumbotron, Row, Loading } from 'instinct-frontend';
+import { Card, Container, Column, rankService, Jumbotron, Row, Loading, UserContainer, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('community/staff', <Staff />);
 

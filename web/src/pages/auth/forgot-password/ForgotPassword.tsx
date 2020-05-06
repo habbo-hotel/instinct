@@ -1,5 +1,5 @@
 import React from 'react';
-import { GuestLayout, setURL } from 'components';
+import { GuestLayout, setURL } from 'instinct-frontend';
 
 setURL('forgot-password', <ForgotPassword />);
 

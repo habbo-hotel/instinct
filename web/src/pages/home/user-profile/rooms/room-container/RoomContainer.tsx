@@ -1,6 +1,6 @@
 import React from 'react';
-import { redirect } from 'components';
 import { RoomContainerProps } from './';
+import { redirect } from 'instinct-frontend';
 
 export function RoomContainer({ room }: RoomContainerProps) {
   return (

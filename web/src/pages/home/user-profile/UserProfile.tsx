@@ -4,11 +4,10 @@ import { Badges } from './badges';
 import { Groups } from './groups';
 import { Friends } from './friends';
 import { useParams } from 'react-router';
-import { UserLayout, setURL } from 'components';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
-import { Container, Column, userService, Loading, Jumbotron} from 'instinct-frontend';
+import { Container, Column, userService, Loading, Jumbotron, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('profile/:username', <UserProfile />);
 

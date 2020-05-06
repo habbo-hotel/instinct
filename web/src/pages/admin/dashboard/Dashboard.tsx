@@ -1,6 +1,5 @@
 import React from 'react';
-import { AdminLayout, setURL } from 'components';
-import { Card, Column, Container, Jumbotron, Row } from 'instinct-frontend';
+import { AdminLayout, Card, Column, Container, Jumbotron, Row, setURL } from 'instinct-frontend';
 
 setURL('admin', <Dashboard/>);
 
