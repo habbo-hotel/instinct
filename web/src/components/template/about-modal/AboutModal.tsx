@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AboutModalProps } from './';
-import { ModalOverlay } from 'components';
-import { HealthContext } from 'app/context';
+import { HealthContext, ModalOverlay } from 'instinct-frontend';
 
 export function AboutModal({ isOpen, onToggle }: AboutModalProps) {
   const healthContext = useContext(HealthContext);

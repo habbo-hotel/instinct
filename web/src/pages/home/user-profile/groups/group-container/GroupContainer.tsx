@@ -1,6 +1,5 @@
 import { GroupContainerProps } from './';
-import { ModalOverlay } from 'components';
-import { ConfigContext } from 'app/context';
+import { ConfigContext, ModalOverlay } from 'instinct-frontend';
 import React, { useContext, useState } from 'react';
 
 export function GroupContainer({ group }: GroupContainerProps) {

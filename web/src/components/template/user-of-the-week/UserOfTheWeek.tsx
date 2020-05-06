@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Loading } from 'components';
+import { Card, Loading } from 'instinct-frontend';
 import { defaultUserOfTheWeekState, UserOfTheWeekState } from './';
 
 export function UserOfTheWeek() {

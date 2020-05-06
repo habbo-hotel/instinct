@@ -1,8 +1,9 @@
 import { toast } from 'react-toastify';
+import { redirect } from 'components';
 import React, { useContext, useState } from 'react';
 import { LoginModalState, defaultLoginModalState } from './';
-import { SessionContext, SessionTypes } from 'app/context';
-import { Form, Input, Icon, ModalButton, redirect, Loading } from 'components';
+import { SessionContext, SessionTypes } from 'instinct-frontend';
+import { Form, Input, Icon, ModalButton, Loading } from 'instinct-frontend';
 
 export function LoginModal() {
   const [state, setState] = useState<LoginModalState>(defaultLoginModalState);

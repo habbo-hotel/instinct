@@ -1,11 +1,12 @@
 import './NewsArticle.scss';
 import * as Moment from 'moment';
 import { useParams } from 'react-router';
-import { articleService } from 'app/service';
 import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
+import { articleService } from 'instinct-frontend';
+import { RecentNews, UserLayout, setURL } from 'components';
 import { defaultNewsArticleState, NewsArticleParameters, NewsArticleState } from './';
-import { Card, Container, Column, RecentNews, Jumbotron, UserLayout, setURL, Loading, Avatar } from 'components';
+import { Avatar, Card, Container, Column, Jumbotron, Loading } from 'instinct-frontend';
 
 setURL('community/news/:articleID', <NewsArticle />);
 

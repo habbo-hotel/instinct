@@ -1,11 +1,10 @@
 import './Room.scss';
-import { SessionContext } from 'app/context';
 import { Room } from 'instinct-interfaces';
+import { setURL, UserLayout } from 'components';
 import { defaultRoomState, RoomState } from './';
 import { Link, useParams } from 'react-router-dom';
-import { clientService, roomService } from 'app/service';
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Column, Container, Jumbotron, Loading, setURL, UserLayout } from 'components';
+import { Card, Column, Container, Jumbotron, Loading, SessionContext, clientService, roomService } from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 

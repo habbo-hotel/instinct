@@ -1,5 +1,5 @@
 import { setURL } from 'components';
-import { ThemeContext } from 'app/context';
+import { ThemeContext } from 'instinct-frontend';
 import React, { useContext, useEffect } from 'react';
 
 setURL('play', <PlayPage />);

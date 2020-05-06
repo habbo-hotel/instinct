@@ -1,8 +1,7 @@
 import './MyProfile.scss';
-import { Avatar } from 'components';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { SessionContext, SessionTypes } from 'app/context';
+import { Avatar, SessionContext, SessionTypes } from 'instinct-frontend';
 
 export function MyProfile() {
   const { user }: SessionTypes = useContext<SessionTypes>(SessionContext);

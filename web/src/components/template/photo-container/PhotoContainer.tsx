@@ -1,8 +1,8 @@
 import React from 'react';
 import Moment from 'moment';
-import { Avatar } from 'components';
 import { Link } from 'react-router-dom';
 import { PhotoContainerProps } from './';
+import { Avatar } from 'instinct-frontend';
 
 export function PhotoContainer({ photo }: PhotoContainerProps) {
   return (

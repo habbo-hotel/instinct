@@ -1,6 +1,6 @@
 import React from 'react';
+import { NavBarLinkProps } from './';
 import { Link, withRouter } from 'react-router-dom';
-import { NavBarLinkProps } from './index';
 
 function NavBarLinkComponent({ children, className = '', to, location }: NavBarLinkProps) {
   const active: boolean = location.pathname === to;

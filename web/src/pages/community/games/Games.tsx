@@ -2,7 +2,8 @@ import React from 'react';
 import { TopPixels } from './top-pixels';
 import { TopPoints } from './top-points';
 import { TopCredits } from './top-credits';
-import { Container, Jumbotron, Row, setURL, UserLayout } from 'components';
+import { setURL, UserLayout  } from 'components';
+import { Container, Jumbotron, Row } from 'instinct-frontend';
 
 setURL('community/games', <Games />);
 

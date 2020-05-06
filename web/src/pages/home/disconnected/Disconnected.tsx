@@ -1,6 +1,7 @@
 import React from 'react';
 import './Disconnected.scss';
-import { UserGuard, FrankBox, setURL, Button, redirect } from 'components';
+import { Button } from 'instinct-frontend';
+import { UserGuard, FrankBox, setURL, redirect } from 'components';
 
 setURL('disconnected', <Disconnected/>);
 

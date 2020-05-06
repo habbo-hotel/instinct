@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'components';
+import { Card } from 'instinct-frontend';
 import { UserProfileWidgetProps } from '../';
 import { RoomContainer } from './room-container';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { preferenceTabs } from './tabs';
-import { Container, Jumbotron, Loading, Row, setURL, TabCard, UserLayout } from 'components';
+import { setURL, UserLayout } from 'components';
+import { Container, Jumbotron, Loading, Row, TabCard } from 'instinct-frontend';
 
 setURL('preferences', <PreferencesPage />);
 

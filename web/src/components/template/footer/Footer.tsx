@@ -1,7 +1,7 @@
 import './Footer.scss';
-import { AboutModal, Icon } from 'components';
+import { AboutModal } from 'components';
 import React, { useContext, useState } from 'react';
-import { ThemeContext, ThemeContextInterface } from 'app/context';
+import { ThemeContext, ThemeContextInterface, Icon } from 'instinct-frontend';
 
 export function Footer() {
   const [ showAbout, toggleAbout ] = useState<boolean>(false);

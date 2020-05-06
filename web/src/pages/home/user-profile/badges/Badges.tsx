@@ -1,6 +1,7 @@
 import React from 'react';
 import { take } from 'lodash';
-import { Badge, Card } from 'components';
+import { Badge } from 'components';
+import { Card } from 'instinct-frontend';
 import { UserProfileWidgetProps } from '../';
 
 export function Badges({ profile }: UserProfileWidgetProps) {

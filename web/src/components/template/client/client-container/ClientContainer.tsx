@@ -1,7 +1,7 @@
 // @ts-ignore this dependency does not support Typescript
 import Flash from 'swfobject';
-import { ConfigContext } from 'app/context';
-import { sessionService } from 'app/service';
+import { ConfigContext } from 'instinct-frontend';
+import { sessionService } from 'instinct-frontend';
 import React, { useContext, useEffect, useState } from 'react';
 
 export function ClientContainer() {

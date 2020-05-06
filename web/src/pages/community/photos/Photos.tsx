@@ -1,8 +1,9 @@
-import { photoService } from 'app/service';
 import { Photo } from 'instinct-interfaces';
+import { photoService } from 'instinct-frontend';
 import React, { useEffect, useState } from 'react';
 import { defaultPhotosState, PhotosState } from './';
-import { UserLayout, setURL, Jumbotron, Container, Row, PhotoContainer, Loading } from 'components';
+import { UserLayout, setURL, PhotoContainer } from 'components';
+import { Container, Jumbotron, Row, Loading } from 'instinct-frontend';
 
 setURL('community/photos', <Photos />);
 

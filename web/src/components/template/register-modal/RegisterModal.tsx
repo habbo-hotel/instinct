@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
-import { userService } from 'app/service';
+import { redirect } from 'components';
 import { User } from 'instinct-interfaces';
 import React, { useContext, useState } from 'react';
-import { SessionContext, SessionTypes } from 'app/context';
+import { SessionContext, SessionTypes } from 'instinct-frontend';
 import { RegisterModalState, defaultRegisterModalState } from './';
-import { Form, Input, Icon, ModalButton, redirect, Loading } from 'components';
+import { Form, Input, Icon, ModalButton, Loading, userService } from 'instinct-frontend';
 
 export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);

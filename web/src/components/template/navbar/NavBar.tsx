@@ -1,6 +1,5 @@
 import React from 'react';
-import './NavBar.scss';
-import { NavBarChildLink, NavBarDropdown, NavBarLink, NavBarLabel, UserDropdown } from 'components';
+import { NavBarChildLink, NavBarDropdown, NavBarLink, NavBarLabel, UserDropdown } from 'instinct-frontend';
 
 export function NavBar() {
   return (

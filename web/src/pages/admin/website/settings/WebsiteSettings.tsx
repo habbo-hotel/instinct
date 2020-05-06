@@ -1,6 +1,6 @@
 import React from 'react';
-import { AdminLayout, Card, Column, Container, Jumbotron, Row, setURL } from 'components';
-
+import { AdminLayout, setURL } from 'components';
+import { Card, Column, Container, Jumbotron, Row } from 'instinct-frontend';
 setURL('admin/website', <WebsiteSettings/>);
 
 export function WebsiteSettings() {

@@ -42,6 +42,7 @@ const EXTERNAL = [
   'react',
   'react-dom',
   'react-is',
+  'react-router-dom',
   'instinct-interfaces',
 ];
 

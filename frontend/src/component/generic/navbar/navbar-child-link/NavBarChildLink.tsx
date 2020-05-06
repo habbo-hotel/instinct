@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavBarChildLinkProps } from './index';
+import { NavBarChildLinkProps } from './';
 
 export function NavBarChildLink({ children, to }: NavBarChildLinkProps) {
   return (

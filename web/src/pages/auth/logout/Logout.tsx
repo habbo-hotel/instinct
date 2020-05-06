@@ -1,7 +1,7 @@
 import { setURL } from 'components';
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { SessionContext, SessionTypes } from 'app/context';
+import { SessionContext, SessionTypes } from 'instinct-frontend';
 
 setURL('logout', <Logout />);
 

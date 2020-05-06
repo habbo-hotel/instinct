@@ -1,6 +1,7 @@
 import React from 'react';
+import { UserModal } from 'components';
 import { UserContainerProps } from './';
-import { Avatar, UserModal } from 'components';
+import { Avatar } from 'instinct-frontend';
 
 export function UserContainer({ user }: UserContainerProps) {
   return (

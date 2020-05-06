@@ -1,6 +1,6 @@
 import './LoadingScreen.scss';
 import React, { useState } from 'react';
-import { ClientEvent, clientService } from 'app/service';
+import { ClientEvent, clientService } from 'instinct-frontend';
 
 export function LoadingScreen() {
   const [ progress, setProgress ] = useState<number>(0);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { BadgeProps } from './';
-import { ModalOverlay } from '../../generic/modal/modal-overlay';
+import React, { useState } from 'react';
+import { ModalOverlay } from 'instinct-frontend';
 
 export function Badge({ badge }: BadgeProps) {
   const [ isOpen, toggleOpen ] = useState<boolean>(false);

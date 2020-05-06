@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { userService } from 'app/service';
-import { Avatar, Loading } from 'components';
 import { User } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
+import { Avatar, Loading, userService } from 'instinct-frontend';
 import { GamesCardState, defaultGamesCardState } from '../Games.types';
 
 export function TopPixels() {

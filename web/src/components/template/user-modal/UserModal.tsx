@@ -1,6 +1,7 @@
 import { UserModalProps } from './';
+import { redirect } from 'components';
 import React, { useState } from 'react';
-import { Avatar, Button, ModalOverlay, redirect } from 'components';
+import { Avatar, Button, ModalOverlay } from 'instinct-frontend';
 
 export function UserModal({ children, user }: UserModalProps) {
   const [ showModal, setModal ] = useState<boolean>(false);

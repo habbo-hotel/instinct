@@ -1,7 +1,7 @@
 import { User } from 'instinct-interfaces';
-import { sessionService } from 'app/service';
+import { sessionService } from 'instinct-frontend';
 import { useContext, useEffect } from 'react';
-import { HealthContext, SessionContext } from 'app/context';
+import { HealthContext, SessionContext } from 'instinct-frontend';
 
 const FIVE_MINUTE_IN_MS: number = 300000000;
 

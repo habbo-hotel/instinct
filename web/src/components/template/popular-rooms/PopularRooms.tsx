@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { roomService } from 'app/service';
-import { Card, Loading } from 'components';
 import { Room } from 'instinct-interfaces';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import { Card, Loading, roomService } from 'instinct-frontend';
+
 import { defaultPopularRoomsState, PopularRoomsState } from './';
 
 export function PopularRooms() {

@@ -1,11 +1,10 @@
 import './RecentNews.scss';
 import Moment from 'moment';
 import { Link } from 'react-router-dom';
-import { Card, Loading } from 'components';
-import { articleService } from 'app/service';
 import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultRecentNewsState, RecentNewsState } from './';
+import { articleService, Card, Loading } from 'instinct-frontend';
 
 export function RecentNews() {
   const [state, setState] = useState<RecentNewsState>(defaultRecentNewsState);

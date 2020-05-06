@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Icon, Input, Row } from 'components';
+import { Form, Icon, Input, Row } from 'instinct-frontend';
 import { defaultSecurityPreferencesState, SecurityPreferencesState } from './';
 
 export function SecurityPreferences() {

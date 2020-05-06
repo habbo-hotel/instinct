@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'component';
 import { Link } from 'react-router-dom';
-import { NavBarDropdownProps } from './index';
+import { NavBarDropdownProps } from './';
 
 export function NavBarDropdown({ children, text, to }: NavBarDropdownProps) {
   return (

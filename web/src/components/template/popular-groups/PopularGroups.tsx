@@ -1,10 +1,8 @@
 import './PopularGroup.scss';
-import { groupService } from 'app/service';
-import { Card, Loading } from 'components';
-import { ConfigContext } from 'app/context';
 import { Group } from 'instinct-interfaces';
 import React, { useContext, useEffect, useState } from 'react';
 import { defaultPopularGroupsState, PopularGroupsState } from './';
+import { Card, ConfigContext, groupService, Loading } from 'instinct-frontend';
 
 export function PopularGroups() {
   const configContext = useContext(ConfigContext);

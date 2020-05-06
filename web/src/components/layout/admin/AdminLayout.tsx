@@ -1,8 +1,8 @@
 import { AdminLayoutProps } from './';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { HealthContext, HealthTypes } from 'app/context';
-import { AdminNavBar, Header, Icon, PermissionGuard } from 'components';
+import { AdminNavBar, Header, PermissionGuard } from 'components';
+import { HealthContext, HealthTypes, Icon } from 'instinct-frontend';
 
 export function AdminLayout({ children, permission }: AdminLayoutProps) {
   const healthContext: HealthTypes = useContext(HealthContext);

@@ -7,7 +7,7 @@ import { ClientActions } from './client-actions';
 import { FlashDisabled } from './flash-disabled';
 import { LoadingScreen } from './loading-screen';
 import { ClientContainer } from './client-container';
-import { SessionContext, ThemeContext } from 'app/context';
+import { SessionContext, ThemeContext } from 'instinct-frontend';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);

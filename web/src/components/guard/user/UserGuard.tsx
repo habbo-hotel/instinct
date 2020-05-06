@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { UserGuardProps } from './';
 import { redirect as redirectUser } from 'components';
-import { SessionContext, SessionTypes } from 'app/context/session';
+import { SessionContext, SessionTypes } from 'instinct-frontend';
 
 export function UserGuard({ children, redirect = true  }: UserGuardProps) {
   const sessionContext: SessionTypes = useContext(SessionContext);

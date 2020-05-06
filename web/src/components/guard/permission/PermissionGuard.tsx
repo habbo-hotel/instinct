@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { redirect } from 'components';
 import { PermissionGuardProps } from './';
-import { SessionContext } from 'app/context';
+import { SessionContext } from 'instinct-frontend';
 
 export function PermissionGuard({ children, permission }: PermissionGuardProps) {
   const sessionContext = useContext(SessionContext);

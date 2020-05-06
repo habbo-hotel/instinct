@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { ArticleCard, Container, Jumbotron, Loading } from 'components';
-import { ArticleListState, defaultArticleListState } from './';
+import { ArticleCard } from 'components';
 import { Article } from 'instinct-interfaces';
-import { articleService } from '../../../app/service/article';
+import React, { useEffect, useState } from 'react';
+import { ArticleListState, defaultArticleListState } from './';
+import { articleService, Container, Jumbotron, Loading } from 'instinct-frontend';
 
 export function ArticleList() {
   const [{ articles, showSpinner }, setState] = useState<ArticleListState>(defaultArticleListState);

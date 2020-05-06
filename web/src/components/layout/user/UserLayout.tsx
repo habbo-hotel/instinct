@@ -1,8 +1,9 @@
 import { UserLayoutProps } from './';
 import { Link } from 'react-router-dom';
+import { Icon } from 'instinct-frontend';
 import React, { useContext } from 'react';
-import { Footer, Header, Icon, NavBar, redirect, UserGuard } from 'components';
-import { HealthContext, HealthTypes, SessionContext, SessionTypes } from 'app/context';
+import { Footer, Header, NavBar, redirect, UserGuard } from 'components';
+import { HealthContext, HealthTypes, SessionContext, SessionTypes } from 'instinct-frontend';
 
 export function UserLayout({ children, section = 'home', style }: UserLayoutProps) {
   const healthContext: HealthTypes = useContext(HealthContext);
