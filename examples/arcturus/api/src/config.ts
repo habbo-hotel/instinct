@@ -1,3 +1,6 @@
+import { join } from 'path';
+import { InstinctConfig } from 'instinct-backend';
+
 function getEnvOrFail(key: string): string {
   const value: string | undefined = process.env[key];
 
@@ -8,21 +11,24 @@ function getEnvOrFail(key: string): string {
   return value;
 }
 
-// Database
-export const databaseHost: string = getEnvOrFail('DATABASE_HOST');
-export const databaseUser: string = getEnvOrFail('DATABASE_USER');
-export const databasePass: string = getEnvOrFail('DATABASE_PASS');
-export const databaseName: string = getEnvOrFail('DATABASE_NAME');
-
-// Authentication
-export const jwtSecret: string = getEnvOrFail('JWT_SECRET');
-export const jwtExpires = Number(getEnvOrFail('JWT_EXPIRES'));
-
-// Defaults - User
-export const defaultUserRank = Number(getEnvOrFail('DEFAULT_USER_RANK'));
-export const defaultUserMotto: string = getEnvOrFail('DEFAULT_USER_MOTTO');
-export const defaultUserLook: string = getEnvOrFail('DEFAULT_USER_LOOK');
-export const defaultUserCredits = Number(getEnvOrFail('DEFAULT_USER_CREDITS'));
-export const defaultUserPixels = Number(getEnvOrFail('DEFAULT_USER_PIXELS'));
-export const defaultUserPoints = Number(getEnvOrFail('DEFAULT_USER_POINTS'));
-export const defaultUserHomeRoom = Number(getEnvOrFail('DEFAULT_USER_HOME_ROOM'));
+export const instinctConfig: InstinctConfig = {
+  // Database
+  databaseHost: getEnvOrFail('DATABASE_HOST'),
+  databasePort: 3306,
+  databaseUser: getEnvOrFail('DATABASE_USER'),
+  databasePass: getEnvOrFail('DATABASE_PASS'),
+  databaseName: getEnvOrFail('DATABASE_NAME'),
+  // JWT
+  jwtSecret: getEnvOrFail('JWT_SECRET'),
+  jwtExpires: Number(getEnvOrFail('JWT_EXPIRES')),
+  // Public
+  publicFolder: join(__dirname, '..', 'public'),
+  // Defaults - USer
+  defaultUserRank:  Number(getEnvOrFail('DEFAULT_USER_RANK')),
+  defaultUserMotto: getEnvOrFail('DEFAULT_USER_MOTTO'),
+  defaultUserLook: getEnvOrFail('DEFAULT_USER_LOOK'),
+  defaultUserCredits: Number(getEnvOrFail('DEFAULT_USER_CREDITS')),
+  defaultUserPixels: Number(getEnvOrFail('DEFAULT_USER_PIXELS')),
+  defaultUserPoints:  Number(getEnvOrFail('DEFAULT_USER_POINTS')),
+  defaultUserHomeRoom:  Number(getEnvOrFail('DEFAULT_USER_HOME_ROOM')),
+}
