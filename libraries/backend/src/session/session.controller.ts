@@ -1,7 +1,7 @@
-import { NewSessionDTO } from './session.dto';
+import { UserService } from '../user';
 import { User } from 'instinct-interfaces';
+import { NewSessionDTO } from './session.dto';
 import { SessionService } from './session.service';
-import { UserService } from '../user/user.service';
 import { HasSession } from './has-session.decorator';
 import { GetSession } from './get-session.decorator';
 import { Body, Controller, Get, Post } from '@nestjs/common';

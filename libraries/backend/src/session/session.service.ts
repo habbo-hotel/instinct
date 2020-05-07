@@ -1,6 +1,6 @@
-import { UserService } from '../user/user.service';
+import { UserService } from '../user'
+import { HashService } from '../common';
 import { UserEntity } from '../database/entity/user';
-import { HashService } from '../common/hash.service';
 import { BearerTokenService } from './bearer-token.service';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 
