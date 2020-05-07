@@ -8,6 +8,7 @@
   "rules": {
     "no-empty": false,
     "no-any": false,
-    "ban-ts-ignore": false
+    "ban-ts-ignore": false,
+    "only-arrow-functions": false
   }
 }
