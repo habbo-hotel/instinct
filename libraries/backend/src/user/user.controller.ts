@@ -1,11 +1,11 @@
 import * as Moment from 'moment';
-import { UserPipe } from './user.pipe';
-import { NewUserDTO } from './user.dto';
-import { ConfigService } from '../config';
-import { UserService } from './user.service';
-import { Room, User, UserProfile } from 'instinct-interfaces';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { badgeWire, groupWire, roomWire, UserEntity, userWire } from '../database/entity';
+import {UserPipe} from './user.pipe';
+import {NewUserDTO} from './user.dto';
+import {ConfigService} from '../config';
+import {UserService} from './user.service';
+import {Room, User, UserProfile} from 'instinct-interfaces';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
 
 @Controller('users')
 export class UserController {

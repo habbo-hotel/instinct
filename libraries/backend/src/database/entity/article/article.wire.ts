@@ -1,7 +1,7 @@
-import { userWire } from '../user';
-import { Article } from 'instinct-interfaces';
-import { ArticleEntity } from './article.entity';
-import { articleCategoryWire } from './article-category.wire';
+import {userWire} from '../user';
+import {Article} from 'instinct-interfaces';
+import {ArticleEntity} from './article.entity';
+import {articleCategoryWire} from './article-category.wire';
 
 export function articleWire(articleEntity: ArticleEntity): Article {
   return {

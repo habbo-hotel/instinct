@@ -1,5 +1,5 @@
-import { getRepository } from 'typeorm';
-import { UserEntity } from '../../entity/user';
+import {getRepository} from 'typeorm';
+import {UserEntity} from '../../entity/user';
 
 export function userFactory(changes?: Partial<UserEntity>): Promise<UserEntity> {
   return getRepository(UserEntity).save({

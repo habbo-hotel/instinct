@@ -1,11 +1,11 @@
-import { getConnection } from 'typeorm';
-import { RankService } from './rank.service';
-import { TestingModule } from '@nestjs/testing';
-import { mockRankModule } from './rank.module.mock';
-import { RankEntity } from '../database/entity/rank';
-import { UserEntity } from '../database/entity/user';
-import { userFactory } from '../database/factory/user';
-import { rankFactory } from '../database/factory/rank';
+import {getConnection} from 'typeorm';
+import {RankService} from './rank.service';
+import {TestingModule} from '@nestjs/testing';
+import {mockRankModule} from './rank.module.mock';
+import {RankEntity} from '../database/entity/rank';
+import {UserEntity} from '../database/entity/user';
+import {userFactory} from '../database/factory/user';
+import {rankFactory} from '../database/factory/rank';
 
 describe('RankService', () => {
   let rankModule: TestingModule;

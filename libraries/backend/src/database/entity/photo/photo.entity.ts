@@ -1,6 +1,6 @@
-import { UserEntity, userWire } from '../user';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Photo } from 'instinct-interfaces';
+import {UserEntity, userWire} from '../user';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {Photo} from 'instinct-interfaces';
 
 export function photoWire(photoEntity: PhotoEntity): Photo {
   return {
@@ -18,19 +18,19 @@ export class PhotoEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({ name: 'user_id' })
+  @Column({name: 'user_id'})
   userID!: number;
 
   @ManyToOne(() => UserEntity)
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn({name: 'user_id'})
   user?: UserEntity;
 
-  @Column({ name: 'room_id' })
+  @Column({name: 'room_id'})
   roomID!: number;
 
-  @Column({ name: 'url' })
+  @Column({name: 'url'})
   imagePath!: string;
 
-  @Column({ name: 'timestamp' })
+  @Column({name: 'timestamp'})
   createdAt!: number;
 }

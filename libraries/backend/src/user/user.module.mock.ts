@@ -1,12 +1,12 @@
-import { UserPipe } from './user.pipe';
-import { Module } from '@nestjs/common';
-import { UserService } from './user.service';
-import { userConstraints } from './constraint';
-import { UserController } from './user.controller';
-import { Test, TestingModule } from '@nestjs/testing';
-import { CommonModule } from '../common/common.module';
-import { ModuleMetadata } from '@nestjs/common/interfaces';
-import { DatabaseModule } from '../database/database.module';
+import {UserPipe} from './user.pipe';
+import {Module} from '@nestjs/common';
+import {UserService} from './user.service';
+import {userConstraints} from './constraint';
+import {UserController} from './user.controller';
+import {Test, TestingModule} from '@nestjs/testing';
+import {CommonModule} from '../common/common.module';
+import {ModuleMetadata} from '@nestjs/common/interfaces';
+import {DatabaseModule} from '../database/database.module';
 
 const userModuleMeta: ModuleMetadata = {
   imports: [CommonModule, DatabaseModule],

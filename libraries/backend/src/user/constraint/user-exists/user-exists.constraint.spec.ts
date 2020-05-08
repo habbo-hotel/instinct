@@ -1,9 +1,9 @@
-import { getConnection } from 'typeorm';
-import { TestingModule } from '@nestjs/testing';
-import { mockUserModule } from '../../user.module.mock';
-import { UserEntity } from '../../../database/entity/user';
-import { userFactory } from '../../../database/factory/user';
-import { UserExistsConstraint } from './user-exists.constraint';
+import {getConnection} from 'typeorm';
+import {TestingModule} from '@nestjs/testing';
+import {mockUserModule} from '../../user.module.mock';
+import {UserEntity} from '../../../database/entity/user';
+import {userFactory} from '../../../database/factory/user';
+import {UserExistsConstraint} from './user-exists.constraint';
 
 describe('UserExistsConstraint', () => {
   let userModule: TestingModule;

@@ -1,7 +1,7 @@
-import { Repository } from 'typeorm';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { PermissionStatus, RankEntity } from '../database/entity/rank';
+import {Repository} from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {PermissionStatus, RankEntity} from '../database/entity/rank';
 
 @Injectable()
 export class RankService {

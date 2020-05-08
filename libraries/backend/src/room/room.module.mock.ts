@@ -1,10 +1,10 @@
-import { RoomPipe } from './room.pipe';
-import { Module } from '@nestjs/common';
-import { RoomService } from './room.service';
-import { RoomController } from './room.controller';
-import { Test, TestingModule } from '@nestjs/testing';
-import { ModuleMetadata } from '@nestjs/common/interfaces';
-import { DatabaseModule } from '../database/database.module';
+import {RoomPipe} from './room.pipe';
+import {Module} from '@nestjs/common';
+import {RoomService} from './room.service';
+import {RoomController} from './room.controller';
+import {Test, TestingModule} from '@nestjs/testing';
+import {ModuleMetadata} from '@nestjs/common/interfaces';
+import {DatabaseModule} from '../database/database.module';
 
 const roomModuleMeta: ModuleMetadata = {
   imports: [DatabaseModule],

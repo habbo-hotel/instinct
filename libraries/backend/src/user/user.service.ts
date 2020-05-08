@@ -1,9 +1,9 @@
-import { Repository } from 'typeorm';
+import {Repository} from 'typeorm';
 import * as Random from 'randomstring';
-import { HashService } from '../common';
-import { UserEntity } from '../database';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import {HashService} from '../common';
+import {UserEntity} from '../database';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
 
 @Injectable()
 export class UserService {
@@ -25,7 +25,7 @@ export class UserService {
 
   async createSSO(userID: number): Promise<string> {
     const authTicket: string = 'instinct_' + Random.generate(50) + '_' + userID;
-    await this.userRepository.update(userID, { authTicket });
+    await this.userRepository.update(userID, {authTicket});
     return authTicket;
   }
 

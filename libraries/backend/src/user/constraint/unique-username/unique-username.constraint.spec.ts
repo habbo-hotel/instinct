@@ -1,9 +1,9 @@
-import { getConnection } from 'typeorm';
-import { TestingModule } from '@nestjs/testing';
-import { mockUserModule } from '../../user.module.mock';
-import { UserEntity } from '../../../database/entity/user';
-import { userFactory } from '../../../database/factory/user';
-import { UniqueUsernameConstraint } from './unique-username.constraint';
+import {getConnection} from 'typeorm';
+import {TestingModule} from '@nestjs/testing';
+import {mockUserModule} from '../../user.module.mock';
+import {UserEntity} from '../../../database/entity/user';
+import {userFactory} from '../../../database/factory/user';
+import {UniqueUsernameConstraint} from './unique-username.constraint';
 
 describe('UniqueUsernameConstraint', () => {
   let userModule: TestingModule;

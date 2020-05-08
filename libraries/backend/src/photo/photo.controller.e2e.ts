@@ -1,12 +1,12 @@
 import * as supertest from 'supertest';
-import { getConnection } from 'typeorm';
-import { TestingModule } from '@nestjs/testing';
-import { UserEntity } from '../database/entity/user';
-import { mockPhotoModule } from './photo.module.mock';
-import { userFactory } from '../database/factory/user';
-import { photoFactory } from '../database/factory/photo';
-import { PhotoEntity, photoWire } from '../database/entity/photo';
-import { HttpServer, HttpStatus, INestApplication } from '@nestjs/common';
+import {getConnection} from 'typeorm';
+import {TestingModule} from '@nestjs/testing';
+import {UserEntity} from '../database/entity/user';
+import {mockPhotoModule} from './photo.module.mock';
+import {userFactory} from '../database/factory/user';
+import {photoFactory} from '../database/factory/photo';
+import {PhotoEntity, photoWire} from '../database/entity/photo';
+import {HttpServer, HttpStatus, INestApplication} from '@nestjs/common';
 
 describe('PhotoController', () => {
   let photoModule: TestingModule;

@@ -1,5 +1,5 @@
-import { InstinctConfig } from './';
-import { Injectable } from '@nestjs/common';
+import {InstinctConfig} from './';
+import {Injectable} from '@nestjs/common';
 
 @Injectable()
 export class ConfigService {

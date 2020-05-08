@@ -1,11 +1,11 @@
-import { UserService } from '../user';
-import { User } from 'instinct-interfaces';
-import { NewSessionDTO } from './session.dto';
-import { SessionService } from './session.service';
-import { HasSession } from './has-session.decorator';
-import { GetSession } from './get-session.decorator';
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { UserEntity, userWire } from '../database/entity/user';
+import {UserService} from '../user';
+import {User} from 'instinct-interfaces';
+import {NewSessionDTO} from './session.dto';
+import {SessionService} from './session.service';
+import {HasSession} from './has-session.decorator';
+import {GetSession} from './get-session.decorator';
+import {Body, Controller, Get, Post} from '@nestjs/common';
+import {UserEntity, userWire} from '../database/entity/user';
 
 @Controller('session')
 export class SessionController {

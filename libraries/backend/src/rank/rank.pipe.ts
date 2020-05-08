@@ -1,6 +1,6 @@
-import { RankService } from './rank.service';
-import { RankEntity } from '../database/entity/rank';
-import { PipeTransform, Injectable, NotFoundException } from '@nestjs/common';
+import {RankService} from './rank.service';
+import {RankEntity} from '../database/entity/rank';
+import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class RankPipe implements PipeTransform {

@@ -1,7 +1,7 @@
 import * as supertest from 'supertest';
-import { TestingModule } from '@nestjs/testing';
-import { mockHealthModule } from './health.module.mock';
-import { HttpServer, HttpStatus, INestApplication } from '@nestjs/common';
+import {TestingModule} from '@nestjs/testing';
+import {mockHealthModule} from './health.module.mock';
+import {HttpServer, HttpStatus, INestApplication} from '@nestjs/common';
 
 describe('HealthController ', () => {
   let healthModule: TestingModule;

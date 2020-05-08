@@ -1,5 +1,5 @@
-import { ConfigService, InstinctConfig } from './';
-import { DynamicModule, Global, Module } from '@nestjs/common';
+import {ConfigService, InstinctConfig} from './';
+import {DynamicModule, Global, Module} from '@nestjs/common';
 
 @Module({})
 @Global()

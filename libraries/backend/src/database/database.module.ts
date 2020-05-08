@@ -1,7 +1,7 @@
-import { databaseEntities } from './';
-import { InstinctConfig } from '../config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { DynamicModule, Module } from '@nestjs/common';
+import {databaseEntities} from './';
+import {InstinctConfig} from '../config';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {DynamicModule, Module} from '@nestjs/common';
 
 @Module({})
 export class DatabaseModule {

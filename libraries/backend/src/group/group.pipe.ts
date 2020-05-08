@@ -1,6 +1,6 @@
-import { GroupService } from './group.service';
-import { GroupEntity } from '../database/entity/group';
-import { PipeTransform, Injectable, NotFoundException } from '@nestjs/common';
+import {GroupService} from './group.service';
+import {GroupEntity} from '../database/entity/group';
+import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class GroupPipe implements PipeTransform {

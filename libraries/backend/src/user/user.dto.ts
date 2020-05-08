@@ -1,6 +1,6 @@
-import { UniqueEmail } from './constraint/unique-email';
-import { UniqueUsername } from './constraint/unique-username';
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import {UniqueEmail} from './constraint/unique-email';
+import {UniqueUsername} from './constraint/unique-username';
+import {IsEmail, IsNotEmpty, IsString} from 'class-validator';
 
 export class NewUserDTO {
   @IsString()

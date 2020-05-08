@@ -1,5 +1,5 @@
-import { IsNotEmpty, IsString } from 'class-validator';
-import { UserExists } from '../user/constraint/user-exists';
+import {IsNotEmpty, IsString} from 'class-validator';
+import {UserExists} from '../user/constraint/user-exists';
 
 export class NewSessionDTO {
   @IsString()

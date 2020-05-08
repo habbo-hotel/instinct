@@ -1,8 +1,8 @@
-import { GroupPipe } from './group.pipe';
-import { Group } from 'instinct-interfaces';
-import { GroupService } from './group.service';
-import { Controller, Get, Param } from '@nestjs/common';
-import { GroupEntity, groupWire } from '../database/entity/group';
+import {GroupPipe} from './group.pipe';
+import {Group} from 'instinct-interfaces';
+import {GroupService} from './group.service';
+import {Controller, Get, Param} from '@nestjs/common';
+import {GroupEntity, groupWire} from '../database/entity/group';
 
 @Controller('groups')
 export class GroupController {

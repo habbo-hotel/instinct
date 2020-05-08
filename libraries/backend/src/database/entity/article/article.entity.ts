@@ -1,6 +1,6 @@
-import { UserEntity } from '../user';
-import { ArticleCategoryEntity } from './article-category.entity';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {UserEntity} from '../user';
+import {ArticleCategoryEntity} from './article-category.entity';
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 export enum ArticleForm {
   None = 'none',
@@ -23,35 +23,32 @@ export class ArticleEntity {
   @Column()
   title!: string;
 
-  @Column({ name: 'short_story' })
+  @Column({name: 'short_story'})
   shortStory!: string;
 
-  @Column({ name: 'full_story' })
+  @Column({name: 'full_story'})
   fullStory!: string;
 
   @Column()
   header!: string;
 
-  @Column({ name: 'category' })
+  @Column({name: 'category'})
   categoryID!: number;
 
-  @ManyToOne(
-    () => ArticleCategoryEntity,
-    category => category.articles
-  )
-  @JoinColumn({ name: 'category' })
+  @ManyToOne(() => ArticleCategoryEntity, category => category.articles)
+  @JoinColumn({name: 'category'})
   category?: ArticleCategoryEntity;
 
-  @Column({ name: 'images' })
+  @Column({name: 'images'})
   image!: string;
 
-  @CreateDateColumn({ name: 'timestamp', type: 'int' })
+  @CreateDateColumn({name: 'timestamp', type: 'int'})
   timestamp!: number;
 
-  @Column({ name: 'author' })
+  @Column({name: 'author'})
   userID!: number;
 
   @ManyToOne(() => UserEntity)
-  @JoinColumn({ name: 'author' })
+  @JoinColumn({name: 'author'})
   author?: UserEntity;
 }

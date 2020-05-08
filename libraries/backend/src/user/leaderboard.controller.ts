@@ -1,7 +1,7 @@
-import { User } from 'instinct-interfaces';
-import { Controller, Get } from '@nestjs/common';
-import { UserLeaderBoardService } from './leaderboard.service';
-import { UserEntity, userWire } from '../database/entity/user';
+import {User} from 'instinct-interfaces';
+import {Controller, Get} from '@nestjs/common';
+import {UserLeaderBoardService} from './leaderboard.service';
+import {UserEntity, userWire} from '../database/entity/user';
 
 @Controller('users/leaderboard')
 export class UserLeaderBoardController {

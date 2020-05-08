@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { PhotoPipe } from './photo.pipe';
-import { PhotoService } from './photo.service';
-import { DatabaseModule } from '../database/database.module';
-import { PhotoController } from './photo.controller';
+import {Module} from '@nestjs/common';
+import {PhotoPipe} from './photo.pipe';
+import {PhotoService} from './photo.service';
+import {DatabaseModule} from '../database/database.module';
+import {PhotoController} from './photo.controller';
 
 @Module({
   imports: [DatabaseModule],

@@ -1,10 +1,10 @@
 import * as Moment from 'moment';
-import { ArticlePipe } from './article.pipe';
-import { NewArticleDTO } from './article.dto';
-import { Article } from 'instinct-interfaces';
-import { ArticleService } from './article.service';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ArticleEntity, articleWire } from '../database/entity/article';
+import {ArticlePipe} from './article.pipe';
+import {NewArticleDTO} from './article.dto';
+import {Article} from 'instinct-interfaces';
+import {ArticleService} from './article.service';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {ArticleEntity, articleWire} from '../database/entity/article';
 
 @Controller('articles')
 export class ArticleController {

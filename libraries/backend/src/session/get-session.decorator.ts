@@ -1,6 +1,6 @@
-import { RequestWithSession } from './session.type';
-import { UserEntity } from '../database/entity/user';
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
+import {RequestWithSession} from './session.type';
+import {UserEntity} from '../database/entity/user';
+import {createParamDecorator, ExecutionContext} from '@nestjs/common';
 
 // tslint:disable-next-line:variable-name - In Typescript decorators start with a capital letter
 export const GetSession = createParamDecorator(

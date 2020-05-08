@@ -1,9 +1,9 @@
-import { getConnection } from 'typeorm';
-import { PhotoPipe } from './photo.pipe';
-import { TestingModule } from '@nestjs/testing';
-import { mockPhotoModule } from './photo.module.mock';
-import { PhotoEntity } from '../database/entity/photo';
-import { photoFactory } from '../database/factory/photo';
+import {getConnection} from 'typeorm';
+import {PhotoPipe} from './photo.pipe';
+import {TestingModule} from '@nestjs/testing';
+import {mockPhotoModule} from './photo.module.mock';
+import {PhotoEntity} from '../database/entity/photo';
+import {photoFactory} from '../database/factory/photo';
 
 describe('PhotoPipe', () => {
   let photoModule: TestingModule;

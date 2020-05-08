@@ -1,13 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { UserService } from '../../user.service';
-import {
-  registerDecorator,
-  ValidationOptions,
-  ValidatorConstraint,
-  ValidatorConstraintInterface,
-} from 'class-validator';
+import {Injectable} from '@nestjs/common';
+import {UserService} from '../../user.service';
+import {registerDecorator, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface} from 'class-validator';
 
-@ValidatorConstraint({ async: true })
+@ValidatorConstraint({async: true})
 @Injectable()
 export class UniqueUsernameConstraint implements ValidatorConstraintInterface {
   constructor(private readonly userService: UserService) {}
@@ -27,7 +22,7 @@ export class UniqueUsernameConstraint implements ValidatorConstraintInterface {
 }
 
 export function UniqueUsername(validationOptions?: ValidationOptions) {
-  return function(object: object, propertyName: string) {
+  return function (object: object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
       propertyName,

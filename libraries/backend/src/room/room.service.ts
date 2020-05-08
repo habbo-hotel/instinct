@@ -1,13 +1,16 @@
-import { Repository } from 'typeorm';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { RoomEntity } from '../database/entity/room';
+import {Repository} from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {RoomEntity} from '../database/entity/room';
 
 @Injectable()
 export class RoomService {
   private readonly eagerRelations: Array<keyof RoomEntity> = ['owner'];
 
-  constructor(@InjectRepository(RoomEntity) private readonly roomRepo: Repository<RoomEntity>) {}
+  constructor(
+    @InjectRepository(RoomEntity)
+    private readonly roomRepo: Repository<RoomEntity>
+  ) {}
 
   getAll(): Promise<RoomEntity[]> {
     return this.roomRepo.find({

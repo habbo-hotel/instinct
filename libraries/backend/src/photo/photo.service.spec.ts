@@ -1,11 +1,11 @@
-import { getConnection } from 'typeorm';
-import { PhotoService } from './photo.service';
-import { TestingModule } from '@nestjs/testing';
-import { UserEntity } from '../database/entity/user';
-import { mockPhotoModule } from './photo.module.mock';
-import { PhotoEntity } from '../database/entity/photo';
-import { userFactory } from '../database/factory/user';
-import { photoFactory } from '../database/factory/photo';
+import {getConnection} from 'typeorm';
+import {PhotoService} from './photo.service';
+import {TestingModule} from '@nestjs/testing';
+import {UserEntity} from '../database/entity/user';
+import {mockPhotoModule} from './photo.module.mock';
+import {PhotoEntity} from '../database/entity/photo';
+import {userFactory} from '../database/factory/user';
+import {photoFactory} from '../database/factory/photo';
 
 describe('PhotoService', () => {
   let photoModule: TestingModule;

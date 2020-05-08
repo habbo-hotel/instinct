@@ -1,8 +1,8 @@
-import { RankPipe } from './rank.pipe';
-import { Module } from '@nestjs/common';
-import { RankService } from './rank.service';
-import { RankController } from './rank.controller';
-import { DatabaseModule } from '../database/database.module';
+import {RankPipe} from './rank.pipe';
+import {Module} from '@nestjs/common';
+import {RankService} from './rank.service';
+import {DatabaseModule} from '../database';
+import {RankController} from './rank.controller';
 
 @Module({
   imports: [DatabaseModule],

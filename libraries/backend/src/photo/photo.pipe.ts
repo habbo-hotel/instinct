@@ -1,6 +1,6 @@
-import { PhotoService } from './photo.service';
-import { PhotoEntity } from '../database/entity';
-import { PipeTransform, Injectable, NotFoundException } from '@nestjs/common';
+import {PhotoService} from './photo.service';
+import {PhotoEntity} from '../database/entity';
+import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class PhotoPipe implements PipeTransform {

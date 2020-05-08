@@ -1,8 +1,8 @@
-import { UserService } from '../user'
-import { HashService } from '../common';
-import { UserEntity } from '../database/entity/user';
-import { BearerTokenService } from './bearer-token.service';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {UserService} from '../user';
+import {HashService} from '../common';
+import {UserEntity} from '../database/entity/user';
+import {BearerTokenService} from './bearer-token.service';
+import {Injectable, UnauthorizedException} from '@nestjs/common';
 
 @Injectable()
 export class SessionService {
