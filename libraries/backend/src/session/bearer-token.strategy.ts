@@ -1,4 +1,4 @@
-import {ConfigService} from '../config';
+import {jwtSecret} from '../common';
 import {UserService} from '../user';
 import {Injectable} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
@@ -7,11 +7,11 @@ import {UserEntity} from '../database/entity/user';
 
 @Injectable()
 export class BearerTokenStrategy extends PassportStrategy(Strategy, 'bearer-token') {
-  constructor(private readonly userService: UserService, private readonly configService: ConfigService) {
+  constructor(private readonly userService: UserService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: configService.get('jwtSecret'),
+      secretOrKey: jwtSecret,
     });
   }
 

@@ -5,6 +5,10 @@
     "outDir": "build",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "target": "ES6"
-  }
+    "target": "ES6",
+    "allowJs": true
+  },
+  "exclude": [
+    "build"
+  ]
 }

@@ -1,26 +1,21 @@
 import {databaseEntities} from './';
-import {InstinctConfig} from '../config';
+import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {DynamicModule, Module} from '@nestjs/common';
+import {databaseHost, databaseName, databasePass, databaseUser} from '../common';
 
-@Module({})
-export class DatabaseModule {
-  static forRoot(config: InstinctConfig): DynamicModule {
-    return {
-      module: DatabaseModule,
-      imports: [
-        TypeOrmModule.forRoot({
-          type: 'mysql',
-          host: config.databaseHost,
-          username: config.databaseUser,
-          password: config.databasePass,
-          database: config.databaseName,
-          entities: databaseEntities,
-          synchronize: false,
-        }),
-        TypeOrmModule.forFeature(databaseEntities),
-      ],
-      exports: [TypeOrmModule],
-    };
-  }
-}
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: databaseHost,
+      username: databaseUser,
+      password: databasePass,
+      database: databaseName,
+      entities: databaseEntities,
+      synchronize: false,
+    }),
+    TypeOrmModule.forFeature(databaseEntities),
+  ],
+  exports: [TypeOrmModule],
+})
+export class DatabaseModule {}

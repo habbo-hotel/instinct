@@ -1,9 +1,9 @@
 import {RankEntity} from '../rank';
 import {RoomEntity} from '../room';
 import {PhotoEntity} from '../photo';
+import {GroupEntity} from '../group';
 import {UserBadgesEntity} from './user-badges.entity';
 import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
-import {GroupEntity} from '../group';
 
 @Entity('users')
 export class UserEntity {

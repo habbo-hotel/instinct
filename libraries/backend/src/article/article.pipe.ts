@@ -1,6 +1,6 @@
 import {ArticleService} from './article.service';
 import {ArticleEntity} from '../database/entity';
-import {PipeTransform, Injectable, ArgumentMetadata, NotFoundException} from '@nestjs/common';
+import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class ArticlePipe implements PipeTransform {

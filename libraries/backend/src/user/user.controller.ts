@@ -1,24 +1,32 @@
 import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
-import {ConfigService} from '../config';
 import {UserService} from './user.service';
 import {Room, User, UserProfile} from 'instinct-interfaces';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
+import {
+  defaultUserCredits,
+  defaultUserHomeRoom,
+  defaultUserLook,
+  defaultUserMotto,
+  defaultUserPixels,
+  defaultUserPoints,
+  defaultUserRank,
+} from '../common';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService, private readonly configService: ConfigService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
     const currentTimestamp: number = Moment().unix();
     const user: UserEntity = await this.userService.create({
       username: newUser.username,
-      motto: this.configService.get('defaultUserMotto'),
+      motto: defaultUserMotto,
       password: newUser.password,
-      rankID: this.configService.get('defaultUserRank'),
+      rankID: defaultUserRank,
       email: newUser.email,
       mailVerified: 0,
       accountCreated: currentTimestamp,
@@ -26,14 +34,14 @@ export class UserController {
       lastLogin: currentTimestamp,
       lastOnline: currentTimestamp,
       gender: 'M',
-      figure: this.configService.get('defaultUserLook'),
-      credits: this.configService.get('defaultUserCredits'),
-      pixels: this.configService.get('defaultUserPixels'),
-      points: this.configService.get('defaultUserPoints'),
+      figure: defaultUserLook,
+      credits: defaultUserCredits,
+      pixels: defaultUserPixels,
+      points: defaultUserPoints,
       online: 0,
       ipRegister: '127.0.0.1',
       ipCurrent: '127.0.0.1',
-      homeRoom: this.configService.get('defaultUserHomeRoom'),
+      homeRoom: defaultUserHomeRoom,
     });
     return userWire(user);
   }
