@@ -1,11 +1,17 @@
-import 'dotenv/config';
+import { join } from 'path';
 import { Module } from '@nestjs/common';
-import { instinctConfig } from './config';
 import { InstinctModule } from 'instinct-backend';
+import {ServeStaticModule} from '@nestjs/serve-static';
 
 @Module({
   imports: [
-    InstinctModule.forRoot(instinctConfig),
+    InstinctModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public'),
+      serveStaticOptions: {
+        cacheControl: true,
+      },
+    }),
   ],
 })
 export class AppModule {}

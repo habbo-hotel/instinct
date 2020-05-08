@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -18,7 +18,6 @@
     "@nestjs/jwt": "^7.0.0",
     "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^7.0.9",
-    "@nestjs/serve-static": "^2.1.0",
     "@nestjs/typeorm": "^7.0.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.2.3",

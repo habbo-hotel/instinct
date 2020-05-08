@@ -1,5 +1,4 @@
 import 'dotenv/config';
-import {join} from 'path';
 
 function getEnvOrFail(key: string): string {
   const value: string | undefined = process.env[key];
@@ -16,9 +15,6 @@ export const databaseHost: string = getEnvOrFail('DATABASE_HOST');
 export const databaseUser: string = getEnvOrFail('DATABASE_USER');
 export const databasePass: string = getEnvOrFail('DATABASE_PASS');
 export const databaseName: string = getEnvOrFail('DATABASE_NAME');
-
-// Public Folder
-export const publicFolder: string = join(__dirname, '..', 'public');
 
 // Authentication
 export const jwtSecret: string = getEnvOrFail('JWT_SECRET');
