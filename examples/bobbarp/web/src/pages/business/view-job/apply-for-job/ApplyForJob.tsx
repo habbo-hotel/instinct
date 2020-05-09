@@ -6,6 +6,10 @@ import { businessService } from '../../../../app/service/business';
 export function ApplyForJob({ job }: ApplyForJobProps) {
   const [state, setState] = useState<ApplyForJobState>(defaultApplyForJobState);
 
+  if (!job?.applicationRequired) {
+    return null;
+  }
+
   function setContent(content: string): void {
     setState({
       ...state,
