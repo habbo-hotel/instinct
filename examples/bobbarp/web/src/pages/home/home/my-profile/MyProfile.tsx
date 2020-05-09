@@ -1,7 +1,7 @@
 import './MyProfile.scss';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { Avatar, SessionContext, SessionTypes } from 'instinct-frontend';
+import { Avatar, SessionContext, SessionTypes, Icon } from 'instinct-frontend';
 
 export function MyProfile() {
   const { user }: SessionTypes = useContext<SessionTypes>(SessionContext);
@@ -17,12 +17,10 @@ export function MyProfile() {
           <Avatar className="figure" look={user?.figure} />
         </div>
         <div className="stats">
-          <div className="icons" style={{ background: 'url(/img/icons/credits.png) no-repeat center center' }} />
-          <div style={{ color: '#E2AE1D' }}>{user?.credits}</div>
-          <div className="icons" style={{ background: 'url(/img/icons/duckets.png) no-repeat center center' }} />
-          <div style={{ color: '#BA7CC2' }}>{user?.pixels}</div>
-          <div className="icons" style={{ background: 'url(/img/icons/diamonds.png) no-repeat center center' }} />
-          <div style={{ color: '#BA7CC2' }}>{user?.points}</div>
+          <div className="icons">
+            <Icon type="pound-sign"/>
+          </div>
+          <div>{user?.credits.toLocaleString()}</div>
         </div>
       </div>
     </article>
