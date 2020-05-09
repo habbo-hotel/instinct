@@ -1,9 +1,9 @@
 import {BusinessEntity} from './business.entity';
 import {BusinessJobRank}  from 'instinct-rp-interfaces';
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BusinessMemberEntity } from './business-member.entity';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-export enum BusinessJobWorkEveryWhere {
+export enum BusinessJobEnum {
   Yes = '1',
   No = '0',
 }
@@ -27,6 +27,9 @@ export class BusinessJobEntity {
   @Column()
   name!: string;
 
+  @Column({type: 'tinytext'})
+  description!: string;
+
   @Column({ name: 'look_h' })
   lookH!: string;
 
@@ -37,7 +40,13 @@ export class BusinessJobEntity {
   salary!: number;
 
   @Column({ name: 'work_everywhere', type: 'enum' })
-  workEverywhere!: BusinessJobWorkEveryWhere;
+  workEverywhere!: BusinessJobEnum
+
+  @Column({name: 'vacant_spots', type: 'int' })
+  vacantSpots!: number;
+
+  @Column({name: 'application_required', type: 'int' })
+  applicationRequired!: BusinessJobEnum;
 
   @Column({type: 'enum'})
   rank!: BusinessJobRank;

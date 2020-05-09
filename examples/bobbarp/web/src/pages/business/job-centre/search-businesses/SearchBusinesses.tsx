@@ -51,7 +51,7 @@ export function SearchBusinesses() {
             state.businesses.map(business => (
               <Link to={`/businesses/${business.id}`} key={business.id}>
                 <div className="business-row" style={{ background: `url(${configContext.siteLink}/corps/${business.badge}.gif) 10px no-repeat` }}>
-                  <div className="user-count">0</div>
+                  <div className="user-count">{business.members!.length}</div>
                   <div className="name">{business.name}</div>
                   <div className="desc">{business.desc}</div>
                 </div>

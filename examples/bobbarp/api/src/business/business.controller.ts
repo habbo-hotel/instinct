@@ -1,9 +1,10 @@
 import {BusinessPipe} from './business.pipe';
-import {Business} from 'instinct-rp-interfaces';
+import { BusinessJobPipe } from './job.pipe';
 import {BusinessSearchDTO} from './business.dto';
 import {BusinessService} from './business.service';
+import { Business, BusinessJob } from 'instinct-rp-interfaces';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {BusinessEntity, businessWire} from '../database/entity/business';
+import { BusinessEntity, BusinessJobEntity, businessJobWire, businessWire } from '../database/entity/business';
 
 @Controller('businesses')
 export class BusinessController {
@@ -13,6 +14,17 @@ export class BusinessController {
   async getAll(): Promise<Business[]> {
     const businesses: BusinessEntity[] = await this.businessService.getAll();
     return businesses.map(business => businessWire(business));
+  }
+
+  @Get('jobs')
+  async getVacantJobs(): Promise<BusinessJob[]> {
+    const vacantJobs: BusinessJobEntity[] = await this.businessService.getVacantJobs();
+    return vacantJobs.map(job => businessJobWire(job));
+  }
+
+  @Get('jobs/:jobID')
+  getJobByID(@Param('jobID', BusinessJobPipe) businessJob: BusinessJobEntity): BusinessJob {
+    return businessJobWire(businessJob);
   }
 
   @Get(':businessID')

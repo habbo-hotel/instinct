@@ -1,7 +1,7 @@
-import {Like, Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {BusinessEntity} from '../database/entity/business';
+import { Like, MoreThan, Repository } from 'typeorm';
+import { BusinessEntity, BusinessJobEntity } from '../database/entity/business';
 
 @Injectable()
 export class BusinessService {
@@ -9,12 +9,23 @@ export class BusinessService {
 
   constructor(
     @InjectRepository(BusinessEntity)
-    private readonly businessRepo: Repository<BusinessEntity>
+    private readonly businessRepo: Repository<BusinessEntity>,
+    @InjectRepository(BusinessJobEntity)
+    private readonly businessJobRepo: Repository<BusinessJobEntity>,
   ) {}
 
   getAll(): Promise<BusinessEntity[]> {
     return this.businessRepo.find({
       relations: this.eagerRelations,
+    });
+  }
+
+  getVacantJobs(): Promise<BusinessJobEntity[]> {
+    return this.businessJobRepo.find({
+      where: {
+        vacantSpots: MoreThan(0),
+      },
+      relations: ['business', 'business.user', 'business.room'],
     });
   }
 
@@ -27,6 +38,15 @@ export class BusinessService {
     });
   }
 
+  getJobByID(jobID: number): Promise<BusinessJobEntity> {
+    return this.businessJobRepo.findOneOrFail({
+      where: {
+        id: jobID,
+      },
+      relations: ['business', 'business.user', 'business.room'],
+    });
+  }
+
   searchByField<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {
     return this.businessRepo.find({
       where: {
@@ -35,4 +55,5 @@ export class BusinessService {
       relations: this.eagerRelations,
     });
   }
+
 }

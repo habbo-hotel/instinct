@@ -58,3 +58,11 @@ SET FOREIGN_KEY_CHECKS = 1;
 INSERT INTO `permissions` VALUES (null, 'website_show_staff', 'Users with this permission will be shown on the staff page');
 INSERT INTO `permissions` VALUES (null, 'website_show_government', 'Users with this permission will be shown on the government page');
 INSERT INTO `permissions` VALUES (null, 'website_show_admin_panel', 'Users with this permission can access the admin panel');
+
+-- ----------------------------
+-- Business rank updates for Instinct to work
+-- ----------------------------
+ALTER TABLE groups_rank
+ADD COLUMN `vacant_spots` int(11) NULL DEFAULT 0 AFTER `rank`,
+ADD COLUMN `application_required` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0' AFTER `vacant_spots`;
+ADD `description` TINYTEXT AFTER `application_required`;
