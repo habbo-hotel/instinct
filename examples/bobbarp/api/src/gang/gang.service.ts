@@ -20,7 +20,7 @@ export class GangService {
       where: {
         id: gangID,
       },
-      relations: this.relations,
+      relations: [...this.relations, 'users'],
     });
   }
 

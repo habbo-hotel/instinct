@@ -6,6 +6,7 @@ export interface Gang {
   kills: number;
   deaths: number;
   owner: User;
+  users?: User[];
 }
 
 export const exampleGang: Gang = {

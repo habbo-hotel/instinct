@@ -14,6 +14,7 @@ export interface User {
   lastLoginDate: string; // ISO Date
   rank?: Omit<Rank, 'users'>;
   gangs?: Array<Omit<Gang, 'owner'>>;
+  gang?: Gang;
 }
 
 export const exampleUser: User = {

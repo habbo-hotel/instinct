@@ -1,5 +1,5 @@
 import {UserEntity} from '../user';
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('gang')
 export class GangEntity {
@@ -24,4 +24,7 @@ export class GangEntity {
   @ManyToOne(() => UserEntity, user => user.gangs)
   @JoinColumn({name: 'owner'})
   owner?: UserEntity;
+
+  @OneToMany(() => UserEntity, user => user.gang)
+  users?: UserEntity[];
 }

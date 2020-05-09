@@ -16,6 +16,7 @@ import {
   setURL,
   UserContainer
 } from 'instinct-frontend';
+import { JobContainer } from './job-container';
 
 setURL('businesses/:businessID', <ViewBusiness/>);
 
@@ -43,21 +44,16 @@ export function ViewBusiness() {
       <Container>
         <Loading isLoading={state.showSpinner}>
           <Column side="left">
-            <Card header="About">
-              <p>Coming Soon</p>
-            </Card>
-            <Card header="Employees">
-              <div className="members-container">
-                {
-                  state.business && state.business.members!.map(user => (
-                    <UserContainer key={user.id} user={user}/>
-                  ))
-                }
-              </div>
-            </Card>
+            <h3>Positions</h3>
+            {
+              state.business?.jobs?.reverse().map(job => (
+                <JobContainer key={job.id} job={job}/>
+              ))
+            }
           </Column>
           <Column side="right">
-            <Card header="Business Owner">
+            <h3>Business Owner</h3>
+            <Card>
               <div className="members-container">
                 {
                   state.business

@@ -1,11 +1,28 @@
 import './Gangs.scss';
-import React from 'react';
 import { UserLayout } from 'components';
-import { Card, Column, Container, Jumbotron, setURL } from 'instinct-frontend';
+import { Link } from 'react-router-dom';
+import { gangService } from 'app/service';
+import { Gang } from 'instinct-rp-interfaces';
+import React, { useEffect, useState } from 'react';
+import { defaultGangsState, GangsState } from './';
+import { Card, Column, Container, Jumbotron, Loading, setURL } from 'instinct-frontend';
 
-setURL('crime/gangs', <Finance/>);
+setURL('crime/gangs', <Gangs/>);
 
-export function Finance() {
+export function Gangs() {
+  const [state, setState] = useState<GangsState>(defaultGangsState);
+
+  useEffect(() => {
+    async function fetchGangs(): Promise<void> {
+      const gangs: Gang[] = await gangService.getAll();
+      setState({
+        gangs,
+        showSpinner: false,
+      })
+    }
+
+    fetchGangs();
+  }, []);
 
   return (
     <UserLayout section="gangs">
@@ -15,7 +32,19 @@ export function Finance() {
       <Container>
         <Column side="left">
           <Card header="All Gangs">
-            <p>Coming soon</p>
+            <Loading isLoading={state.showSpinner}>
+              {
+                state.gangs.map(gang => (
+                  <Link to={`/crime/gangs/${gang.id}`} key={gang.id}>
+                    <div className="gang-container">
+                      <div className="user-count">0</div>
+                      <div className="name">{gang.name}</div>
+                      <div className="desc">{gang.kills} kills</div>
+                    </div>
+                  </Link>
+                ))
+              }
+            </Loading>
           </Card>
         </Column>
         <Column side="right">

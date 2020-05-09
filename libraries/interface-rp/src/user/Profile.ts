@@ -7,6 +7,7 @@ export interface UserProfile {
   friends: User[];
   businesses: Business[];
   gangs: Gang[];
+  gang?: Gang;
 }
 
 export const exampleUserProfile: UserProfile = {

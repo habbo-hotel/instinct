@@ -71,6 +71,13 @@ export class UserEntity {
   @Column({name: 'home_room', default: 0})
   homeRoom!: number;
 
+  @Column({name: 'gang', type: 'int', nullable: true})
+  gangID?: number;
+
+  @ManyToOne(() => GangEntity, gang => gang.users)
+  @JoinColumn({name: 'gang'})
+  gang?: GangEntity;
+
   @OneToMany(() => RoomEntity, room => room.owner)
   rooms?: RoomEntity[];
 

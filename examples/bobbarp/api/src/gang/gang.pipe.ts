@@ -10,6 +10,7 @@ export class GangPipe implements PipeTransform {
     try {
       return await this.gangService.getByID(gangID);
     } catch (e) {
+      console.log(e);
       throw new NotFoundException('Gang does not exist');
     }
   }
