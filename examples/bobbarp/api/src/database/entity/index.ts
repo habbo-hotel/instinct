@@ -9,12 +9,12 @@ import {RoomEntity} from './room';
 import {RankEntity} from './rank';
 import {UserEntity} from './user';
 import {GangEntity} from './gang';
-import {BusinessEntity} from './business';
 import {BadgeEntity} from './badge';
 import {UserBadgesEntity} from './user';
 import {ArticleEntity} from './article';
 import {BusinessMemberEntity} from './business';
 import {ArticleCategoryEntity} from './article';
+import {BusinessEntity, BusinessJobEntity} from './business';
 
 export const databaseEntities: Function[] = [
   ArticleEntity,
@@ -27,4 +27,5 @@ export const databaseEntities: Function[] = [
   UserBadgesEntity,
   RoomEntity,
   BusinessMemberEntity,
+  BusinessJobEntity,
 ];

@@ -9,7 +9,8 @@ export class BusinessPipe implements PipeTransform {
   async transform(businessID: number): Promise<BusinessEntity> {
     try {
       return await this.businessService.getByID(businessID);
-    } catch {
+    } catch (e) {
+      console.log(e);
       throw new NotFoundException('Business does not exist');
     }
   }

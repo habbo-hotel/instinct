@@ -1,7 +1,8 @@
 import {UserEntity} from '../user';
 import {RoomEntity} from '../room';
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
+import {BusinessJobEntity } from './business-job.entity';
 import {BusinessMemberEntity} from './business-member.entity';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 
 @Entity('groups')
 export class BusinessEntity {
@@ -39,4 +40,7 @@ export class BusinessEntity {
 
   @OneToMany(() => BusinessMemberEntity, businessMember => businessMember.business)
   members?: BusinessMemberEntity[];
+
+  @OneToMany(() => BusinessJobEntity, businessJob => businessJob.business)
+  jobs?: BusinessJobEntity[];
 }

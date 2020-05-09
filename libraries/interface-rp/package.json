@@ -1,6 +1,6 @@
 {
   "name": "instinct-rp-interfaces",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Shared interfaces across Instinct RP",
   "license": "MIT",
   "private": false,

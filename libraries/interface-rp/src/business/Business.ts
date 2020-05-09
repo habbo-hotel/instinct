@@ -1,5 +1,6 @@
 import {exampleUser, User} from '../user';
 import {exampleRoom, Room} from '../room';
+import {BusinessJob} from './BusinessJob';
 
 export interface Business {
   id: number;
@@ -10,6 +11,7 @@ export interface Business {
   createdAt: string; // ISO Date
   room: Room;
   members?: User[];
+  jobs?: BusinessJob[];
 }
 
 export const exampleBusiness: Business = {
