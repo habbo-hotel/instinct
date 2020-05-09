@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArticleList, GuestLayout, setURL } from 'instinct-frontend';
+import { GuestLayout } from 'components';
+import { ArticleList, setURL } from 'instinct-frontend';
 
 setURL('login', <Login />);
 

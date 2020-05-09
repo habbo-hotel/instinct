@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { SessionContext, SessionTypes, setLanding } from 'instinct-frontend';
+import { setLanding } from 'instinct-frontend';
+import { SessionContext, SessionTypes } from 'app/context';
 
 setLanding(<Landing />);
 

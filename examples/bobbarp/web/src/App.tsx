@@ -1,9 +1,10 @@
 import './pages';
 import './components';
 import React from 'react';
+import { ContextProviders } from 'app/context';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import { ContextProviders, Client, DataPolling, Router } from 'instinct-frontend';
+import { Client, DataPolling, Router } from 'instinct-frontend';
 
 export function App() {
   return (

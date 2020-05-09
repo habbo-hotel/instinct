@@ -1,7 +1,7 @@
-import { NavBar } from 'components';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { ConfigContext, Footer, Header, HealthContext, Icon, UserGuard, UserLayoutProps } from 'instinct-frontend';
+import { UserGuard, NavBar } from 'components';
+import { ConfigContext, Footer, Header, HealthContext, Icon, UserLayoutProps } from 'instinct-frontend';
 
 export function UserLayout({ children, section, style }: UserLayoutProps) {
   const configContext = useContext(ConfigContext);
