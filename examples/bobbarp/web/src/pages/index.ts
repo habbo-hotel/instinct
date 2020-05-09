@@ -1,6 +1,9 @@
 import './admin';
 import './auth';
-import './community';
+import './business';
+import './crime';
 import './error';
 import './home';
-import './rooms';
+import './leaderboard';
+import './life';
+import './other';

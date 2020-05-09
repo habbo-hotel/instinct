@@ -1,13 +1,11 @@
 import './UserProfile.scss';
-import { Rooms } from './rooms';
-import { Badges } from './badges';
-import { Groups } from './groups';
 import { Friends } from './friends';
+import { UserLayout } from 'components';
 import { useParams } from 'react-router';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
-import { Container, Column, userService, Loading, Jumbotron, UserLayout, setURL } from 'instinct-frontend';
+import { Container, Column, userService, Loading, Jumbotron, setURL } from 'instinct-frontend';
 
 setURL('profile/:username', <UserProfile />);
 
@@ -38,10 +36,7 @@ export function UserProfile() {
             <UserContainer profile={state.profile} />
           </Column>
           <Column side="left">
-            <Badges profile={state.profile} />
             <Friends profile={state.profile} />
-            <Groups profile={state.profile} />
-            <Rooms profile={state.profile} />
           </Column>
         </Container>
       </Loading>

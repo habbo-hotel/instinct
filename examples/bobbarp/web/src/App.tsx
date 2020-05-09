@@ -1,4 +1,5 @@
 import './pages';
+import './components';
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';

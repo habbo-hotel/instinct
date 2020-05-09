@@ -1,7 +1,7 @@
 import { AdminLayoutProps } from './';
 import { Link } from 'react-router-dom';
 import { HealthContext } from 'context';
-import React, { useContext } from 'react';
+import React, { useContext, ReactNode } from 'react';
 import { AdminNavBar, Header, Icon, PermissionGuard } from 'components';
 
 export function AdminLayout({ children, permission }: AdminLayoutProps) {
