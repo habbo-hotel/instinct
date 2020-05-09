@@ -1,7 +1,13 @@
-body {
-  overflow-x: hidden !important;;
+#root {
+  overflow: hidden;
+}
+
+.page-container{
+  height: calc(100vh - 350px);
+  overflow-y: scroll;
 }
 
 .footer-container {
-  position: relative !important;
+  height: 120px;
+  position: relative;
 }
