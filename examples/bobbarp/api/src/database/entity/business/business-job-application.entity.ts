@@ -1,8 +1,8 @@
 import { UserEntity } from '../user';
 import { BusinessJobEntity } from './business-job.entity';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('group_job_application')
+@Entity('group_applications')
 export class BusinessJobApplicationEntity {
 
   @PrimaryGeneratedColumn()
@@ -21,5 +21,11 @@ export class BusinessJobApplicationEntity {
   @ManyToOne(() => UserEntity, user => user.jobApplications)
   @JoinColumn({ name: 'user_id' })
   user?: UserEntity;
+
+  @Column({ type: 'text' })
+  content!: string;
+
+  @CreateDateColumn({ name: 'timestamp', type: 'timestamp' })
+  createdAt!: Date;
 
 }

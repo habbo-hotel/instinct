@@ -1,12 +1,15 @@
+import { GetSession, HasSession } from '../session';
 import {BusinessPipe} from './business.pipe';
-import { BusinessJobPipe } from './job.pipe';
-import {BusinessSearchDTO} from './business.dto';
 import {BusinessService} from './business.service';
-import { Business, BusinessJob } from 'instinct-rp-interfaces';
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import { BusinessEntity, BusinessJobEntity, businessJobWire, businessWire } from '../database/entity/business';
+import { UserEntity } from '../database/entity/user';
+import { BusinessJobApplicationDTO, BusinessSearchDTO } from './business.dto';
+import { Business, BusinessJob, BusinessJobApplication } from 'instinct-rp-interfaces';
+import { BadRequestException, Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { businessJobApplicationWire } from '../database/entity/business/business-job-application.wire';
+import { BusinessEntity, BusinessJobApplicationEntity, businessWire } from '../database/entity/business';
 
 @Controller('businesses')
+@HasSession()
 export class BusinessController {
   constructor(private readonly businessService: BusinessService) {}
 
@@ -17,14 +20,25 @@ export class BusinessController {
   }
 
   @Get('jobs')
-  async getVacantJobs(): Promise<BusinessJob[]> {
-    const vacantJobs: BusinessJobEntity[] = await this.businessService.getVacantJobs();
-    return vacantJobs.map(job => businessJobWire(job));
+  async getVacantJobs(@GetSession() user: UserEntity): Promise<BusinessJob[]> {
+    return this.businessService.getVacantJobsForUser(user.id!);
   }
 
   @Get('jobs/:jobID')
-  getJobByID(@Param('jobID', BusinessJobPipe) businessJob: BusinessJobEntity): BusinessJob {
-    return businessJobWire(businessJob);
+  async getJobByID(@Param('jobID') businessID: number, @GetSession() user: UserEntity): Promise<BusinessJob> {
+    return this.businessService.getJobByIDForUser(user.id!, businessID);
+  }
+
+  @Post('jobs/:jobID/application')
+  async applyForJob(@Param('jobID') jobID: number, @GetSession() user: UserEntity, @Body() jobApplicationDTO: BusinessJobApplicationDTO): Promise<BusinessJobApplication> {
+    const existingJobApplication: BusinessJobApplicationEntity|undefined = await this.businessService.getJobApplicationForUser(user.id!, jobID);
+
+    if (existingJobApplication) {
+      throw new BadRequestException('You can only apply once');
+    }
+
+    const jobApplication: BusinessJobApplicationEntity = await this.businessService.createJobApplicationForUser(user.id!, jobID, jobApplicationDTO.content);
+    return businessJobApplicationWire(jobApplication);
   }
 
   @Get(':businessID')

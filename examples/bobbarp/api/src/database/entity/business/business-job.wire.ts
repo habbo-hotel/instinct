@@ -3,7 +3,7 @@ import { businessWire } from './business.wire';
 import { BusinessJob } from 'instinct-rp-interfaces';
 import { BusinessJobEntity, BusinessJobEnum } from './business-job.entity';
 
-export function businessJobWire(businessJobEntity: BusinessJobEntity): BusinessJob {
+export function businessJobWire(businessJobEntity: BusinessJobEntity, alreadyApplied?: boolean): BusinessJob {
   return {
     id: businessJobEntity.id!,
     businessID: businessJobEntity.businessID,
@@ -18,5 +18,6 @@ export function businessJobWire(businessJobEntity: BusinessJobEntity): BusinessJ
     applicationRequired: businessJobEntity.applicationRequired === BusinessJobEnum.Yes,
     maleUniform: businessJobEntity.lookH,
     femaleUniform: businessJobEntity.lookF,
+    alreadyApplied,
   };
 }

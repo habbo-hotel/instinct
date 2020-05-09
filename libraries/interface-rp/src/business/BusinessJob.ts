@@ -21,6 +21,7 @@ export interface BusinessJob {
   users?: User[];
   vacantSpots: number;
   applicationRequired: boolean;
+  alreadyApplied?: boolean;
 }
 
 export const exampleBusinessJob: BusinessJob = {
@@ -35,4 +36,5 @@ export const exampleBusinessJob: BusinessJob = {
   maleUniform: '-',
   femaleUniform: '-',
   applicationRequired: true,
+  alreadyApplied: false,
 };

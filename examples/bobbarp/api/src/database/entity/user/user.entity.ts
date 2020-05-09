@@ -119,5 +119,5 @@ export class UserEntity {
   ownedGang?: GangEntity;
 
   @OneToMany(() => BusinessJobApplicationEntity, businessJobApplication => businessJobApplication.user)
-  jobApplications: BusinessJobApplicationEntity[];
+  jobApplications?: BusinessJobApplicationEntity[];
 }

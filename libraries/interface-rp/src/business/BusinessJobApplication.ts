@@ -1,7 +1,7 @@
 import {exampleUser, User} from '../user';
 import {BusinessJob, exampleBusinessJob} from './BusinessJob';
 
-export interface JobApplication {
+export interface BusinessJobApplication {
   id: number;
   job: BusinessJob;
   user: User;
@@ -9,7 +9,7 @@ export interface JobApplication {
   createdAt: string; // ISO string
 }
 
-export const exampleJobApplication: JobApplication = {
+export const exampleBusinessJobApplication: BusinessJobApplication = {
   id: 1,
   job: exampleBusinessJob,
   user: exampleUser,

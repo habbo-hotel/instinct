@@ -17,6 +17,7 @@ import {
   Loading, Row,
   setURL,
 } from 'instinct-frontend';
+import { ApplyForJob } from './apply-for-job';
 
 setURL('business/jobs/:jobID', <ViewJob/>);
 
@@ -37,10 +38,6 @@ export function ViewJob() {
     fetchJob();
   }, [jobID]);
 
-  async function submitApplication(): Promise<void> {
-    console.log(state.application);
-  }
-
   return (
     <UserLayout section="view_business">
       <Jumbotron style={{ backgroundImage: `url('${configContext.siteLink}/corps/${state.job?.business?.badge}.gif')`}} title={state.job?.name}>
@@ -55,24 +52,7 @@ export function ViewJob() {
             <Card header="Job Description">
               <p>{state.job?.desc}</p>
             </Card>
-            <Card header="Job Application">
-              <div className="container" style={{ padding: 0 }}>
-                <b>Note:</b>
-                <p>Once you submit an application, you cannot make any changes to it.</p>
-              </div>
-              <Form className="container mt-3" onSubmit={submitApplication}>
-                <Row>
-                  <h4>Why should you be hired?</h4>
-                  <textarea className="form-control" value={state.application} placeholder="Tell us why you're the perfect candidate in under 100 words." rows={4}/>
-                </Row>
-                <Row className="mt-3">
-                  <div style={{ width: '50%' }}/>
-                  <div style={{ float: 'right', width: '50%', textAlign: 'right' }}>
-                    <Button color="success" type="submit">Submit</Button>
-                  </div>
-                </Row>
-              </Form>
-            </Card>
+            <ApplyForJob job={state.job}/>
           </Column>
           <Column side="right">
             <Card header="Business Info">
