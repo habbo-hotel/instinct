@@ -2,8 +2,7 @@ import {RankEntity} from '../rank';
 import {RoomEntity} from '../room';
 import {GangEntity} from '../gang';
 import {UserBadgesEntity} from './user-badges.entity';
-import {BusinessEntity, BusinessMemberEntity} from '../business';
-import { BusinessJobApplicationEntity } from '../business/business-job-application.entity';
+import { BusinessEntity, BusinessMemberEntity, BusinessJobApplicationEntity, BusinessJobEntity } from '../business';
 import {
   Column,
   Entity,
@@ -94,6 +93,9 @@ export class UserEntity {
 
   @OneToMany(() => UserBadgesEntity, badge => badge.user)
   badges?: UserBadgesEntity[];
+
+  @OneToOne(() => BusinessMemberEntity, businessMember => businessMember.user)
+  job?: BusinessMemberEntity;
 
   @ManyToMany(() => UserEntity)
   @JoinTable({

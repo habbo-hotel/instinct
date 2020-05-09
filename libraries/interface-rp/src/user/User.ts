@@ -1,4 +1,4 @@
-import {Rank} from '../';
+import { BusinessJob, Rank } from '../';
 import {Gang} from '../gang';
 
 export interface User {
@@ -12,6 +12,7 @@ export interface User {
   figure: string;
   joinDate: string; // ISO Date
   lastLoginDate: string; // ISO Date
+  job?: BusinessJob;
   rank?: Omit<Rank, 'users'>;
   gangs?: Array<Omit<Gang, 'owner'>>;
   gang?: Gang;

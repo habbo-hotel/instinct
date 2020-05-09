@@ -1,7 +1,7 @@
 import {UserEntity} from '../user';
 import {BusinessEntity} from './business.entity';
 import {BusinessJobEntity } from './business-job.entity';
-import {Column, Entity, JoinColumn, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
+import { Column, Entity, JoinColumn, PrimaryGeneratedColumn, ManyToOne, OneToOne } from 'typeorm';
 
 @Entity('group_memberships')
 export class BusinessMemberEntity {
@@ -11,7 +11,7 @@ export class BusinessMemberEntity {
   @Column({name: 'user_id', type: 'int'})
   userID!: number;
 
-  @ManyToOne(() => UserEntity)
+  @OneToOne(() => UserEntity, user => user.job)
   @JoinColumn({name: 'user_id'})
   user?: UserEntity;
 
