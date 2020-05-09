@@ -1,10 +1,10 @@
 import {UserEntity} from '../user';
 import {RoomEntity} from '../room';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
-import {GroupMemberEntity} from './group-member.entity';
+import {BusinessMemberEntity} from './business-member.entity';
 
 @Entity('groups')
-export class GroupEntity {
+export class BusinessEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -37,6 +37,6 @@ export class GroupEntity {
   @Column({name: 'created', type: 'int'})
   dateCreated!: number;
 
-  @OneToMany(() => GroupMemberEntity, groupMember => groupMember.group)
-  members?: GroupMemberEntity[];
+  @OneToMany(() => BusinessMemberEntity, businessMember => businessMember.business)
+  members?: BusinessMemberEntity[];
 }

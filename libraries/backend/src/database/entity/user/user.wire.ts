@@ -1,7 +1,7 @@
 import * as Moment from 'moment';
 import {rankWire} from '../rank';
 import {UserEntity} from './user.entity';
-import {User} from 'instinct-interfaces';
+import {User} from 'instinct-interfaces-interfaces';
 
 export function userWire(userEntity: UserEntity): User {
   return {

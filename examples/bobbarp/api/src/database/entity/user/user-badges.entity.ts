@@ -1,6 +1,6 @@
 import {BadgeEntity} from '../badge';
 import {UserEntity} from './user.entity';
-import {Badge} from 'instinct-interfaces';
+import {Badge} from 'instinct-rp-interfaces';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 export function badgeWire(userBadge: UserBadgesEntity): Badge {

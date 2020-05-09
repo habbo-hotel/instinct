@@ -1,7 +1,7 @@
 import * as Moment from 'moment';
 import {userWire} from '../user';
 import {GroupEntity} from './group.entity';
-import {Group} from 'instinct-interfaces';
+import {Group} from 'instinct-interfaces-interfaces';
 
 export function groupWire(groupEntity: GroupEntity): Group {
   return {

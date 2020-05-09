@@ -1,6 +1,6 @@
 import {userWire} from '../user';
 import {RankEntity} from './rank.entity';
-import {Rank} from 'instinct-interfaces';
+import {Rank} from 'instinct-interfaces-interfaces';
 import {PermissionStatus} from './rank.types';
 
 export function rankWire(rankEntity: RankEntity): Rank {

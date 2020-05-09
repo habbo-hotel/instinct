@@ -1,9 +1,9 @@
 import {RankEntity} from '../rank';
 import {RoomEntity} from '../room';
-import {GroupEntity} from '../group';
+import {GangEntity} from '../gang';
 import {UserBadgesEntity} from './user-badges.entity';
+import {BusinessEntity, BusinessMemberEntity} from '../business';
 import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
-import {GroupMemberEntity} from '../group/group-member.entity';
 
 @Entity('users')
 export class UserEntity {
@@ -91,9 +91,12 @@ export class UserEntity {
   })
   friends?: UserEntity[];
 
-  @OneToMany(() => GroupEntity, group => group.user)
-  groups?: GroupEntity[];
+  @OneToMany(() => BusinessEntity, business => business.user)
+  businesses?: BusinessEntity[];
 
-  @OneToMany(() => GroupMemberEntity, groupMember => groupMember.user)
-  joinedGroups?: GroupMemberEntity[];
+  @OneToMany(() => BusinessMemberEntity, businessMember => businessMember.user)
+  joinedBusinesses?: BusinessMemberEntity[];
+
+  @OneToMany(() => GangEntity, gang => gang.owner)
+  gangs?: GangEntity[];
 }

@@ -1,27 +1,30 @@
 export * from './rank';
 export * from './user';
+export * from './gang';
 export * from './room';
-export * from './group';
+export * from './business';
 export * from './article';
 
 import {RoomEntity} from './room';
 import {RankEntity} from './rank';
 import {UserEntity} from './user';
-import {GroupEntity} from './group';
+import {GangEntity} from './gang';
+import {BusinessEntity} from './business';
 import {BadgeEntity} from './badge';
 import {UserBadgesEntity} from './user';
 import {ArticleEntity} from './article';
-import {GroupMemberEntity} from './group';
+import {BusinessMemberEntity} from './business';
 import {ArticleCategoryEntity} from './article';
 
 export const databaseEntities: Function[] = [
   ArticleEntity,
   BadgeEntity,
+  GangEntity,
   ArticleCategoryEntity,
-  GroupEntity,
+  BusinessEntity,
   RankEntity,
   UserEntity,
   UserBadgesEntity,
   RoomEntity,
-  GroupMemberEntity,
+  BusinessMemberEntity,
 ];

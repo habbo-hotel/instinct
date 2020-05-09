@@ -2,7 +2,7 @@ import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
-import {Room, User, UserProfile} from 'instinct-interfaces';
+import {Room, User, UserProfile} from 'instinct-interfaces-interfaces';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
 import {

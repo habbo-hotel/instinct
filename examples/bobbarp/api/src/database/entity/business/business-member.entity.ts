@@ -1,9 +1,9 @@
 import {UserEntity} from '../user';
-import {GroupEntity} from './group.entity';
+import {BusinessEntity} from './business.entity';
 import {Column, Entity, JoinColumn, PrimaryGeneratedColumn, ManyToOne} from 'typeorm';
 
 @Entity('group_memberships')
-export class GroupMemberEntity {
+export class BusinessMemberEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -15,9 +15,9 @@ export class GroupMemberEntity {
   user?: UserEntity;
 
   @Column({name: 'group_id'})
-  groupID!: number;
+  businessID!: number;
 
-  @ManyToOne(() => GroupEntity)
+  @ManyToOne(() => BusinessEntity)
   @JoinColumn({name: 'group_id'})
-  group?: GroupEntity;
+  business?: BusinessEntity;
 }

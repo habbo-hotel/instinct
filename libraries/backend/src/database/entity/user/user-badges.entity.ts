@@ -1,5 +1,5 @@
 import {UserEntity} from './user.entity';
-import {Badge} from 'instinct-interfaces';
+import {Badge} from 'instinct-interfaces-interfaces';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 export function badgeWire(badge: UserBadgesEntity): Badge {

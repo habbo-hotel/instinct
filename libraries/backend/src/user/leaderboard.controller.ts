@@ -1,4 +1,4 @@
-import {User} from 'instinct-interfaces';
+import {User} from 'instinct-interfaces-interfaces';
 import {Controller, Get} from '@nestjs/common';
 import {UserLeaderBoardService} from './leaderboard.service';
 import {UserEntity, userWire} from '../database/entity/user';

@@ -2,9 +2,9 @@ import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
-import {Room, User, UserProfile} from 'instinct-interfaces';
+import {Room, User, UserProfile} from 'instinct-rp-interfaces';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
+import {badgeWire, businessWire, gangWire, roomWire, UserEntity, userWire} from '../database/entity';
 import {
   defaultUserCredits,
   defaultUserHomeRoom,
@@ -61,7 +61,8 @@ export class UserController {
       rooms: user.rooms!.map(room => roomWire(room)),
       badges: user.badges!.map(badge => badgeWire(badge)),
       friends: user.friends!.map(user => userWire(user)),
-      groups: user.joinedGroups!.map(group => groupWire(group.group!)),
+      businesses: user.businesses!.map(business => businessWire(business)),
+      gangs: user.gangs!.map(gang => gangWire(gang)),
     };
   }
 }

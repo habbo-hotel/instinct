@@ -7,7 +7,7 @@ import {InjectRepository} from '@nestjs/typeorm';
 
 @Injectable()
 export class UserService {
-  readonly eagerRelations: Array<string> = ['rank', 'joinedGroups', 'joinedGroups.group', 'badges', 'badges.badge', 'rooms', 'friends'];
+  readonly eagerRelations: Array<string> = ['rank', 'businesses', 'badges', 'badges.badge', 'rooms', 'friends'];
 
   constructor(
     private readonly hashService: HashService,
