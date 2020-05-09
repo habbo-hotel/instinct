@@ -5,7 +5,7 @@ import {BusinessEntity} from '../database/entity/business';
 
 @Injectable()
 export class BusinessService {
-  readonly eagerRelations: string[] = ['user', 'room', 'room.owner'];
+  readonly eagerRelations: string[] = ['user', 'room', 'room.owner', 'members', 'members.user'];
 
   constructor(
     @InjectRepository(BusinessEntity)

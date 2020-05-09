@@ -4,6 +4,7 @@ import {Business} from 'instinct-rp-interfaces';
 import {BusinessEntity} from './business.entity';
 
 export function businessWire(businessEntity: BusinessEntity): Business {
+  console.log(businessEntity);
   return {
     id: businessEntity.id!,
     name: businessEntity.name,
@@ -12,5 +13,6 @@ export function businessWire(businessEntity: BusinessEntity): Business {
     badge: businessEntity.badge,
     room: roomWire(businessEntity.room!),
     createdAt: Moment.unix(businessEntity.dateCreated).toISOString(),
+    members: businessEntity.members ? businessEntity.members.map(member => userWire(member.user!)) : undefined,
   };
 }
