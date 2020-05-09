@@ -66,3 +66,16 @@ ALTER TABLE groups_rank
 ADD COLUMN `vacant_spots` int(11) NULL DEFAULT 0 AFTER `rank`,
 ADD COLUMN `application_required` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0' AFTER `vacant_spots`;
 ADD `description` TINYTEXT AFTER `application_required`;
+
+
+---------
+-- Business applications for Instinct to work
+---------
+CREATE TABLE group_applications  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `job_id` int NULL,
+  `user_id` int NULL,
+  `content` text NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);

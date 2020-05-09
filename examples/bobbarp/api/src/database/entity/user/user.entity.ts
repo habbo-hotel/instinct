@@ -3,6 +3,7 @@ import {RoomEntity} from '../room';
 import {GangEntity} from '../gang';
 import {UserBadgesEntity} from './user-badges.entity';
 import {BusinessEntity, BusinessMemberEntity} from '../business';
+import { BusinessJobApplicationEntity } from '../business/business-job-application.entity';
 import {
   Column,
   Entity,
@@ -116,4 +117,7 @@ export class UserEntity {
 
   @OneToOne(() => GangEntity, gang => gang.owner)
   ownedGang?: GangEntity;
+
+  @OneToMany(() => BusinessJobApplicationEntity, businessJobApplication => businessJobApplication.user)
+  jobApplications: BusinessJobApplicationEntity[];
 }

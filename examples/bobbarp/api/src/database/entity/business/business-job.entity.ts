@@ -1,6 +1,7 @@
 import {BusinessEntity} from './business.entity';
 import {BusinessJobRank}  from 'instinct-rp-interfaces';
 import { BusinessMemberEntity } from './business-member.entity';
+import { BusinessJobApplicationEntity } from './business-job-application.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum BusinessJobEnum {
@@ -53,5 +54,8 @@ export class BusinessJobEntity {
 
   @OneToMany(() => BusinessMemberEntity, businessMember => businessMember.job)
   users?: BusinessMemberEntity[];
+
+  @OneToMany(() => BusinessJobApplicationEntity, businessJobApplication => businessJobApplication.job)
+  applications?: BusinessJobApplicationEntity[];
 
 }
