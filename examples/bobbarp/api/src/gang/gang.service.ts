@@ -15,6 +15,16 @@ export class GangService {
     });
   }
 
+  getTop(): Promise<GangEntity[]> {
+    return this.gangRepo.find({
+      order: {
+        kills: 'DESC',
+      },
+      take: 5,
+      relations: this.relations,
+    });
+  }
+
   getByID(gangID: number): Promise<GangEntity> {
     return this.gangRepo.findOneOrFail({
       where: {

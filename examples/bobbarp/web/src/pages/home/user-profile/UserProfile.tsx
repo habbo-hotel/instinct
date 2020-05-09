@@ -1,5 +1,4 @@
 import './UserProfile.scss';
-import { Friends } from './friends';
 import { UserLayout } from 'components';
 import { useParams } from 'react-router';
 import { userService } from 'app/service';
@@ -35,9 +34,6 @@ export function UserProfile() {
         <Container>
           <Column side="right">
             <UserContainer profile={state.profile} />
-          </Column>
-          <Column side="left">
-            <Friends profile={state.profile} />
           </Column>
         </Container>
       </Loading>

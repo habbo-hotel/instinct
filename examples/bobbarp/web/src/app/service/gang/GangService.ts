@@ -10,6 +10,11 @@ class GangServiceImplementation implements GangService {
     return gangs.data;
   }
 
+  async getTop(): Promise<Gang[]> {
+    const gangs: AxiosResponse<Gang[]> = await backendAPI.get('gangs/top');
+    return gangs.data;
+  }
+
   async getByID(gangID: number): Promise<Gang> {
     const gang: AxiosResponse<Gang> = await backendAPI.get(`gangs/${gangID}`);
     return gang.data;

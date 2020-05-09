@@ -4,7 +4,7 @@ import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
 import {Room, User, UserProfile} from 'instinct-rp-interfaces';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {badgeWire, businessWire, gangWire, roomWire, UserEntity, userWire} from '../database/entity';
+import {roomWire, UserEntity, userWire} from '../database/entity';
 import {
   defaultUserCredits,
   defaultUserHomeRoom,
@@ -58,11 +58,6 @@ export class UserController {
     const user: UserEntity = await this.userService.getByUsername(username);
     return {
       user: userWire(user),
-      rooms: user.rooms!.map(room => roomWire(room)),
-      badges: user.badges!.map(badge => badgeWire(badge)),
-      friends: user.friends!.map(user => userWire(user)),
-      businesses: user.businesses!.map(business => businessWire(business)),
-      gangs: user.gangs!.map(gang => gangWire(gang)),
     };
   }
 }

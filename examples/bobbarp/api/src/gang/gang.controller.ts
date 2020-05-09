@@ -15,6 +15,12 @@ export class GangController {
     return gangs.map(gang => gangWire(gang));
   }
 
+  @Get('top')
+  async getTopGangs(): Promise<Gang[]> {
+    const gangs: GangEntity[] = await this.gangService.getTop();
+    return gangs.map(gang => gangWire(gang));
+  }
+
   @Get(':gangID')
   getByID(@Param('gangID', GangPipe) gang: GangEntity): Gang {
     return gangWire(gang);

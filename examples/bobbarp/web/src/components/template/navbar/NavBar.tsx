@@ -18,17 +18,9 @@ export function NavBar() {
           <NavBarChildLink to="/life/property">Property</NavBarChildLink>
           <NavBarChildLink to="/life/finance">Finances</NavBarChildLink>
         </NavBarDropdown>
-        <NavBarDropdown to="/departments" text="Other">
-          <NavBarChildLink to="/other/behind-the-curtains">Behind The Curtains</NavBarChildLink>
-          <NavBarChildLink to="/other/discord">Our Discord</NavBarChildLink>
-        </NavBarDropdown>
         <NavBarDropdown to="/crime/arrestable-offenses" text="Crime">
           <NavBarChildLink to="/crime/arrestable-offenses">Arrestable Offenses</NavBarChildLink>
           <NavBarChildLink to="/crime/gangs">Gangs</NavBarChildLink>
-        </NavBarDropdown>
-        <NavBarDropdown to="/other/behind-the-curtains" text="Other">
-          <NavBarChildLink to="/other/behind-the-curtains">Behind The Curtains</NavBarChildLink>
-          <NavBarChildLink to="/other/discord">Our Discord</NavBarChildLink>
         </NavBarDropdown>
         <NavBarLink to="/leaderboard">Leaderboard</NavBarLink>
         <li className="navigation-item navigation-right-side-item has-items">

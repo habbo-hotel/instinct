@@ -1,6 +1,6 @@
 import * as Moment from 'moment';
 import {rankWire} from '../rank';
-import {gangWire } from '../gang';
+import {gangWire} from '../gang';
 import {UserEntity} from './user.entity';
 import {User} from 'instinct-rp-interfaces';
 

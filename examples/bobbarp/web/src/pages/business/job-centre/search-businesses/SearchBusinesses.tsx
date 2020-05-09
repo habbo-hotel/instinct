@@ -31,6 +31,7 @@ export function SearchBusinesses() {
       ...state,
       businesses,
       showSpinner: false,
+      lastQuery: state.query,
     })
   }
 
@@ -41,6 +42,11 @@ export function SearchBusinesses() {
           <input className="form-control" value={state.query} placeholder="Business Name" onChange={e => setQuery(e.target.value)}/>
           <button disabled={state.showSpinner} style={{ display: 'none' }} type="submit"/>
           <br/>
+          {
+            state.lastQuery && state.businesses.length === 0 && (
+              <p>No businesses match that name</p>
+            )
+          }
           {
             state.businesses.map(business => (
               <Link to={`/businesses/${business.id}`} key={business.id}>

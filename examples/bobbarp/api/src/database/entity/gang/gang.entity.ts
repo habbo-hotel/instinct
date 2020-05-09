@@ -1,5 +1,5 @@
 import {UserEntity} from '../user';
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('gang')
 export class GangEntity {
@@ -21,7 +21,7 @@ export class GangEntity {
   @Column({name: 'owner', default: 0, type: 'int'})
   ownerID!: number;
 
-  @ManyToOne(() => UserEntity, user => user.gangs)
+  @OneToOne(() => UserEntity, user => user.ownedGang)
   @JoinColumn({name: 'owner'})
   owner?: UserEntity;
 

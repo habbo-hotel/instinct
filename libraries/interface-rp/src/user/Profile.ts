@@ -1,20 +1,9 @@
-import {Badge, Gang, User, Room, exampleUser, exampleRoom, exampleBadge, exampleBusiness, Business} from '../';
+import {User, exampleUser } from '../';
 
 export interface UserProfile {
   user: User;
-  rooms: Room[];
-  badges: Badge[];
-  friends: User[];
-  businesses: Business[];
-  gangs: Gang[];
-  gang?: Gang;
 }
 
 export const exampleUserProfile: UserProfile = {
   user: exampleUser,
-  rooms: [exampleRoom],
-  badges: [exampleBadge],
-  friends: [],
-  businesses: [exampleBusiness],
-  gangs: [],
 };

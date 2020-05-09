@@ -3,7 +3,17 @@ import {RoomEntity} from '../room';
 import {GangEntity} from '../gang';
 import {UserBadgesEntity} from './user-badges.entity';
 import {BusinessEntity, BusinessMemberEntity} from '../business';
-import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
@@ -104,6 +114,6 @@ export class UserEntity {
   @OneToMany(() => BusinessMemberEntity, businessMember => businessMember.user)
   joinedBusinesses?: BusinessMemberEntity[];
 
-  @OneToMany(() => GangEntity, gang => gang.owner)
-  gangs?: GangEntity[];
+  @OneToOne(() => GangEntity, gang => gang.owner)
+  ownedGang?: GangEntity;
 }
