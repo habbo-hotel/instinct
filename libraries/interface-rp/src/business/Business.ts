@@ -1,5 +1,5 @@
-import { exampleUser, User } from '../user';
-import { exampleRoom, Room } from '../room';
+import {exampleUser, User} from '../user';
+import {exampleRoom, Room} from '../room';
 
 export interface Business {
   id: number;
@@ -21,4 +21,4 @@ export const exampleBusiness: Business = {
   createdAt: new Date().toISOString(),
   room: exampleRoom,
   members: [],
-}
+};

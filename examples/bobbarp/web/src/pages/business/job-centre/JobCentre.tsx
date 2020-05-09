@@ -1,7 +1,8 @@
 import './JobCentre.scss';
 import React from 'react';
 import { UserLayout } from 'components';
-import { Card, Column, Container, Jumbotron, Row, setURL } from 'instinct-frontend';
+import { SearchBusinesses } from './search-businesses';
+import { Card, Column, Container, Jumbotron, setURL } from 'instinct-frontend';
 
 setURL('business/jobs', <JobCentre/>);
 
@@ -17,9 +18,7 @@ export function JobCentre() {
           <Card header="Available Jobs">
             <p>Coming soon</p>
           </Card>
-          <Card header="Search For A Business">
-            <p>Coming soon</p>
-          </Card>
+          <SearchBusinesses/>
         </Column>
         <Column side="right">
           <Card header="My Job">

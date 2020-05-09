@@ -1,4 +1,4 @@
-import { User } from 'instinct-interfaces';
+import { User } from 'instinct-rp-interfaces';
 
 export interface LeaderBoardState {
   users: User[];

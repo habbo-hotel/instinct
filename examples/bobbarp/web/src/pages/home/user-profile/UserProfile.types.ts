@@ -1,4 +1,4 @@
-import { UserProfile } from 'instinct-interfaces';
+import { UserProfile } from 'instinct-rp-interfaces';
 
 export interface UserProfileState {
   profile?: UserProfile;

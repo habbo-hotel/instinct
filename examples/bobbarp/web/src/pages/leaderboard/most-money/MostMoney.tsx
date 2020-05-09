@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { User } from 'instinct-interfaces';
+import { User } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultLeaderboardState, LeaderBoardState } from '../';
 import { Avatar, Loading, userService } from 'instinct-frontend';

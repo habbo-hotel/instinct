@@ -10,6 +10,7 @@ export interface ConfigTypes {
   swfFurniData: string;
   swfFigureData: string;
   swfBaseURL: string;
+  swfBadgeURL: string;
   swfOverrideVariables: string;
   swfOverrideTexts: string;
   loadingMessage: string;
@@ -29,6 +30,7 @@ export const defaultConfigInterface: ConfigTypes = {
   swfFurniData: 'http://localhost:3000/swfs/gamedata/furnidata.xml',
   swfFigureData: 'http://localhost:3000/swfs/gamedata/figuredata.xml',
   swfBaseURL: 'http://localhost:3000/swfs/other/game/',
+  swfBadgeURL: 'http://localhost:3000/swfs/other/images/album1584',
   swfOverrideVariables: 'http://localhost:3000/swfs/gamedata/override/variables.txt',
   swfOverrideTexts: 'http://localhost:3000/swfs/gamedata/override/texts.txt',
   loadingMessage: 'Please wait as I do some things',

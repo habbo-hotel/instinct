@@ -1,4 +1,4 @@
-import { exampleUser, User } from '../user';
+import {exampleUser, User} from '../user';
 
 export interface Gang {
   id: number;
@@ -14,4 +14,4 @@ export const exampleGang: Gang = {
   kills: 100,
   deaths: 20,
   owner: exampleUser,
-}
+};
