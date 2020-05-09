@@ -1,11 +1,15 @@
 {
+  "name": "instinct-backend",
+  "version": "0.0.4",
+  "description": "Shared Nest logic across Instinct apps",
+  "main": "build/",
   "scripts": {
-    "start": "ts-node src/main.ts",
-    "start:dev": "nest start --watch",
-    "test": "tsc && gts check && jest --coverage",
-    "compile": "tsc -p .",
-    "fix": "npm run clean && gts fix",
     "build": "tsc -p .",
+    "deploy:unsafe": "npm run clean && npm run build && cp package.json build/package.json && cp package-lock.json build/package-lock.json && npm publish build",
+    "deploy": "npm run clean && npm run test && npm run deploy:unsafe",
+    "fix": "npm run clean && gts fix",
+    "test": "npm run clean && tsc && gts check && jest --coverage --forceExit && npm run clean",
+    "start": "ts-node src/main.ts",
     "clean": "rm -rf build"
   },
   "dependencies": {
@@ -14,62 +18,69 @@
     "@nestjs/jwt": "^7.0.0",
     "@nestjs/passport": "^7.0.0",
     "@nestjs/platform-express": "^7.0.9",
-    "@nestjs/serve-static": "^2.1.0",
     "@nestjs/typeorm": "^7.0.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.2.3",
     "class-validator": "^0.12.2",
-    "instinct-backend": "0.0.4",
+    "express": "^4.17.1",
     "instinct-interfaces": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
-    "moment": "2.25.3",
+    "moment": "^2.25.3",
     "mysql2": "^2.1.0",
+    "passport-jwt": "^4.0.0",
     "randomstring": "^1.1.5",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2",
-    "rxjs": "^6.5.5",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.24",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.9",
     "@types/express": "^4.17.6",
-    "@types/jest": "25.2.1",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
     "@types/randomstring": "^1.1.6",
+    "@types/sinon": "^9.0.0",
     "@types/supertest": "^2.0.9",
-    "@typescript-eslint/eslint-plugin": "^2.31.0",
-    "@typescript-eslint/parser": "^2.31.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.20.2",
+    "dotenv": "^8.2.0",
+    "eslint-plugin-jest": "^23.9.0",
     "gts": "^2.0.1",
     "jest": "^26.0.1",
-    "prettier": "^2.0.5",
+    "sinon": "^9.0.2",
     "supertest": "^4.0.2",
-    "ts-jest": "25.5.0",
-    "ts-loader": "^7.0.3",
-    "ts-node": "^8.10.1",
-    "tsconfig-paths": "^3.9.0",
+    "ts-jest": "^25.5.0",
+    "ts-node": "8.10.1",
+    "tsconfig-paths": "3.9.0",
+    "tslint": "^6.1.2",
     "typescript": "~3.8.3"
   },
   "jest": {
+    "clearMocks": true,
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
     "moduleFileExtensions": [
       "js",
       "json",
-      "ts"
+      "ts",
+      "node"
     ],
-    "rootDir": "src",
+    "roots": [
+      "src/"
+    ],
+    "setupFiles": [],
+    "testEnvironment": "node",
     "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "testMatch": [
-      "**/?(*.)+(spec|test|e2e).[tj]s?(x)"
-    ],
-    "setupFiles": [
-      "<rootDir>/setupTests.ts"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+      ".*.ts": "ts-jest",
+      ".*.tsx": "ts-jest"
+    }
   }
 }

@@ -15,8 +15,12 @@ export function NavBar() {
         <NavBarDropdown to="/life" text="Life">
           <NavBarChildLink to="/life/government">The Government</NavBarChildLink>
           <NavBarChildLink to="/life/laws">Law and Order</NavBarChildLink>
-          <NavBarChildLink to="/life/property">Century22</NavBarChildLink>
+          <NavBarChildLink to="/life/property">Property</NavBarChildLink>
           <NavBarChildLink to="/life/finance">Finances</NavBarChildLink>
+        </NavBarDropdown>
+        <NavBarDropdown to="/departments" text="Other">
+          <NavBarChildLink to="/other/behind-the-curtains">Behind The Curtains</NavBarChildLink>
+          <NavBarChildLink to="/other/discord">Our Discord</NavBarChildLink>
         </NavBarDropdown>
         <NavBarDropdown to="/crime/arrestable-offenses" text="Crime">
           <NavBarChildLink to="/crime/arrestable-offenses">Arrestable Offenses</NavBarChildLink>
