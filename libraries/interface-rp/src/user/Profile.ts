@@ -1,4 +1,4 @@
-import {User, exampleUser } from '../';
+import {User, exampleUser} from '../';
 
 export interface UserProfile {
   user: User;
