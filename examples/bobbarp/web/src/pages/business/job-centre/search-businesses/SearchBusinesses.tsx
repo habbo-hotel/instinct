@@ -1,3 +1,5 @@
+import './SearchBusinesses.scss';
+import { Link } from 'react-router-dom';
 import { businessService } from 'app/service';
 import { Business } from 'instinct-rp-interfaces';
 import React, { useContext, useState } from 'react';
@@ -38,11 +40,16 @@ export function SearchBusinesses() {
         <Form className="" onSubmit={searchBusiness}>
           <input className="form-control" value={state.query} placeholder="Business Name" onChange={e => setQuery(e.target.value)}/>
           <button disabled={state.showSpinner} style={{ display: 'none' }} type="submit"/>
+          <br/>
           {
             state.businesses.map(business => (
-              <div key={business.id}>
-                <img alt={business.name} src={`${configContext.swfBadgeURL}/${business.badge}.gif`}/>
-              </div>
+              <Link to={`/businesses/${business.id}`} key={business.id}>
+                <div className="business-row" style={{ background: `url(${configContext.siteLink}/corps/${business.badge}.gif) 10px no-repeat` }}>
+                  <div className="user-count">0</div>
+                  <div className="name">{business.name}</div>
+                  <div className="desc">{business.desc}</div>
+                </div>
+              </Link>
             ))
           }
         </Form>

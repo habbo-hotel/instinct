@@ -2,10 +2,11 @@ import './UserProfile.scss';
 import { Friends } from './friends';
 import { UserLayout } from 'components';
 import { useParams } from 'react-router';
+import { userService } from 'app/service';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
-import { Container, Column, userService, Loading, Jumbotron, setURL } from 'instinct-frontend';
+import { Container, Column, Loading, Jumbotron, setURL } from 'instinct-frontend';
 
 setURL('profile/:username', <UserProfile />);
 
