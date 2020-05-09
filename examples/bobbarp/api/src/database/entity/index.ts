@@ -1,9 +1,12 @@
+import { ConfigEntity } from './config';
+
 export * from './rank';
 export * from './user';
 export * from './gang';
 export * from './room';
-export * from './business';
+export * from './config';
 export * from './article';
+export * from './business';
 
 import {RoomEntity} from './room';
 import {RankEntity} from './rank';
@@ -20,6 +23,7 @@ export const databaseEntities: Function[] = [
   ArticleEntity,
   BadgeEntity,
   GangEntity,
+  ConfigEntity,
   ArticleCategoryEntity,
   BusinessEntity,
   RankEntity,

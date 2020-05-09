@@ -79,3 +79,27 @@ CREATE TABLE group_applications  (
   `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
+
+---------
+-- Instinct configuration
+---------
+CREATE TABLE `instinct_config`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `site_name` varchar(255) NULL,
+  `site_link` varchar(255) NULL,
+  `emulator_ip` varchar(255) NULL,
+  `emulator_port` int(11) NULL,
+  `swf_habbo` varchar(255) NULL,
+  `swf_external_variables` varchar(255) NULL,
+  `swf_external_texts` varchar(255) NULL,
+  `swf_productdata` varchar(255) NULL,
+  `swf_furnidata` varchar(255) NULL,
+  `swf_figuredata` varchar(255) NULL,
+  `swf_base_url` varchar(255) NULL,
+  `swf_badge_url` varchar(255) NULL,
+  `swf_override_variables` varchar(255) NULL,
+  `swf_override_texts` varchar(255) NULL,
+  `loading_message` varchar(255) NULL,
+  `group_badge_url` varchar(255) NULL,
+  PRIMARY KEY (`id`)
+);
