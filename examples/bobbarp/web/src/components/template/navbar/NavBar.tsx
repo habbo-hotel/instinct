@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavBarChildLink, NavBarDropdown, NavBarLink, NavBarLabel, UserDropdown } from 'instinct-frontend';
+import { UserDropdown } from 'components';
+import { NavBarChildLink, NavBarDropdown, NavBarLink, NavBarLabel } from 'instinct-frontend';
 
 export function NavBar() {
   return (

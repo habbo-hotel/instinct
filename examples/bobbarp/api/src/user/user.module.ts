@@ -1,5 +1,6 @@
 import {UserPipe} from './user.pipe';
 import {Module} from '@nestjs/common';
+import {GoogleModule} from '../google';
 import {CommonModule} from '../common';
 import {UserService} from './user.service';
 import {DatabaseModule} from '../database';
@@ -9,7 +10,7 @@ import {UserLeaderBoardService} from './leaderboard.service';
 import {UserLeaderBoardController} from './leaderboard.controller';
 
 @Module({
-  imports: [CommonModule, DatabaseModule],
+  imports: [CommonModule, GoogleModule, DatabaseModule],
   controllers: [UserController, UserLeaderBoardController],
   providers: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],
   exports: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],

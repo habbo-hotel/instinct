@@ -15,4 +15,7 @@ export class NewUserDTO {
 
   @IsString()
   password!: string;
+
+  @IsString()
+  recaptcha!: string;
 }

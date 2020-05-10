@@ -4,6 +4,7 @@ export interface RegisterModalState {
   passwordAgain: string;
   email: string;
   showSpinner: boolean;
+  recaptcha?: string;
 }
 
 export const defaultRegisterModalState: RegisterModalState = {
@@ -12,4 +13,5 @@ export const defaultRegisterModalState: RegisterModalState = {
   passwordAgain: '',
   email: '',
   showSpinner: false,
+  recaptcha: undefined,
 };

@@ -103,3 +103,7 @@ CREATE TABLE `instinct_config`  (
   `group_badge_url` varchar(255) NULL,
   PRIMARY KEY (`id`)
 );
+
+ALTER TABLE `instinct_config`
+ADD COLUMN `google_recaptcha_site_key` varchar(255) NULL AFTER `group_badge_url`,
+ADD COLUMN `google_recaptcha_secret_key` varchar(255) NULL AFTER `google_recaptcha_site_key`;

@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 import { userService } from 'app/service';
 import { User } from 'instinct-interfaces';
 import { SessionContext } from 'app/context';
+import ReCAPTCHA from 'react-google-recaptcha';
 import React, { useContext, useState } from 'react';
 import { RegisterModalState, defaultRegisterModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading, redirect } from 'instinct-frontend';
@@ -10,8 +11,7 @@ export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
   const sessionContext = useContext(SessionContext);
 
-  const disabled: boolean =
-    state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
+  const disabled: boolean = state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain || state.recaptcha === undefined;
 
   function setValue<T extends keyof RegisterModalState>(key: T, value: RegisterModalState[T]): void {
     setState({
@@ -58,6 +58,7 @@ export function RegisterModal() {
             />
             <Icon type="lock" />
           </label>
+          <ReCAPTCHA sitekey="6LddE_UUAAAAABCPRWtftzUAmb9QjY2xeFNhBpLX" onChange={x => setValue('recaptcha', x as string)}/>,
           <button className="rounded-button blue plain" disabled={disabled} type="submit">
             Create Account
           </button>

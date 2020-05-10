@@ -53,4 +53,10 @@ export class ConfigEntity {
 
   @Column({ name: 'group_badge_url' })
   groupBadgeURL!: string;
+
+  @Column({ name: 'google_recaptcha_site_key' })
+  googleRecaptchaSiteKey!: string;
+
+  @Column({ name: 'google_recaptcha_secret_key' })
+  googleRecaptchaSecretKey!: string;
 }
