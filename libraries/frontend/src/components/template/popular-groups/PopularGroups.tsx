@@ -25,7 +25,7 @@ export function PopularGroups() {
   return (
     <Loading isLoading={state.showSpinner}>
       <Card header="Popular Groups" subHeader="Who do you want to join?">
-        {state.groups.map(group => (
+        {state.groups.map((group) => (
           <div
             className="popular-group"
             style={{ background: `url(${configContext.groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}

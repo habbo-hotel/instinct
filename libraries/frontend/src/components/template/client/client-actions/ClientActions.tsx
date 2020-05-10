@@ -28,7 +28,7 @@ export function ClientActions() {
       </button>
       <button style={{ cursor: 'default' }}>
         <Icon family="fas" type="user" />
-        <b>{healthContext.onlineUsers}</b>
+        <b>{healthContext.usersOnline}</b>
       </button>
     </div>
   );

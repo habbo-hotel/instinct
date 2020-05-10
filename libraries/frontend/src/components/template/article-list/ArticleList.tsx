@@ -33,7 +33,7 @@ export function ArticleList() {
                 <p>It looks like there aren't any articles.</p>
               </>
             )}
-            {articles.map(article => (
+            {articles.map((article) => (
               <ArticleCard article={article} key={article.id} />
             ))}
           </Loading>

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
-import { RouteProps } from 'react-router';
 import { createBrowserHistory, History } from 'history';
-import { Switch, Route, Router as BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Router as BrowserRouter, RouteProps } from 'react-router-dom';
 
 const routerHistory: History = createBrowserHistory();
 

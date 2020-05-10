@@ -1,13 +1,10 @@
-export interface HealthTypes {
-  uptime: number; // in milliseconds
-  onlineUsers: number;
-  systemVersion: string;
+import { exampleHealth, Health } from 'instinct-interfaces';
+
+export interface HealthTypes extends Health {
   setStore?: (changes: Partial<HealthTypes>) => void;
 }
 
 export const defaultHealthInterface: HealthTypes = {
-  uptime: 0,
-  onlineUsers: 0,
-  systemVersion: '0.0.0',
+  ...exampleHealth,
   setStore: undefined,
 };

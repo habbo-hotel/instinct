@@ -27,7 +27,7 @@ export function RecentNews() {
     <Card header="Recent News">
       <Loading isLoading={state.isLoading}>
         <div className="related-articles-container">
-          {state.articles.map(article => (
+          {state.articles.map((article) => (
             <Link className="related-article-container" key={article.id} to={`/community/news/${article.id}`}>
               <div
                 className="related-article-thumbnail"

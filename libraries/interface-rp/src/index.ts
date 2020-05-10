@@ -3,6 +3,7 @@ export * from './badge';
 export * from './business';
 export * from './config';
 export * from './gang';
+export * from './health';
 export * from './rank';
 export * from './room';
 export * from './user';

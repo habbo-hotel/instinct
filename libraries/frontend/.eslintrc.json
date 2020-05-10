@@ -1,0 +1,21 @@
+{
+  "extends": "./node_modules/gts/",
+  "plugins": ["jest", "react"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "jasmine": true,
+    "browser": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "node/no-unpublished-import": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "no-empty": 0,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "node/no-unsupported-features/es-syntax": 0
+  }
+}

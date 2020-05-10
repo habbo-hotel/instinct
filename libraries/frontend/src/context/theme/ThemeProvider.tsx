@@ -9,7 +9,7 @@ export class ThemeContextProvider extends PureComponent {
   state: ThemeContextInterface = {
     ...defaultThemeContextInterface,
     setStore: this.setStore,
-    toggleClient: visible => this.setStore({ showClient: visible }),
+    toggleClient: (visible) => this.setStore({ showClient: visible }),
   };
 
   render() {
