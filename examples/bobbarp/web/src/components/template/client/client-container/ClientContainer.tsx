@@ -8,8 +8,6 @@ export function ClientContainer() {
   const [sso, setSSO] = useState<string>();
   const configContext = useContext(ConfigContext);
 
-  console.log(configContext);
-
   useEffect(() => {
     async function fetchSSO(): Promise<void> {
       const sso: string = await sessionService.createSSO();
