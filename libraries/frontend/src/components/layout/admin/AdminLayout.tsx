@@ -15,7 +15,7 @@ export function AdminLayout({ children, permission }: AdminLayoutProps) {
             Enter Hotel
           </Link>
           <button className="rounded-button white">
-            {healthContext.onlineUsers}
+            {healthContext.usersOnline}
             <Icon className="ml-2" type="user" />
           </button>
         </Header>

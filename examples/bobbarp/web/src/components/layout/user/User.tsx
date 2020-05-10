@@ -14,7 +14,7 @@ export function UserLayout({ children, section, style }: UserLayoutProps) {
             Enter {configContext.siteName}
           </Link>
           <button className="rounded-button white">
-            {healthContext.onlineUsers}
+            {healthContext.usersOnline}
             <Icon className="ml-2" type="user" />
           </button>
         </Header>
