@@ -15,6 +15,7 @@ export interface Config {
   swfOverrideTexts: string;
   loadingMessage: string;
   groupBadgeURL: string;
+  googleRecaptchaSiteKey: string;
 }
 
 export const defaultConfig: Config = {
@@ -34,4 +35,5 @@ export const defaultConfig: Config = {
   swfOverrideTexts: 'http://localhost:3000/swfs/gamedata/override/texts.txt',
   loadingMessage: 'Please wait as I do some things',
   groupBadgeURL: 'http://localhost:3000/swfs/other/images/Badgeparts/generated',
+  googleRecaptchaSiteKey: '',
 }

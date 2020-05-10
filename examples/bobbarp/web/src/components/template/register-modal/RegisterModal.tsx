@@ -5,11 +5,12 @@ import { SessionContext } from 'app/context';
 import ReCAPTCHA from 'react-google-recaptcha';
 import React, { useContext, useState } from 'react';
 import { RegisterModalState, defaultRegisterModalState } from './';
-import { Form, Input, Icon, ModalButton, Loading, redirect } from 'instinct-frontend';
+import { Form, Input, Icon, ModalButton, Loading, redirect, ConfigContext } from 'instinct-frontend';
 
 export function RegisterModal() {
-  const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
+  const configContext = useContext(ConfigContext);
   const sessionContext = useContext(SessionContext);
+  const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
 
   const disabled: boolean = state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain || state.recaptcha === undefined;
 
@@ -23,7 +24,7 @@ export function RegisterModal() {
   async function tryRegister(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      const newUser: User = await userService.create(state.username, state.password, state.email);
+      const newUser: User = await userService.create(state.username, state.password, state.email, state.recaptcha!);
       await sessionContext.forceStart(newUser);
       redirect('home');
     } catch {
@@ -58,7 +59,7 @@ export function RegisterModal() {
             />
             <Icon type="lock" />
           </label>
-          <ReCAPTCHA sitekey="6LddE_UUAAAAABCPRWtftzUAmb9QjY2xeFNhBpLX" onChange={x => setValue('recaptcha', x as string)}/>,
+          <ReCAPTCHA sitekey={configContext.googleRecaptchaSiteKey} onChange={x => setValue('recaptcha', x as string)}/>,
           <button className="rounded-button blue plain" disabled={disabled} type="submit">
             Create Account
           </button>

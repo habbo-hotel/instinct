@@ -19,6 +19,7 @@ export function configWire(configEntity: ConfigEntity): Config {
     swfOverrideTexts: configEntity.swfOverrideTexts,
     loadingMessage: configEntity.loadingMessage,
     groupBadgeURL: configEntity.groupBadgeURL,
+    googleRecaptchaSiteKey: configEntity.googleRecaptchaSiteKey,
   }
 
 }

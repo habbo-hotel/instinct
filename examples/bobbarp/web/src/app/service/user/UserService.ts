@@ -4,8 +4,8 @@ import { backendAPI } from 'instinct-frontend';
 import { User, UserProfile } from 'instinct-rp-interfaces';
 
 class UserServiceImplementation implements UserService {
-  async create(username: string, password: string, email: string): Promise<User> {
-    const user: AxiosResponse<User> = await backendAPI.post('users', { username, password, email });
+  async create(username: string, password: string, email: string, recaptcha: string): Promise<User> {
+    const user: AxiosResponse<User> = await backendAPI.post('users', { username, password, email, recaptcha });
     return user.data;
   }
 
