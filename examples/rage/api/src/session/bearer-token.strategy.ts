@@ -1,9 +1,10 @@
-import {jwtSecret} from '../common';
 import {Injectable} from '@nestjs/common';
+import {jwtSecret} from '../common/config';
+import {InjectRepository} from '@nestjs/typeorm';
 import {PassportStrategy} from '@nestjs/passport';
 import {ExtractJwt, Strategy} from 'passport-jwt';
-import {InjectRepository} from '@nestjs/typeorm';
-import {UserEntity, UserRepository} from '../database/rage/user/user';
+import {UserEntity} from '../database/rage/user/user/user.entity';
+import {UserRepository} from '../database/rage/user/user/user.repository';
 
 @Injectable()
 export class BearerTokenStrategy extends PassportStrategy(Strategy, 'bearer-token') {

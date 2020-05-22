@@ -4,7 +4,9 @@ import {NewArticleDTO} from './article.dto';
 import {Article} from 'instinct-rp-interfaces';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {ArticleEntity, ArticleRepository, articleWire} from '../database/instinct/article/article';
+import {articleWire} from '../database/instinct/article/article/article.wire';
+import {ArticleEntity} from '../database/instinct/article/article/article.entity';
+import {ArticleRepository} from '../database/instinct/article/article/article.repository';
 
 @Controller('articles')
 export class ArticleController {

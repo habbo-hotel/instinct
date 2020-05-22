@@ -1,5 +1,6 @@
 import {InjectRepository} from '@nestjs/typeorm';
-import {RoomEntity, RoomRepository} from '../database/rage/room';
+import {RoomEntity} from '../database/rage/room/room.entity';
+import {RoomRepository} from '../database/rage/room/room.repository';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

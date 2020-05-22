@@ -1,17 +1,17 @@
 import {join} from 'path';
-import {UserModule} from './user';
-import {RoomModule} from './room';
-import {RankModule} from './rank';
-import {GangModule} from './gang';
 import {Module} from '@nestjs/common';
-import {HealthModule} from './health';
-import {CommonModule} from './common';
-import {ArticleModule} from './article';
-import {ConfigModule} from './config';
-import {SessionModule} from './session';
-import {DatabaseModule} from './database';
-import {BusinessModule} from './business';
+import {UserModule} from './user/user.module';
+import {RankModule} from './rank/rank.module';
+import {GangModule} from './gang/gang.module';
+import {RoomModule} from './room/room.module';
+import {CommonModule} from './common/common.module';
+import {ConfigModule} from './config/config.module';
+import {HealthModule} from './health/health.module';
 import {ServeStaticModule} from '@nestjs/serve-static';
+import {ArticleModule} from './article/article.module';
+import {SessionModule} from './session/session.module';
+import {DatabaseModule} from './database/database.module';
+import {BusinessModule} from './business/business.module';
 
 @Module({
   imports: [
@@ -19,13 +19,13 @@ import {ServeStaticModule} from '@nestjs/serve-static';
     RankModule,
     GangModule,
     RoomModule,
+    HealthModule,
     CommonModule,
     ConfigModule,
-    BusinessModule,
     ArticleModule,
-    HealthModule,
     SessionModule,
     DatabaseModule,
+    BusinessModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
       serveStaticOptions: {

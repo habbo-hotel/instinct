@@ -1,5 +1,5 @@
-import {UserEntity} from '../../user';
-import {BusinessJobEntity} from '../business-job';
+import {UserEntity} from '../../user/user/user.entity';
+import {BusinessJobEntity} from '../business-job/business-job.entity';
 import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_job_applications')

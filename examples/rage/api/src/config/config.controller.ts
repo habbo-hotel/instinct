@@ -1,7 +1,9 @@
 import {Config} from 'instinct-rp-interfaces';
 import {Controller, Get} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {ConfigEntity, ConfigRepository, configWire} from '../database/instinct/config';
+import {configWire} from '../database/instinct/config/config.wire';
+import {ConfigEntity} from '../database/instinct/config/config.entity';
+import {ConfigRepository} from '../database/instinct/config/config.repository';
 
 @Controller('config')
 export class ConfigController {

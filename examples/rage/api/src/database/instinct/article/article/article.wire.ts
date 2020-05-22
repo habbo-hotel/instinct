@@ -1,7 +1,7 @@
-import {userWire} from '../../../rage/user';
 import {Article} from 'instinct-rp-interfaces';
 import {ArticleEntity} from './article.entity';
-import {articleCategoryWire} from '../article-category';
+import {userWire} from '../../../rage/user/user/user.wire';
+import {articleCategoryWire} from '../article-category/article-category.wire';
 
 export function articleWire(articleEntity: ArticleEntity): Article {
   return {

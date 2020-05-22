@@ -1,5 +1,6 @@
 import {InjectRepository} from '@nestjs/typeorm';
-import {GangEntity, GangRepository} from '../database';
+import {GangEntity} from '../database/rage/gang/gang/gang.entity';
+import {GangRepository} from '../database/rage/gang/gang/gang.repository';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

@@ -1,6 +1,6 @@
-import {UserEntity} from '../user';
-import {GangEntity} from '../../gang';
-import {BusinessJobEntity} from '../../business';
+import {UserEntity} from '../user/user.entity';
+import {GangEntity} from '../../gang/gang/gang.entity';
+import {BusinessJobEntity} from '../../business/business-job/business-job.entity';
 import {Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_stats')

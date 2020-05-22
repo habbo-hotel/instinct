@@ -1,7 +1,7 @@
-import {BusinessEntity} from '../business';
 import {BusinessJobRank} from 'instinct-rp-interfaces';
-import {BusinessJobApplicationEntity} from '../business-job-application';
+import {BusinessEntity} from '../business/business.entity';
 import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {BusinessJobApplicationEntity} from '../business-job-application/business-job-application.entity';
 
 @Entity('rp_jobs_ranks')
 export class BusinessJobEntity {

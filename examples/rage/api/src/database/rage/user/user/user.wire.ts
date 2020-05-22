@@ -1,9 +1,9 @@
 import * as Moment from 'moment';
-import {gangWire} from '../../gang';
-import {rankWire} from '../../rank';
 import {UserEntity} from './user.entity';
 import {User} from 'instinct-rp-interfaces';
-import {businessJobWire} from '../../business';
+import {rankWire} from '../../rank/rank.wire';
+import {gangWire} from '../../gang/gang/gang.wire';
+import {businessJobWire} from '../../business/business-job/business-job.wire';
 
 export function userWire(userEntity: UserEntity): User {
   return {

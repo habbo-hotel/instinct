@@ -1,7 +1,7 @@
 import {RankPipe} from './rank.pipe';
 import {Module} from '@nestjs/common';
-import {DatabaseModule} from '../database';
 import {RankController} from './rank.controller';
+import {DatabaseModule} from '../database/database.module';
 
 @Module({
   imports: [DatabaseModule],

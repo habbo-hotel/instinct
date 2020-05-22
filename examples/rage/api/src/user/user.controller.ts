@@ -1,10 +1,12 @@
 import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
-import {roomWire} from '../database/rage/room';
-import {GoogleRecaptchaService} from '../google';
+import {roomWire} from '../database/rage/room/room.wire';
+import {userWire} from '../database/rage/user/user/user.wire';
 import {Room, User, UserProfile} from 'instinct-rp-interfaces';
-import {UserEntity, UserRepository, userWire} from '../database/rage/user/user';
+import {UserEntity} from '../database/rage/user/user/user.entity';
+import {GoogleRecaptchaService} from '../google/recaptcha.service';
+import {UserRepository} from '../database/rage/user/user/user.repository';
 import {BadRequestException, Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {
   defaultUserCredits,
@@ -14,7 +16,7 @@ import {
   defaultUserPixels,
   defaultUserPoints,
   defaultUserRank,
-} from '../common';
+} from '../common/config';
 import {InjectRepository} from '@nestjs/typeorm';
 
 @Controller('users')

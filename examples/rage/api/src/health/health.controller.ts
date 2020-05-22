@@ -1,7 +1,8 @@
 import {Health} from 'instinct-rp-interfaces';
 import {Controller, Get} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import {ServerStatusEntity, ServerStatusRepository} from '../database/rage/server-status';
+import {ServerStatusEntity} from '../database/rage/server-status/server-status.entity';
+import {ServerStatusRepository} from '../database/rage/server-status/server-status.repository';
 
 @Controller('health')
 export class HealthController {

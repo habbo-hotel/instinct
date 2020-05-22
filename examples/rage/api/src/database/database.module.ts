@@ -1,7 +1,7 @@
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {databaseEntities} from './database.meta';
-import {databaseHost, databaseName, databasePass, databaseUser} from '../common';
+import { databaseEntities, databaseRepositories } from './database.meta';
+import {databaseHost, databaseName, databasePass, databaseUser} from '../common/config';
 
 @Module({
   imports: [
@@ -16,6 +16,7 @@ import {databaseHost, databaseName, databasePass, databaseUser} from '../common'
     }),
     TypeOrmModule.forFeature(databaseEntities),
   ],
-  exports: [TypeOrmModule],
+  providers: databaseRepositories,
+  exports: [TypeOrmModule, ...databaseRepositories],
 })
 export class DatabaseModule {}

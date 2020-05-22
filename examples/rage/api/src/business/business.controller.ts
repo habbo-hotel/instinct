@@ -1,12 +1,15 @@
-import {GetSession, HasSession} from '../session';
 import {BusinessPipe} from './business.pipe';
 import {BusinessService} from './business.service';
-import {UserEntity} from '../database/entity/user';
+import {GetSession} from '../session/get-session.decorator';
+import {HasSession} from '../session/has-session.decorator';
+import {UserEntity} from '../database/rage/user/user/user.entity';
 import {BusinessJobApplicationDTO, BusinessSearchDTO} from './business.dto';
+import {businessWire} from '../database/rage/business/business/business.wire';
+import {BusinessEntity} from '../database/rage/business/business/business.entity';
 import {Business, BusinessJob, BusinessJobApplication} from 'instinct-rp-interfaces';
 import {BadRequestException, Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {businessJobApplicationWire} from '../database/entity/business/business-job-application.wire';
-import {BusinessEntity, BusinessJobApplicationEntity, businessWire} from '../database/entity/business';
+import {businessJobApplicationWire} from '../database/rage/business/business-job-application/business-job-application.wire';
+import {BusinessJobApplicationEntity} from '../database/rage/business/business-job-application/business-job-application.entity';
 
 @Controller('businesses')
 @HasSession()

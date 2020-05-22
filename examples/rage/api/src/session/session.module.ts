@@ -1,13 +1,14 @@
-import {UserModule} from '../user';
 import {JwtModule} from '@nestjs/jwt';
 import {Module} from '@nestjs/common';
-import {DatabaseModule} from '../database';
+import {UserModule} from '../user/user.module';
 import {PassportModule} from '@nestjs/passport';
 import {SessionService} from './session.service';
+import {CommonModule} from '../common/common.module';
+import {jwtExpires, jwtSecret} from '../common/config';
 import {SessionController} from './session.controller';
 import {BearerTokenService} from './bearer-token.service';
+import {DatabaseModule} from '../database/database.module';
 import {BearerTokenStrategy} from './bearer-token.strategy';
-import {CommonModule, jwtExpires, jwtSecret} from '../common';
 
 @Module({
   imports: [

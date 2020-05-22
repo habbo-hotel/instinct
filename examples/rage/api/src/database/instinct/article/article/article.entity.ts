@@ -1,5 +1,5 @@
-import {UserEntity} from '../../../rage/user';
-import {ArticleCategoryEntity} from '../article-category';
+import {UserEntity} from '../../../rage/user/user/user.entity';
+import {ArticleCategoryEntity} from '../article-category/article-category.entity';
 import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('website_news')

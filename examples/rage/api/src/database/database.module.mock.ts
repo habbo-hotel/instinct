@@ -3,7 +3,7 @@ import {TypeOrmModule} from '@nestjs/typeorm';
 import {databaseEntities} from './database.meta';
 import {Test, TestingModule} from '@nestjs/testing';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
-import {databaseHost, databaseName, databasePass, databaseUser} from '../common';
+import {databaseHost, databaseName, databasePass, databaseUser} from '../common/config';
 
 const databaseModuleMeta: ModuleMetadata = {
   imports: [

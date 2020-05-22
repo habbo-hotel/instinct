@@ -1,7 +1,9 @@
 import {getRepository} from 'typeorm';
 import {BusinessEntity} from './business.entity';
-import {RoomEntity, roomFactory} from '../../room';
-import {UserEntity, userFactory} from '../../user/user';
+import {RoomEntity} from '../../room/room.entity';
+import {roomFactory} from '../../room/room.factory';
+import {UserEntity} from '../../user/user/user.entity';
+import {userFactory} from '../../user/user/user.factory';
 import {BusinessApplyType, BusinessType} from './business.types';
 
 export async function businessFactory(changes?: Partial<BusinessEntity>): Promise<BusinessEntity> {

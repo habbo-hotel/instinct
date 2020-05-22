@@ -2,7 +2,9 @@ import {RoomPipe} from './room.pipe';
 import {Room} from 'instinct-rp-interfaces';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Controller, Get, Param} from '@nestjs/common';
-import {RoomEntity, RoomRepository, roomWire} from '../database/rage/room';
+import {roomWire} from '../database/rage/room/room.wire';
+import {RoomEntity} from '../database/rage/room/room.entity';
+import {RoomRepository} from '../database/rage/room/room.repository';
 
 @Controller('rooms')
 export class RoomController {

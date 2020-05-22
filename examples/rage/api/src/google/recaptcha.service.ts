@@ -3,7 +3,8 @@ import * as FormData from 'form-data';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {googleRecaptchaAPI} from './recaptcha.axios';
-import {ConfigEntity, ConfigRepository} from '../database/instinct/config';
+import {ConfigEntity} from '../database/instinct/config/config.entity';
+import {ConfigRepository} from '../database/instinct/config/config.repository';
 
 @Injectable()
 export class GoogleRecaptchaService {

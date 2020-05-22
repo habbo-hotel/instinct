@@ -1,8 +1,11 @@
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {Like, MoreThan, Repository} from 'typeorm';
-import {BusinessEntity, BusinessJobApplicationEntity, BusinessJobEntity, businessJobWire} from '../database/entity/business';
 import {BusinessJob} from 'instinct-rp-interfaces';
+import {BusinessEntity} from '../database/rage/business/business/business.entity';
+import {businessJobWire} from '../database/rage/business/business-job/business-job.wire';
+import {BusinessJobEntity} from '../database/rage/business/business-job/business-job.entity';
+import {BusinessJobApplicationEntity} from '../database/rage/business/business-job-application/business-job-application.entity';
 
 @Injectable()
 export class BusinessService {

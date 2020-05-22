@@ -1,7 +1,8 @@
 import {getRepository} from 'typeorm';
-import {BusinessJobEntity} from './business-job.entity';
 import {BusinessJobRank} from 'instinct-rp-interfaces';
-import {businessFactory, BusinessEntity} from '../business';
+import {BusinessJobEntity} from './business-job.entity';
+import {BusinessEntity} from '../business/business.entity';
+import {businessFactory} from '../business/business.factory';
 
 export async function businessJobFactory(changes?: Partial<BusinessJobEntity>): Promise<BusinessJobEntity> {
   const business: BusinessEntity = changes?.business ?? (await businessFactory());

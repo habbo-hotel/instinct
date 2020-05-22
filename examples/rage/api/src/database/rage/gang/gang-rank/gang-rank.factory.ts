@@ -1,6 +1,6 @@
+import {getRepository} from 'typeorm';
 import {GangEntity, gangFactory} from '../gang';
 import {GangRankEntity} from './gang-rank.entity';
-import {getRepository} from 'typeorm';
 
 export async function gangRankFactory(changes?: Partial<GangRankEntity>): Promise<GangRankEntity> {
   const gang: GangEntity = changes?.gang ?? (await gangFactory());

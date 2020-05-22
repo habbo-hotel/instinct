@@ -1,10 +1,11 @@
-import {RoomEntity} from '../../room';
-import {RankEntity} from '../../rank';
-import {GangEntity} from '../../gang';
-import {UserBadgeEntity} from '../user-badge';
-import {HashService} from '../../../../common';
-import {UserRPStatsEntity} from '../user-rp-stats';
-import {BusinessEntity, BusinessJobApplicationEntity} from '../../business';
+import {RoomEntity} from '../../room/room.entity';
+import {RankEntity} from '../../rank/rank.entity';
+import {GangEntity} from '../../gang/gang/gang.entity';
+import {HashService} from '../../../../common/hash.service';
+import {UserBadgeEntity} from '../user-badge/user-badge.entity';
+import {BusinessEntity} from '../../business/business/business.entity';
+import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
+import {BusinessJobApplicationEntity } from '../../business/business-job-application/business-job-application.entity';
 import {
   Column,
   Entity,

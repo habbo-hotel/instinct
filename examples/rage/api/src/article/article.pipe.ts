@@ -1,6 +1,7 @@
 import {InjectRepository} from '@nestjs/typeorm';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
-import {ArticleEntity, ArticleRepository} from '../database/instinct/article/article';
+import {ArticleEntity} from '../database/instinct/article/article/article.entity';
+import {ArticleRepository} from '../database/instinct/article/article/article.repository';
 
 @Injectable()
 export class ArticlePipe implements PipeTransform {

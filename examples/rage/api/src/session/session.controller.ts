@@ -1,11 +1,13 @@
 import {User} from 'instinct-rp-interfaces';
 import {NewSessionDTO} from './session.dto';
+import {InjectRepository} from '@nestjs/typeorm';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import {InjectRepository} from '@nestjs/typeorm';
 import {Body, Controller, Get, Post} from '@nestjs/common';
-import {UserEntity, UserRepository, userWire} from '../database/rage/user';
+import {userWire} from '../database/rage/user/user/user.wire';
+import {UserEntity} from '../database/rage/user/user/user.entity';
+import {UserRepository} from '../database/rage/user/user/user.repository';
 
 @Controller('session')
 export class SessionController {

@@ -1,8 +1,10 @@
 import * as Moment from 'moment';
 import {getRepository} from 'typeorm';
 import {ArticleEntity} from './article.entity';
-import {UserEntity, userFactory} from '../../../rage/user/user';
-import {ArticleCategoryEntity, articleCategoryFactory} from '../article-category';
+import {UserEntity} from '../../../rage/user/user/user.entity';
+import {userFactory} from '../../../rage/user/user/user.factory';
+import {ArticleCategoryEntity} from '../article-category/article-category.entity';
+import {articleCategoryFactory} from '../article-category/article-category.factory';
 
 export async function articleFactory(changes?: Partial<ArticleEntity>): Promise<ArticleEntity> {
   const author: UserEntity = changes?.author ?? (await userFactory());

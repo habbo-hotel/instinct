@@ -1,6 +1,7 @@
 import {getRepository} from 'typeorm';
 import {RoomEntity} from './room.entity';
-import {UserEntity, userFactory} from '../user/user';
+import {UserEntity} from '../user/user/user.entity';
+import {userFactory} from '../user/user/user.factory';
 
 export async function roomFactory(changes?: Partial<RoomEntity>): Promise<RoomEntity> {
   const owner: UserEntity = changes?.owner ?? (await userFactory());

@@ -1,6 +1,7 @@
-import {GangEntity} from './gang.entity';
 import {getRepository} from 'typeorm';
-import {UserEntity, userFactory} from '../../user/user';
+import {GangEntity} from './gang.entity';
+import {UserEntity} from '../../user/user/user.entity';
+import {userFactory} from '../../user/user/user.factory';
 
 export async function gangFactory(changes?: Partial<GangEntity>): Promise<GangEntity> {
   const owner: UserEntity = changes?.owner ?? (await userFactory());

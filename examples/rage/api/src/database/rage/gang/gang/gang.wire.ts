@@ -1,6 +1,6 @@
-import {userWire} from '../../user';
 import {GangEntity} from './gang.entity';
 import {Gang} from 'instinct-rp-interfaces';
+import {userWire} from '../../user/user/user.wire';
 
 export function gangWire(gangEntity: GangEntity): Gang {
   return {

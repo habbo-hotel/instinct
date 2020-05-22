@@ -1,8 +1,8 @@
 import {Module} from '@nestjs/common';
-import {DatabaseModuleMock} from '../database';
 import {Test, TestingModule} from '@nestjs/testing';
 import {HealthController} from './health.controller';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
+import {DatabaseModuleMock} from '../database/database.module.mock';
 
 const healthModuleMeta: ModuleMetadata = {
   imports: [DatabaseModuleMock],

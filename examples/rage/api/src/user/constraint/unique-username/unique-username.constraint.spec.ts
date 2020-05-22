@@ -1,8 +1,9 @@
 import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
 import {mockUserModule} from '../../user.module.mock';
-import {UniqueUsernameConstraint} from './unique-username.constraint';
-import {UserEntity, userFactory} from '../../../database/rage/user/user';
+import {UniqueUsernameConstraint} from './unique-username.constraint'
+import {UserEntity} from '../../../database/rage/user/user/user.entity';
+import {UserRepository} from '../../../database/rage/user/user/user.repository';
 
 describe('UniqueUsernameConstraint', () => {
   let userModule: TestingModule;

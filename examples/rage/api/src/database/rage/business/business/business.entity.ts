@@ -1,7 +1,8 @@
-import {RoomEntity} from '../../room';
-import {BusinessJobEntity} from '../business-job';
-import {UserEntity, UserRPStatsEntity} from '../../user';
+import {RoomEntity} from '../../room/room.entity';
+import {UserEntity} from '../../user/user/user.entity';
 import {BusinessApplyType, BusinessType} from './business.types';
+import {BusinessJobEntity} from '../business-job/business-job.entity';
+import {UserRPStatsEntity} from '../../user/user-rp-stats/user-rp-stats.entity';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 
 @Entity('rp_jobs')

@@ -1,6 +1,6 @@
-import {userWire} from '../user';
 import {RankEntity} from './rank.entity';
 import {Rank} from 'instinct-rp-interfaces';
+import {userWire} from '../user/user/user.wire';
 
 export function rankWire(rankEntity: RankEntity): Rank {
   return {

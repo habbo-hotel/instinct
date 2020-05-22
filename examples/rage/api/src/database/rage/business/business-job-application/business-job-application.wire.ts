@@ -1,6 +1,6 @@
-import {userWire} from '../../user';
-import {businessJobWire} from '../business-job';
+import {userWire} from '../../user/user/user.wire';
 import {BusinessJobApplication} from 'instinct-rp-interfaces';
+import {businessJobWire} from '../business-job/business-job.wire';
 import {BusinessJobApplicationEntity} from './business-job-application.entity';
 
 export function businessJobApplicationWire(businessJobApplicationEntity: BusinessJobApplicationEntity): BusinessJobApplication {

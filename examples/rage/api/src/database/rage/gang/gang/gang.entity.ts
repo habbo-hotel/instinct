@@ -1,5 +1,6 @@
-import {GangRankEntity} from '../gang-rank';
-import {UserEntity, UserRPStatsEntity} from '../../user';
+import {UserEntity} from '../../user/user/user.entity';
+import {GangRankEntity} from '../gang-rank/gang-rank.entity';
+import {UserRPStatsEntity} from '../../user/user-rp-stats/user-rp-stats.entity';
 import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_gangs')

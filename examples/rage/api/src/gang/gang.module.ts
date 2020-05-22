@@ -1,7 +1,7 @@
-import {Module} from '@nestjs/common';
 import {GangPipe} from './gang.pipe';
-import {DatabaseModule} from '../database';
+import {Module} from '@nestjs/common';
 import {GangController} from './gang.controller';
+import {DatabaseModule} from '../database/database.module';
 
 @Module({
   imports: [DatabaseModule],

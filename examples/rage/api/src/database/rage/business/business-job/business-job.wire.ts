@@ -1,6 +1,7 @@
 import {BusinessJob} from 'instinct-rp-interfaces';
+import {businessWire} from '../business/business.wire';
 import {BusinessJobEntity} from './business-job.entity';
-import {businessWire, BusinessApplyType} from '../business';
+import {BusinessApplyType} from '../business/business.types';
 
 export function businessJobWire(businessJobEntity: BusinessJobEntity, alreadyApplied?: boolean): BusinessJob {
   return {

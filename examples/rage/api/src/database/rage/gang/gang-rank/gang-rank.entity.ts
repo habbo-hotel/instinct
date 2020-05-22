@@ -1,4 +1,4 @@
-import {GangEntity} from '../gang';
+import {GangEntity} from '../gang/gang.entity';
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_gangs_ranks')

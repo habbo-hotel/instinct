@@ -1,6 +1,6 @@
 import {BusinessService} from './business.service';
-import {BusinessJobEntity} from '../database/entity/business';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
+import {BusinessJobEntity} from '../database/rage/business/business-job/business-job.entity';
 
 @Injectable()
 export class BusinessJobPipe implements PipeTransform {

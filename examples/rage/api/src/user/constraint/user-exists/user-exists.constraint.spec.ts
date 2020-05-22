@@ -2,7 +2,8 @@ import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
 import {mockUserModule} from '../../user.module.mock';
 import {UserExistsConstraint} from './user-exists.constraint';
-import {UserEntity, userFactory} from '../../../database/rage/user/user';
+import {UserEntity} from '../../../database/rage/user/user/user.entity';
+import {userFactory} from '../../../database/rage/user/user/user.factory';
 
 describe('UserExistsConstraint', () => {
   let userModule: TestingModule;

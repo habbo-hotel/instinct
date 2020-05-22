@@ -1,7 +1,8 @@
 import {Injectable} from '@nestjs/common';
 import {SelectQueryBuilder} from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
-import {UserEntity, UserRepository} from '../database/rage/user/user';
+import {UserEntity} from '../database/rage/user/user/user.entity';
+import {UserRepository} from '../database/rage/user/user/user.repository';
 
 @Injectable()
 export class UserLeaderBoardService {

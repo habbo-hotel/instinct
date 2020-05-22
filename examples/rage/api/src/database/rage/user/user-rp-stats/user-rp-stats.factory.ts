@@ -1,5 +1,6 @@
 import {getRepository} from 'typeorm';
-import {UserEntity, userFactory} from '../user';
+import {UserEntity} from '../user/user.entity';
+import {userFactory} from '../user/user.factory';
 import {UserRPStatsEntity} from './user-rp-stats.entity';
 
 export async function userRPStatsFactory(changes?: Partial<UserRPStatsEntity>): Promise<UserRPStatsEntity> {
