@@ -6,4 +6,3 @@ export * from './user.dto';
 export * from './user.module.mock';
 export * from './user.module';
 export * from './user.pipe';
-export * from './user.service';

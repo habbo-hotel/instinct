@@ -1,21 +1,33 @@
 import {RoomEntity} from '../../room';
-import {RankEntity} from '../../../entity/rank';
-import {GangEntity} from '../../../entity/gang';
+import { RankEntity } from '../../rank';
+import { GangEntity } from '../../gang';
 import {UserBadgeEntity} from '../user-badge';
+import { HashService } from '../../../../common';
 import {UserRPStatsEntity} from '../user-rp-stats';
-import {BusinessEntity, BusinessJobApplicationEntity} from '../../../entity/business';
-import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import { BusinessEntity, BusinessJobApplicationEntity } from '../../business';
+import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
+
+  private readonly hashService: HashService = new HashService();
+
   @PrimaryGeneratedColumn({name: 'id'})
   id?: number;
 
   @Column({name: 'username', unique: true})
   username!: string;
 
-  @Column({name: 'password'})
+  @Column({name: 'password', select: false })
   password!: string;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashPassword() {
+    if (this.password) {
+      this.password = this.hashService.generate(this.password);
+    }
+  }
 
   @Column({name: 'mail'})
   email!: string;

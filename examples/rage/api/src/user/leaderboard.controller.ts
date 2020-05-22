@@ -1,7 +1,7 @@
 import {User} from 'instinct-rp-interfaces';
 import {Controller, Get} from '@nestjs/common';
 import {UserLeaderBoardService} from './leaderboard.service';
-import {UserEntity, userWire} from '../database/entity/user';
+import { UserEntity, userWire } from '../database/rage/user/user';
 
 @Controller('users/leaderboard')
 export class UserLeaderBoardController {

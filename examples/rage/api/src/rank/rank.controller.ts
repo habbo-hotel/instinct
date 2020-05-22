@@ -1,22 +1,22 @@
 import {RankPipe} from './rank.pipe';
-import {RankService} from './rank.service';
 import {Rank} from 'instinct-rp-interfaces';
+import { InjectRepository } from '@nestjs/typeorm';
 import {Controller, Get, Param} from '@nestjs/common';
-import {RankEntity, rankWire} from '../database/entity/rank';
+import { RankEntity, RankRepository, rankWire } from '../database/rage/rank';
 
 @Controller('ranks')
 export class RankController {
-  constructor(private readonly rankService: RankService) {}
+  constructor(@InjectRepository(RankRepository) private readonly rankRepo: RankRepository) {}
 
   @Get()
   async getMany(): Promise<Rank[]> {
-    const ranks: RankEntity[] = await this.rankService.getAll();
+    const ranks: RankEntity[] = await this.rankRepo.getAll();
     return ranks.map(rank => rankWire(rank));
   }
 
   @Get('staff')
   async getStaff(): Promise<Rank[]> {
-    const ranks: RankEntity[] = await this.rankService.getStaff();
+    const ranks: RankEntity[] = await this.rankRepo.getAllStaff();
     return ranks.map(rank => rankWire(rank));
   }
 

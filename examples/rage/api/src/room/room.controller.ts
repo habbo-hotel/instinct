@@ -1,22 +1,22 @@
 import {RoomPipe} from './room.pipe';
-import {RoomService} from './room.service';
 import {Room} from 'instinct-rp-interfaces';
+import { InjectRepository } from '@nestjs/typeorm';
 import {Controller, Get, Param} from '@nestjs/common';
-import {RoomEntity, roomWire} from '../database/entity/room';
+import { RoomEntity, RoomRepository, roomWire } from '../database/rage/room';
 
 @Controller('rooms')
 export class RoomController {
-  constructor(private readonly roomService: RoomService) {}
+  constructor(@InjectRepository(RoomRepository) private readonly roomRepo: RoomRepository) { }
 
   @Get()
   async getAll(): Promise<Room[]> {
-    const rooms: RoomEntity[] = await this.roomService.getAll();
+    const rooms: RoomEntity[] = await this.roomRepo.getAll();
     return rooms.map(room => roomWire(room));
   }
 
   @Get('most_popular')
   async getMostPopular(): Promise<Room[]> {
-    const mostPopularRooms: RoomEntity[] = await this.roomService.getMostPopular();
+    const mostPopularRooms: RoomEntity[] = await this.roomRepo.getMostPopular();
     return mostPopularRooms.map(room => roomWire(room));
   }
 

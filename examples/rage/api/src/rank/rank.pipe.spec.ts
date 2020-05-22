@@ -2,8 +2,7 @@ import {RankPipe} from './rank.pipe';
 import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
 import {mockRankModule} from './rank.module.mock';
-import {RankEntity} from '../database/entity/rank';
-import {rankFactory} from '../database/factory/rank';
+import { rankFactory, RankEntity } from '../database/rage/rank';
 
 describe('RankPipe', () => {
   let rankModule: TestingModule;

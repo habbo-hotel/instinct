@@ -1,9 +1,8 @@
 import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
 import {mockUserModule} from '../../user.module.mock';
-import {UserEntity} from '../../../database/entity/user';
-import {userFactory} from '../../../database/factory/user';
 import {UniqueEmailConstraint} from './unique-email.constraint';
+import { UserEntity, userFactory } from '../../../database/rage/user/user';
 
 describe('UniqueEmailConstraint', () => {
   let userModule: TestingModule;

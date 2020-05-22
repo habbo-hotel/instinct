@@ -1,23 +1,29 @@
 import {GangPipe} from './gang.pipe';
-import {GangService} from './gang.service';
 import {SearchGangDTO} from './gang.types';
 import {Gang} from 'instinct-rp-interfaces';
-import {GangEntity, gangWire} from '../database/entity/gang';
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { GangEntity, GangRepository, gangWire } from '../database/rage/gang/gang';
 
 @Controller('gangs')
 export class GangController {
-  constructor(private readonly gangService: GangService) {}
+  constructor(@InjectRepository(GangRepository) private readonly gangRepo: GangRepository) {}
 
   @Get()
   async getAll(): Promise<Gang[]> {
-    const gangs: GangEntity[] = await this.gangService.getAll();
+    const gangs: GangEntity[] = await this.gangRepo.getAll();
     return gangs.map(gang => gangWire(gang));
   }
 
-  @Get('top')
-  async getTopGangs(): Promise<Gang[]> {
-    const gangs: GangEntity[] = await this.gangService.getTop();
+  @Get('top/kills')
+  async getTopKills(): Promise<Gang[]> {
+    const gangs: GangEntity[] = await this.gangRepo.getMostKills()
+    return gangs.map(gang => gangWire(gang));
+  }
+
+  @Get('top/deaths')
+  async getTopDeaths(): Promise<Gang[]> {
+    const gangs: GangEntity[] = await this.gangRepo.getMostDeaths()
     return gangs.map(gang => gangWire(gang));
   }
 
@@ -28,7 +34,7 @@ export class GangController {
 
   @Post('search')
   async searchGangs(@Body() searchDTO: SearchGangDTO): Promise<Gang[]> {
-    const gangs: GangEntity[] = await this.gangService.searchByField('name', searchDTO.name);
+    const gangs: GangEntity[] = await this.gangRepo.searchByField('name', searchDTO.name);
     return gangs.map(gang => gangWire(gang));
   }
 }

@@ -1,15 +1,17 @@
 import {Injectable} from '@nestjs/common';
-import {UserService} from '../../user.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UserRepository } from '../../../database/rage/user/user';
 import {registerDecorator, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface} from 'class-validator';
 
 @ValidatorConstraint({async: true})
 @Injectable()
 export class UserExistsConstraint implements ValidatorConstraintInterface {
-  constructor(private readonly userService: UserService) {}
+
+  constructor(@InjectRepository(UserRepository) private readonly userRepo: UserRepository) {}
 
   async validate(username: string) {
     try {
-      await this.userService.getByUsername(username);
+      await this.userRepo.findOneByUsernameOrFail(username);
       return true;
     } catch (e) {
       return false;

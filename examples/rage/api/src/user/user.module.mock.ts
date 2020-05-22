@@ -1,18 +1,17 @@
 import {UserPipe} from './user.pipe';
 import {Module} from '@nestjs/common';
-import {UserService} from './user.service';
+import {CommonModule} from '../common';
+import {DatabaseModule} from '../database';
 import {userConstraints} from './constraint';
 import {UserController} from './user.controller';
 import {Test, TestingModule} from '@nestjs/testing';
-import {CommonModule} from '../common/common.module';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
-import {DatabaseModule} from '../database/database.module';
 
 const userModuleMeta: ModuleMetadata = {
   imports: [CommonModule, DatabaseModule],
   controllers: [UserController],
-  providers: [UserPipe, UserService, ...userConstraints],
-  exports: [UserPipe, UserService, ...userConstraints],
+  providers: [UserPipe, ...userConstraints],
+  exports: [UserPipe, ...userConstraints],
 };
 
 export function mockUserModule(): Promise<TestingModule> {

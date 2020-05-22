@@ -1,14 +1,12 @@
 import {Injectable} from '@nestjs/common';
+import { SelectQueryBuilder } from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
-import {UserEntity} from '../database/entity/user';
-import {Repository, SelectQueryBuilder} from 'typeorm';
+import { UserEntity, UserRepository } from '../database/rage/user/user';
 
 @Injectable()
 export class UserLeaderBoardService {
-  constructor(
-    @InjectRepository(UserEntity)
-    private readonly userRepository: Repository<UserEntity>
-  ) {}
+
+  constructor(@InjectRepository(UserRepository) private readonly userRepo: UserRepository) {}
 
   getMostCredits(limit = 10): Promise<UserEntity[]> {
     return this.queryBuilder().orderBy('user.credits', 'DESC').limit(limit).getMany();
@@ -23,7 +21,7 @@ export class UserLeaderBoardService {
   }
 
   private queryBuilder(): SelectQueryBuilder<UserEntity> {
-    return this.userRepository.createQueryBuilder('user').innerJoin('user.rank', 'rank', 'rank.websiteShowStaff = :showStaff', {
+    return this.userRepo.createQueryBuilder('user').innerJoin('user.rank', 'rank', 'rank.websiteShowStaff = :showStaff', {
       showStaff: '0',
     });
   }
