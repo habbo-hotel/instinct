@@ -64,7 +64,7 @@ ADD `description` TINYTEXT AFTER `application_required`;
 ---------
 -- Business applications for Instinct to work
 ---------
-CREATE TABLE group_applications  (
+CREATE TABLE rp_job_applications  (
   `id` int NOT NULL AUTO_INCREMENT,
   `job_id` int NULL,
   `user_id` int NULL,
@@ -100,3 +100,7 @@ CREATE TABLE `instinct_config`  (
 ALTER TABLE `instinct_config`
 ADD COLUMN `google_recaptcha_site_key` varchar(255) NULL AFTER `group_badge_url`,
 ADD COLUMN `google_recaptcha_secret_key` varchar(255) NULL AFTER `google_recaptcha_site_key`;
+
+-- RP Gang Ranks
+ALTER TABLE rp_gangs_ranks
+ADD id INT PRIMARY KEY AUTO_INCREMENT;
