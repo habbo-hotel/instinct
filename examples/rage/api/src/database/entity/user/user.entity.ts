@@ -2,19 +2,9 @@ import {RankEntity} from '../rank';
 import {RoomEntity} from '../room';
 import {GangEntity} from '../gang';
 import {UserBadgesEntity} from './user-badges.entity';
-import { UserRPStatsEntity } from './user-rp-stats.entity';
-import { BusinessEntity, BusinessJobApplicationEntity } from '../business';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import {UserRPStatsEntity} from './user-rp-stats.entity';
+import {BusinessEntity, BusinessJobApplicationEntity} from '../business';
+import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('users')
 export class UserEntity {

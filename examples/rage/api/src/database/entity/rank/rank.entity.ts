@@ -9,7 +9,7 @@ export class RankEntity {
   @Column()
   name!: string;
 
-  @Column({ name: 'description', type: 'text' })
+  @Column({name: 'description', type: 'text'})
   desc!: string;
 
   @Column({name: 'badgeid'})

@@ -1,5 +1,5 @@
-import { ConfigEntity } from './config.entity';
-import { Config } from 'instinct-rp-interfaces';
+import {ConfigEntity} from './config.entity';
+import {Config} from 'instinct-rp-interfaces';
 
 export function configWire(configEntity: ConfigEntity): Config {
   return {
@@ -20,6 +20,5 @@ export function configWire(configEntity: ConfigEntity): Config {
     loadingMessage: configEntity.loadingMessage,
     groupBadgeURL: configEntity.groupBadgeURL,
     googleRecaptchaSiteKey: configEntity.googleRecaptchaSiteKey,
-  }
-
+  };
 }

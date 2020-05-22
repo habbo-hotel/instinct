@@ -1,7 +1,7 @@
 import * as Moment from 'moment';
 import {Business} from 'instinct-rp-interfaces';
 import {BusinessEntity} from './business.entity';
-import { businessJobWire, roomWire, userWire } from '../';
+import {businessJobWire, roomWire, userWire} from '../';
 
 export function businessWire(businessEntity: BusinessEntity): Business {
   return {

@@ -1,13 +1,8 @@
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
-import { Like, MoreThan, Repository } from 'typeorm';
-import {
-  BusinessEntity,
-  BusinessJobApplicationEntity,
-  BusinessJobEntity,
-  businessJobWire
-} from '../database/entity/business';
-import { BusinessJob } from 'instinct-rp-interfaces';
+import {Like, MoreThan, Repository} from 'typeorm';
+import {BusinessEntity, BusinessJobApplicationEntity, BusinessJobEntity, businessJobWire} from '../database/entity/business';
+import {BusinessJob} from 'instinct-rp-interfaces';
 
 @Injectable()
 export class BusinessService {
@@ -19,7 +14,7 @@ export class BusinessService {
     @InjectRepository(BusinessJobEntity)
     private readonly businessJobRepo: Repository<BusinessJobEntity>,
     @InjectRepository(BusinessJobApplicationEntity)
-    private readonly businessJobApplicationRepo: Repository<BusinessJobApplicationEntity>,
+    private readonly businessJobApplicationRepo: Repository<BusinessJobApplicationEntity>
   ) {}
 
   getAll(): Promise<BusinessEntity[]> {
@@ -40,11 +35,13 @@ export class BusinessService {
   async getVacantJobsForUser(userID: number): Promise<BusinessJob[]> {
     try {
       const vacantJobs: BusinessJobEntity[] = await this.getVacantJobs();
-      const jobApplication: Array<BusinessJobApplicationEntity|undefined> = await Promise.all(vacantJobs.map(x =>  this.getJobApplicationForUser(userID, x.rankID)))
+      const jobApplication: Array<BusinessJobApplicationEntity | undefined> = await Promise.all(
+        vacantJobs.map(x => this.getJobApplicationForUser(userID, x.rankID))
+      );
 
       return vacantJobs.map((vacantJob, index) => {
-        return businessJobWire(vacantJob, !!jobApplication[index])
-      })
+        return businessJobWire(vacantJob, !!jobApplication[index]);
+      });
     } catch (e) {
       console.log('wtf');
       console.log(e);
@@ -57,7 +54,7 @@ export class BusinessService {
       where: {
         id: groupID,
       },
-      relations: [...this.eagerRelations,  'jobs.users', 'jobs.users.user'],
+      relations: [...this.eagerRelations, 'jobs.users', 'jobs.users.user'],
     });
   }
 
@@ -72,12 +69,11 @@ export class BusinessService {
 
   async getJobByIDForUser(userID: number, jobID: number): Promise<BusinessJob> {
     const job: BusinessJobEntity = await this.getJobByID(jobID);
-    const jobApplication: BusinessJobApplicationEntity|undefined = await this.getJobApplicationForUser(userID, jobID);
+    const jobApplication: BusinessJobApplicationEntity | undefined = await this.getJobApplicationForUser(userID, jobID);
     return businessJobWire(job, !!jobApplication);
   }
 
-
-  getJobApplicationForUser(userID: number, jobID: number): Promise<BusinessJobApplicationEntity|undefined> {
+  getJobApplicationForUser(userID: number, jobID: number): Promise<BusinessJobApplicationEntity | undefined> {
     return this.businessJobApplicationRepo.findOne({
       where: {
         userID,
@@ -111,5 +107,4 @@ export class BusinessService {
       relations: ['job', 'user'],
     });
   }
-
 }

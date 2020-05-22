@@ -1,33 +1,31 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('server_status')
 export class ServerStatusEntity {
-
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({ name: 'users_online', type: 'int' })
+  @Column({name: 'users_online', type: 'int'})
   usersOnline!: number;
 
-  @Column({ name: 'status', type: 'int' })
+  @Column({name: 'status', type: 'int'})
   status!: number;
 
-  @Column({ name: 'rooms_loaded', type: 'int' })
+  @Column({name: 'rooms_loaded', type: 'int'})
   roomsLoaded!: number;
 
-  @Column({ name: 'server_ver' })
+  @Column({name: 'server_ver'})
   serverVersion!: string;
 
-  @Column({ type: 'int' })
+  @Column({type: 'int'})
   stamp!: number;
 
-  @Column({ name: 'minutesuptime', type: 'int' })
+  @Column({name: 'minutesuptime', type: 'int'})
   uptime!: number;
 
-  @Column({ name: 'userpeak', type: 'int' })
+  @Column({name: 'userpeak', type: 'int'})
   userPeak!: number;
 
-  @Column({ name: 'bannerdata' })
+  @Column({name: 'bannerdata'})
   bannerData!: string;
-
 }

@@ -2,9 +2,9 @@ import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
-import { GoogleRecaptchaService } from '../google';
+import {GoogleRecaptchaService} from '../google';
 import {Room, User, UserProfile} from 'instinct-rp-interfaces';
-import { BadRequestException, Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {BadRequestException, Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {roomWire, UserEntity, userWire} from '../database/entity';
 import {
   defaultUserCredits,
@@ -22,11 +22,10 @@ export class UserController {
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
-
     const passedRecaptcha: boolean = await this.recaptchaService.passedVerification(newUser.recaptcha);
 
     if (!passedRecaptcha) {
-      throw new BadRequestException('Our system detected suspicious behavior..')
+      throw new BadRequestException('Our system detected suspicious behavior..');
     }
 
     const currentTimestamp: number = Moment().unix();

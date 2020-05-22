@@ -5,7 +5,6 @@ export class BusinessSearchDTO {
   name!: string;
 }
 
-
 export class BusinessJobApplicationDTO {
   @IsString()
   content!: string;

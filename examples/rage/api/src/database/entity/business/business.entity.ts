@@ -1,6 +1,6 @@
 import {RoomEntity} from '../room';
-import { UserEntity, UserRPStatsEntity } from '../user';
-import {BusinessJobEntity } from './business-job.entity';
+import {UserEntity, UserRPStatsEntity} from '../user';
+import {BusinessJobEntity} from './business-job.entity';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 
 export enum BusinessType {
@@ -28,7 +28,7 @@ export class BusinessEntity {
   @Column({type: 'varchar', length: 50})
   name!: string;
 
-  @Column({name: 'desc', type: 'varchar' })
+  @Column({name: 'desc', type: 'varchar'})
   description!: string;
 
   @Column({name: 'headquarters', type: 'int'})
@@ -47,28 +47,28 @@ export class BusinessEntity {
   @Column({name: 'created', type: 'int'})
   dateCreated!: number;
 
-  @Column({ type: 'enum' })
+  @Column({type: 'enum'})
   type!: BusinessType;
 
-  @Column({ name: 'bank_balance', type: 'int' })
+  @Column({name: 'bank_balance', type: 'int'})
   bankBalance!: number;
 
-  @Column({ type: 'int' })
+  @Column({type: 'int'})
   stock!: number;
 
-  @Column({ name: 'tax_prsi', type: 'int' })
+  @Column({name: 'tax_prsi', type: 'int'})
   taxPRSI!: number;
 
-  @Column({ name: 'tax_payi', type: 'int' })
+  @Column({name: 'tax_payi', type: 'int'})
   taxPAYI!: number;
 
-  @Column({ type: 'int' })
+  @Column({type: 'int'})
   hiring!: number; // 0 or 1
 
-  @Column({ type: 'int' })
+  @Column({type: 'int'})
   hidden!: number; // 0 or 1
 
-  @Column({ name: 'apply_type', type: 'enum' })
+  @Column({name: 'apply_type', type: 'enum'})
   applyType!: BusinessApplyType;
 
   @OneToMany(() => UserRPStatsEntity, userRPStats => userRPStats.job)

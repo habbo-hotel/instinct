@@ -3,7 +3,7 @@ import {rankWire} from '../rank';
 import {gangWire} from '../gang';
 import {UserEntity} from './user.entity';
 import {User} from 'instinct-rp-interfaces';
-import { businessJobWire } from '../business';
+import {businessJobWire} from '../business';
 
 export function userWire(userEntity: UserEntity): User {
   return {

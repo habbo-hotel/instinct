@@ -1,4 +1,4 @@
-import { databaseEntities } from './';
+import {databaseEntities} from './';
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {databaseHost, databaseName, databasePass, databaseUser} from '../common';

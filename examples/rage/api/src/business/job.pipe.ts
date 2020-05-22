@@ -1,5 +1,5 @@
 import {BusinessService} from './business.service';
-import { BusinessJobEntity } from '../database/entity/business';
+import {BusinessJobEntity} from '../database/entity/business';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

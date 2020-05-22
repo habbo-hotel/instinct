@@ -1,5 +1,5 @@
-import { GangRanksEntity } from './gang-ranks.entity';
-import { UserEntity, UserRPStatsEntity } from '../user';
+import {GangRanksEntity} from './gang-ranks.entity';
+import {UserEntity, UserRPStatsEntity} from '../user';
 import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_gangs')
@@ -31,5 +31,4 @@ export class GangEntity {
 
   @OneToMany(() => GangRanksEntity, gangRank => gangRank.gang)
   ranks?: GangRanksEntity[];
-
 }

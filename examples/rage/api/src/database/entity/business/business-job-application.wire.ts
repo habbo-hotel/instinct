@@ -1,7 +1,7 @@
-import { userWire } from '../user';
-import { businessJobWire } from './business-job.wire';
-import { BusinessJobApplication } from 'instinct-rp-interfaces';
-import { BusinessJobApplicationEntity } from './business-job-application.entity';
+import {userWire} from '../user';
+import {businessJobWire} from './business-job.wire';
+import {BusinessJobApplication} from 'instinct-rp-interfaces';
+import {BusinessJobApplicationEntity} from './business-job-application.entity';
 
 export function businessJobApplicationWire(businessJobApplicationEntity: BusinessJobApplicationEntity): BusinessJobApplication {
   return {
@@ -10,5 +10,5 @@ export function businessJobApplicationWire(businessJobApplicationEntity: Busines
     job: businessJobWire(businessJobApplicationEntity.job!),
     content: businessJobApplicationEntity.content,
     createdAt: businessJobApplicationEntity.createdAt.toISOString(),
-  }
+  };
 }

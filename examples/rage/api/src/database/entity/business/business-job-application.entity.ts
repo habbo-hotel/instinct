@@ -1,10 +1,9 @@
-import { UserEntity } from '../user';
-import { BusinessJobEntity } from './business-job.entity';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {UserEntity} from '../user';
+import {BusinessJobEntity} from './business-job.entity';
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_job_applications')
 export class BusinessJobApplicationEntity {
-
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -12,20 +11,19 @@ export class BusinessJobApplicationEntity {
   jobID!: number;
 
   @ManyToOne(() => BusinessJobEntity)
-  @JoinColumn({ name: 'job_id' })
+  @JoinColumn({name: 'job_id'})
   job?: BusinessJobEntity;
 
-  @Column({ name: 'user_id', type: 'int' })
+  @Column({name: 'user_id', type: 'int'})
   userID!: number;
 
   @ManyToOne(() => UserEntity, user => user.jobApplications)
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn({name: 'user_id'})
   user?: UserEntity;
 
-  @Column({ type: 'text' })
+  @Column({type: 'text'})
   content!: string;
 
-  @CreateDateColumn({ name: 'timestamp', type: 'timestamp' })
+  @CreateDateColumn({name: 'timestamp', type: 'timestamp'})
   createdAt!: Date;
-
 }
