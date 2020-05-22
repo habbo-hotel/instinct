@@ -1,3 +1,3 @@
-export * from './entity';
-export * from './factory';
+export * from './rage';
+export * from './instinct';
 export * from './database.module';
