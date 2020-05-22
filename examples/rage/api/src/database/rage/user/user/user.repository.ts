@@ -1,10 +1,9 @@
 import * as Random from 'randomstring';
-import { UserEntity } from './user.entity';
-import { EntityRepository, Like, Repository } from 'typeorm';
+import {UserEntity} from './user.entity';
+import {EntityRepository, Like, Repository} from 'typeorm';
 
 @EntityRepository(UserEntity)
 export class UserRepository extends Repository<UserEntity> {
-
   async authenticateClientByID(userID: number): Promise<string> {
     const authTicket: string = 'instinct_' + Random.generate(20) + '_' + userID;
     await this.update(userID, {authTicket});
@@ -19,7 +18,7 @@ export class UserRepository extends Repository<UserEntity> {
         id: userID,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
   findOneByUsernameOrFail(username: string): Promise<UserEntity> {
@@ -28,7 +27,7 @@ export class UserRepository extends Repository<UserEntity> {
         username,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
   findOneByEmailOrFail(email: string): Promise<UserEntity> {
@@ -37,7 +36,7 @@ export class UserRepository extends Repository<UserEntity> {
         email,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
   searchByUsername(username: string): Promise<UserEntity[]> {
@@ -46,7 +45,6 @@ export class UserRepository extends Repository<UserEntity> {
         username: Like(`%${username}%`),
       },
       relations: this.eagerRelations,
-    })
+    });
   }
-
 }

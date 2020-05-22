@@ -23,5 +23,5 @@ export async function configFactory(changes?: Partial<ConfigEntity>): Promise<Co
     googleRecaptchaSiteKey: '1',
     googleRecaptchaSecretKey: '1',
     ...changes,
-  })
+  });
 }

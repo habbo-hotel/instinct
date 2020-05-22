@@ -1,5 +1,5 @@
-import { InjectRepository } from '@nestjs/typeorm';
-import { RankEntity, RankRepository } from '../database/rage/rank';
+import {InjectRepository} from '@nestjs/typeorm';
+import {RankEntity, RankRepository} from '../database/rage/rank';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

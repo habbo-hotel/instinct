@@ -1,14 +1,13 @@
 import {Module} from '@nestjs/common';
+import {SessionModule} from '../session';
 import {ArticlePipe} from './article.pipe';
-import {ArticleService} from './article.service';
+import {DatabaseModule} from '../database';
 import {ArticleController} from './article.controller';
-import {SessionModule} from '../session/session.module';
-import {DatabaseModule} from '../database/database.module';
 
 @Module({
   imports: [SessionModule, DatabaseModule],
   controllers: [ArticleController],
-  providers: [ArticlePipe, ArticleService],
-  exports: [ArticlePipe, ArticleService],
+  providers: [ArticlePipe],
+  exports: [ArticlePipe],
 })
 export class ArticleModule {}

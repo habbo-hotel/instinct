@@ -2,9 +2,9 @@ import * as supertest from 'supertest';
 import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
 import {mockRankModule} from './rank.module.mock';
-import { UserEntity, userFactory } from '../database/rage/user/user';
+import {UserEntity, userFactory} from '../database/rage/user/user';
 import {HttpServer, HttpStatus, INestApplication} from '@nestjs/common';
-import { RankEntity, rankFactory, rankWire } from '../database/rage/rank';
+import {RankEntity, rankFactory, rankWire} from '../database/rage/rank';
 
 describe('RankController', () => {
   let rankModule: TestingModule;

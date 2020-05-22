@@ -1,15 +1,14 @@
-import { RoomEntity } from './room.entity';
-import { EntityRepository, Repository } from 'typeorm';
+import {RoomEntity} from './room.entity';
+import {EntityRepository, Repository} from 'typeorm';
 
 @EntityRepository(RoomEntity)
 export class RoomRepository extends Repository<RoomEntity> {
-
   readonly eagerRelations: string[] = ['owner'];
 
   getAll(): Promise<RoomEntity[]> {
     return this.find({
       relations: this.eagerRelations,
-    })
+    });
   }
 
   getMostPopular(): Promise<RoomEntity[]> {
@@ -19,7 +18,7 @@ export class RoomRepository extends Repository<RoomEntity> {
       },
       take: 5,
       relations: this.eagerRelations,
-    })
+    });
   }
 
   findOneByIDOrFail(roomID: number): Promise<RoomEntity> {
@@ -28,6 +27,6 @@ export class RoomRepository extends Repository<RoomEntity> {
         id: roomID,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
-} */
+}

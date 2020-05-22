@@ -1,11 +1,11 @@
 import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
-import {UserService} from './user.service';
+import {roomWire} from '../database/rage/room';
 import {GoogleRecaptchaService} from '../google';
 import {Room, User, UserProfile} from 'instinct-rp-interfaces';
+import {UserEntity, UserRepository, userWire} from '../database/rage/user/user';
 import {BadRequestException, Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {roomWire, UserEntity, userWire} from '../database/entity';
 import {
   defaultUserCredits,
   defaultUserHomeRoom,
@@ -15,10 +15,15 @@ import {
   defaultUserPoints,
   defaultUserRank,
 } from '../common';
+import {InjectRepository} from '@nestjs/typeorm';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService, private readonly recaptchaService: GoogleRecaptchaService) {}
+  constructor(
+    @InjectRepository(UserRepository)
+    private readonly userRepo: UserRepository,
+    private readonly recaptchaService: GoogleRecaptchaService
+  ) {}
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
@@ -29,7 +34,7 @@ export class UserController {
     }
 
     const currentTimestamp: number = Moment().unix();
-    const user: UserEntity = await this.userService.create({
+    const user: UserEntity = await this.userRepo.create({
       username: newUser.username,
       motto: defaultUserMotto,
       password: newUser.password,
@@ -62,7 +67,7 @@ export class UserController {
 
   @Get('profile/:username')
   async getUserByUsername(@Param('username') username: string): Promise<UserProfile> {
-    const user: UserEntity = await this.userService.getByUsername(username);
+    const user: UserEntity = await this.userRepo.findOneByUsernameOrFail(username);
     return {
       user: userWire(user),
     };

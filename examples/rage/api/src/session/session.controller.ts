@@ -1,15 +1,19 @@
-import {UserService} from '../user';
 import {User} from 'instinct-rp-interfaces';
 import {NewSessionDTO} from './session.dto';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
+import {InjectRepository} from '@nestjs/typeorm';
 import {Body, Controller, Get, Post} from '@nestjs/common';
-import {UserEntity, userWire} from '../database/entity/user';
+import {UserEntity, UserRepository, userWire} from '../database/rage/user';
 
 @Controller('session')
 export class SessionController {
-  constructor(private readonly userService: UserService, private readonly sessionService: SessionService) {}
+  constructor(
+    @InjectRepository(UserRepository)
+    private readonly userRepo: UserRepository,
+    private readonly sessionService: SessionService
+  ) {}
 
   @Post()
   createSession(@Body() newSession: NewSessionDTO): Promise<string> {
@@ -19,7 +23,7 @@ export class SessionController {
   @Post('sso')
   @HasSession()
   async createSSO(@GetSession() session: UserEntity): Promise<string> {
-    return this.userService.createSSO(session.id!);
+    return this.userRepo.authenticateClientByID(session.id!);
   }
 
   @Get()

@@ -1,11 +1,10 @@
 import {Injectable} from '@nestjs/common';
-import { SelectQueryBuilder } from 'typeorm';
+import {SelectQueryBuilder} from 'typeorm';
 import {InjectRepository} from '@nestjs/typeorm';
-import { UserEntity, UserRepository } from '../database/rage/user/user';
+import {UserEntity, UserRepository} from '../database/rage/user/user';
 
 @Injectable()
 export class UserLeaderBoardService {
-
   constructor(@InjectRepository(UserRepository) private readonly userRepo: UserRepository) {}
 
   getMostCredits(limit = 10): Promise<UserEntity[]> {

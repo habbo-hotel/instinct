@@ -1,9 +1,9 @@
 import {Module} from '@nestjs/common';
-import {ConfigModule} from '../config';
+import {DatabaseModule} from '../database';
 import {GoogleRecaptchaService} from './recaptcha.service';
 
 @Module({
-  imports: [ConfigModule],
+  imports: [DatabaseModule],
   providers: [GoogleRecaptchaService],
   exports: [GoogleRecaptchaService],
 })

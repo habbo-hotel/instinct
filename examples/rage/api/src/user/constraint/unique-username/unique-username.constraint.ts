@@ -1,12 +1,11 @@
 import {Injectable} from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { UserRepository } from '../../../database/rage/user/user';
+import {InjectRepository} from '@nestjs/typeorm';
+import {UserRepository} from '../../../database/rage/user/user';
 import {registerDecorator, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface} from 'class-validator';
 
 @ValidatorConstraint({async: true})
 @Injectable()
 export class UniqueUsernameConstraint implements ValidatorConstraintInterface {
-
   constructor(@InjectRepository(UserRepository) private readonly userRepo: UserRepository) {}
 
   async validate(username: string): Promise<boolean> {

@@ -1,5 +1,3 @@
-import { UserRPStatsEntity } from './user-rp-stats.entity';
+import {UserRPStatsEntity} from './user-rp-stats.entity';
 
-export function userRPStatsWire(userRPStatsEntity: UserRPStatsEntity): any {
-
-}
+export function userRPStatsWire(userRPStatsEntity: UserRPStatsEntity): any {}

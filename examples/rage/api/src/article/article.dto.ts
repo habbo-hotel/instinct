@@ -1,5 +1,4 @@
-import {IsEnum, IsNumber, IsString} from 'class-validator';
-import {ArticleForm, ArticleVisibility} from '../database/entity/article';
+import {IsNumber, IsString} from 'class-validator';
 
 export class NewArticleDTO {
   @IsString()
@@ -16,12 +15,6 @@ export class NewArticleDTO {
 
   @IsString()
   fullStory!: string;
-
-  @IsEnum(ArticleForm)
-  form!: ArticleForm;
-
-  @IsEnum(ArticleVisibility)
-  hidden!: ArticleVisibility;
 
   @IsString()
   image!: string;

@@ -1,9 +1,9 @@
 import {GangPipe} from './gang.pipe';
 import {SearchGangDTO} from './gang.types';
 import {Gang} from 'instinct-rp-interfaces';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { GangEntity, GangRepository, gangWire } from '../database/rage/gang/gang';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {GangEntity, GangRepository, gangWire} from '../database/rage/gang/gang';
 
 @Controller('gangs')
 export class GangController {
@@ -17,13 +17,13 @@ export class GangController {
 
   @Get('top/kills')
   async getTopKills(): Promise<Gang[]> {
-    const gangs: GangEntity[] = await this.gangRepo.getMostKills()
+    const gangs: GangEntity[] = await this.gangRepo.getMostKills();
     return gangs.map(gang => gangWire(gang));
   }
 
   @Get('top/deaths')
   async getTopDeaths(): Promise<Gang[]> {
-    const gangs: GangEntity[] = await this.gangRepo.getMostDeaths()
+    const gangs: GangEntity[] = await this.gangRepo.getMostDeaths();
     return gangs.map(gang => gangWire(gang));
   }
 

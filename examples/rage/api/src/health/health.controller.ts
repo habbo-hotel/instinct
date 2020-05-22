@@ -1,15 +1,15 @@
-import {Controller, Get} from '@nestjs/common';
 import {Health} from 'instinct-rp-interfaces';
-import {ServerStatusService} from './server-status.service';
-import {ServerStatusEntity} from '../database/entity/server-status';
+import {Controller, Get} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {ServerStatusEntity, ServerStatusRepository} from '../database/rage/server-status';
 
 @Controller('health')
 export class HealthController {
-  constructor(private readonly serverStatus: ServerStatusService) {}
+  constructor(@InjectRepository(ServerStatusRepository) private readonly serverStatusRepo: ServerStatusRepository) {}
 
   @Get()
   async getHealth(): Promise<Health> {
-    const serverStatus: ServerStatusEntity = await this.serverStatus.getServerStatus();
+    const serverStatus: ServerStatusEntity = await this.serverStatusRepo.getServerStatus();
     return {
       usersOnline: serverStatus.usersOnline,
       roomsActive: serverStatus.roomsLoaded,

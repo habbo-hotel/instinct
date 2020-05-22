@@ -3,7 +3,6 @@ import {BusinessJobRank} from 'instinct-rp-interfaces';
 import {BusinessJobApplicationEntity} from '../business-job-application';
 import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
-
 @Entity('rp_jobs_ranks')
 export class BusinessJobEntity {
   @Column({name: 'job_id', type: 'int'})

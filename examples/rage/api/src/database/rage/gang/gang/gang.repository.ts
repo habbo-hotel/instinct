@@ -1,15 +1,14 @@
-import { GangEntity } from './gang.entity';
-import { EntityRepository, Like, Repository } from 'typeorm';
+import {GangEntity} from './gang.entity';
+import {EntityRepository, Like, Repository} from 'typeorm';
 
 @EntityRepository(GangEntity)
 export class GangRepository extends Repository<GangEntity> {
-
   readonly eagerRelations: string[] = [];
 
   getAll(): Promise<GangEntity[]> {
     return this.find({
       relations: this.eagerRelations,
-    })
+    });
   }
 
   getMostKills(): Promise<GangEntity[]> {
@@ -37,8 +36,8 @@ export class GangRepository extends Repository<GangEntity> {
       where: {
         id: gangID,
         relations: this.eagerRelations,
-      }
-    })
+      },
+    });
   }
 
   searchByField<T extends keyof GangEntity>(field: T, value: GangEntity[T]): Promise<GangEntity[]> {
@@ -49,6 +48,4 @@ export class GangRepository extends Repository<GangEntity> {
       relations: this.eagerRelations,
     });
   }
-
-
 }

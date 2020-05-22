@@ -6,5 +6,5 @@ export async function articleCategoryFactory(changes?: Partial<ArticleCategoryEn
     id: undefined,
     category: 'Test Category',
     ...changes,
-  })
+  });
 }

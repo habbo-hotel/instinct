@@ -1,10 +1,10 @@
-import { InjectRepository } from '@nestjs/typeorm';
-import { RoomEntity, RoomRepository} from '../database/rage/room';
+import {InjectRepository} from '@nestjs/typeorm';
+import {RoomEntity, RoomRepository} from '../database/rage/room';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class RoomPipe implements PipeTransform {
-  constructor(@InjectRepository(RoomRepository) private readonly roomRepo: RoomRepository) { }
+  constructor(@InjectRepository(RoomRepository) private readonly roomRepo: RoomRepository) {}
 
   async transform(roomID: number): Promise<RoomEntity> {
     try {

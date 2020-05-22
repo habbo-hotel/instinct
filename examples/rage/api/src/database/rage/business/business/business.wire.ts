@@ -3,6 +3,7 @@ import {roomWire} from '../../room';
 import {userWire} from '../../user';
 import {Business} from 'instinct-rp-interfaces';
 import {BusinessEntity} from './business.entity';
+import {businessJobWire} from '../business-job';
 
 export function businessWire(businessEntity: BusinessEntity): Business {
   return {

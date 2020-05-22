@@ -2,17 +2,17 @@ import * as Moment from 'moment';
 import {ArticlePipe} from './article.pipe';
 import {NewArticleDTO} from './article.dto';
 import {Article} from 'instinct-rp-interfaces';
-import {ArticleService} from './article.service';
+import {InjectRepository} from '@nestjs/typeorm';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
-import {ArticleEntity, articleWire} from '../database/entity/article';
+import {ArticleEntity, ArticleRepository, articleWire} from '../database/instinct/article/article';
 
 @Controller('articles')
 export class ArticleController {
-  constructor(private readonly articleService: ArticleService) {}
+  constructor(@InjectRepository(ArticleRepository) private readonly articleRepo: ArticleRepository) {}
 
   @Post()
   async create(@Body() newArticle: NewArticleDTO): Promise<Article> {
-    const article: ArticleEntity = await this.articleService.create({
+    const article: ArticleEntity = await this.articleRepo.createAndReturn({
       ...newArticle,
       timestamp: Moment().unix(),
     });
@@ -21,7 +21,7 @@ export class ArticleController {
 
   @Get()
   async getAll(): Promise<Article[]> {
-    const articles: ArticleEntity[] = await this.articleService.getAll();
+    const articles: ArticleEntity[] = await this.articleRepo.getAll();
     return articles.map(article => articleWire(article));
   }
 

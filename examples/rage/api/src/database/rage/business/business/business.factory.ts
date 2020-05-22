@@ -2,11 +2,11 @@ import {getRepository} from 'typeorm';
 import {BusinessEntity} from './business.entity';
 import {RoomEntity, roomFactory} from '../../room';
 import {UserEntity, userFactory} from '../../user/user';
-import { BusinessApplyType, BusinessType } from './business.types';
+import {BusinessApplyType, BusinessType} from './business.types';
 
 export async function businessFactory(changes?: Partial<BusinessEntity>): Promise<BusinessEntity> {
-  const owner: UserEntity = changes?.owner ?? await userFactory();
-  const room: RoomEntity = changes?.room ?? await roomFactory();
+  const owner: UserEntity = changes?.owner ?? (await userFactory());
+  const room: RoomEntity = changes?.room ?? (await roomFactory());
 
   return getRepository(BusinessEntity).save({
     id: undefined,
@@ -27,5 +27,5 @@ export async function businessFactory(changes?: Partial<BusinessEntity>): Promis
     employees: [],
     jobs: [],
     ...changes,
-  })
+  });
 }

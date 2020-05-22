@@ -1,19 +1,20 @@
-import {UserService} from '../user';
 import {HashService} from '../common';
-import {UserEntity} from '../database/entity/user';
+import {InjectRepository} from '@nestjs/typeorm';
 import {BearerTokenService} from './bearer-token.service';
+import {UserEntity, UserRepository} from '../database/rage/user';
 import {Injectable, UnauthorizedException} from '@nestjs/common';
 
 @Injectable()
 export class SessionService {
   constructor(
-    private readonly userService: UserService,
+    @InjectRepository(UserRepository)
+    private readonly userRepo: UserRepository,
     private readonly hashService: HashService,
     private readonly bearerTokenService: BearerTokenService
   ) {}
 
   async loginWithCredentials(username: string, password: string): Promise<string> {
-    const user: UserEntity = await this.userService.getByUsername(username);
+    const user: UserEntity = await this.userRepo.findOneByUsernameOrFail(username);
     const samePassword: boolean = await this.hashService.compare(password, user.password);
 
     if (!samePassword) {

@@ -1,4 +1,4 @@
-import {GangRankEntity} from './gang-rank';
+import {GangRankEntity} from '../gang-rank';
 import {UserEntity, UserRPStatsEntity} from '../../user';
 import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
