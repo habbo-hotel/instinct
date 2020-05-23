@@ -1,7 +1,7 @@
 import * as supertest from 'supertest';
 import {getConnection} from 'typeorm';
 import {TestingModule} from '@nestjs/testing';
-import {mockRankModule} from './rank.module.mock'
+import {mockRankModule} from './rank.module.mock';
 import {rankWire} from '../database/rage/rank/rank.wire';
 import {RankEntity} from '../database/rage/rank/rank.entity';
 import {rankFactory} from '../database/rage/rank/rank.factory';

@@ -1,7 +1,6 @@
 import {GangPipe} from './gang.pipe';
 import {SearchGangDTO} from './gang.types';
 import {Gang} from 'instinct-rp-interfaces';
-import {InjectRepository} from '@nestjs/typeorm';
 import {gangWire} from '../database/rage/gang/gang/gang.wire';
 import {GangEntity} from '../database/rage/gang/gang/gang.entity';
 import {Body, Controller, Get, Param, Post} from '@nestjs/common';
@@ -9,7 +8,7 @@ import {GangRepository} from '../database/rage/gang/gang/gang.repository';
 
 @Controller('gangs')
 export class GangController {
-  constructor(@InjectRepository(GangRepository) private readonly gangRepo: GangRepository) {}
+  constructor(private readonly gangRepo: GangRepository) {}
 
   @Get()
   async getAll(): Promise<Gang[]> {

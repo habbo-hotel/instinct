@@ -1,13 +1,12 @@
 import {Config} from 'instinct-rp-interfaces';
 import {Controller, Get} from '@nestjs/common';
-import {InjectRepository} from '@nestjs/typeorm';
 import {configWire} from '../database/instinct/config/config.wire';
 import {ConfigEntity} from '../database/instinct/config/config.entity';
 import {ConfigRepository} from '../database/instinct/config/config.repository';
 
 @Controller('config')
 export class ConfigController {
-  constructor(@InjectRepository(ConfigRepository) private readonly configRepo: ConfigRepository) {}
+  constructor(private readonly configRepo: ConfigRepository) {}
 
   @Get()
   async getConfiguration(): Promise<Config> {

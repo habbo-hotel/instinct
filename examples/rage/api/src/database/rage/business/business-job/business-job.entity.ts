@@ -1,10 +1,13 @@
-import {BusinessJobRank} from 'instinct-rp-interfaces';
 import {BusinessEntity} from '../business/business.entity';
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique} from 'typeorm';
 import {BusinessJobApplicationEntity} from '../business-job-application/business-job-application.entity';
 
 @Entity('rp_jobs_ranks')
+@Unique(['businessID', 'rankID'])
 export class BusinessJobEntity {
+  @PrimaryGeneratedColumn({name: 'unique_id'})
+  id?: number;
+
   @Column({name: 'job_id', type: 'int'})
   businessID!: number;
 
@@ -12,14 +15,11 @@ export class BusinessJobEntity {
   @JoinColumn({name: 'job_id'})
   business?: BusinessEntity;
 
-  @PrimaryGeneratedColumn({name: 'rank_id'})
+  @Column({name: 'rank_id', type: 'int'})
   rankID!: number;
 
   @Column()
   name!: string;
-
-  @Column({type: 'tinytext'})
-  description!: string;
 
   @Column({name: 'male_figure'})
   maleFigure!: string;
@@ -56,9 +56,6 @@ export class BusinessJobEntity {
 
   @Column({name: 'pwr_sendhome', type: 'int'})
   canSendHome!: number;
-
-  @Column({type: 'enum'})
-  rank!: BusinessJobRank;
 
   @OneToMany(() => BusinessJobApplicationEntity, businessJobApplication => businessJobApplication.job)
   applications?: BusinessJobApplicationEntity[];

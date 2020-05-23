@@ -12,7 +12,6 @@ export async function businessJobFactory(changes?: Partial<BusinessJobEntity>): 
     business,
     rankID: 1,
     name: 'Officer',
-    description: 'We arrest bad guys',
     maleFigure: '-',
     femaleFigure: '-',
     salary: 100,

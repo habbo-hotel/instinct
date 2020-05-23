@@ -67,19 +67,19 @@ export class UserRPStatsEntity {
   @Column({name: 'st_arrested', type: 'int'})
   totalArrests!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'dead', type: 'int'})
   isDead!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'dead_timer', type: 'int'})
   deadTimer!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'jailed', type: 'int'})
   isJailed!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'jail_timer', type: 'int'})
   jailTimer!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'work_timer', type: 'int'})
   workTimer!: number;
 
   @Column({name: 'sendhome_timer', type: 'int'})
@@ -94,7 +94,7 @@ export class UserRPStatsEntity {
   @Column({name: 'last_y', type: 'int'})
   lastYCoordinate!: number;
 
-  @Column({name: 'is_gang', type: 'int'})
+  @Column({name: 'is_noob', type: 'int'})
   isBeginner!: number;
 
   @Column({name: 'gang_id', type: 'int'})
@@ -131,7 +131,7 @@ export class UserRPStatsEntity {
   @Column({type: 'varchar', length: 255})
   class!: string;
 
-  @Column({type: 'int'})
+  @Column({name: 'wanted', type: 'int'})
   isWanted!: number;
 
   @Column({name: 'workout_cur_timer', type: 'int'})
@@ -140,13 +140,13 @@ export class UserRPStatsEntity {
   @Column({name: 'workout_need_timer', type: 'int'})
   workoutNeededTimer!: number;
 
-  @Column({name: 'weightlight_cur_timer', type: 'int'})
+  @Column({name: 'weightlift_cur_timer', type: 'int'})
   weightLiftTimer!: number;
 
-  @Column({name: 'workout_needed_timer', type: 'int'})
+  @Column({name: 'weightlift_need_timer', type: 'int'})
   weightLiftNeededTimer!: number;
 
-  @Column({type: 'int'})
+  @Column({name: 'robbery', type: 'int'})
   isRobbing!: number;
 
   @Column({name: 'robbery_timer', type: 'int'})

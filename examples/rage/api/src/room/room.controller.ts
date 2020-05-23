@@ -1,6 +1,5 @@
 import {RoomPipe} from './room.pipe';
 import {Room} from 'instinct-rp-interfaces';
-import {InjectRepository} from '@nestjs/typeorm';
 import {Controller, Get, Param} from '@nestjs/common';
 import {roomWire} from '../database/rage/room/room.wire';
 import {RoomEntity} from '../database/rage/room/room.entity';
@@ -8,7 +7,7 @@ import {RoomRepository} from '../database/rage/room/room.repository';
 
 @Controller('rooms')
 export class RoomController {
-  constructor(@InjectRepository(RoomRepository) private readonly roomRepo: RoomRepository) {}
+  constructor(private readonly roomRepo: RoomRepository) {}
 
   @Get()
   async getAll(): Promise<Room[]> {

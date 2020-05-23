@@ -17,15 +17,10 @@ import {
   defaultUserPoints,
   defaultUserRank,
 } from '../common/config';
-import {InjectRepository} from '@nestjs/typeorm';
 
 @Controller('users')
 export class UserController {
-  constructor(
-    @InjectRepository(UserRepository)
-    private readonly userRepo: UserRepository,
-    private readonly recaptchaService: GoogleRecaptchaService
-  ) {}
+  constructor(private readonly userRepo: UserRepository, private readonly recaptchaService: GoogleRecaptchaService) {}
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {

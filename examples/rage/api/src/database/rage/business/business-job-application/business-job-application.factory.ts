@@ -1,7 +1,7 @@
 import {getRepository} from 'typeorm';
 import {UserEntity} from '../../user/user/user.entity';
 import {userFactory} from '../../user/user/user.factory';
-import {BusinessJobEntity } from '../business-job/business-job.entity';
+import {BusinessJobEntity} from '../business-job/business-job.entity';
 import {businessJobFactory} from '../business-job/business-job.factory';
 import {BusinessJobApplicationEntity} from './business-job-application.entity';
 

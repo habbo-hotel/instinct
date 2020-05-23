@@ -35,8 +35,8 @@ export class GangRepository extends Repository<GangEntity> {
     return this.findOneOrFail({
       where: {
         id: gangID,
-        relations: this.eagerRelations,
       },
+      relations: this.eagerRelations,
     });
   }
 

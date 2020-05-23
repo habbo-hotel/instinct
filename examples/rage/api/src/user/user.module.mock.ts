@@ -5,9 +5,9 @@ import {Test, TestingModule} from '@nestjs/testing';
 import {CommonModule} from '../common/common.module';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
 import {DatabaseModuleMock} from '../database/database.module.mock';
-import { UserExistsConstraint } from './constraint/user-exists/user-exists.constraint';
-import { UniqueEmailConstraint } from './constraint/unique-email/unique-email.constraint';
-import { UniqueUsernameConstraint } from './constraint/unique-username/unique-username.constraint';
+import {UserExistsConstraint} from './constraint/user-exists/user-exists.constraint';
+import {UniqueEmailConstraint} from './constraint/unique-email/unique-email.constraint';
+import {UniqueUsernameConstraint} from './constraint/unique-username/unique-username.constraint';
 
 const userModuleMeta: ModuleMetadata = {
   imports: [CommonModule, DatabaseModuleMock],

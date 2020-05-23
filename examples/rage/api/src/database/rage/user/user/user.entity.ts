@@ -5,7 +5,7 @@ import {HashService} from '../../../../common/hash.service';
 import {UserBadgeEntity} from '../user-badge/user-badge.entity';
 import {BusinessEntity} from '../../business/business/business.entity';
 import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
-import {BusinessJobApplicationEntity } from '../../business/business-job-application/business-job-application.entity';
+import {BusinessJobApplicationEntity} from '../../business/business-job-application/business-job-application.entity';
 import {
   Column,
   Entity,
@@ -94,6 +94,7 @@ export class UserEntity {
   homeRoom!: number;
 
   @OneToMany(() => RoomEntity, room => room.owner)
+  @JoinColumn({name: 'username'})
   rooms?: RoomEntity[];
 
   @OneToMany(() => UserBadgeEntity, badge => badge.user)

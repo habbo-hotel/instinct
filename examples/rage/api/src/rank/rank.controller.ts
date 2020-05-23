@@ -1,6 +1,5 @@
 import {RankPipe} from './rank.pipe';
 import {Rank} from 'instinct-rp-interfaces';
-import {InjectRepository} from '@nestjs/typeorm';
 import {Controller, Get, Param} from '@nestjs/common';
 import {rankWire} from '../database/rage/rank/rank.wire';
 import {RankEntity} from '../database/rage/rank/rank.entity';
@@ -8,7 +7,7 @@ import {RankRepository} from '../database/rage/rank/rank.repository';
 
 @Controller('ranks')
 export class RankController {
-  constructor(@InjectRepository(RankRepository) private readonly rankRepo: RankRepository) {}
+  constructor(private readonly rankRepo: RankRepository) {}
 
   @Get()
   async getMany(): Promise<Rank[]> {

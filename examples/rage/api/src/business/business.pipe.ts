@@ -10,7 +10,6 @@ export class BusinessPipe implements PipeTransform {
     try {
       return await this.businessService.getByID(businessID);
     } catch (e) {
-      console.log(e);
       throw new NotFoundException('Business does not exist');
     }
   }

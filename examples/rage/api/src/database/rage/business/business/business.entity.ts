@@ -27,11 +27,8 @@ export class BusinessEntity {
   roomID!: number;
 
   @ManyToOne(() => RoomEntity)
-  @JoinColumn({name: 'room_id'})
+  @JoinColumn({name: 'headquarters'})
   room?: RoomEntity;
-
-  @Column({type: 'int'})
-  state!: number;
 
   @Column({type: 'varchar', length: 256})
   badge!: string;

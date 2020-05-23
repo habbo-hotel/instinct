@@ -1,23 +1,22 @@
+import {Like, MoreThan} from 'typeorm';
 import {Injectable} from '@nestjs/common';
-import {InjectRepository} from '@nestjs/typeorm';
-import {Like, MoreThan, Repository} from 'typeorm';
 import {BusinessJob} from 'instinct-rp-interfaces';
 import {BusinessEntity} from '../database/rage/business/business/business.entity';
 import {businessJobWire} from '../database/rage/business/business-job/business-job.wire';
+import {BusinessRepository} from '../database/rage/business/business/business.repository';
 import {BusinessJobEntity} from '../database/rage/business/business-job/business-job.entity';
+import {BusinessJobRepository} from '../database/rage/business/business-job/business-job.repository';
 import {BusinessJobApplicationEntity} from '../database/rage/business/business-job-application/business-job-application.entity';
+import {BusinessJobApplicationRepository} from '../database/rage/business/business-job-application/business-job-application.repository';
 
 @Injectable()
 export class BusinessService {
   readonly eagerRelations: string[] = ['owner', 'room', 'room.owner', 'employees', 'employees.user', 'jobs'];
 
   constructor(
-    @InjectRepository(BusinessEntity)
-    private readonly businessRepo: Repository<BusinessEntity>,
-    @InjectRepository(BusinessJobEntity)
-    private readonly businessJobRepo: Repository<BusinessJobEntity>,
-    @InjectRepository(BusinessJobApplicationEntity)
-    private readonly businessJobApplicationRepo: Repository<BusinessJobApplicationEntity>
+    private readonly businessRepo: BusinessRepository,
+    private readonly businessJobRepo: BusinessJobRepository,
+    private readonly businessJobApplicationRepo: BusinessJobApplicationRepository
   ) {}
 
   getAll(): Promise<BusinessEntity[]> {
@@ -31,25 +30,19 @@ export class BusinessService {
       where: {
         vacantSpots: MoreThan(0),
       },
-      relations: ['business', 'business.user', 'business.room'],
+      relations: ['business', 'business.owner', 'business.room'],
     });
   }
 
   async getVacantJobsForUser(userID: number): Promise<BusinessJob[]> {
-    try {
-      const vacantJobs: BusinessJobEntity[] = await this.getVacantJobs();
-      const jobApplication: Array<BusinessJobApplicationEntity | undefined> = await Promise.all(
-        vacantJobs.map(x => this.getJobApplicationForUser(userID, x.rankID))
-      );
+    const vacantJobs: BusinessJobEntity[] = await this.getVacantJobs();
+    const jobApplication: Array<BusinessJobApplicationEntity | undefined> = await Promise.all(
+      vacantJobs.map(x => this.getJobApplicationForUser(userID, x.rankID))
+    );
 
-      return vacantJobs.map((vacantJob, index) => {
-        return businessJobWire(vacantJob, !!jobApplication[index]);
-      });
-    } catch (e) {
-      console.log('wtf');
-      console.log(e);
-      throw e;
-    }
+    return vacantJobs.map((vacantJob, index) => {
+      return businessJobWire(vacantJob, !!jobApplication[index]);
+    });
   }
 
   async getByID(groupID: number): Promise<BusinessEntity> {
@@ -66,7 +59,7 @@ export class BusinessService {
       where: {
         id: jobID,
       },
-      relations: ['business', 'business.user', 'business.room'],
+      relations: ['business', 'business.owner', 'business.room'],
     });
   }
 

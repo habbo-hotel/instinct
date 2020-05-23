@@ -1,7 +1,7 @@
-import {BusinessJob} from 'instinct-rp-interfaces';
 import {businessWire} from '../business/business.wire';
 import {BusinessJobEntity} from './business-job.entity';
 import {BusinessApplyType} from '../business/business.types';
+import {BusinessJob, BusinessJobRank} from 'instinct-rp-interfaces';
 
 export function businessJobWire(businessJobEntity: BusinessJobEntity, alreadyApplied?: boolean): BusinessJob {
   return {
@@ -9,9 +9,9 @@ export function businessJobWire(businessJobEntity: BusinessJobEntity, alreadyApp
     businessID: businessJobEntity.businessID,
     business: businessJobEntity.business ? businessWire(businessJobEntity.business) : undefined,
     name: businessJobEntity.name,
-    desc: businessJobEntity.description,
+    desc: 'DEPRECATED',
     salary: businessJobEntity.salary,
-    rank: businessJobEntity.rank,
+    rank: BusinessJobRank.Employee,
     workEverywhere: businessJobEntity.workRooms === '*',
     vacantSpots: businessJobEntity.vacantSpots,
     applicationRequired: businessJobEntity.business?.applyType === BusinessApplyType.Apply,

@@ -1,6 +1,5 @@
 import {User} from 'instinct-rp-interfaces';
 import {NewSessionDTO} from './session.dto';
-import {InjectRepository} from '@nestjs/typeorm';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
@@ -11,11 +10,7 @@ import {UserRepository} from '../database/rage/user/user/user.repository';
 
 @Controller('session')
 export class SessionController {
-  constructor(
-    @InjectRepository(UserRepository)
-    private readonly userRepo: UserRepository,
-    private readonly sessionService: SessionService
-  ) {}
+  constructor(private readonly userRepo: UserRepository, private readonly sessionService: SessionService) {}
 
   @Post()
   createSession(@Body() newSession: NewSessionDTO): Promise<string> {

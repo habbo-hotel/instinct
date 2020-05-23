@@ -1,4 +1,3 @@
-import {InjectRepository} from '@nestjs/typeorm';
 import {HashService} from '../common/hash.service';
 import {BearerTokenService} from './bearer-token.service';
 import {Injectable, UnauthorizedException} from '@nestjs/common';
@@ -8,7 +7,6 @@ import {UserRepository} from '../database/rage/user/user/user.repository';
 @Injectable()
 export class SessionService {
   constructor(
-    @InjectRepository(UserRepository)
     private readonly userRepo: UserRepository,
     private readonly hashService: HashService,
     private readonly bearerTokenService: BearerTokenService
