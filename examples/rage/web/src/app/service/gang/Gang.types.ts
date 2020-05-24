@@ -4,7 +4,9 @@ export interface GangService {
 
   getAll(): Promise<Gang[]>;
 
-  getTop(): Promise<Gang[]>;
+  getMostKills(): Promise<Gang[]>;
+
+  getMostDeaths(): Promise<Gang[]>;
 
   getByID(gangID: number): Promise<Gang>;
 

@@ -1,7 +1,7 @@
 import { GangService } from './';
 import { AxiosResponse } from 'axios';
-import { backendAPI } from 'instinct-frontend';
 import { Gang } from 'instinct-rp-interfaces';
+import { backendAPI } from 'instinct-frontend';
 
 class GangServiceImplementation implements GangService {
 
@@ -10,8 +10,13 @@ class GangServiceImplementation implements GangService {
     return gangs.data;
   }
 
-  async getTop(): Promise<Gang[]> {
-    const gangs: AxiosResponse<Gang[]> = await backendAPI.get('gangs/top');
+  async getMostKills(): Promise<Gang[]> {
+    const gangs: AxiosResponse<Gang[]> = await backendAPI.get('gangs/top/kills');
+    return gangs.data;
+  }
+
+  async getMostDeaths(): Promise<Gang[]> {
+    const gangs: AxiosResponse<Gang[]> = await backendAPI.get('gangs/top/deaths');
     return gangs.data;
   }
 

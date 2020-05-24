@@ -20,8 +20,6 @@ export class GoogleRecaptchaService {
       `siteverify?secret=${googleRecaptchaSecretKey}&response=${response}`
     );
 
-    console.log(data);
-
     return data.success;
   }
 }

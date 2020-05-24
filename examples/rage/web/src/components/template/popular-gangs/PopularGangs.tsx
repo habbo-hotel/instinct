@@ -11,7 +11,7 @@ export function PopularGangs() {
 
   useEffect(() => {
     async function fetchPopularGangs(): Promise<void> {
-      const gangs: Gang[] = await gangService.getTop();
+      const gangs: Gang[] = await gangService.getMostKills();
       setState({
         gangs,
         showSpinner: false,
