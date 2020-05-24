@@ -9,7 +9,7 @@ export function NavBar() {
         <NavBarLabel>Menu</NavBarLabel>
         <NavBarLink className="main-link-item" to="/" />
         <NavBarLink to="/home">Home</NavBarLink>
-        <NavBarDropdown text="Business" to="/business/jobs">
+        <NavBarDropdown text="Business" to="/business/directory">
           <NavBarChildLink to="/business/jobs">Job Centre</NavBarChildLink>
           <NavBarChildLink to="/business/owned">My Businesses</NavBarChildLink>
         </NavBarDropdown>

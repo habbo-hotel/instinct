@@ -9,6 +9,7 @@ import { FlashDisabled } from './flash-disabled';
 import { LoadingScreen } from './loading-screen';
 import { ThemeContext} from 'instinct-frontend';
 import { ClientContainer } from './client-container';
+import { ClientSidebar } from './client-sidebar';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);
@@ -26,6 +27,7 @@ export function Client() {
         {flashEnabled && (
           <>
             <LoadingScreen/>
+            <ClientSidebar/>
             <ClientContainer />
           </>
         )}
