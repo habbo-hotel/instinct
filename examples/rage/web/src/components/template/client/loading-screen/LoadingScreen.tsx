@@ -1,8 +1,9 @@
 import './LoadingScreen.scss';
-import React, { useState } from 'react';
-import { ClientEvent, clientService } from 'instinct-frontend';
+import React, { useContext, useState } from 'react';
+import { ClientEvent, clientService, ConfigContext } from 'instinct-frontend';
 
 export function LoadingScreen() {
+  const configContext = useContext(ConfigContext);
   const [progress, setProgress] = useState<number>(0);
 
   clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setProgress);
@@ -15,6 +16,7 @@ export function LoadingScreen() {
     <div id="loader-wrapper">
       <div className="loader">
         <div id="loader">
+          {configContext.loadingMessage}
           <div className="loading_bar">
             <div className="percent" id="loader_bar" style={{ width: `${progress}%` }} />
             {progress}%

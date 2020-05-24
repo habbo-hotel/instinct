@@ -32,7 +32,7 @@ export function ClientContainer() {
         'productdata.load.url': configContext.swfProductData,
         'furnidata.load.url': configContext.swfFurniData,
         'external.figurepartlist.txt': configContext.swfFigureData,
-        'external.override.variables.txt': `${configContext.swfBaseURL}}/override/variables.txt`,
+        'external.override.variables.txt': `${configContext.swfBaseURL}}/override/external_override_variables.txt`,
         'flash.client.url': configContext.swfBaseURL,
         'client.starting.revolving': configContext.loadingMessage,
         'processlog.enabled': '1',

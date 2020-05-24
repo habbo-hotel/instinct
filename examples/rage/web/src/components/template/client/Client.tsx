@@ -25,7 +25,7 @@ export function Client() {
         <ClientActions />
         {flashEnabled && (
           <>
-            <LoadingScreen />
+            <LoadingScreen/>
             <ClientContainer />
           </>
         )}
