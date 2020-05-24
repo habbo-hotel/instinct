@@ -31,7 +31,7 @@ export class UserController {
     }
 
     const currentTimestamp: number = Moment().unix();
-    const user: UserEntity = await this.userRepo.create({
+    const user: UserEntity = await this.userRepo.createAndReturn({
       username: newUser.username,
       motto: defaultUserMotto,
       password: newUser.password,

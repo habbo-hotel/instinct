@@ -1,7 +1,6 @@
 import {RoomEntity} from '../../room/room.entity';
 import {RankEntity} from '../../rank/rank.entity';
 import {GangEntity} from '../../gang/gang/gang.entity';
-import {HashService} from '../../../../common/hash.service';
 import {UserBadgeEntity} from '../user-badge/user-badge.entity';
 import {BusinessEntity} from '../../business/business/business.entity';
 import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
@@ -16,13 +15,10 @@ import {
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
-  BeforeInsert,
-  BeforeUpdate,
 } from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
-  private readonly hashService: HashService = new HashService();
 
   @PrimaryGeneratedColumn({name: 'id'})
   id?: number;
@@ -31,15 +27,8 @@ export class UserEntity {
   username!: string;
 
   @Column({name: 'password', select: false})
+  @Column({name: 'password', select: false})
   password!: string;
-
-  @BeforeInsert()
-  @BeforeUpdate()
-  hashPassword() {
-    if (this.password) {
-      this.password = this.hashService.generate(this.password);
-    }
-  }
 
   @Column({name: 'mail'})
   email!: string;
