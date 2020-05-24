@@ -73,7 +73,7 @@ export class BusinessService {
     return this.businessJobApplicationRepo.findOne({
       where: {
         userID,
-        rankID: jobID,
+        jobID,
       },
       relations: ['job', 'user'],
     });

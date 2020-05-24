@@ -19,6 +19,10 @@ export function ClientActions() {
     setExpanded(!isExpanded);
   }
 
+  async function refreshClient(): Promise<void> {
+
+  }
+
   return (
     <div className="actions">
       <button onClick={toggleWebView}>Web</button>
@@ -28,6 +32,9 @@ export function ClientActions() {
       <button style={{ cursor: 'default' }}>
         <Icon family="fas" type="user" />
         <b>{healthContext.usersOnline}</b>
+      </button>
+      <button onChange={refreshClient}>
+        <Icon className="mr-0" family="fas" type="redo"/>
       </button>
     </div>
   );

@@ -31,7 +31,7 @@ export function VacantJobs() {
         {
           state.jobs.map(job => (
             <Link to={`/business/jobs/${job.id}`} key={job.id}>
-              <div className="business-row" style={{ background: `url(${configContext.siteLink}/corps/${job.business!.badge}.gif) 10px no-repeat` }}>
+              <div className="business-row" style={{ background: `url(${configContext.siteLink}/swfs/assets/c_images/corp-badges/${job.business!.badge}.gif) 10px no-repeat` }}>
                 <div className="user-count">{job.vacantSpots}</div>
                 <div className="name">{job.name} <small>$({job.salary}/h)</small></div>
                 <div className="desc">{job.business!.name}</div>

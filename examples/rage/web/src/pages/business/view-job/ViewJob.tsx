@@ -40,7 +40,7 @@ export function ViewJob() {
 
   return (
     <UserLayout section="view_business">
-      <Jumbotron style={{ backgroundImage: `url('${configContext.siteLink}/corps/${state.job?.business?.badge}.gif')`}} title={state.job?.name}>
+      <Jumbotron style={{ backgroundImage: `url(${configContext.swfBaseURL}/assets/c_images/corp-badges/${state.job?.business?.badge}.gif')`}} title={state.job?.name}>
         <p>{state.job?.business?.name}</p>
       </Jumbotron>
       <Container>
