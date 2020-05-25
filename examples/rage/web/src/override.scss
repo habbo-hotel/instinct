@@ -1,3 +1,8 @@
+body {
+  background: #121212;
+  color: white;
+}
+
 #root {
   overflow: hidden;
 }
@@ -10,4 +15,55 @@
 .footer-container {
   height: 120px;
   position: relative;
+}
+
+.header-container {
+  background-image: none;
+}
+
+.navigation-container {
+  background: #1976D2;
+}
+
+.navigation-container .navigation-menu .navigation-item  {
+
+
+  a {
+    color: darken(white, 15%);
+  }
+
+}
+
+
+.navigation-container .navigation-menu .navigation-item.selected>a {
+  border-color: white;
+  color: white;
+}
+
+.navigation-container .navigation-menu .navigation-item:hover>a {
+  color: white;
+}
+
+
+.navigation-container .navigation-menu .navigation-item.has-items .navigation-submenu {
+
+  background: #0277BD;
+
+  .navigation-subitem>a {
+    color: white;
+  }
+
+}
+
+.footer-container {
+  background: transparent;
+}
+
+.page-container .page-content article.default-section, .page-container .page-content aside.default-section {
+  background-color: #1E1E1E;
+  color: white;
+}
+
+.table td, .table th {
+  color: white;
 }

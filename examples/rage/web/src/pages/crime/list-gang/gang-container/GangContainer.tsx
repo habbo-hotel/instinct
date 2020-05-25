@@ -24,6 +24,11 @@ export function GangContainer() {
     <Card>
       <Loading isLoading={state.showSpinner}>
         {
+          state.gangs.length === 0 && !state.showSpinner && (
+            <p>There are no gangs yet!</p>
+          )
+        }
+        {
           state.gangs.map(gang => (
             <GangRow key={gang.id} gang={gang}/>
           ))

@@ -1,7 +1,6 @@
-import { HotelAlert } from 'components';
-import Draggable from 'react-draggable';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'app/context';
+import { HotelAlert, Widget } from 'components';
 
 export function WantedListWidget() {
   const themeContext = useContext(ThemeContext);
@@ -17,10 +16,10 @@ export function WantedListWidget() {
   }
 
   return (
-    <Draggable>
+    <Widget>
       <HotelAlert title="Wanted List" onToggle={onToggle}>
         <p>Coming soon</p>
       </HotelAlert>
-    </Draggable>
+    </Widget>
   )
 }

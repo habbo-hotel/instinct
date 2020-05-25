@@ -23,6 +23,11 @@ export function GovernmentBusinesses() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
+        {
+          state.businesses.length === 0 && !state.showSpinner && (
+            <p>It appears there aren't any government businesses.</p>
+          )
+        }
       {
         state.businesses.map(business => (
           <BusinessRow business={business} key={business.id}>

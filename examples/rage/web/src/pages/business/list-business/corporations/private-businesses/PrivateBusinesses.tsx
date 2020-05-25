@@ -24,6 +24,11 @@ export function PrivateBusinesses() {
     <Card>
       <Loading isLoading={state.showSpinner}>
         {
+          state.businesses.length === 0 && !state.showSpinner && (
+            <p>It appears there aren't any private businesses.</p>
+          )
+        }
+        {
           state.businesses.map(business => (
             <BusinessRow business={business} key={business.id}>
               <p style={{ marginTop: -20 }}>Owned by <b>{business.owner.username}</b></p>

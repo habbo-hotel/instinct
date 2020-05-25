@@ -1,5 +1,4 @@
-import { HotelAlert } from 'components';
-import Draggable from 'react-draggable';
+import { HotelAlert, Widget } from 'components';
 import { Form } from 'instinct-frontend';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'app/context';
@@ -18,7 +17,7 @@ export function CallForHelpWidget() {
   }
 
   return (
-    <Draggable>
+    <Widget>
       <HotelAlert title="Call For Help" onToggle={ onToggle }>
         <Form className="">
           <div className="form-group">
@@ -27,6 +26,6 @@ export function CallForHelpWidget() {
           </div>
         </Form>
       </HotelAlert>
-    </Draggable>
+    </Widget>
   );
 }

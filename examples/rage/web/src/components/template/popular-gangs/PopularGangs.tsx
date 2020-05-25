@@ -24,6 +24,11 @@ export function PopularGangs() {
     <Card header="Top Gangs">
       <Loading isLoading={state.showSpinner}>
         {
+          state.gangs.length === 0 && !state.showSpinner && (
+            <p>It appears there aren't any gangs yet.</p>
+          )
+        }
+        {
           state.gangs.map(gang => (
             <Link to={`/crime/gangs/${gang.id}`} key={gang.id}>
               <div className="gang-container">
