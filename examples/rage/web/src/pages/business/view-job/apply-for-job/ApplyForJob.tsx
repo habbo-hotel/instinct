@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Card, Form, Row, Icon } from 'instinct-frontend';
+import { businessService } from 'app/service';
+import { Card, Form, Row, Icon } from 'instinct-frontend';
 import { ApplyForJobProps, ApplyForJobState, defaultApplyForJobState } from './';
-import { businessService } from '../../../../app/service/business';
 
 export function ApplyForJob({ job }: ApplyForJobProps) {
   const [state, setState] = useState<ApplyForJobState>(defaultApplyForJobState);

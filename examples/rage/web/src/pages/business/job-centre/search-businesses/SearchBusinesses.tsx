@@ -1,12 +1,11 @@
+import React, { useState } from 'react';
 import { BusinessRow } from 'components';
 import { businessService } from 'app/service';
 import { Business } from 'instinct-rp-interfaces';
-import React, { useContext, useState } from 'react';
-import { Card, ConfigContext, Form, Loading } from 'instinct-frontend';
+import { Card, Form, Loading } from 'instinct-frontend';
 import { defaultSearchBusinessesState, SearchBusinessesState } from './';
 
 export function SearchBusinesses() {
-  const configContext = useContext(ConfigContext);
   const [state, setState ] = useState<SearchBusinessesState>(defaultSearchBusinessesState);
 
   function setQuery(query: string): void {

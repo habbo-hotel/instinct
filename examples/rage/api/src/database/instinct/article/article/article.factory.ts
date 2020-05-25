@@ -12,6 +12,7 @@ export async function articleFactory(changes?: Partial<ArticleEntity>): Promise<
 
   return getRepository(ArticleEntity).save({
     id: undefined,
+    author,
     category,
     title: 'Test Article',
     shortStory: 'This is just a test',

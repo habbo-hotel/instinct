@@ -12,7 +12,7 @@ import {
   Column,
   ConfigContext,
   Container,
-  Form, Icon,
+  Icon,
   Jumbotron,
   Loading, Row,
   setURL,
