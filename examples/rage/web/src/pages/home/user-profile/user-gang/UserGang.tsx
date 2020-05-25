@@ -1,6 +1,5 @@
 import React from 'react';
 import { GangRow } from 'components';
-import { Icon } from 'instinct-frontend';
 import { UserProfileWidgetProps } from '../UserProfile.types';
 
 export function UserGang({ profile }: UserProfileWidgetProps) {
@@ -10,7 +9,7 @@ export function UserGang({ profile }: UserProfileWidgetProps) {
       {
         profile?.stats?.gang
           ? <GangRow gang={profile.stats.gang}  style={{ background: 'white' }}/>
-          : <Icon className="fa-spin" family="fas" type="spinner"/>
+          : <p>This user doesn't belong to a gang</p>
       }
     </div>
   )

@@ -20,7 +20,7 @@ export function userRPStatsWire(userRPStatsEntity: UserRPStatsEntity, businessPo
     intelligence: userRPStatsEntity.intelligence,
     punches: userRPStatsEntity.totalPunches,
     weed: userRPStatsEntity.weed,
-    gang: gangWire(userRPStatsEntity.gang!),
+    gang: userRPStatsEntity.gang ? gangWire(userRPStatsEntity.gang!) : undefined,
     job: businessPositionWire(businessPosition),
     bankBalance: userRPStatsEntity.bankBalance,
     hasPhone: userRPStatsEntity.hasPhone === 1,

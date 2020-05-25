@@ -16,7 +16,7 @@ export interface UserStats {
   intelligence: number;
   punches: number;
   weed: number;
-  gang: Gang;
+  gang?: Gang;
   job: BusinessPosition;
   bankBalance: number;
   hasPhone: boolean;
