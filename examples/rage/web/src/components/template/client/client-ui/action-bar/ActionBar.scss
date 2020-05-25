@@ -1,0 +1,35 @@
+#client-ui {
+
+  .navbar {
+    background: transparent;
+    bottom: 0;
+    font-size: 14px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    .navbar-brand {
+      color: #0277BD;
+    }
+
+    .navbar-nav {
+
+      margin-left: 210px;
+
+      .nav-item {
+        padding: 10px;
+
+        .nav-link {
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          text-transform: uppercase;
+
+        }
+
+      }
+
+    }
+
+  }
+}

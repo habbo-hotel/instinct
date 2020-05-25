@@ -1,6 +1,7 @@
 import './Client.scss';
 // @ts-ignore - Dependency doesn't have a good @types
 import * as Flash from 'swfobject';
+import { ClientUI } from './client-ui';
 import { UserGuard } from 'components';
 import React, { useContext } from 'react';
 import { SessionContext } from 'app/context';
@@ -9,7 +10,6 @@ import { FlashDisabled } from './flash-disabled';
 import { LoadingScreen } from './loading-screen';
 import { ThemeContext} from 'instinct-frontend';
 import { ClientContainer } from './client-container';
-import { ClientSidebar } from './client-sidebar';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);
@@ -27,7 +27,7 @@ export function Client() {
         {flashEnabled && (
           <>
             <LoadingScreen/>
-            <ClientSidebar/>
+            <ClientUI/>
             <ClientContainer />
           </>
         )}
