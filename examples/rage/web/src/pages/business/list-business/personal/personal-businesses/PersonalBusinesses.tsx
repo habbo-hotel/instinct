@@ -1,8 +1,8 @@
 import { sessionService } from 'app/service';
 import { Business } from 'instinct-rp-interfaces';
 import React, { useContext, useEffect, useState } from 'react';
-import { Button, Card, ConfigContext, Loading } from 'instinct-frontend';
 import { defaultPersonalBusinessesState, PersonalBusinessesState } from './';
+import { Button, Card, ConfigContext, Loading, redirect } from 'instinct-frontend';
 
 export function PersonalBusinesses() {
   const configContext = useContext(ConfigContext);
@@ -27,7 +27,7 @@ export function PersonalBusinesses() {
           state.businesses.map(business => (
             <div className="row-container" key={business.id} style={{ background: `url(${configContext.siteLink}/swfs/assets/c_images/corp-badges/${business.badge}.gif) 10px no-repeat` }}>
               <div className="user-count mr-2" style={{ background: 'none', width: 'auto' }}>
-                <Button color="primary" style={{ fontSize: 10 }}>
+                <Button color="primary" style={{ fontSize: 10 }} onClick={() => redirect(`business/manage/${business.id}`)}>
                   Manage Corp
                 </Button>
               </div>

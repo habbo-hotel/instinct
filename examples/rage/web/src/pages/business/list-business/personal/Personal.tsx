@@ -2,7 +2,7 @@ import React from 'react';
 import { UserLayout } from 'components';
 import { PersonalBusinesses } from './personal-businesses';
 import { PreviousApplications } from './previous-applications';
-import { Button, Card, Column, Container, Icon, Jumbotron, setURL } from 'instinct-frontend';
+import { Button, Card, Column, Container, Icon, Jumbotron, redirect, setURL } from 'instinct-frontend';
 
 setURL('business/personal', <Personal/>);
 
@@ -32,7 +32,7 @@ export function Personal() {
                 </div>
                 <div className="col text-right">
                   <h4>Business Creator</h4>
-                  <Button color="success" style={{ fontSize: 12 }}>New Application</Button>
+                  <Button color="success" style={{ fontSize: 12 }} onClick={() => redirect('business/create')}>New Application</Button>
                 </div>
               </div>
             </div>
