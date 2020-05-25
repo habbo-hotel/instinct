@@ -2,7 +2,7 @@ export interface AvatarProps {
   className?: string;
   look?: string;
   action?: 'std' | 'wav';
-  gesture?: 'std';
+  gesture?: 'std' | 'sml';
   direction?: number;
   headDirection?: number;
   headOnly?: boolean;

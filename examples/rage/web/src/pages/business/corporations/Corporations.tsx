@@ -7,7 +7,6 @@ import { Card, Column, Container, Jumbotron, setURL } from 'instinct-frontend';
 setURL('business/corporations', <Corporations/>);
 
 export function Corporations() {
-
   return (
     <UserLayout section="corporations">
       <Jumbotron title="Corporations">

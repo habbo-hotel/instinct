@@ -23,7 +23,6 @@ export class BusinessRepository {
     });
   }
 
-
   findManyWhere<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {
     return this.businessRepo.find({
       where: {
