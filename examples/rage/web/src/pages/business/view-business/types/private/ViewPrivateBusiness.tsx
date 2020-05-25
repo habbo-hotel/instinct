@@ -8,6 +8,17 @@ export function PrivateBusinessHandler({ business }: BusinessTypeHandlerProps) {
     <>
       <Column side="left">
         {
+          business?.positions?.length === 0 && (
+            <Card>
+              <h4>
+                <Icon family="fas" type="info-circle"/>
+                Not Setup
+              </h4>
+              <p>This business has not been setup by its owner yet.</p>
+            </Card>
+          )
+        }
+        {
           business?.positions?.map(position => (
             <Card key={position.id}>
               <h3>{position.name}</h3>

@@ -8,6 +8,17 @@ export function GovernmentBusinessHandler({ business }: BusinessTypeHandlerProps
     <>
       <Column side="left">
         {
+          business?.positions?.length === 0 && (
+            <Card>
+              <h4>
+                <Icon family="fas" type="info-circle"/>
+                Not Established
+              </h4>
+              <p>This business has not been established by the government yet</p>
+            </Card>
+          )
+        }
+        {
           business?.positions?.map(position => (
             <Card key={position.id}>
               <h3>{position.name}</h3>

@@ -1,6 +1,7 @@
 import { HotelAlert } from 'components';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'app/context';
+import { Form } from 'instinct-frontend';
 
 export function CallForHelpWidget() {
   const themeContext = useContext(ThemeContext);
@@ -17,7 +18,12 @@ export function CallForHelpWidget() {
 
   return (
     <HotelAlert title="Call For Help" onToggle={onToggle}>
-      <p>Coming soon</p>
+      <Form className="">
+        <div className="form-group">
+          <h3>What is the problem</h3>
+          <input className="form-control"/>
+        </div>
+      </Form>
     </HotelAlert>
   )
 }
