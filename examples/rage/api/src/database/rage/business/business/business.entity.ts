@@ -63,6 +63,6 @@ export class BusinessEntity {
   @OneToMany(() => UserRPStatsEntity, userRPStats => userRPStats.job)
   employees?: UserRPStatsEntity[];
 
-  @OneToMany(() => BusinessPositionEntity, businessJob => businessJob.business)
+  @OneToMany(() => BusinessPositionEntity, businessPosition => businessPosition.business)
   positions?: BusinessPositionEntity[];
 }
