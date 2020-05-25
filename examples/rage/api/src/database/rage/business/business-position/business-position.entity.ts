@@ -1,17 +1,17 @@
 import {BusinessEntity} from '../business/business.entity';
-import {Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique} from 'typeorm';
 import {BusinessJobApplicationEntity} from '../business-job-application/business-job-application.entity';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
 @Entity('rp_jobs_ranks')
 @Unique(['businessID', 'rankID'])
-export class BusinessJobEntity {
+export class BusinessPositionEntity {
   @PrimaryGeneratedColumn({name: 'unique_id'})
   id?: number;
 
   @Column({name: 'job_id', type: 'int'})
   businessID!: number;
 
-  @ManyToOne(() => BusinessEntity, business => business.jobs)
+  @ManyToOne(() => BusinessEntity, business => business.positions)
   @JoinColumn({name: 'job_id'})
   business?: BusinessEntity;
 
@@ -59,4 +59,5 @@ export class BusinessJobEntity {
 
   @OneToMany(() => BusinessJobApplicationEntity, businessJobApplication => businessJobApplication.job)
   applications?: BusinessJobApplicationEntity[];
+
 }

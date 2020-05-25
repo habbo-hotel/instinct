@@ -1,14 +1,14 @@
 import {Module} from '@nestjs/common';
-import {BusinessPipe} from './business.pipe';
 import {BusinessJobPipe} from './job.pipe';
-import {BusinessService} from './business.service';
+import {BusinessPipe} from './business.pipe';
 import {BusinessController} from './business.controller';
+import { BusinessJobController } from './job.controller';
 import {DatabaseModule} from '../database/database.module';
 
 @Module({
   imports: [DatabaseModule],
-  controllers: [BusinessController],
-  providers: [BusinessJobPipe, BusinessPipe, BusinessService],
-  exports: [BusinessJobPipe, BusinessPipe, BusinessService],
+  controllers: [BusinessJobController, BusinessController],
+  providers: [BusinessJobPipe, BusinessPipe],
+  exports: [BusinessJobPipe, BusinessPipe],
 })
 export class BusinessModule {}

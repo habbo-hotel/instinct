@@ -1,17 +1,16 @@
 import {exampleUser, User} from '../user';
-import {exampleRoom, Room} from '../room';
-import {BusinessJob} from './BusinessJob';
+import {BusinessPosition} from './BusinessPosition';
 
 export interface Business {
   id: number;
   name: string;
   desc: string;
   badge: string;
-  user: User;
+  owner: User;
   createdAt: string; // ISO Date
-  room: Room;
-  members?: User[];
-  jobs?: BusinessJob[];
+  roomID: number;
+  totalEmployees: number;
+  positions?: BusinessPosition[];
 }
 
 export const exampleBusiness: Business = {
@@ -19,8 +18,8 @@ export const exampleBusiness: Business = {
   name: 'Police',
   desc: 'Enforcers of the law',
   badge: 'ADM',
-  user: exampleUser,
+  owner: exampleUser,
   createdAt: new Date().toISOString(),
-  room: exampleRoom,
-  members: [],
+  roomID: 1,
+  totalEmployees: 0,
 };

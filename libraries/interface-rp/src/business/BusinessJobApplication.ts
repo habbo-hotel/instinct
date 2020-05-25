@@ -1,9 +1,9 @@
 import {exampleUser, User} from '../user';
-import {BusinessJob, exampleBusinessJob} from './BusinessJob';
+import {BusinessPosition, exampleBusinessJob} from './BusinessPosition';
 
 export interface BusinessJobApplication {
   id: number;
-  job: BusinessJob;
+  job: BusinessPosition;
   user: User;
   content: string;
   createdAt: string; // ISO string

@@ -46,7 +46,7 @@ export function ViewBusiness() {
           <Column side="left">
             <h3>Positions</h3>
             {
-              state.business?.jobs?.reverse().map(job => (
+              state.business?.positions?.reverse().map(job => (
                 <JobContainer key={job.id} job={job}/>
               ))
             }
@@ -57,7 +57,7 @@ export function ViewBusiness() {
               <div className="members-container">
                 {
                   state.business
-                    ? <UserContainer user={state.business!.user}/>
+                    ? <UserContainer user={state.business!.owner}/>
                     : <Icon className="fa-spin" type="spinner"/>
                 }
               </div>

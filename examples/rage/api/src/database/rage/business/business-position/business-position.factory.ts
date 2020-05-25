@@ -1,13 +1,13 @@
 import {getRepository} from 'typeorm';
 import {BusinessJobRank} from 'instinct-rp-interfaces';
-import {BusinessJobEntity} from './business-job.entity';
+import {BusinessPositionEntity} from './business-position.entity';
 import {BusinessEntity} from '../business/business.entity';
 import {businessFactory} from '../business/business.factory';
 
-export async function businessJobFactory(changes?: Partial<BusinessJobEntity>): Promise<BusinessJobEntity> {
+export async function businessPositionFactory(changes?: Partial<BusinessPositionEntity>): Promise<BusinessPositionEntity> {
   const business: BusinessEntity = changes?.business ?? (await businessFactory());
 
-  return getRepository(BusinessJobEntity).save({
+  return getRepository(BusinessPositionEntity).save({
     id: undefined,
     business,
     rankID: 1,

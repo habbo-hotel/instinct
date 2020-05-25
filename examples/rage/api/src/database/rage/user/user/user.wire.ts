@@ -3,7 +3,7 @@ import {UserEntity} from './user.entity';
 import {User} from 'instinct-rp-interfaces';
 import {rankWire} from '../../rank/rank.wire';
 import {gangWire} from '../../gang/gang/gang.wire';
-import {businessJobWire} from '../../business/business-job/business-job.wire';
+import {businessPositionWire} from '../../business/business-position/business-position.wire';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -19,6 +19,6 @@ export function userWire(userEntity: UserEntity): User {
     lastLoginDate: Moment.unix(userEntity.lastOnline).toISOString(),
     rank: userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
     gang: userEntity.rpStats?.gang ? gangWire(userEntity.rpStats.gang) : undefined,
-    job: userEntity.rpStats?.job ? businessJobWire(userEntity.rpStats.job!) : undefined,
+    job: userEntity.rpStats?.job ? businessPositionWire(userEntity.rpStats.job!) : undefined,
   };
 }

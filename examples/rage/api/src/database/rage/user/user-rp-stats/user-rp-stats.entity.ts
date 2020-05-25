@@ -1,6 +1,6 @@
 import {UserEntity} from '../user/user.entity';
 import {GangEntity} from '../../gang/gang/gang.entity';
-import {BusinessJobEntity} from '../../business/business-job/business-job.entity';
+import {BusinessPositionEntity} from '../../business/business-position/business-position.entity';
 import {Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_stats')
@@ -18,9 +18,9 @@ export class UserRPStatsEntity {
   @Column({name: 'job_rank', type: 'int'})
   jobRankID!: number;
 
-  @ManyToOne(() => BusinessJobEntity, businessJob => businessJob.businessID)
+  @ManyToOne(() => BusinessPositionEntity, businessJob => businessJob.businessID)
   @JoinColumn({name: 'job_id'})
-  job?: BusinessJobEntity;
+  job?: BusinessPositionEntity;
 
   @Column({name: 'curhealth', type: 'int', default: 100})
   currentHealth!: number;

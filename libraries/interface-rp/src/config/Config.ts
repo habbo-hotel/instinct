@@ -36,4 +36,4 @@ export const defaultConfig: Config = {
   loadingMessage: 'Please wait as I do some things',
   groupBadgeURL: 'http://localhost:3000/swfs/other/images/Badgeparts/generated',
   googleRecaptchaSiteKey: '',
-}
+};

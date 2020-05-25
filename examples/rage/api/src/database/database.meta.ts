@@ -16,10 +16,10 @@ import {ServerStatusEntity} from './rage/server-status/server-status.entity';
 import {GangRankRepository} from './rage/gang/gang-rank/gang-rank.repository';
 import {ArticleRepository} from './instinct/article/article/article.repository';
 import {UserRPStatsEntity} from './rage/user/user-rp-stats/user-rp-stats.entity';
-import {BusinessJobEntity} from './rage/business/business-job/business-job.entity';
+import {BusinessPositionEntity} from './rage/business/business-position/business-position.entity';
 import {BusinessRepository} from './rage/business/business/business.repository';
 import {ServerStatusRepository} from './rage/server-status/server-status.repository';
-import {BusinessJobRepository} from './rage/business/business-job/business-job.repository';
+import {BusinessPositionRepository} from './rage/business/business-position/business-position.repository';
 import {ArticleCategoryEntity} from './instinct/article/article-category/article-category.entity';
 import {ArticleCategoryRepository} from './instinct/article/article-category/article-category.repository';
 import {BusinessJobApplicationEntity} from './rage/business/business-job-application/business-job-application.entity';
@@ -41,13 +41,13 @@ export const databaseEntities: Function[] = [
   UserBadgeEntity,
   ConfigRepository,
   UserRPStatsEntity,
-  BusinessJobEntity,
+  BusinessPositionEntity,
   ArticleRepository,
   GangRankRepository,
   ServerStatusEntity,
   BusinessRepository,
   ArticleCategoryEntity,
-  BusinessJobRepository,
+  BusinessPositionRepository,
   ServerStatusRepository,
   ArticleCategoryRepository,
   BusinessJobApplicationRepository,

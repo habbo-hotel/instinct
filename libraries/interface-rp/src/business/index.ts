@@ -1,3 +1,3 @@
 export * from './Business';
-export * from './BusinessJob';
+export * from './BusinessPosition';
 export * from './BusinessJobApplication';

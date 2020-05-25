@@ -1,5 +1,5 @@
 import {UserEntity} from '../../user/user/user.entity';
-import {BusinessJobEntity} from '../business-job/business-job.entity';
+import {BusinessPositionEntity} from '../business-position/business-position.entity';
 import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('rp_job_applications')
@@ -10,9 +10,9 @@ export class BusinessJobApplicationEntity {
   @Column({name: 'job_id', type: 'int'})
   jobID!: number;
 
-  @ManyToOne(() => BusinessJobEntity)
+  @ManyToOne(() => BusinessPositionEntity)
   @JoinColumn({name: 'job_id'})
-  job?: BusinessJobEntity;
+  job?: BusinessPositionEntity;
 
   @Column({name: 'user_id', type: 'int'})
   userID!: number;

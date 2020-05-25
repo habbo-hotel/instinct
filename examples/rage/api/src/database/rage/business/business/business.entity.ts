@@ -1,7 +1,7 @@
 import {RoomEntity} from '../../room/room.entity';
 import {UserEntity} from '../../user/user/user.entity';
 import {BusinessApplyType, BusinessType} from './business.types';
-import {BusinessJobEntity} from '../business-job/business-job.entity';
+import {BusinessPositionEntity} from '../business-position/business-position.entity';
 import {UserRPStatsEntity} from '../../user/user-rp-stats/user-rp-stats.entity';
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, OneToMany} from 'typeorm';
 
@@ -63,6 +63,6 @@ export class BusinessEntity {
   @OneToMany(() => UserRPStatsEntity, userRPStats => userRPStats.job)
   employees?: UserRPStatsEntity[];
 
-  @OneToMany(() => BusinessJobEntity, businessJob => businessJob.business)
-  jobs?: BusinessJobEntity[];
+  @OneToMany(() => BusinessPositionEntity, businessJob => businessJob.business)
+  positions?: BusinessPositionEntity[];
 }

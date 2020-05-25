@@ -27,7 +27,7 @@ export async function businessFactory(changes?: Partial<BusinessEntity>): Promis
     hidden: 0,
     applyType: BusinessApplyType.Apply,
     employees: [],
-    jobs: [],
+    positions: [],
     ...changes,
   });
 }

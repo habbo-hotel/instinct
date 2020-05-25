@@ -7,12 +7,12 @@ export function JobContainer({ job }: JobContainerProps) {
     <Card header={job.name}>
       <div className="members-container">
         {
-          job.users!.length === 0 && (
+          job.employees!.length === 0 && (
             <p>This position is empty!</p>
           )
         }
         {
-          job.users!.map(user => (
+          job.employees!.map(user => (
             <UserContainer key={user.id} user={user}/>
           ))
         }

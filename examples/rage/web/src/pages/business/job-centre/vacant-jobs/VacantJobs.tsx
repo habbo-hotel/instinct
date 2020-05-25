@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
+import { BusinessBadge } from 'components';
 import { businessService } from 'app/service';
+import { Card, Loading } from 'instinct-frontend';
+import React, { useEffect, useState } from 'react';
 import { BusinessJob } from 'instinct-rp-interfaces';
 import { defaultVacantJobsState, VacantJobsState } from './';
-import { Card, ConfigContext, Loading } from 'instinct-frontend';
-import React, { useContext, useEffect, useState } from 'react';
 
 export function VacantJobs() {
-  const configContext = useContext(ConfigContext);
   const [ state, setState ] = useState<VacantJobsState>(defaultVacantJobsState);
 
   useEffect(() => {
@@ -31,11 +31,10 @@ export function VacantJobs() {
         {
           state.jobs.map(job => (
             <Link to={`/business/jobs/${job.id}`} key={job.id}>
-              <div className="business-row" style={{ background: `url(${configContext.siteLink}/swfs/assets/c_images/corp-badges/${job.business!.badge}.gif) 10px no-repeat` }}>
-                <div className="user-count">{job.vacantSpots}</div>
-                <div className="name">{job.name} <small>$({job.salary}/h)</small></div>
-                <div className="desc">{job.business!.name}</div>
-              </div>
+              <BusinessBadge business={job.business!}/>
+              <div className="user-count">{job.vacantSpots}</div>
+              <div className="name">{job.name} <small>$({job.salary}/h)</small></div>
+              <div className="desc">{job.business!.name}</div>
             </Link>
           ))
         }

@@ -1,9 +1,9 @@
 import {businessWire} from '../business/business.wire';
-import {BusinessJobEntity} from './business-job.entity';
+import {BusinessPositionEntity} from './business-position.entity';
 import {BusinessApplyType} from '../business/business.types';
-import {BusinessJob, BusinessJobRank} from 'instinct-rp-interfaces';
+import { BusinessJob, BusinessJobRank } from 'instinct-rp-interfaces';
 
-export function businessJobWire(businessJobEntity: BusinessJobEntity, alreadyApplied?: boolean): BusinessJob {
+export function businessPositionWire(businessJobEntity: BusinessPositionEntity, alreadyApplied?: boolean): BusinessJob {
   return {
     id: businessJobEntity.rankID,
     businessID: businessJobEntity.businessID,

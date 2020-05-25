@@ -8,4 +8,4 @@ export const exampleHealth: Health = {
   usersOnline: 0,
   roomsActive: 0,
   systemVersion: '0.0.0',
-}
+};
