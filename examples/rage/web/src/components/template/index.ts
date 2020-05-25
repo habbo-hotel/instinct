@@ -2,6 +2,7 @@ export * from './business-row';
 export * from './client';
 export * from './gang-row';
 export * from './login-modal';
+export * from './my-gang';
 export * from './my-job';
 export * from './navbar';
 export * from './popular-gangs';
