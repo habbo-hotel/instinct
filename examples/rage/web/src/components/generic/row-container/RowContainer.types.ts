@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface RowContainerProps {
-  image: ReactNode;
+  image: string;
   header: string;
   children: ReactNode;
-  users: number;
+  users: ReactNode;
 }

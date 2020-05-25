@@ -9,7 +9,16 @@ export class BusinessJobApplicationRepository {
     @InjectRepository(BusinessJobApplicationEntity) private readonly businessJobApplicationRepo: Repository<BusinessJobApplicationEntity>
   ) {}
 
-  readonly eagerRelations: string[] = ['job', 'user'];
+  readonly eagerRelations: string[] = ['job', 'job.business', 'job.business.employees', 'job.business.owner', 'user'];
+
+  async getAllForUser(userID: number): Promise<BusinessJobApplicationEntity[]> {
+    return this.businessJobApplicationRepo.find({
+      where: {
+        userID,
+      },
+      relations: this.eagerRelations,
+    });
+  }
 
   async getAllForPosition(positionID: number): Promise<BusinessJobApplicationEntity[]> {
     return this.businessJobApplicationRepo.find({

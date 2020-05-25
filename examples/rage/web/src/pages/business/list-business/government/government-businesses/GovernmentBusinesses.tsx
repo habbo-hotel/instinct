@@ -3,7 +3,7 @@ import { businessService } from 'app/service';
 import { Card, Loading } from 'instinct-frontend';
 import { Business } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
-import { defaultGovernmentBusinessesState, GovernmentBusinessesState } from './';
+import { defaultGovernmentBusinessesState, GovernmentBusinessesState } from './index';
 
 export function GovernmentBusinesses() {
   const [ state, setState ] = useState<GovernmentBusinessesState>(defaultGovernmentBusinessesState);

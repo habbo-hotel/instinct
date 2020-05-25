@@ -1,4 +1,4 @@
-import { User } from 'instinct-rp-interfaces';
+import { Business, BusinessJobApplication, User } from 'instinct-rp-interfaces';
 
 export interface SessionService {
   // Fetches user bearer token if it exists
@@ -19,6 +19,10 @@ export interface SessionService {
   createSSO(): Promise<string>;
 
   getCurrentUser(): Promise<User>;
+
+  getMyBusinesses(): Promise<Business[]>;
+
+  getMyApplications(): Promise<BusinessJobApplication[]>;
 
   // Removes the user's bearer token from localStorage
   logout(): void;

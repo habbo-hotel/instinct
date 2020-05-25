@@ -23,6 +23,15 @@ export class BusinessRepository {
     });
   }
 
+  getForUser(userID: number): Promise<BusinessEntity[]> {
+    return this.businessRepo.find({
+      where: {
+        userID,
+      },
+      relations: this.eagerRelations,
+    })
+  }
+
   findManyWhere<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {
     return this.businessRepo.find({
       where: {

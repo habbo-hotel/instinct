@@ -1,5 +1,4 @@
 import React from 'react';
-import './Government.scss';
 import { UserLayout } from 'components';
 import { GovernmentBusinesses} from './government-businesses';
 import { Card, Column, Container, Jumbotron, setURL } from 'instinct-frontend';

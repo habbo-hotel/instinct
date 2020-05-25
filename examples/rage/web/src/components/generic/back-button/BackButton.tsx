@@ -1,7 +1,7 @@
 import React from 'react';
 import './BackButton.scss'
 import { Icon } from 'instinct-frontend';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 export const BackButton = withRouter(BackButtonComponent);
 

@@ -1,12 +1,12 @@
 import { SessionService } from './';
 import { AxiosResponse } from 'axios';
-import { User } from 'instinct-rp-interfaces';
+import { Business, BusinessJobApplication, User } from 'instinct-rp-interfaces';
 import { backendAPI, setAPIToken, localStorageService} from 'instinct-frontend';
 
 class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';
 
-  async init(): Promise<User | undefined> {
+  async init() {
     try {
       const authToken: string = localStorageService.get(this.localStorageKey);
       return await this.attemptBearerToken(authToken);
@@ -15,12 +15,12 @@ class SessionServiceImplementation implements SessionService {
     }
   }
 
-  async attemptCredentials(username: string, password: string): Promise<string> {
+  async attemptCredentials(username: string, password: string) {
     const bearerToken: AxiosResponse<string> = await backendAPI.post('session', { username, password });
     return bearerToken.data;
   }
 
-  async attemptBearerToken(bearerToken: string): Promise<User> {
+  async attemptBearerToken(bearerToken: string) {
     try {
       this.setBearerToken(bearerToken);
       const session: AxiosResponse<User> = await backendAPI.get('session');
@@ -31,7 +31,7 @@ class SessionServiceImplementation implements SessionService {
     }
   }
 
-  setBearerToken(bearerToken: string): void {
+  setBearerToken(bearerToken: string) {
     setAPIToken(bearerToken);
 
     return bearerToken !== undefined
@@ -39,17 +39,27 @@ class SessionServiceImplementation implements SessionService {
       : localStorageService.delete(this.localStorageKey);
   }
 
-  async createSSO(): Promise<string> {
+  async createSSO() {
     const sso: AxiosResponse<string> = await backendAPI.post('session/sso');
     return sso.data;
   }
 
-  async getCurrentUser(): Promise<User> {
+  async getCurrentUser() {
     const user: AxiosResponse<User> = await backendAPI.get('session');
     return user.data;
   }
 
-  logout(): void {
+  async getMyBusinesses() {
+    const businesses: AxiosResponse<Business[]> = await backendAPI.get('session/businesses');
+    return businesses.data;
+  }
+
+  async getMyApplications() {
+    const applications: AxiosResponse<BusinessJobApplication[]> = await backendAPI.get('session/applications');
+    return applications.data;
+  }
+
+  logout()  {
     localStorageService.delete(this.localStorageKey);
   }
 }
