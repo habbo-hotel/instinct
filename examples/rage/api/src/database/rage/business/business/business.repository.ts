@@ -16,6 +16,20 @@ export class BusinessRepository {
 
   getAll(): Promise<BusinessEntity[]> {
     return this.businessRepo.find({
+      where: {
+        hidden: 0,
+      },
+      relations: this.eagerRelations,
+    });
+  }
+
+
+  findManyWhere<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {
+    return this.businessRepo.find({
+      where: {
+        [field]: value,
+        hidden: 0,
+      },
       relations: this.eagerRelations,
     });
   }
@@ -38,6 +52,7 @@ export class BusinessRepository {
     return this.businessRepo.find({
       where: {
         [field]: Like(`%${value}%`),
+        hidden: 0,
       },
       relations: this.eagerRelations,
     });

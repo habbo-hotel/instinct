@@ -1,15 +1,16 @@
 import * as Moment from 'moment';
-import {BusinessPipe} from './business.pipe';
-import {Business} from 'instinct-rp-interfaces';
-import {HasSession} from '../session/has-session.decorator';
-import {GetSession} from '../session/get-session.decorator';
-import {BusinessDTO, BusinessSearchDTO} from './business.dto';
-import {UserEntity} from '../database/rage/user/user/user.entity';
-import {businessWire} from '../database/rage/business/business/business.wire';
-import {BusinessEntity} from '../database/rage/business/business/business.entity';
-import {BusinessRepository} from '../database/rage/business/business/business.repository';
-import {BusinessApplyType, BusinessType} from '../database/rage/business/business/business.types';
-import {Body, Controller, Delete, Get, Param, Patch, Post, UnauthorizedException} from '@nestjs/common';
+import { BusinessPipe } from './business.pipe';
+import { BusinessFilter } from './business.types';
+import { Business } from 'instinct-rp-interfaces';
+import { HasSession } from '../session/has-session.decorator';
+import { GetSession } from '../session/get-session.decorator';
+import { BusinessDTO, BusinessSearchDTO } from './business.dto';
+import { UserEntity } from '../database/rage/user/user/user.entity';
+import { businessWire } from '../database/rage/business/business/business.wire';
+import { BusinessEntity } from '../database/rage/business/business/business.entity';
+import { BusinessRepository } from '../database/rage/business/business/business.repository';
+import { BusinessApplyType, BusinessType } from '../database/rage/business/business/business.types';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UnauthorizedException } from '@nestjs/common';
 
 @Controller('businesses')
 @HasSession()
@@ -17,8 +18,16 @@ export class BusinessController {
   constructor(private readonly businessRepo: BusinessRepository) {}
 
   @Get()
-  async getAll(): Promise<Business[]> {
-    const businesses: BusinessEntity[] = await this.businessRepo.getAll();
+  async getAll(@Query('filter') filter?: BusinessFilter): Promise<Business[]> {
+
+    const filterToPromise: Record<BusinessFilter, () => Promise<BusinessEntity[]>> = {
+      private: () => this.businessRepo.findManyWhere('type', BusinessType.Private),
+      government: () => this.businessRepo.findManyWhere('type', BusinessType.State),
+    }
+
+    const businesses: BusinessEntity[] = filter
+      ? await filterToPromise[filter]()
+      : await this.businessRepo.getAll();
     return businesses.map(business => businessWire(business));
   }
 

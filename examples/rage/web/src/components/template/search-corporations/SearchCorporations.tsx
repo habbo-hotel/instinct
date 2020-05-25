@@ -3,10 +3,10 @@ import { BusinessRow } from 'components';
 import { businessService } from 'app/service';
 import { Business } from 'instinct-rp-interfaces';
 import { Card, Form, Loading } from 'instinct-frontend';
-import { defaultSearchBusinessesState, SearchBusinessesState } from './';
+import { defaultSearchCorporationsState, SearchCorporationsState } from './';
 
-export function SearchBusinesses() {
-  const [state, setState ] = useState<SearchBusinessesState>(defaultSearchBusinessesState);
+export function SearchCorporations() {
+  const [state, setState ] = useState<SearchCorporationsState>(defaultSearchCorporationsState);
 
   function setQuery(query: string): void {
     setState({
@@ -41,8 +41,10 @@ export function SearchBusinesses() {
           <button disabled={state.showSpinner} style={{ display: 'none' }} type="submit"/>
           <br/>
           {
-            state.lastQuery && state.businesses.length === 0 && (
-              <p>No businesses match that name</p>
+            state.lastQuery && state.query !== '' && !state.showSpinner && (
+              <div style={{ marginTop: -20 }}>
+                <small><b>{state.businesses.length}</b> results</small>
+              </div>
             )
           }
           {

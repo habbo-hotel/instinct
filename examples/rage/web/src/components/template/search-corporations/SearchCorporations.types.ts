@@ -1,13 +1,13 @@
 import { Business } from 'instinct-rp-interfaces';
 
-export interface SearchBusinessesState {
+export interface SearchCorporationsState {
   businesses: Business[];
   showSpinner: boolean;
   query: string;
   lastQuery?: string;
 }
 
-export const defaultSearchBusinessesState: SearchBusinessesState = {
+export const defaultSearchCorporationsState: SearchCorporationsState = {
   businesses: [],
   showSpinner: false,
   query: '',

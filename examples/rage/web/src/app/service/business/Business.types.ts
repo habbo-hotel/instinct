@@ -4,6 +4,10 @@ export interface BusinessService {
 
   getAll(): Promise<Business[]>;
 
+  getGovernmentBusinesses(): Promise<Business[]>;
+
+  getPrivateBusinesses(): Promise<Business[]>;
+
   getByID(gangID: number): Promise<Business>;
 
   getAllPositions(): Promise<BusinessPosition[]>;

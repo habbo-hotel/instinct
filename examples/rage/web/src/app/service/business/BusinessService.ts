@@ -10,6 +10,16 @@ class BusinessServiceImplementation implements BusinessService {
     return businesses.data;
   }
 
+  async getGovernmentBusinesses() {
+    const governmentBusinesses: AxiosResponse<Business[]> = await backendAPI.get('businesses?filter=government');
+    return governmentBusinesses.data;
+  }
+
+  async getPrivateBusinesses() {
+    const privateBusinesses: AxiosResponse<Business[]> = await backendAPI.get('businesses?filter=private');
+    return privateBusinesses.data;
+  }
+
   async getByID(businessID: number) {
     const business: AxiosResponse<Business> = await backendAPI.get(`businesses/${ businessID }`);
     return business.data;
