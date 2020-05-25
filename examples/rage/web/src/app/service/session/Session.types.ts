@@ -24,6 +24,8 @@ export interface SessionService {
 
   getMyApplications(): Promise<BusinessJobApplication[]>;
 
+  getApplicationByID(applicationID: number): Promise<BusinessJobApplication>;
+
   // Removes the user's bearer token from localStorage
   logout(): void;
 }

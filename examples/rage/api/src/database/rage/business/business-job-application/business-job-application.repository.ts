@@ -59,6 +59,16 @@ export class BusinessJobApplicationRepository {
     });
   }
 
+  findOneByIDAndUserOrFail(jobApplicationID: number, userID: number): Promise<BusinessJobApplicationEntity> {
+    return this.businessJobApplicationRepo.findOneOrFail({
+      where: {
+        id: jobApplicationID,
+        userID,
+      },
+      relations: this.eagerRelations,
+    });
+  }
+
   findOneForUserAndBusiness(userID: number, businessID: number): Promise<BusinessJobApplicationEntity | undefined> {
     return this.businessJobApplicationRepo.findOne({
       where: {

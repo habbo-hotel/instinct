@@ -2,7 +2,7 @@ import {NewSessionDTO} from './session.dto';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common';
 import {userWire} from '../database/rage/user/user/user.wire';
 import {UserEntity} from '../database/rage/user/user/user.entity';
 import {UserRepository} from '../database/rage/user/user/user.repository';
@@ -52,6 +52,17 @@ export class SessionController {
   async getMyApplications(@GetSession() session: UserEntity): Promise<BusinessJobApplication[]> {
     const applications: BusinessJobApplicationEntity[] = await this.businessJobApplicationRepo.getAllForUser(session.id!);
     return applications.map(application => businessJobApplicationWire(application));
+  }
+
+  @Get('applications/:applicationID')
+  @HasSession()
+  async getApplicationByID(@Param('applicationID') applicationID: number, @GetSession() session: UserEntity): Promise<BusinessJobApplication> {
+    try {
+      const application: BusinessJobApplicationEntity = await this.businessJobApplicationRepo.findOneByIDAndUserOrFail(applicationID, session.id!);
+      return businessJobApplicationWire(application);
+    } catch {
+      throw new NotFoundException();
+    }
   }
 
 }

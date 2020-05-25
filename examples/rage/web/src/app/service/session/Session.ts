@@ -59,6 +59,11 @@ class SessionServiceImplementation implements SessionService {
     return applications.data;
   }
 
+  async getApplicationByID(applicationID: number): Promise<BusinessJobApplication> {
+    const jobApplication: AxiosResponse<BusinessJobApplication> = await backendAPI.get(`session/applications/${applicationID}`);
+    return jobApplication.data;
+  }
+
   logout()  {
     localStorageService.delete(this.localStorageKey);
   }

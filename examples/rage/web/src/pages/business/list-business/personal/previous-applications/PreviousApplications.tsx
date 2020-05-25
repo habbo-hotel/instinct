@@ -1,7 +1,7 @@
 import { sessionService } from 'app/service';
 import React, { useContext, useEffect, useState } from 'react';
 import { BusinessJobApplication } from 'instinct-rp-interfaces';
-import { Button, Card, ConfigContext, Loading } from 'instinct-frontend';
+import { Button, Card, ConfigContext, Loading, redirect } from 'instinct-frontend';
 import { defaultPreviousApplicationsState, PreviousApplicationsState } from './';
 
 export function PreviousApplications() {
@@ -27,7 +27,7 @@ export function PreviousApplications() {
           state.applications.map(application => (
             <div className="row-container" key={application.id} style={{ background: `url(${configContext.siteLink}/swfs/assets/c_images/corp-badges/${application.job.business?.badge}.gif) 10px no-repeat` }}>
               <div className="user-count mr-2" style={{ background: 'none', width: 'auto' }}>
-                <Button color="info" style={{ fontSize: 10 }}>
+                <Button color="info" style={{ fontSize: 10 }} onClick={() => redirect(`business/applications/${application.id}`)}>
                   View
                 </Button>
               </div>
