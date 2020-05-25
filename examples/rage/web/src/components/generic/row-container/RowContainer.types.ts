@@ -5,4 +5,5 @@ export interface RowContainerProps {
   header: string;
   children: ReactNode;
   users: ReactNode;
+  style?: object;
 }

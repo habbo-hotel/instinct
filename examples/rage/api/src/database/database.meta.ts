@@ -38,7 +38,6 @@ export const databaseEntities: Function[] = [
   BusinessEntity,
   RoomRepository,
   RankRepository,
-  UserRepository,
   GangRepository,
   UserBadgeEntity,
   ConfigRepository,
@@ -53,4 +52,4 @@ export const databaseEntities: Function[] = [
   BusinessJobApplicationEntity,
 ];
 
-export const databaseCustomRepositories: Provider[] = [BusinessRepository, UserRPStatsRepository, BusinessPositionRepository, BusinessJobApplicationRepository];
+export const databaseCustomRepositories: Provider[] = [BusinessRepository,   UserRepository, UserRPStatsRepository, BusinessPositionRepository, BusinessJobApplicationRepository];

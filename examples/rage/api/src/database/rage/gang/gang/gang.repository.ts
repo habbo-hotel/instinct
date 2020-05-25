@@ -3,7 +3,7 @@ import {EntityRepository, Like, Repository} from 'typeorm';
 
 @EntityRepository(GangEntity)
 export class GangRepository extends Repository<GangEntity> {
-  readonly eagerRelations: string[] = ['owner'];
+  readonly eagerRelations: string[] = ['owner', 'users'];
 
   getAll(): Promise<GangEntity[]> {
     return this.find({

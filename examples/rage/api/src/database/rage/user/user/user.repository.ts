@@ -1,19 +1,23 @@
 import * as Random from 'randomstring';
 import {UserEntity} from './user.entity';
-import {EntityRepository, Like, Repository} from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import {HashService} from '../../../../common/hash.service';
+import { Like, Repository, SelectQueryBuilder } from 'typeorm';
 
-@EntityRepository(UserEntity)
-export class UserRepository extends Repository<UserEntity> {
-  private readonly hashService: HashService;
+@Injectable()
+export class UserRepository{
 
-  constructor() {
-    super();
-    this.hashService = new HashService();
-  }
+  readonly eagerRelations: string[] = [];
+
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepo: Repository<UserEntity>,
+    private readonly hashService: HashService
+  ) {}
 
   async createAndReturn(user: UserEntity): Promise<UserEntity> {
-    const newUser: UserEntity = await this.save({
+    const newUser: UserEntity = await this.userRepo.save({
       ...user,
       password: this.hashService.generate(user.password),
     });
@@ -22,14 +26,12 @@ export class UserRepository extends Repository<UserEntity> {
 
   async authenticateClientByID(userID: number): Promise<string> {
     const authTicket: string = 'instinct_' + Random.generate(20) + '_' + userID;
-    await this.update(userID, {authTicket});
+    await this.userRepo.update(userID, {authTicket});
     return authTicket;
   }
 
-  readonly eagerRelations: string[] = [];
-
   findOneByIDOrFail(userID: number): Promise<UserEntity> {
-    return this.findOneOrFail({
+    return this.userRepo.findOneOrFail({
       where: {
         id: userID,
       },
@@ -38,7 +40,7 @@ export class UserRepository extends Repository<UserEntity> {
   }
 
   findOneByUsernameOrFail(username: string): Promise<UserEntity> {
-    return this.findOneOrFail({
+    return this.userRepo.findOneOrFail({
       where: {
         username,
       },
@@ -47,7 +49,7 @@ export class UserRepository extends Repository<UserEntity> {
   }
 
   findOneByEmailOrFail(email: string): Promise<UserEntity> {
-    return this.findOneOrFail({
+    return this.userRepo.findOneOrFail({
       where: {
         email,
       },
@@ -56,11 +58,18 @@ export class UserRepository extends Repository<UserEntity> {
   }
 
   searchByUsername(username: string): Promise<UserEntity[]> {
-    return this.find({
+    return this.userRepo.find({
       where: {
         username: Like(`%${username}%`),
       },
       relations: this.eagerRelations,
     });
   }
+
+  getQueryBuilder(): SelectQueryBuilder<UserEntity> {
+    return this.userRepo.createQueryBuilder('user');
+  }
+
 }
+
+

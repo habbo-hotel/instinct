@@ -28,7 +28,7 @@ export class GangEntity {
   owner?: UserEntity;
 
   @OneToMany(() => UserRPStatsEntity, userRPStats => userRPStats.gang)
-  users?: UserEntity[];
+  users?: UserRPStatsEntity[];
 
   @OneToMany(() => GangRankEntity, gangRank => gangRank.gang)
   ranks?: GangRankEntity[];

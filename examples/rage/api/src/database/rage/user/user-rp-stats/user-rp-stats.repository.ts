@@ -5,7 +5,7 @@ import {UserRPStatsEntity} from './user-rp-stats.entity';
 
 @Injectable()
 export class UserRPStatsRepository{
-  readonly eagerRelations: string[] = ['gang', 'gang.owner'];
+  readonly eagerRelations: string[] = ['gang', 'gang.owner', 'gang.users', 'gang.users.user'];
 
   constructor(@InjectRepository(UserRPStatsEntity) private readonly userRPStatsRepo: Repository<UserRPStatsEntity>) { }
 

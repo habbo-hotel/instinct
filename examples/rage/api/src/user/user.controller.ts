@@ -8,6 +8,10 @@ import {UserEntity} from '../database/rage/user/user/user.entity';
 import {GoogleRecaptchaService} from '../google/recaptcha.service';
 import {UserRepository} from '../database/rage/user/user/user.repository';
 import {BadRequestException, Body, Controller, Get, Param, Post} from '@nestjs/common';
+import { userRPStatsWire } from '../database/rage/user/user-rp-stats/user-rp-stats.wire';
+import { UserRPStatsEntity } from '../database/rage/user/user-rp-stats/user-rp-stats.entity';
+import { UserRPStatsRepository } from '../database/rage/user/user-rp-stats/user-rp-stats.repository';
+import { BusinessPositionRepository } from '../database/rage/business/business-position/business-position.repository';
 import {
   defaultUserCredits,
   defaultUserHomeRoom,
@@ -17,10 +21,16 @@ import {
   defaultUserPoints,
   defaultUserRank,
 } from '../common/config';
+import { BusinessPositionEntity } from '../database/rage/business/business-position/business-position.entity';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userRepo: UserRepository, private readonly recaptchaService: GoogleRecaptchaService) {}
+  constructor(
+    private readonly userRepo: UserRepository,
+    private readonly userRPStatsRepo: UserRPStatsRepository,
+    private readonly recaptchaService: GoogleRecaptchaService,
+    private readonly businessPositionRepo: BusinessPositionRepository,
+  ) {}
 
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
@@ -65,8 +75,11 @@ export class UserController {
   @Get('profile/:username')
   async getUserByUsername(@Param('username') username: string): Promise<UserProfile> {
     const user: UserEntity = await this.userRepo.findOneByUsernameOrFail(username);
+    const stats: UserRPStatsEntity = await this.userRPStatsRepo.findOneByIDOrFail(user.id!);
+    const businessPosition: BusinessPositionEntity = await this.businessPositionRepo.findOneByBusinessAndRankOrFail(stats.jobID, stats.jobRankID);
     return {
       user: userWire(user),
+      stats: userRPStatsWire(stats, businessPosition),
     };
   }
 }

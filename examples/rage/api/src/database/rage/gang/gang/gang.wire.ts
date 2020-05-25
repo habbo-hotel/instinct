@@ -9,6 +9,6 @@ export function gangWire(gangEntity: GangEntity): Gang {
     kills: gangEntity.kills,
     deaths: gangEntity.deaths,
     owner: userWire(gangEntity.owner!),
-    users: gangEntity.users ? gangEntity.users.map(user => userWire(user)) : undefined,
+    users: gangEntity.users ? gangEntity.users.map(user => userWire(user.user!)) : undefined,
   };
 }
