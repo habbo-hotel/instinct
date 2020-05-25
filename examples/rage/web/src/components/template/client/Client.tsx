@@ -4,12 +4,11 @@ import * as Flash from 'swfobject';
 import { ClientUI } from './client-ui';
 import { UserGuard } from 'components';
 import React, { useContext } from 'react';
-import { SessionContext } from 'app/context';
 import { ClientActions } from './client-actions';
 import { FlashDisabled } from './flash-disabled';
 import { LoadingScreen } from './loading-screen';
-import { ThemeContext} from 'instinct-frontend';
 import { ClientContainer } from './client-container';
+import { SessionContext, ThemeContext } from 'app/context';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);

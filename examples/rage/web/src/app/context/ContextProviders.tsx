@@ -1,6 +1,7 @@
 import React from 'react';
+import { ThemeContextProvider } from './theme';
 import { SessionContextProvider } from './session';
-import { ContextProvidersProps, ConfigProvider, ThemeContextProvider, HealthProvider } from 'instinct-frontend';
+import { ContextProvidersProps, ConfigProvider, HealthProvider } from 'instinct-frontend';
 
 export function ContextProviders({ children }: ContextProvidersProps) {
   return (

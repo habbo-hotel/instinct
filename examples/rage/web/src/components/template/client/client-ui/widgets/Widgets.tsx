@@ -1,12 +1,12 @@
 import React from 'react';
-import { HelpWidget } from './help-widget';
-import { WantedWidget } from './wanted-widget';
+import { CallForHelpWidget } from './call-for-help';
+import { WantedListWidget } from './wanted-list';
 
 export function Widgets() {
   return (
     <>
-      <HelpWidget/>
-      <WantedWidget/>
+      <CallForHelpWidget/>
+      <WantedListWidget/>
     </>
   )
 }

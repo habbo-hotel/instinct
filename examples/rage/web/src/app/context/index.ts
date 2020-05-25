@@ -1,3 +1,3 @@
 export * from './session';
-export * from './web-socket';
+export * from './theme';
 export * from './ContextProviders';
