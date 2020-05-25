@@ -19,10 +19,7 @@ export function MyProfile() {
           <Avatar className="figure" look={user?.figure} />
         </div>
         <div className="stats">
-          <div className="icons">
-            <Icon type="pound-sign"/>
-          </div>
-          <div>{user?.credits.toLocaleString()}</div>
+          <br/>
         </div>
       </div>
     </article>

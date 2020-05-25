@@ -1,6 +1,7 @@
 import './ClientActions.scss';
+import { ThemeContext } from 'app/context';
 import React, { useContext, useState } from 'react';
-import { redirect, HealthContext, ThemeContext, Icon } from 'instinct-frontend';
+import { redirect, HealthContext, Icon } from 'instinct-frontend';
 
 export function ClientActions() {
   const themeContext = useContext(ThemeContext);

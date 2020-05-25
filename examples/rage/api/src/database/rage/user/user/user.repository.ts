@@ -4,6 +4,7 @@ import {Injectable} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {HashService} from '../../../../common/hash.service';
 import { Like, Repository, SelectQueryBuilder } from 'typeorm';
+import { UserRPStatsEntity } from '../user-rp-stats/user-rp-stats.entity';
 
 @Injectable()
 export class UserRepository{
@@ -11,9 +12,9 @@ export class UserRepository{
   readonly eagerRelations: string[] = [];
 
   constructor(
-    @InjectRepository(UserEntity)
-    private readonly userRepo: Repository<UserEntity>,
-    private readonly hashService: HashService
+    private readonly hashService: HashService,
+    @InjectRepository(UserEntity) private readonly userRepo: Repository<UserEntity>,
+    @InjectRepository(UserRPStatsEntity) private readonly userRPStatsRepository: Repository<UserRPStatsEntity>,
   ) {}
 
   async createAndReturn(user: UserEntity): Promise<UserEntity> {
@@ -21,6 +22,9 @@ export class UserRepository{
       ...user,
       password: this.hashService.generate(user.password),
     });
+
+    await this.userRPStatsRepository.save({ userID: newUser.id! })
+
     return this.findOneByIDOrFail(newUser.id!);
   }
 

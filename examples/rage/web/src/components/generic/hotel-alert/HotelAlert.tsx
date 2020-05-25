@@ -4,7 +4,7 @@ import { HotelAlertProps } from './';
 
 export function HotelAlert({ children, title, onToggle }: HotelAlertProps) {
   return (
-    <div className="hotel-alert" style={{ width: 600 }}>
+    <div className="hotel-alert" style={{ width: 600 }} draggable>
       <div className="header">
         <div className="title">
           {title}
