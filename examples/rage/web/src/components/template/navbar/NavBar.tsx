@@ -11,6 +11,7 @@ export function NavBar() {
         <NavBarLink to="/home">Home</NavBarLink>
         <NavBarDropdown text="Business" to="/business/corporations">
           <NavBarChildLink to="/business/corporations">Corporations</NavBarChildLink>
+          <NavBarChildLink to="/business/state-funded">State Funded</NavBarChildLink>
           <NavBarChildLink to="/business/owned">My Businesses</NavBarChildLink>
         </NavBarDropdown>
         <NavBarLink to="/leaderboard">Leaderboard</NavBarLink>

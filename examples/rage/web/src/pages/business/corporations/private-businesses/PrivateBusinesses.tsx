@@ -25,7 +25,9 @@ export function PrivateBusinesses() {
       <Loading isLoading={state.showSpinner}>
         {
           state.businesses.map(business => (
-            <BusinessRow business={business} key={business.id}/>
+            <BusinessRow business={business} key={business.id}>
+              <p style={{ marginTop: -20 }}>Owned by <b>{business.owner.username}</b></p>
+            </BusinessRow>
           ))
         }
       </Loading>
