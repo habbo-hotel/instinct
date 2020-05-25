@@ -9,7 +9,7 @@ import {BusinessJobApplicationRepository} from '../business-job-application/busi
 
 @Injectable()
 export class BusinessPositionRepository {
-  readonly eagerRelations: string[] = [];
+  readonly eagerRelations: string[] = ['business', 'business.owner', 'business.employees'];
 
   constructor(
     @InjectRepository(BusinessPositionEntity)
@@ -51,4 +51,15 @@ export class BusinessPositionRepository {
       relations: this.eagerRelations,
     });
   }
+
+  findOneByBusinessAndRankOrFail(businessID: number, rankID: number): Promise<BusinessPositionEntity> {
+    return this.businessPositionRepo.findOneOrFail({
+      where: {
+        businessID,
+        rankID,
+      },
+      relations: this.eagerRelations,
+    })
+  }
+
 }

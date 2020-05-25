@@ -1,7 +1,7 @@
 import { SessionService } from './';
 import { AxiosResponse } from 'axios';
-import { Business, BusinessJobApplication, User } from 'instinct-rp-interfaces';
 import { backendAPI, setAPIToken, localStorageService} from 'instinct-frontend';
+import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
 
 class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';
@@ -47,6 +47,11 @@ class SessionServiceImplementation implements SessionService {
   async getCurrentUser() {
     const user: AxiosResponse<User> = await backendAPI.get('session');
     return user.data;
+  }
+
+  async getMyStats() {
+    const rpStats: AxiosResponse<UserStats> = await backendAPI.get('session/stats');
+    return rpStats.data;
   }
 
   async getMyBusinesses() {

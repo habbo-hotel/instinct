@@ -1,7 +1,21 @@
-import {EntityRepository, Repository} from 'typeorm';
+import {Repository} from 'typeorm';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import {UserRPStatsEntity} from './user-rp-stats.entity';
 
-@EntityRepository(UserRPStatsEntity)
-export class UserRPStatsRepository extends Repository<UserRPStatsEntity> {
-  readonly eagerRelations: string[] = [];
+@Injectable()
+export class UserRPStatsRepository{
+  readonly eagerRelations: string[] = ['gang', 'gang.owner'];
+
+  constructor(@InjectRepository(UserRPStatsEntity) private readonly userRPStatsRepo: Repository<UserRPStatsEntity>) { }
+
+  findOneByIDOrFail(userID: number): Promise<UserRPStatsEntity> {
+    return this.userRPStatsRepo.findOneOrFail({
+      where: {
+        userID,
+      },
+      relations: this.eagerRelations,
+    })
+  }
+
 }

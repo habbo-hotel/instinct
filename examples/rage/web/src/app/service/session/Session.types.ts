@@ -1,4 +1,4 @@
-import { Business, BusinessJobApplication, User } from 'instinct-rp-interfaces';
+import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
 
 export interface SessionService {
   // Fetches user bearer token if it exists
@@ -19,6 +19,8 @@ export interface SessionService {
   createSSO(): Promise<string>;
 
   getCurrentUser(): Promise<User>;
+
+  getMyStats(): Promise<UserStats>;
 
   getMyBusinesses(): Promise<Business[]>;
 

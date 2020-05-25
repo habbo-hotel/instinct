@@ -2,14 +2,19 @@ import {NewSessionDTO} from './session.dto';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common';
 import {userWire} from '../database/rage/user/user/user.wire';
 import {UserEntity} from '../database/rage/user/user/user.entity';
 import {UserRepository} from '../database/rage/user/user/user.repository';
 import { businessWire } from '../database/rage/business/business/business.wire';
-import { Business, BusinessJobApplication, User } from 'instinct-rp-interfaces';
 import { BusinessEntity } from '../database/rage/business/business/business.entity';
+import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common';
+import { userRPStatsWire } from '../database/rage/user/user-rp-stats/user-rp-stats.wire';
+import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
 import { BusinessRepository } from '../database/rage/business/business/business.repository';
+import { UserRPStatsEntity } from '../database/rage/user/user-rp-stats/user-rp-stats.entity';
+import { UserRPStatsRepository } from '../database/rage/user/user-rp-stats/user-rp-stats.repository';
+import { BusinessPositionEntity } from '../database/rage/business/business-position/business-position.entity';
+import { BusinessPositionRepository } from '../database/rage/business/business-position/business-position.repository';
 import { businessJobApplicationWire } from '../database/rage/business/business-job-application/business-job-application.wire';
 import { BusinessJobApplicationEntity } from '../database/rage/business/business-job-application/business-job-application.entity';
 import { BusinessJobApplicationRepository } from '../database/rage/business/business-job-application/business-job-application.repository';
@@ -20,6 +25,8 @@ export class SessionController {
     private readonly userRepo: UserRepository,
     private readonly sessionService: SessionService,
     private readonly businessRepo: BusinessRepository,
+    private readonly userRPStatsRepo: UserRPStatsRepository,
+    private readonly businessPositionRepo: BusinessPositionRepository,
     private businessJobApplicationRepo: BusinessJobApplicationRepository,
   ) {}
 
@@ -38,6 +45,14 @@ export class SessionController {
   @HasSession()
   getSession(@GetSession() session: UserEntity): User {
     return userWire(session);
+  }
+
+  @Get('stats')
+  @HasSession()
+  async getMyStats(@GetSession() session: UserEntity): Promise<UserStats> {
+    const rpStats: UserRPStatsEntity = await this.userRPStatsRepo.findOneByIDOrFail(session.id!);
+    const businessPosition: BusinessPositionEntity = await this.businessPositionRepo.findOneByBusinessAndRankOrFail(rpStats.jobID, rpStats.jobRankID);
+    return userRPStatsWire(rpStats, businessPosition);
   }
 
   @Get('businesses')
