@@ -1,8 +1,8 @@
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {databaseEntities} from './database.meta';
 import {Test, TestingModule} from '@nestjs/testing';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
+import {databaseCustomRepositories, databaseEntities} from './database.meta';
 import {databaseHost, databaseName, databasePass, databaseUser} from '../common/config';
 
 const databaseModuleMeta: ModuleMetadata = {
@@ -18,7 +18,8 @@ const databaseModuleMeta: ModuleMetadata = {
     }),
     TypeOrmModule.forFeature(databaseEntities),
   ],
-  exports: [TypeOrmModule],
+  providers: databaseCustomRepositories,
+  exports: [TypeOrmModule, ...databaseCustomRepositories],
 };
 
 export function mockDatabaseModule(): Promise<TestingModule> {

@@ -1,11 +1,10 @@
 import * as Random from 'randomstring';
 import {UserEntity} from './user.entity';
 import {EntityRepository, Like, Repository} from 'typeorm';
-import { HashService } from '../../../../common/hash.service';
+import {HashService} from '../../../../common/hash.service';
 
 @EntityRepository(UserEntity)
 export class UserRepository extends Repository<UserEntity> {
-
   private readonly hashService: HashService;
 
   constructor() {

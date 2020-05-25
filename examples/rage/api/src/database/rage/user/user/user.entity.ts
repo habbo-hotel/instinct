@@ -5,21 +5,10 @@ import {UserBadgeEntity} from '../user-badge/user-badge.entity';
 import {BusinessEntity} from '../../business/business/business.entity';
 import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
 import {BusinessJobApplicationEntity} from '../../business/business-job-application/business-job-application.entity';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
-
   @PrimaryGeneratedColumn({name: 'id'})
   id?: number;
 

@@ -1,19 +1,34 @@
-import {EntityRepository, Repository} from 'typeorm';
+import {Repository} from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
 import {BusinessJobApplicationEntity} from './business-job-application.entity';
 
-@EntityRepository(BusinessJobApplicationEntity)
-export class BusinessJobApplicationRepository extends Repository<BusinessJobApplicationEntity> {
-  readonly eagerRelations: string[] = [];
+@Injectable()
+export class BusinessJobApplicationRepository {
+  constructor(
+    @InjectRepository(BusinessJobApplicationEntity) private readonly businessJobApplicationRepo: Repository<BusinessJobApplicationEntity>
+  ) {}
 
-  async createOneForUserAndBusiness(userID: number, businessID: number, content: string): Promise<BusinessJobApplicationEntity> {
-    const jobApplication: BusinessJobApplicationEntity = await this.save({
+  readonly eagerRelations: string[] = ['job', 'user'];
+
+  async getAllForPosition(positionID: number): Promise<BusinessJobApplicationEntity[]> {
+    return this.businessJobApplicationRepo.find({
+      where: {
+        jobID: positionID,
+      },
+      relations: this.eagerRelations,
+    });
+  }
+
+  async createOneForUserAndPosition(userID: number, positionID: number, content: string): Promise<BusinessJobApplicationEntity> {
+    const jobApplication: BusinessJobApplicationEntity = await this.businessJobApplicationRepo.save({
       id: undefined,
       userID,
-      jobID: businessID,
+      jobID: positionID,
       content,
     });
 
-    return this.findOneOrFail({
+    return this.businessJobApplicationRepo.findOneOrFail({
       where: {
         id: jobApplication.id!,
       },
@@ -21,8 +36,22 @@ export class BusinessJobApplicationRepository extends Repository<BusinessJobAppl
     });
   }
 
+  async updateOneByIDOrFail(jobApplicationID: number, changes: Partial<BusinessJobApplicationEntity>): Promise<BusinessJobApplicationEntity> {
+    await this.businessJobApplicationRepo.update(jobApplicationID, changes);
+    return this.findOneByIDOrFail(jobApplicationID);
+  }
+
+  findOneByIDOrFail(jobApplicationID: number): Promise<BusinessJobApplicationEntity> {
+    return this.businessJobApplicationRepo.findOneOrFail({
+      where: {
+        id: jobApplicationID,
+      },
+      relations: this.eagerRelations,
+    });
+  }
+
   findOneForUserAndBusiness(userID: number, businessID: number): Promise<BusinessJobApplicationEntity | undefined> {
-    return this.findOne({
+    return this.businessJobApplicationRepo.findOne({
       where: {
         userID,
         jobID: businessID,
@@ -31,5 +60,7 @@ export class BusinessJobApplicationRepository extends Repository<BusinessJobAppl
     });
   }
 
-
+  async deleteOneByID(jobApplicationID: number): Promise<void> {
+    await this.businessJobApplicationRepo.delete(jobApplicationID);
+  }
 }

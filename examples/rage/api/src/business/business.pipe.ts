@@ -1,6 +1,6 @@
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 import {BusinessEntity} from '../database/rage/business/business/business.entity';
-import { BusinessRepository } from '../database/rage/business/business/business.repository';
+import {BusinessRepository} from '../database/rage/business/business/business.repository';
 
 @Injectable()
 export class BusinessPipe implements PipeTransform {

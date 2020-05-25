@@ -1,11 +1,11 @@
 import {BusinessPipe} from './business.pipe';
-import { Business } from 'instinct-rp-interfaces';
-import { BusinessSearchDTO} from './business.dto';
-import { HasSession } from '../session/has-session.decorator';
-import { Body, Controller, Get, Param, Post} from '@nestjs/common';
-import { businessWire } from '../database/rage/business/business/business.wire';
-import { BusinessEntity } from '../database/rage/business/business/business.entity';
-import { BusinessRepository } from '../database/rage/business/business/business.repository';
+import {Business} from 'instinct-rp-interfaces';
+import {BusinessSearchDTO} from './business.dto';
+import {HasSession} from '../session/has-session.decorator';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {businessWire} from '../database/rage/business/business/business.wire';
+import {BusinessEntity} from '../database/rage/business/business/business.entity';
+import {BusinessRepository} from '../database/rage/business/business/business.repository';
 
 @Controller('businesses')
 @HasSession()

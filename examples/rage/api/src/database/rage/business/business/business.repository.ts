@@ -1,5 +1,5 @@
 import {BusinessEntity} from './business.entity';
-import { EntityRepository, Like, Repository } from 'typeorm';
+import {EntityRepository, Like, Repository} from 'typeorm';
 
 @EntityRepository(BusinessEntity)
 export class BusinessRepository extends Repository<BusinessEntity> {
@@ -17,7 +17,7 @@ export class BusinessRepository extends Repository<BusinessEntity> {
         id: businessID,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
   searchByField<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {
@@ -28,5 +28,4 @@ export class BusinessRepository extends Repository<BusinessEntity> {
       relations: this.eagerRelations,
     });
   }
-
 }

@@ -1,34 +1,38 @@
-import { BusinessJob } from 'instinct-rp-interfaces';
-import { businessPositionWire } from './business-position.wire';
+import {Injectable} from '@nestjs/common';
+import {MoreThan, Repository} from 'typeorm';
+import {InjectRepository} from '@nestjs/typeorm';
+import {BusinessPosition} from 'instinct-rp-interfaces';
+import {businessPositionWire} from './business-position.wire';
 import {BusinessPositionEntity} from './business-position.entity';
-import { EntityRepository, MoreThan, Repository } from 'typeorm';
-import { BusinessJobApplicationEntity } from '../business-job-application/business-job-application.entity';
-import { BusinessJobApplicationRepository } from '../business-job-application/business-job-application.repository';
+import {BusinessJobApplicationEntity} from '../business-job-application/business-job-application.entity';
+import {BusinessJobApplicationRepository} from '../business-job-application/business-job-application.repository';
 
-@EntityRepository(BusinessPositionEntity)
-export class BusinessPositionRepository extends Repository<BusinessPositionEntity> {
+@Injectable()
+export class BusinessPositionRepository {
   readonly eagerRelations: string[] = [];
 
-  constructor(private readonly businessJobApplicationRepo: BusinessJobApplicationRepository) {
-    super();
-  }
+  constructor(
+    @InjectRepository(BusinessPositionEntity)
+    private readonly businessPositionRepo: Repository<BusinessPositionEntity>,
+    private readonly businessJobApplicationRepo: BusinessJobApplicationRepository
+  ) {}
 
   getAll(): Promise<BusinessPositionEntity[]> {
-    return this.find({
+    return this.businessPositionRepo.find({
       relations: this.eagerRelations,
-    })
+    });
   }
 
   getVacant(): Promise<BusinessPositionEntity[]> {
-    return this.find({
+    return this.businessPositionRepo.find({
       where: {
         vacantSpots: MoreThan(0),
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
-  async getVacantForUserID(userID: number): Promise<BusinessJob[]> {
+  async getVacantForUserID(userID: number): Promise<BusinessPosition[]> {
     const vacantJobs: BusinessPositionEntity[] = await this.getVacant();
     const jobApplication: Array<BusinessJobApplicationEntity | undefined> = await Promise.all(
       vacantJobs.map(x => this.businessJobApplicationRepo.findOneForUserAndBusiness(userID, x.businessID))
@@ -40,14 +44,11 @@ export class BusinessPositionRepository extends Repository<BusinessPositionEntit
   }
 
   findOneByIDOrFail(jobID: number): Promise<BusinessPositionEntity> {
-    return this.findOneOrFail({
+    return this.businessPositionRepo.findOneOrFail({
       where: {
         id: jobID,
       },
       relations: this.eagerRelations,
     });
   }
-
 }
-
-

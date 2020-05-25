@@ -1,5 +1,5 @@
 import {businessWire} from '../business/business.wire';
-import { BusinessPosition } from 'instinct-rp-interfaces';
+import {BusinessPosition} from 'instinct-rp-interfaces';
 import {BusinessApplyType} from '../business/business.types';
 import {BusinessPositionEntity} from './business-position.entity';
 
