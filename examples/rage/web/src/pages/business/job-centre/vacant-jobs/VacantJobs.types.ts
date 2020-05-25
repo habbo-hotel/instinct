@@ -1,11 +1,11 @@
-import { BusinessJob } from 'instinct-rp-interfaces';
+import { BusinessPosition } from 'instinct-rp-interfaces';
 
 export interface VacantJobsState {
-  jobs: BusinessJob[];
+  positions: BusinessPosition[];
   showSpinner: boolean;
 }
 
 export const defaultVacantJobsState: VacantJobsState = {
-  jobs: [],
+  positions: [],
   showSpinner: true,
 }

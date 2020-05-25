@@ -1,4 +1,4 @@
-import { Business, BusinessJob, BusinessJobApplication } from 'instinct-rp-interfaces';
+import { Business, BusinessJobApplication, BusinessPosition } from 'instinct-rp-interfaces';
 
 export interface BusinessService {
 
@@ -6,9 +6,11 @@ export interface BusinessService {
 
   getByID(gangID: number): Promise<Business>;
 
-  getVacantJobs(): Promise<BusinessJob[]>;
+  getAllPositions(): Promise<BusinessPosition[]>;
 
-  getJobByID(jobID: number): Promise<BusinessJob>;
+  getVacantPositions(): Promise<BusinessPosition[]>;
+
+  getPositionByID(positionID: number): Promise<BusinessPosition>;
 
   search(name: string): Promise<Business[]>;
 

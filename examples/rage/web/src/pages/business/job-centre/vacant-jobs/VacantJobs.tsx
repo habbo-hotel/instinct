@@ -3,38 +3,38 @@ import { BusinessBadge } from 'components';
 import { businessService } from 'app/service';
 import { Card, Loading } from 'instinct-frontend';
 import React, { useEffect, useState } from 'react';
-import { BusinessJob } from 'instinct-rp-interfaces';
+import { BusinessPosition} from 'instinct-rp-interfaces';
 import { defaultVacantJobsState, VacantJobsState } from './';
 
 export function VacantJobs() {
   const [ state, setState ] = useState<VacantJobsState>(defaultVacantJobsState);
 
   useEffect(() => {
-    async function fetchVacantJobs(): Promise<void> {
-      const jobs: BusinessJob[] = await businessService.getVacantJobs();
+    async function fetchVacantPositions(): Promise<void> {
+      const positions: BusinessPosition[] = await businessService.getVacantPositions();
       setState({
-        jobs,
+        positions,
         showSpinner: false,
       })
     }
-    fetchVacantJobs();
+    fetchVacantPositions();
   }, []);
 
   return (
     <Card header="Vacant Jobs">
       <Loading isLoading={state.showSpinner}>
         {
-          state.jobs.length === 0 && (
+          state.positions.length === 0 && (
             <p>There are no positions currently open.</p>
           )
         }
         {
-          state.jobs.map(job => (
-            <Link to={`/business/jobs/${job.id}`} key={job.id}>
-              <BusinessBadge business={job.business!}/>
-              <div className="user-count">{job.vacantSpots}</div>
-              <div className="name">{job.name} <small>$({job.salary}/h)</small></div>
-              <div className="desc">{job.business!.name}</div>
+          state.positions.map(position => (
+            <Link to={`/business/jobs/${position.id}`} key={position.id}>
+              <BusinessBadge business={position.business!}/>
+              <div className="user-count">{position.vacantSpots}</div>
+              <div className="name">{position.name} <small>$({position.salary}/h)</small></div>
+              <div className="desc">{position.business!.name}</div>
             </Link>
           ))
         }

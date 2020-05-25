@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { businessService } from 'app/service';
 import { Card, Form, Row, Icon } from 'instinct-frontend';
-import { ApplyForJobProps, ApplyForJobState, defaultApplyForJobState } from './';
+import { ApplyForBusinessProps, ApplyForPositionState, defaultApplyForPositionState } from './';
 
-export function ApplyForJob({ job }: ApplyForJobProps) {
-  const [state, setState] = useState<ApplyForJobState>(defaultApplyForJobState);
+export function ApplyForBusiness({ position }: ApplyForBusinessProps) {
+  const [state, setState] = useState<ApplyForPositionState>(defaultApplyForPositionState);
 
-  if (!job?.applicationRequired) {
+  if (!position?.applicationRequired) {
     return null;
   }
 
@@ -26,7 +26,7 @@ export function ApplyForJob({ job }: ApplyForJobProps) {
 
   async function submitApplication(): Promise<void> {
     setSpinner(true);
-    await businessService.applyForJob(job!.id, state.content);
+    await businessService.applyForJob(position!.id, state.content);
     setState({
       ...state,
       showSpinner: false,
@@ -34,7 +34,7 @@ export function ApplyForJob({ job }: ApplyForJobProps) {
     })
   }
 
-  const isDisabled: boolean = state.showSpinner || job?.alreadyApplied || state.content === '';
+  const isDisabled: boolean = state.showSpinner || position?.alreadyApplied || state.content === '';
 
   return (
     <Card header="Job Application">
@@ -42,12 +42,12 @@ export function ApplyForJob({ job }: ApplyForJobProps) {
         state.showSuccess && (
           <div style={{ textAlign: 'center' }}>
             <Icon className="fa-5x text-success" type="check"/>
-            <p>Your job application has been sent to {job?.business?.name}</p>
+            <p>Your job application has been sent to {position?.business?.name}</p>
           </div>
         )
       }
       {
-        job?.alreadyApplied && (
+        position?.alreadyApplied && (
           <div style={{ textAlign: 'center' }}>
             <Icon className="fa-5x text-info" type="sync"/>
             <p>Your application is being reviewed.</p>
@@ -55,7 +55,7 @@ export function ApplyForJob({ job }: ApplyForJobProps) {
         )
       }
       {
-        !state.showSuccess && !job?.alreadyApplied && (
+        !state.showSuccess && !position?.alreadyApplied && (
          <>
            <div className="container" style={{ padding: 0 }}>
              <b>Note:</b>
