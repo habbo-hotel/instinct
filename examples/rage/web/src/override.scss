@@ -8,6 +8,8 @@ $darkTeal: #004D40;
 $medianGray: #303030;
 $darkGray: #2E2E3B;
 
+$habboBlue: #0C4B70;
+
 body {
   background: #121212;
   color: white;
@@ -23,6 +25,7 @@ body {
 
   .page-header {
     background: $darkTeal;
+    background-repeat: no-repeat;
   }
 
 }
@@ -119,9 +122,12 @@ body {
 .logo-container {
   margin-top: 30px;
 }
-.form-control {
+
+.rounded-input, .rounded-textarea, .form-control {
+
   background: #444452;
   border-color: #2E2E3B;
+  color: white !important;
 
   &:focus {
     background: $darkGray;
@@ -141,4 +147,31 @@ body {
 .list-group-item {
   background: transparent;
   border-color: darken(white, 60%);
+}
+
+.text-dark {
+  color: darken(white, 12%) !important;
+}
+
+
+.login-popup {
+  background: #222222;
+
+  &:after {
+    background-image: url('/img/header/pattern.png');
+    background-color: #004D40;
+  }
+
+  h3 {
+    color: white;
+  }
+
+}
+
+.modal-content {
+  background: transparent;
+}
+
+.modal-backdrop.fade {
+  opacity: .7;
 }
