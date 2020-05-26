@@ -29,7 +29,7 @@ export class BusinessRepository {
         userID,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
 
   findManyWhere<T extends keyof BusinessEntity>(field: T, value: BusinessEntity[T]): Promise<BusinessEntity[]> {

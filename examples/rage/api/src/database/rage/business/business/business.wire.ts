@@ -1,14 +1,14 @@
 import * as Moment from 'moment';
-import { BusinessType } from './business.types';
-import { Business, BusinessType as BusinessTypeWire } from 'instinct-rp-interfaces';
-import { BusinessEntity } from './business.entity';
-import { userWire } from '../../user/user/user.wire';
-import { businessPositionWire } from '../business-position/business-position.wire';
+import {BusinessType} from './business.types';
+import {Business, BusinessType as BusinessTypeWire} from 'instinct-rp-interfaces';
+import {BusinessEntity} from './business.entity';
+import {userWire} from '../../user/user/user.wire';
+import {businessPositionWire} from '../business-position/business-position.wire';
 
 const businessTypeMap: Record<BusinessType, BusinessTypeWire> = {
   [BusinessType.State]: BusinessTypeWire.Government,
   [BusinessType.Private]: BusinessTypeWire.Private,
-}
+};
 
 export function businessWire(businessEntity: BusinessEntity): Business {
   return {

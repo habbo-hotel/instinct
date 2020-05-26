@@ -59,7 +59,6 @@ export class BusinessPositionRepository {
         rankID,
       },
       relations: this.eagerRelations,
-    })
+    });
   }
-
 }

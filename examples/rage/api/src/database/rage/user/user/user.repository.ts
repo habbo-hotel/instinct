@@ -1,20 +1,19 @@
 import * as Random from 'randomstring';
 import {UserEntity} from './user.entity';
 import {Injectable} from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import {InjectRepository} from '@nestjs/typeorm';
 import {HashService} from '../../../../common/hash.service';
-import { Like, Repository, SelectQueryBuilder } from 'typeorm';
-import { UserRPStatsEntity } from '../user-rp-stats/user-rp-stats.entity';
+import {Like, Repository, SelectQueryBuilder} from 'typeorm';
+import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
 
 @Injectable()
-export class UserRepository{
-
+export class UserRepository {
   readonly eagerRelations: string[] = [];
 
   constructor(
     private readonly hashService: HashService,
     @InjectRepository(UserEntity) private readonly userRepo: Repository<UserEntity>,
-    @InjectRepository(UserRPStatsEntity) private readonly userRPStatsRepository: Repository<UserRPStatsEntity>,
+    @InjectRepository(UserRPStatsEntity) private readonly userRPStatsRepository: Repository<UserRPStatsEntity>
   ) {}
 
   async createAndReturn(user: UserEntity): Promise<UserEntity> {
@@ -23,7 +22,7 @@ export class UserRepository{
       password: this.hashService.generate(user.password),
     });
 
-    await this.userRPStatsRepository.save({ userID: newUser.id! })
+    await this.userRPStatsRepository.save({userID: newUser.id!});
 
     return this.findOneByIDOrFail(newUser.id!);
   }
@@ -73,7 +72,4 @@ export class UserRepository{
   getQueryBuilder(): SelectQueryBuilder<UserEntity> {
     return this.userRepo.createQueryBuilder('user');
   }
-
 }
-
-

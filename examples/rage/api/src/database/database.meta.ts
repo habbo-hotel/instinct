@@ -19,7 +19,7 @@ import {BusinessRepository} from './rage/business/business/business.repository';
 import {ArticleRepository} from './instinct/article/article/article.repository';
 import {UserRPStatsEntity} from './rage/user/user-rp-stats/user-rp-stats.entity';
 import {ServerStatusRepository} from './rage/server-status/server-status.repository';
-import { UserRPStatsRepository } from './rage/user/user-rp-stats/user-rp-stats.repository';
+import {UserRPStatsRepository} from './rage/user/user-rp-stats/user-rp-stats.repository';
 import {BusinessPositionEntity} from './rage/business/business-position/business-position.entity';
 import {ArticleCategoryEntity} from './instinct/article/article-category/article-category.entity';
 import {BusinessPositionRepository} from './rage/business/business-position/business-position.repository';
@@ -52,4 +52,10 @@ export const databaseEntities: Function[] = [
   BusinessJobApplicationEntity,
 ];
 
-export const databaseCustomRepositories: Provider[] = [BusinessRepository,   UserRepository, UserRPStatsRepository, BusinessPositionRepository, BusinessJobApplicationRepository];
+export const databaseCustomRepositories: Provider[] = [
+  BusinessRepository,
+  UserRepository,
+  UserRPStatsRepository,
+  BusinessPositionRepository,
+  BusinessJobApplicationRepository,
+];

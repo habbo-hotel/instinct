@@ -5,19 +5,19 @@ import {GetSession} from './get-session.decorator';
 import {userWire} from '../database/rage/user/user/user.wire';
 import {UserEntity} from '../database/rage/user/user/user.entity';
 import {UserRepository} from '../database/rage/user/user/user.repository';
-import { businessWire } from '../database/rage/business/business/business.wire';
-import { BusinessEntity } from '../database/rage/business/business/business.entity';
-import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common';
-import { userRPStatsWire } from '../database/rage/user/user-rp-stats/user-rp-stats.wire';
-import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
-import { BusinessRepository } from '../database/rage/business/business/business.repository';
-import { UserRPStatsEntity } from '../database/rage/user/user-rp-stats/user-rp-stats.entity';
-import { UserRPStatsRepository } from '../database/rage/user/user-rp-stats/user-rp-stats.repository';
-import { BusinessPositionEntity } from '../database/rage/business/business-position/business-position.entity';
-import { BusinessPositionRepository } from '../database/rage/business/business-position/business-position.repository';
-import { businessJobApplicationWire } from '../database/rage/business/business-job-application/business-job-application.wire';
-import { BusinessJobApplicationEntity } from '../database/rage/business/business-job-application/business-job-application.entity';
-import { BusinessJobApplicationRepository } from '../database/rage/business/business-job-application/business-job-application.repository';
+import {businessWire} from '../database/rage/business/business/business.wire';
+import {BusinessEntity} from '../database/rage/business/business/business.entity';
+import {Body, Controller, Get, NotFoundException, Param, Post} from '@nestjs/common';
+import {userRPStatsWire} from '../database/rage/user/user-rp-stats/user-rp-stats.wire';
+import {Business, BusinessJobApplication, User, UserStats} from 'instinct-rp-interfaces';
+import {BusinessRepository} from '../database/rage/business/business/business.repository';
+import {UserRPStatsEntity} from '../database/rage/user/user-rp-stats/user-rp-stats.entity';
+import {UserRPStatsRepository} from '../database/rage/user/user-rp-stats/user-rp-stats.repository';
+import {BusinessPositionEntity} from '../database/rage/business/business-position/business-position.entity';
+import {BusinessPositionRepository} from '../database/rage/business/business-position/business-position.repository';
+import {businessJobApplicationWire} from '../database/rage/business/business-job-application/business-job-application.wire';
+import {BusinessJobApplicationEntity} from '../database/rage/business/business-job-application/business-job-application.entity';
+import {BusinessJobApplicationRepository} from '../database/rage/business/business-job-application/business-job-application.repository';
 
 @Controller('session')
 export class SessionController {
@@ -27,7 +27,7 @@ export class SessionController {
     private readonly businessRepo: BusinessRepository,
     private readonly userRPStatsRepo: UserRPStatsRepository,
     private readonly businessPositionRepo: BusinessPositionRepository,
-    private businessJobApplicationRepo: BusinessJobApplicationRepository,
+    private businessJobApplicationRepo: BusinessJobApplicationRepository
   ) {}
 
   @Post()
@@ -79,5 +79,4 @@ export class SessionController {
       throw new NotFoundException();
     }
   }
-
 }

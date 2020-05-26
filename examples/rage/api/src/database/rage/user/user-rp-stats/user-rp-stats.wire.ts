@@ -1,8 +1,8 @@
-import { UserStats} from 'instinct-rp-interfaces';
-import { UserRPStatsEntity } from './user-rp-stats.entity';
-import { gangWire } from '../../gang/gang/gang.wire';
-import { businessPositionWire } from '../../business/business-position/business-position.wire';
-import { BusinessPositionEntity } from '../../business/business-position/business-position.entity';
+import {UserStats} from 'instinct-rp-interfaces';
+import {UserRPStatsEntity} from './user-rp-stats.entity';
+import {gangWire} from '../../gang/gang/gang.wire';
+import {businessPositionWire} from '../../business/business-position/business-position.wire';
+import {BusinessPositionEntity} from '../../business/business-position/business-position.entity';
 
 export function userRPStatsWire(userRPStatsEntity: UserRPStatsEntity, businessPosition: BusinessPositionEntity): UserStats {
   return {
@@ -25,5 +25,5 @@ export function userRPStatsWire(userRPStatsEntity: UserRPStatsEntity, businessPo
     bankBalance: userRPStatsEntity.bankBalance,
     hasPhone: userRPStatsEntity.hasPhone === 1,
     hasCar: userRPStatsEntity.hasCar === 1,
-  }
+  };
 }
