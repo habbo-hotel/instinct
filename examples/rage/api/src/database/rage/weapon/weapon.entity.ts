@@ -5,8 +5,14 @@ export class WeaponEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
+  @Column({ name: 'wp_displayname', type: 'varchar' })
+  displayName!: string;
+
   @Column({type: 'varchar', length: 200})
   name!: string;
+
+  @Column({ type: 'text' })
+  desc!: string;
 
   @Column({name: 'wp_min_damage', type: 'int'})
   minDamage!: number;

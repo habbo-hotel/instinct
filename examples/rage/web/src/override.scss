@@ -6,6 +6,7 @@ $darkBlack: #212121;
 $darkTeal: #004D40;
 
 $medianGray: #303030;
+$darkGray: #2E2E3B;
 
 body {
   background: #121212;
@@ -117,4 +118,27 @@ body {
 
 .logo-container {
   margin-top: 30px;
+}
+.form-control {
+  background: #444452;
+  border-color: #2E2E3B;
+
+  &:focus {
+    background: $darkGray;
+  }
+
+}
+
+.card {
+  background: #121212;
+
+  .card-title {
+    text-transform: uppercase;
+  }
+
+}
+
+.list-group-item {
+  background: transparent;
+  border-color: darken(white, 60%);
 }

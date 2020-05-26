@@ -1,6 +1,7 @@
 import { WeaponService } from './';
 import { AxiosResponse } from 'axios';
-import { backendAPI, Weapon } from 'instinct-frontend';
+import { backendAPI } from 'instinct-frontend';
+import { Weapon } from 'instinct-rp-interfaces';
 
 class WeaponServiceImplementation implements WeaponService {
 
@@ -15,3 +16,5 @@ class WeaponServiceImplementation implements WeaponService {
   }
 
 }
+
+export const weaponService: WeaponService = new WeaponServiceImplementation();

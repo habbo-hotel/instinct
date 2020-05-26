@@ -4,8 +4,8 @@ import {Weapon} from 'instinct-rp-interfaces';
 export function weaponWire(weaponEntity: WeaponEntity): Weapon {
   return {
     id: weaponEntity.id!,
-    name: weaponEntity.name,
-    desc: 'Coming soon',
+    name: weaponEntity.displayName,
+    desc: weaponEntity.desc,
     effectID: weaponEntity.effectID,
     minDamage: weaponEntity.minDamage,
     maxDamage: weaponEntity.maxDamage,
