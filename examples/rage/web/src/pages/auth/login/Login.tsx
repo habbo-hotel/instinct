@@ -4,13 +4,20 @@ import { GuestLayout } from 'components';
 import { SessionContext } from 'app/context';
 import { defaultLoginState, LoginState } from './'
 import React, { useContext, useState } from 'react';
-import { Button, Card, Form, Icon, Loading, redirect, setURL } from 'instinct-frontend';
+import { Card, Form, Icon, Loading, redirect, setURL } from 'instinct-frontend';
 
 setURL('login', <Login />);
 
 export function Login() {
   const sessionContext = useContext(SessionContext);
   const [ state, setState ] = useState<LoginState>(defaultLoginState);
+
+  const keysToCheck: Array<keyof LoginState> = [
+    'username',
+    'password',
+  ];
+
+  const isDisabled: boolean = !!keysToCheck.find(key => state[key] === '') || state.showSpinner;
 
   function setValue<T extends keyof LoginState>(key: T, value: LoginState[T]): void {
     setState({
@@ -55,7 +62,7 @@ export function Login() {
                 </Link>
               </div>
               <div className="col-6 text-right">
-                <Button className="btn btn-success" type="submit">Let's Go</Button>
+                <button className="btn btn-success" disabled={isDisabled} type="submit">Let's Go</button>
               </div>
             </div>
           </Form>
