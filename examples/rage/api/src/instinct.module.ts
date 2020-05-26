@@ -7,6 +7,7 @@ import {RoomModule} from './room/room.module';
 import {CommonModule} from './common/common.module';
 import {ConfigModule} from './config/config.module';
 import {HealthModule} from './health/health.module';
+import {WeaponModule} from './weapon/weapon.module';
 import {ServeStaticModule} from '@nestjs/serve-static';
 import {ArticleModule} from './article/article.module';
 import {SessionModule} from './session/session.module';
@@ -22,6 +23,7 @@ import {BusinessModule} from './business/business.module';
     HealthModule,
     CommonModule,
     ConfigModule,
+    WeaponModule,
     ArticleModule,
     SessionModule,
     DatabaseModule,

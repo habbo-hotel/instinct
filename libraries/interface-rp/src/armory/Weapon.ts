@@ -2,7 +2,7 @@ export interface Weapon {
   id: number;
   name: string;
   desc: string;
-  swfName: string;
+  effectID: number;
   maxDamage: number;
   minDamage: number;
   range: number;
@@ -18,7 +18,7 @@ export const exampleWeapon: Weapon = {
   id: 1,
   name: 'M16',
   desc: 'The M16 is an Assault Rifle',
-  swfName: 'm16',
+  effectID: 1,
   maxDamage: 20,
   minDamage: 12,
   range: 5,
