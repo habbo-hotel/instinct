@@ -15,6 +15,7 @@ export function NavBar() {
           </NavBarDropdown>
           <NavBarDropdown text="Crime" to="/crime/gangs">
             <NavBarChildLink to="/crime/gangs">Gangs</NavBarChildLink>
+            <NavBarChildLink to="/crime/armory">Armory</NavBarChildLink>
           </NavBarDropdown>
           <NavBarLink to="/leaderboard">Leaderboard</NavBarLink>
           <li className="navigation-item navigation-right-side-item has-items">

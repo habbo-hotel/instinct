@@ -1,3 +1,4 @@
+export * from './armory';
 export * from './article';
 export * from './badge';
 export * from './business';
