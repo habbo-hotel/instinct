@@ -1,3 +1,4 @@
+import { take } from 'lodash';
 import { ArticleRow } from '../article-row';
 import { Article } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
@@ -27,7 +28,7 @@ export function LatestNews() {
         )
       }
       {
-        state.articles.map(article => (
+        take(state.articles, 3).map(article => (
           <ArticleRow article={article} key={article.id}/>
         ))
       }

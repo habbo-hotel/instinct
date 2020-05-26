@@ -8,7 +8,7 @@ export function UserGang({ profile }: UserProfileWidgetProps) {
       <h3>Gang</h3>
       {
         profile?.stats?.gang
-          ? <GangRow gang={profile.stats.gang}  style={{ background: 'white' }}/>
+          ? <GangRow gang={profile.stats.gang}/>
           : <p>This user doesn't belong to a gang</p>
       }
     </div>
