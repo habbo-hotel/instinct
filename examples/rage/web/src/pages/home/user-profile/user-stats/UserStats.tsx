@@ -13,7 +13,7 @@ export function UserStats({ profile }: UserProfileWidgetProps) {
 
   function renderStat<T extends keyof UserStatsT>(key: T) {
     return profile?.stats[key] !== undefined
-      ? profile?.stats[key].toLocaleString()
+      ? profile?.stats[key]
       : <Icon className="fa fa-spin" family="fas" type="spinner"/>
   }
 

@@ -1,10 +1,10 @@
-export interface LoginModalState {
+export interface LoginState {
   username: string;
   password: string;
   showSpinner: boolean;
 }
 
-export const defaultLoginModalState: LoginModalState = {
+export const defaultLoginState: LoginState = {
   username: '',
   password: '',
   showSpinner: false,
