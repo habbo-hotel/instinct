@@ -3,7 +3,7 @@ import {EntityRepository, Repository} from 'typeorm';
 
 @EntityRepository(RankEntity)
 export class RankRepository extends Repository<RankEntity> {
-  readonly eagerRelations: string[] = [];
+  readonly eagerRelations: string[] = ['users'];
 
   getAll(): Promise<RankEntity[]> {
     return this.find({
