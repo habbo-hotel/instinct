@@ -1,6 +1,6 @@
 import { sessionService } from 'app/service';
 import React, { PureComponent } from 'react';
-import { exampleUser, User } from 'instinct-interfaces';
+import { exampleUser, User } from 'instinct-rp-interfaces';
 import { ClientEvent, clientService } from 'instinct-frontend';
 import { SessionContext, SessionTypes, SessionProviderProps } from './';
 

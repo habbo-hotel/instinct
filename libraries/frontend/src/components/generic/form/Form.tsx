@@ -1,10 +1,10 @@
 import { FormProps } from './';
 import React, { SyntheticEvent } from 'react';
 
-export function Form({ children, className, onSubmit }: FormProps) {
+export function Form({ children, className, disabled = false, onSubmit }: FormProps) {
   function handleOnSubmit(event: SyntheticEvent): void {
     event.preventDefault();
-    if (onSubmit) {
+    if (onSubmit && !disabled) {
       onSubmit();
     }
   }

@@ -10,18 +10,10 @@ export function Card(props: CardProps) {
         <div className="aside-title">
           {icon && <Icon type={icon} />}
           <h3>{header}</h3>
-          {
-            subHeader && (
-              <p>{subHeader}</p>
-            )
-          }
+          {subHeader && <p>{subHeader}</p>}
         </div>
       )}
-      {
-        children && (
-          <div className="aside-content">{children}</div>
-        )
-      }
+      {children && <div className="aside-content">{children}</div>}
     </article>
   );
 }

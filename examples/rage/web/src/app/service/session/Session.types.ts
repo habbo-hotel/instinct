@@ -28,6 +28,13 @@ export interface SessionService {
 
   getApplicationByID(applicationID: number): Promise<BusinessJobApplication>;
 
+  updatePassword(oldPassword: string, newPassword: string, newPasswordAgain: string): Promise<void>;
+
+  updateProfile(youtube: string): Promise<void>;
+
+  updateEmail(email: string, password: string): Promise<void>;
+
+
   // Removes the user's bearer token from localStorage
   logout(): void;
 }

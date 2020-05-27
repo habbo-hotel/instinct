@@ -5,6 +5,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 describe('Column', () => {
   const columnProps: ColumnProps = {
     children: <span>Column Test</span>,
+    side: 'left',
   };
 
   it('will have a column div', () => {

@@ -1,6 +1,6 @@
-import { createContext } from 'react';
 import { SessionTypes } from './';
-import { exampleUser, User } from 'instinct-interfaces';
+import { createContext } from 'react';
+import { exampleUser, User } from 'instinct-rp-interfaces';
 
 export const SessionContext = createContext<SessionTypes>({
   setStore: () => {},

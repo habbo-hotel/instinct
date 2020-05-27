@@ -69,6 +69,28 @@ class SessionServiceImplementation implements SessionService {
     return jobApplication.data;
   }
 
+  async updateProfile(youtube: string) {
+    await backendAPI.patch('session/settings/profile', {
+      youtube,
+    });
+  }
+
+  async updatePassword(oldPassword: string, newPassword: string, newPasswordAgain: string) {
+    await backendAPI.patch('session/settings/password', {
+      oldPassword,
+      newPassword,
+      newPasswordAgain,
+    });
+  }
+
+  async updateEmail(email: string, password: string) {
+    await backendAPI.patch('session/settings/email', {
+      email,
+      password,
+    });
+  }
+
+
   logout()  {
     localStorageService.delete(this.localStorageKey);
   }
