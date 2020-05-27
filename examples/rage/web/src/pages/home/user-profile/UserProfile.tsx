@@ -3,6 +3,7 @@ import { UserGang } from './user-gang';
 import { useParams } from 'react-router';
 import { UserStats } from './user-stats';
 import { userService } from 'app/service';
+import { YoutubeVideo } from './youtube-video';
 import { UserContainer } from './user-container';
 import { UserEmployment } from './user-employment';
 import React, { useEffect, useState } from 'react';
@@ -43,6 +44,7 @@ export function UserProfile() {
           </Column>
           <Column side="left">
             <UserStats profile={state.profile}/>
+            <YoutubeVideo profile={state.profile}/>
           </Column>
         </Container>
       </Loading>

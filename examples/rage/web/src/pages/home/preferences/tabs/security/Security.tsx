@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sessionService } from 'app/service';
 import { Form, Icon, Input, Row } from 'instinct-frontend';
 import { defaultSecurityPreferencesState, SecurityPreferencesState } from './';
 
@@ -23,13 +24,28 @@ export function SecurityPreferences() {
 
   async function onSubmit(): Promise<void> {
     toggleSpinner(true);
-    setTimeout(() => {
-      toggleSpinner(false);
-    }, 1200);
+    await sessionService.updatePassword(state.currentPassword, state.newPassword, state.newPasswordAgain);
+    setState({
+      ...state,
+      showSuccess: true,
+    })
+  }
+
+  if (state.showSuccess) {
+    return (
+      <div className="text-center">
+        <h4>
+          <Icon className="" family="fas" type="thumbs-up"/>
+          <br/>
+          Password Updated
+        </h4>
+        <p>Your password has been updated.</p>
+      </div>
+    )
   }
 
   return (
-    <Form className="" onSubmit={onSubmit}>
+    <Form className="" disabled={isDisabled} onSubmit={onSubmit}>
       <div>
         <h4 className="form-subcategory">Current Password</h4>
         <Row>

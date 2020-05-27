@@ -3,6 +3,7 @@ export interface SecurityPreferencesState {
   newPassword: string;
   newPasswordAgain: string;
   showSpinner: boolean;
+  showSuccess: boolean;
 }
 
 export const defaultSecurityPreferencesState: SecurityPreferencesState = {
@@ -10,4 +11,5 @@ export const defaultSecurityPreferencesState: SecurityPreferencesState = {
   newPassword: '',
   newPasswordAgain: '',
   showSpinner: false,
+  showSuccess: false,
 }

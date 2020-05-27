@@ -41,13 +41,12 @@ export function EmailPreferences() {
         <h4>
           <Icon className="" family="fas" type="thumbs-up"/>
           <br/>
-          EmailUpdated
+          Email Updated
         </h4>
         <p>Your email has been updated.</p>
       </div>
     )
   }
-
 
   return (
     <>
