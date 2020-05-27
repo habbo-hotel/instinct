@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { userService } from 'app/service';
 import { User } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
+import { Avatar, Loading } from 'instinct-frontend';
 import { defaultLeaderboardState, LeaderBoardState } from '../';
-import { Avatar, Loading, userService } from 'instinct-frontend';
 
 export function MostMoney() {
   const [state, setState] = useState<LeaderBoardState>(defaultLeaderboardState);

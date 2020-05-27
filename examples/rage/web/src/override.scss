@@ -190,3 +190,7 @@ p {
   }
 
 }
+
+.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(2) a {
+  color: white;
+}
