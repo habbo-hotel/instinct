@@ -70,6 +70,9 @@ export class UserEntity {
   @Column({name: 'home_room', default: 0})
   homeRoom!: number;
 
+  @Column()
+  youtube!: string;
+
   @OneToMany(() => RoomEntity, room => room.owner)
   @JoinColumn({name: 'username'})
   rooms?: RoomEntity[];

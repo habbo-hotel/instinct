@@ -1,5 +1,5 @@
-import {BusinessPosition, Rank} from '../';
 import {Gang} from '../gang';
+import {BusinessPosition, Rank} from '../';
 
 export interface User {
   id: number;
@@ -12,6 +12,7 @@ export interface User {
   figure: string;
   joinDate: string; // ISO Date
   lastLoginDate: string; // ISO Date
+  youtube: string;
   job?: BusinessPosition;
   rank?: Omit<Rank, 'users'>;
   gangs?: Array<Omit<Gang, 'owner'>>;
@@ -29,4 +30,5 @@ export const exampleUser: User = {
   figure: 'sh-908-92.hd-180-1015.lg-285-77.hr-828-158640.ch-210-153640',
   joinDate: new Date().toISOString(),
   lastLoginDate: new Date().toISOString(),
+  youtube: '',
 };

@@ -69,6 +69,19 @@ export class UserRepository {
     });
   }
 
+  async updateByIDOrFail(userID: number, changes: Partial<UserEntity>): Promise<UserEntity> {
+    await this.findOneByIDOrFail(userID);
+    return this.userRepo.save({
+      id: userID,
+      ...changes,
+    })
+  }
+
+  async checkPasswordByID(hashedPassword: string, unHashedPassword: string): Promise<boolean> {
+    const samePassword: boolean = await this.hashService.compare(unHashedPassword, hashedPassword);
+    return samePassword;
+  }
+
   getQueryBuilder(): SelectQueryBuilder<UserEntity> {
     return this.userRepo.createQueryBuilder('user');
   }
