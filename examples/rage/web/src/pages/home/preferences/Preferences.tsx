@@ -1,4 +1,5 @@
 import React from 'react';
+import './Preferences.scss';
 import { UserLayout } from 'components';
 import { preferenceTabs } from './tabs';
 import { Container, Jumbotron, Loading, Row, TabCard, setURL } from 'instinct-frontend';
@@ -7,7 +8,7 @@ setURL('preferences', <PreferencesPage />);
 
 export function PreferencesPage() {
   return (
-    <UserLayout section="settings_">
+    <UserLayout section="preferences">
       <Loading isLoading={false}>
         <Jumbotron title="Account Settings">
           <p>Set your preferences, update your email, and secure your account from your personal portal.</p>

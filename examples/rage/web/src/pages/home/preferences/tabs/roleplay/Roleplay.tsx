@@ -1,13 +1,14 @@
+import Toggle from 'react-toggle';
 import React, { useState } from 'react';
 import { Form, Icon, Input, Row } from 'instinct-frontend';
-import { defaultProfilePreferencesState, ProfilePreferencesState } from './';
+import { defaultRoleplayPreferencesState, RoleplayPreferencesState } from './';
 
-export function ProfilePreferences() {
-  const [ state, setState ] = useState<ProfilePreferencesState>(defaultProfilePreferencesState);
+export function RoleplayPreferences() {
+  const [ state, setState ] = useState<RoleplayPreferencesState>(defaultRoleplayPreferencesState);
 
-  const isDisabled: boolean = state.youtube === '' || state.showSpinner;
+  const isDisabled: boolean = state.showSpinner;
 
-  function updateField<K extends keyof ProfilePreferencesState>(key: K, value: ProfilePreferencesState[K]): void {
+  function updateField<K extends keyof RoleplayPreferencesState>(key: K, value: RoleplayPreferencesState[K]): void {
     setState({
       ...state,
       [key]: value,
@@ -31,15 +32,15 @@ export function ProfilePreferences() {
   return (
     <Form className="" onSubmit={onSubmit}>
       <div>
-        <h4 className="form-subcategory">Youtube Video</h4>
+        <h4 className="form-subcategory">Passive Mode</h4>
         <Row>
-          <div className="column-2">
-            <Input type="email" name="youtube" placeholder="5x-d3pabd5o" value={state.youtube} onChange={updateField}/>
+          <div className="column-2 ml-3 mt-2">
+            <Toggle/>
           </div>
         </Row>
       </div>
       <div className="form-help">
-        <p>Hint: It looks like <b>5x-d3pabd5o</b></p>
+        <p>Passive mode disables the ability to receive damage, participate in crime or do damage to others.</p>
       </div>
       <div className="submit-button">
         <button className="rounded-button grey" disabled={isDisabled} type="submit">
