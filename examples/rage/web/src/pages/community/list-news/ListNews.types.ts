@@ -8,4 +8,4 @@ export interface ListNewsState {
 export const defaultListNewsState: ListNewsState = {
   articles: [],
   showSpinner: true,
-}
+};

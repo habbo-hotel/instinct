@@ -8,8 +8,7 @@ export const exampleNewBusiness: NewBusiness = {
   name: '',
   description: '',
   badge: 'world',
-}
-
+};
 
 export interface CreateBusinessState {
   business: NewBusiness;
@@ -19,4 +18,4 @@ export interface CreateBusinessState {
 export const defaultCreateBusinessState: CreateBusinessState = {
   business: exampleNewBusiness,
   showSpinner: false,
-}
+};

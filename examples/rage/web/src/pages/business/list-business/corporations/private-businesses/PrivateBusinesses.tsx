@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { PrivateBusinessesState, defaultPrivateBusinessesState } from './index';
 
 export function PrivateBusinesses() {
-  const [ state, setState ] = useState<PrivateBusinessesState>(defaultPrivateBusinessesState);
+  const [state, setState] = useState<PrivateBusinessesState>(defaultPrivateBusinessesState);
 
   useEffect(() => {
     async function fetchPrivateBusinesses(): Promise<void> {
@@ -23,20 +23,15 @@ export function PrivateBusinesses() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
-        {
-          state.businesses.length === 0 && !state.showSpinner && (
-            <p>It appears there aren't any private businesses.</p>
-          )
-        }
-        {
-          state.businesses.map(business => (
-            <BusinessRow business={business} key={business.id}>
-              <p style={{ marginTop: -20 }}>Owned by <b>{business.owner.username}</b></p>
-            </BusinessRow>
-          ))
-        }
+        {state.businesses.length === 0 && !state.showSpinner && <p>It appears there aren't any private businesses.</p>}
+        {state.businesses.map((business) => (
+          <BusinessRow business={business} key={business.id}>
+            <p style={{ marginTop: -20 }}>
+              Owned by <b>{business.owner.username}</b>
+            </p>
+          </BusinessRow>
+        ))}
       </Loading>
     </Card>
-  )
-
+  );
 }

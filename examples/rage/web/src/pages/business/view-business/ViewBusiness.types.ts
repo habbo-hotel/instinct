@@ -8,7 +8,7 @@ export interface ViewBusinessState {
 export const defaultViewBusinessState: ViewBusinessState = {
   business: undefined,
   showSpinner: true,
-}
+};
 
 export interface BusinessTypeHandlerProps {
   business?: Business;

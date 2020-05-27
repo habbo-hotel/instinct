@@ -1,7 +1,7 @@
 import React from 'react';
 import { AdminLayout, Card, Column, Container, Jumbotron, Row, setURL } from 'instinct-frontend';
 
-setURL('admin/website', <WebsiteSettings/>);
+setURL('admin/website', <WebsiteSettings />);
 
 export function WebsiteSettings() {
   return (
@@ -19,5 +19,5 @@ export function WebsiteSettings() {
         </Row>
       </Container>
     </AdminLayout>
-  )
+  );
 }

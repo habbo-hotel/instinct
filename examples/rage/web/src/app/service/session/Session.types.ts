@@ -34,7 +34,6 @@ export interface SessionService {
 
   updateEmail(email: string, password: string): Promise<void>;
 
-
   // Removes the user's bearer token from localStorage
   logout(): void;
 }

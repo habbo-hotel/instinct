@@ -8,4 +8,4 @@ export interface PopularGangsState {
 export const defaultPopularGangsState: PopularGangsState = {
   gangs: [],
   showSpinner: true,
-}
+};

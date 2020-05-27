@@ -4,4 +4,4 @@ export interface RoleplayPreferencesState {
 
 export const defaultRoleplayPreferencesState: RoleplayPreferencesState = {
   showSpinner: false,
-}
+};

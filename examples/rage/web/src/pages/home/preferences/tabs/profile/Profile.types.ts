@@ -8,4 +8,4 @@ export const defaultProfilePreferencesState: ProfilePreferencesState = {
   youtube: '',
   showSuccess: false,
   showSpinner: false,
-}
+};

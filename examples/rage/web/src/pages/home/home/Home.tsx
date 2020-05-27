@@ -1,7 +1,7 @@
 import React from 'react';
 import { MyProfile } from './my-profile';
 import { LatestNews, UserLayout } from 'components';
-import { Container, Column, setURL, PopularRooms  } from 'instinct-frontend';
+import { Container, Column, setURL, PopularRooms } from 'instinct-frontend';
 
 setURL('home', <Home />);
 
@@ -15,7 +15,7 @@ export function Home() {
           <PopularRooms />
         </Column>
         <Column side="right">
-          <LatestNews/>
+          <LatestNews />
         </Column>
       </Container>
     </UserLayout>

@@ -18,11 +18,11 @@ export function CallForHelpWidget() {
 
   return (
     <Widget>
-      <HotelAlert title="Call For Help" onToggle={ onToggle }>
+      <HotelAlert title="Call For Help" onToggle={onToggle}>
         <Form className="">
           <div className="form-group">
             <h3>What is the problem</h3>
-            <input className="form-control"/>
+            <input className="form-control" />
           </div>
         </Form>
       </HotelAlert>

@@ -11,8 +11,8 @@ export function App() {
   return (
     <ContextProviders>
       <Router />
-      <Client/>
-      <DataPolling/>
+      <Client />
+      <DataPolling />
       <ToastContainer />
     </ContextProviders>
   );

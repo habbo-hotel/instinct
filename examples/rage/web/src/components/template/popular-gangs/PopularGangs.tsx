@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { defaultPopularGangsState, PopularGangsState } from './';
 
 export function PopularGangs() {
-  const [state, setState ] = useState<PopularGangsState>(defaultPopularGangsState);
+  const [state, setState] = useState<PopularGangsState>(defaultPopularGangsState);
 
   useEffect(() => {
     async function fetchPopularGangs(): Promise<void> {
@@ -23,23 +23,17 @@ export function PopularGangs() {
   return (
     <Card header="Top Gangs">
       <Loading isLoading={state.showSpinner}>
-        {
-          state.gangs.length === 0 && !state.showSpinner && (
-            <p>It appears there aren't any gangs yet.</p>
-          )
-        }
-        {
-          state.gangs.map(gang => (
-            <Link to={`/crime/gangs/${gang.id}`} key={gang.id}>
-              <div className="gang-container">
-                <div className="user-count">0</div>
-                <div className="name">{gang.name}</div>
-                <div className="desc">{gang.kills} kills</div>
-              </div>
-            </Link>
-          ))
-        }
+        {state.gangs.length === 0 && !state.showSpinner && <p>It appears there aren't any gangs yet.</p>}
+        {state.gangs.map((gang) => (
+          <Link to={`/crime/gangs/${gang.id}`} key={gang.id}>
+            <div className="gang-container">
+              <div className="user-count">0</div>
+              <div className="name">{gang.name}</div>
+              <div className="desc">{gang.kills} kills</div>
+            </div>
+          </Link>
+        ))}
       </Loading>
     </Card>
-  )
+  );
 }

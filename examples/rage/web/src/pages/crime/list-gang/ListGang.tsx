@@ -4,7 +4,7 @@ import { MyGang, UserLayout } from 'components';
 import { GangContainer } from './gang-container';
 import { Card, Column, Container, Icon, Jumbotron, setURL } from 'instinct-frontend';
 
-setURL('crime/gangs', <ListGang/>);
+setURL('crime/gangs', <ListGang />);
 
 export function ListGang() {
   return (
@@ -15,27 +15,31 @@ export function ListGang() {
       <Container>
         <h3>Gangs</h3>
         <Column side="left">
-          <GangContainer/>
+          <GangContainer />
         </Column>
         <Column side="right">
           <Card>
             <b>Introduction</b>
-            <br/>
+            <br />
             <p>Gangs let users form deadly alliances for capturing turf, engaging in heists or general mayhem.</p>
-            <br/><br/>
+            <br />
+            <br />
 
             <b>Turfs</b>
-            <br/>
+            <br />
             <p>Turfs are properties within the city you can take over for additional income, XP and to show off.</p>
-            <br/><br/>
+            <br />
+            <br />
 
-            <b><Icon family="fas" type="info-circle"/> Did you know?</b>
-            <br/>
+            <b>
+              <Icon family="fas" type="info-circle" /> Did you know?
+            </b>
+            <br />
             <p>Police cannot enter a turf under any circumstances.</p>
           </Card>
-          <MyGang/>
+          <MyGang />
         </Column>
       </Container>
     </UserLayout>
-  )
+  );
 }

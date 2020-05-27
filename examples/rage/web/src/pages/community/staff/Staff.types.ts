@@ -1,6 +1,6 @@
 import { Rank } from 'instinct-rp-interfaces';
 
-export interface StaffState{
+export interface StaffState {
   ranks: Rank[];
   showSpinner: boolean;
 }
@@ -8,4 +8,4 @@ export interface StaffState{
 export const defaultStaffState: StaffState = {
   ranks: [],
   showSpinner: true,
-}
+};

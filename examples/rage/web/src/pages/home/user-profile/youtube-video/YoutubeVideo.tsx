@@ -14,5 +14,5 @@ export function YoutubeVideo({ profile }: UserProfileWidgetProps) {
         allowFullScreen
       />
     </Card>
-  )
+  );
 }

@@ -7,9 +7,9 @@ import { Widgets } from './widgets/Widgets';
 export function ClientUI() {
   return (
     <div id="client-ui">
-      <UserStatus/>
-      <Widgets/>
-      <ActionBar/>
+      <UserStatus />
+      <Widgets />
+      <ActionBar />
     </div>
-  )
+  );
 }

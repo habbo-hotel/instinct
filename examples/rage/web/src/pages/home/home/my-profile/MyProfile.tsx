@@ -19,7 +19,7 @@ export function MyProfile() {
           <Avatar className="figure" look={user?.figure} />
         </div>
         <div className="stats">
-          <br/>
+          <br />
         </div>
       </div>
     </article>

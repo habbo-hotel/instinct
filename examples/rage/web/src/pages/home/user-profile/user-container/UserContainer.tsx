@@ -13,7 +13,10 @@ export function UserContainer({ profile }: UserProfileWidgetProps) {
           <div className="header-details">
             <div className="header-title">{profile?.user.username}</div>
             <div className="header-description" />
-            <br/><br/><br/><br/>
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       </div>

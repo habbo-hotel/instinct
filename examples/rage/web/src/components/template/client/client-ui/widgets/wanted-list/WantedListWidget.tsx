@@ -8,7 +8,7 @@ export function WantedListWidget() {
   function onToggle(): void {
     themeContext.setStore!({
       showWantedListWidget: !themeContext.showWantedListWidget,
-    })
+    });
   }
 
   if (!themeContext.showWantedListWidget) {
@@ -21,5 +21,5 @@ export function WantedListWidget() {
         <p>Coming soon</p>
       </HotelAlert>
     </Widget>
-  )
+  );
 }

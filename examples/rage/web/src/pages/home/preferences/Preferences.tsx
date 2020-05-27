@@ -16,7 +16,7 @@ export function PreferencesPage() {
         <Container>
           <Row>
             <article className="default-section">
-              <TabCard header="Preferences" tabs={preferenceTabs}/>
+              <TabCard header="Preferences" tabs={preferenceTabs} />
             </article>
           </Row>
         </Container>

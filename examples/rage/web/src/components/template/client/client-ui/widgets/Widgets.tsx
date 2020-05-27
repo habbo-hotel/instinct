@@ -5,8 +5,8 @@ import { WantedListWidget } from './wanted-list';
 export function Widgets() {
   return (
     <>
-      <CallForHelpWidget/>
-      <WantedListWidget/>
+      <CallForHelpWidget />
+      <WantedListWidget />
     </>
-  )
+  );
 }

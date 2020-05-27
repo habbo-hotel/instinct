@@ -12,4 +12,4 @@ export const defaultSecurityPreferencesState: SecurityPreferencesState = {
   newPasswordAgain: '',
   showSpinner: false,
   showSuccess: false,
-}
+};

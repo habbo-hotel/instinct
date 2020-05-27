@@ -4,7 +4,7 @@ import { Form, Icon, Input, ModalOverlay, Row } from 'instinct-frontend';
 import { defaultEmailPreferencesState, EmailPreferencesState } from './';
 
 export function EmailPreferences() {
-  const [ state, setState ] = useState<EmailPreferencesState>(defaultEmailPreferencesState);
+  const [state, setState] = useState<EmailPreferencesState>(defaultEmailPreferencesState);
 
   const isDisabled: boolean = state.email === '' || state.showSpinner;
 
@@ -12,21 +12,21 @@ export function EmailPreferences() {
     setState({
       ...state,
       [key]: value,
-    })
+    });
   }
 
   function toggleSpinner(showSpinner: boolean): void {
     setState({
       ...state,
       showSpinner,
-    })
+    });
   }
 
   async function onSubmit(): Promise<void> {
     setState({
       ...state,
       showModal: true,
-    })
+    });
   }
 
   async function doUpdate(): Promise<void> {
@@ -39,13 +39,13 @@ export function EmailPreferences() {
     return (
       <div className="text-center">
         <h4>
-          <Icon className="" family="fas" type="thumbs-up"/>
-          <br/>
+          <Icon className="" family="fas" type="thumbs-up" />
+          <br />
           Email Updated
         </h4>
         <p>Your email has been updated.</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -55,7 +55,7 @@ export function EmailPreferences() {
           <h4 className="form-subcategory">Email Address</h4>
           <Row>
             <div className="column-2">
-              <Input type="email" name="email" value={state.email} onChange={updateField}/>
+              <Input type="email" name="email" value={state.email} onChange={updateField} />
             </div>
           </Row>
         </div>
@@ -73,20 +73,16 @@ export function EmailPreferences() {
           <div>
             <h4 className="form-subcategory">What is your current password?</h4>
             <Row>
-              <Input type="password" name="password" value={state.password} onChange={updateField}/>
+              <Input type="password" name="password" value={state.password} onChange={updateField} />
             </Row>
           </div>
           <div className="submit-button">
             <button className="rounded-button grey" disabled={state.password === ''} type="submit">
-              {
-                state.showSpinner
-                  ? <Icon className="fa-spin" type="spinner"/>
-                  : 'Save'
-              }
+              {state.showSpinner ? <Icon className="fa-spin" type="spinner" /> : 'Save'}
             </button>
           </div>
         </Form>
       </ModalOverlay>
     </>
-  )
+  );
 }

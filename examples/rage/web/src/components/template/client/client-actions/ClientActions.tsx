@@ -20,9 +20,7 @@ export function ClientActions() {
     setExpanded(!isExpanded);
   }
 
-  async function refreshClient(): Promise<void> {
-
-  }
+  async function refreshClient(): Promise<void> {}
 
   return (
     <div className="actions">
@@ -35,7 +33,7 @@ export function ClientActions() {
         <b>{healthContext.usersOnline}</b>
       </button>
       <button onChange={refreshClient}>
-        <Icon className="mr-0" family="fas" type="redo"/>
+        <Icon className="mr-0" family="fas" type="redo" />
       </button>
     </div>
   );

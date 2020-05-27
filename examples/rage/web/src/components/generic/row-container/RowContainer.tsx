@@ -9,5 +9,5 @@ export function RowContainer({ children, header, image, users }: RowContainerPro
       <div className="name">{header}</div>
       <div className="desc">{children}</div>
     </div>
-  )
+  );
 }

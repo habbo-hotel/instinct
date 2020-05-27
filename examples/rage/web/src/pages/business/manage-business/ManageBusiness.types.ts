@@ -8,4 +8,4 @@ export interface ManageBusinessState {
 export const defaultManageBusinessState: ManageBusinessState = {
   business: undefined,
   showSpinner: true,
-}
+};

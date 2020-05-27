@@ -27,5 +27,5 @@ export function UserLayout({ children, section, style }: UserLayoutProps) {
       </span>
       <Footer />
     </UserGuard>
-  )
+  );
 }

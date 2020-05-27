@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { defaultGovernmentBusinessesState, GovernmentBusinessesState } from './index';
 
 export function GovernmentBusinesses() {
-  const [ state, setState ] = useState<GovernmentBusinessesState>(defaultGovernmentBusinessesState);
+  const [state, setState] = useState<GovernmentBusinessesState>(defaultGovernmentBusinessesState);
 
   useEffect(() => {
     async function fetchGovernmentBusinesses(): Promise<void> {
@@ -23,19 +23,15 @@ export function GovernmentBusinesses() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
-        {
-          state.businesses.length === 0 && !state.showSpinner && (
-            <p>It appears there aren't any government businesses.</p>
-          )
-        }
-      {
-        state.businesses.map(business => (
+        {state.businesses.length === 0 && !state.showSpinner && <p>It appears there aren't any government businesses.</p>}
+        {state.businesses.map((business) => (
           <BusinessRow business={business} key={business.id}>
-            <p style={{ marginTop: -20 }}>Directed by <b>{business.owner.username}</b></p>
+            <p style={{ marginTop: -20 }}>
+              Directed by <b>{business.owner.username}</b>
+            </p>
           </BusinessRow>
-        )) }
-  </Loading>
-  </Card>
-)
-
+        ))}
+      </Loading>
+    </Card>
+  );
 }

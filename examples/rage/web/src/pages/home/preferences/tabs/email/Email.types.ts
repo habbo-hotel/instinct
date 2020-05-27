@@ -12,4 +12,4 @@ export const defaultEmailPreferencesState: EmailPreferencesState = {
   showModal: false,
   showSuccess: false,
   showSpinner: false,
-}
+};

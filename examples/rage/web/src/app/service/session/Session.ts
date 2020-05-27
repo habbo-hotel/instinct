@@ -1,6 +1,6 @@
 import { SessionService } from './';
 import { AxiosResponse } from 'axios';
-import { backendAPI, setAPIToken, localStorageService} from 'instinct-frontend';
+import { backendAPI, setAPIToken, localStorageService } from 'instinct-frontend';
 import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
 
 class SessionServiceImplementation implements SessionService {
@@ -90,8 +90,7 @@ class SessionServiceImplementation implements SessionService {
     });
   }
 
-
-  logout()  {
+  logout() {
     localStorageService.delete(this.localStorageKey);
   }
 }

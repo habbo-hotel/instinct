@@ -5,9 +5,7 @@ import Draggable from 'react-draggable';
 export function Widget({ children }: WidgetProps) {
   return (
     <Draggable>
-      <div>
-        {children}
-      </div>
+      <div>{children}</div>
     </Draggable>
-  )
+  );
 }

@@ -4,7 +4,6 @@ import { backendAPI } from 'instinct-frontend';
 import { Business, BusinessJobApplication, BusinessPosition } from 'instinct-rp-interfaces';
 
 class BusinessServiceImplementation implements BusinessService {
-
   async getAll() {
     const businesses: AxiosResponse<Business[]> = await backendAPI.get('businesses');
     return businesses.data;
@@ -21,7 +20,7 @@ class BusinessServiceImplementation implements BusinessService {
   }
 
   async getByID(businessID: number) {
-    const business: AxiosResponse<Business> = await backendAPI.get(`businesses/${ businessID }`);
+    const business: AxiosResponse<Business> = await backendAPI.get(`businesses/${businessID}`);
     return business.data;
   }
 
@@ -46,10 +45,11 @@ class BusinessServiceImplementation implements BusinessService {
   }
 
   async applyForJob(jobID: number, content: string) {
-    const jobApplication: AxiosResponse<BusinessJobApplication> = await backendAPI.post(`businesses/jobs/${jobID}/application`, { content });
+    const jobApplication: AxiosResponse<BusinessJobApplication> = await backendAPI.post(`businesses/jobs/${jobID}/application`, {
+      content,
+    });
     return jobApplication.data;
   }
-
 }
 
 export const businessService: BusinessService = new BusinessServiceImplementation();

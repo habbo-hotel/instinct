@@ -8,4 +8,4 @@ export interface ViewApplicationState {
 export const defaultViewApplicationState: ViewApplicationState = {
   application: undefined,
   showSpinner: true,
-}
+};

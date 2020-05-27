@@ -8,10 +8,14 @@ export function BusinessRow({ business, children }: BusinessRowProps) {
   const configContext = useContext(ConfigContext);
   return (
     <Link style={{ textDecoration: 'none' }} to={`/businesses/${business.id!}`}>
-      <RowContainer image={`${configContext.siteLink}/swfs/assets/c_images/corp-badges/${business.badge}.gif`} header={business.name} users={business.totalEmployees}>
+      <RowContainer
+        image={`${configContext.siteLink}/swfs/assets/c_images/corp-badges/${business.badge}.gif`}
+        header={business.name}
+        users={business.totalEmployees}
+      >
         <p>{business.desc}</p>
         {children}
       </RowContainer>
     </Link>
-  )
+  );
 }

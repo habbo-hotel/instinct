@@ -4,7 +4,7 @@ import { Form, Icon, Input, Row } from 'instinct-frontend';
 import { defaultRoleplayPreferencesState, RoleplayPreferencesState } from './';
 
 export function RoleplayPreferences() {
-  const [ state, setState ] = useState<RoleplayPreferencesState>(defaultRoleplayPreferencesState);
+  const [state, setState] = useState<RoleplayPreferencesState>(defaultRoleplayPreferencesState);
 
   const isDisabled: boolean = state.showSpinner;
 
@@ -12,14 +12,14 @@ export function RoleplayPreferences() {
     setState({
       ...state,
       [key]: value,
-    })
+    });
   }
 
   function toggleSpinner(showSpinner: boolean): void {
     setState({
       ...state,
       showSpinner,
-    })
+    });
   }
 
   async function onSubmit(): Promise<void> {
@@ -35,7 +35,7 @@ export function RoleplayPreferences() {
         <h4 className="form-subcategory">Passive Mode</h4>
         <Row>
           <div className="column-2 ml-3 mt-2">
-            <Toggle/>
+            <Toggle />
           </div>
         </Row>
       </div>
@@ -44,13 +44,9 @@ export function RoleplayPreferences() {
       </div>
       <div className="submit-button">
         <button className="rounded-button grey" disabled={isDisabled} type="submit">
-          {
-            state.showSpinner
-              ? <Icon className="fa-spin" type="spinner"/>
-              : 'Save'
-          }
+          {state.showSpinner ? <Icon className="fa-spin" type="spinner" /> : 'Save'}
         </button>
       </div>
     </Form>
-  )
+  );
 }

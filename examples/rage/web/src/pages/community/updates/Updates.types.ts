@@ -6,4 +6,4 @@ export interface UpdatesState {
 export const defaultUpdatesState: UpdatesState = {
   updates: [],
   showSpinner: true,
-}
+};

@@ -8,4 +8,4 @@ export interface ViewGangState {
 export const defaultViewGangState: ViewGangState = {
   gang: undefined,
   showSpinner: true,
-}
+};

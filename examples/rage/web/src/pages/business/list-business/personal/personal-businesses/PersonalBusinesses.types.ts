@@ -8,4 +8,4 @@ export interface PersonalBusinessesState {
 export const defaultPersonalBusinessesState: PersonalBusinessesState = {
   businesses: [],
   showSpinner: true,
-}
+};

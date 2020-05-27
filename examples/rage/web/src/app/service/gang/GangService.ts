@@ -4,7 +4,6 @@ import { Gang } from 'instinct-rp-interfaces';
 import { backendAPI } from 'instinct-frontend';
 
 class GangServiceImplementation implements GangService {
-
   async getAll(): Promise<Gang[]> {
     const gangs: AxiosResponse<Gang[]> = await backendAPI.get('gangs');
     return gangs.data;
@@ -29,7 +28,6 @@ class GangServiceImplementation implements GangService {
     const gangs: AxiosResponse<Gang[]> = await backendAPI.post('gangs/search', { name });
     return gangs.data;
   }
-
 }
 
 export const gangService: GangService = new GangServiceImplementation();

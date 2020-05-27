@@ -23,29 +23,29 @@ export function MostHits() {
       <Loading isLoading={state.showSpinner}>
         <table className="default-table ranking-content">
           <thead>
-          <tr>
-            <th colSpan={2}>Username</th>
-            <th>Most Hits</th>
-          </tr>
+            <tr>
+              <th colSpan={2}>Username</th>
+              <th>Most Hits</th>
+            </tr>
           </thead>
           <tbody>
-          {state.users.map(user => (
-            <tr key={user.id}>
-              <td>
-                <div className="account-avatar">
-                  <Link to={`/profile/${user.username}`}>
-                    <Avatar look={user.figure} />
-                  </Link>
-                </div>
-              </td>
-              <td>
-                <Link to={`/profile/${user.username}`}>{user.username}</Link>
-              </td>
-              <td>
-                <span>{user.pixels}</span>
-              </td>
-            </tr>
-          ))}
+            {state.users.map((user) => (
+              <tr key={user.id}>
+                <td>
+                  <div className="account-avatar">
+                    <Link to={`/profile/${user.username}`}>
+                      <Avatar look={user.figure} />
+                    </Link>
+                  </div>
+                </td>
+                <td>
+                  <Link to={`/profile/${user.username}`}>{user.username}</Link>
+                </td>
+                <td>
+                  <span>{user.pixels}</span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </Loading>

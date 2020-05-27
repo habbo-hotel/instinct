@@ -8,4 +8,4 @@ export interface PreviousApplicationsState {
 export const defaultPreviousApplicationsState: PreviousApplicationsState = {
   applications: [],
   showSpinner: true,
-}
+};

@@ -1,7 +1,6 @@
 import { Business, BusinessJobApplication, BusinessPosition } from 'instinct-rp-interfaces';
 
 export interface BusinessService {
-
   getAll(): Promise<Business[]>;
 
   getGovernmentBusinesses(): Promise<Business[]>;

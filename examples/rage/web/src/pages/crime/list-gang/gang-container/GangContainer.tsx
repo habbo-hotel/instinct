@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { defaultGangContainerState, GangContainerState } from './';
 
 export function GangContainer() {
-  const [ state, setState ] = useState<GangContainerState>(defaultGangContainerState);
+  const [state, setState] = useState<GangContainerState>(defaultGangContainerState);
 
   useEffect(() => {
     async function fetchGangs(): Promise<void> {
@@ -23,17 +23,11 @@ export function GangContainer() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
-        {
-          state.gangs.length === 0 && !state.showSpinner && (
-            <p>There are no gangs yet!</p>
-          )
-        }
-        {
-          state.gangs.map(gang => (
-            <GangRow key={gang.id} gang={gang}/>
-          ))
-        }
+        {state.gangs.length === 0 && !state.showSpinner && <p>There are no gangs yet!</p>}
+        {state.gangs.map((gang) => (
+          <GangRow key={gang.id} gang={gang} />
+        ))}
       </Loading>
     </Card>
-  )
+  );
 }

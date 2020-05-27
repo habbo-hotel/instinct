@@ -8,4 +8,4 @@ export interface GangContainerState {
 export const defaultGangContainerState: GangContainerState = {
   gangs: [],
   showSpinner: true,
-}
+};

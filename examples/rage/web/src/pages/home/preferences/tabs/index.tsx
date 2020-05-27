@@ -9,21 +9,21 @@ export const preferenceTabs: TabItem[] = [
   {
     name: 'Security Preferences',
     icon: 'lock',
-    children: <SecurityPreferences/>
+    children: <SecurityPreferences />,
   },
   {
     name: 'Email Preferences',
     icon: 'envelope',
-    children: <EmailPreferences/>
+    children: <EmailPreferences />,
   },
   {
     name: 'Profile Preferences',
     icon: 'user',
-    children: <ProfilePreferences/>,
+    children: <ProfilePreferences />,
   },
   {
     name: 'Roleplay Settings',
     icon: 'gamepad',
-    children: <RoleplayPreferences/>,
-  }
+    children: <RoleplayPreferences />,
+  },
 ];

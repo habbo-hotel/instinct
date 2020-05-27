@@ -6,10 +6,9 @@ import { MostMoney } from './most-money';
 import { MostKills } from './most-kills';
 import { Container, Jumbotron, Row, setURL } from 'instinct-frontend';
 
-setURL('leaderboard', <Discord/>);
+setURL('leaderboard', <Discord />);
 
 export function Discord() {
-
   return (
     <UserLayout section="games_ranking">
       <Jumbotron title="Leaderboard">
@@ -18,13 +17,13 @@ export function Discord() {
       <Container>
         <Row>
           <div className="col-4">
-            <MostKills/>
+            <MostKills />
           </div>
           <div className="col-4">
-            <MostMoney/>
+            <MostMoney />
           </div>
           <div className="col-4">
-            <MostHits/>
+            <MostHits />
           </div>
         </Row>
       </Container>

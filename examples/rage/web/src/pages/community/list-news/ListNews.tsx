@@ -8,10 +8,10 @@ import React, { useEffect, useState } from 'react';
 import { defaultListNewsState, ListNewsState } from './';
 import { Card, Column, Container, Jumbotron, Loading, setURL } from 'instinct-frontend';
 
-setURL('community/news', <ListNews/>);
+setURL('community/news', <ListNews />);
 
 export function ListNews() {
-  const [ state, setState ] = useState<ListNewsState>(defaultListNewsState);
+  const [state, setState] = useState<ListNewsState>(defaultListNewsState);
 
   useEffect(() => {
     async function fetchArticles(): Promise<void> {
@@ -34,43 +34,41 @@ export function ListNews() {
         <Container>
           <div style={{ float: 'left', width: 500 }}>
             <Card header="Latest Updates">
-              {
-                state.articles.length === 0 && !state.showSpinner && (
-                  <p>No articles have been posted yet.</p>
-                )
-              }
-              {
-                state.articles.length > 0 && (
-                  <>
-                    <p style={{ marginTop: -45 }}>Showing <b>{state.articles.length}</b> articles</p>
-                    <div className="article-list">
-                      <ul>
-                        {
-                          state.articles.map(article => (
-                            <li key={article.id}>
-                              <Link to={`/community/news/${article.id}`}>
-                                <div className="row mb-5" style={{ padding: 10 }}>
-                                  <div className="col-4">
-                                    <img alt="article thumbnail" src={article.thumbnailImage}/>
-                                  </div>
-                                  <div className="col-8 text-right">
-                                    <h4>{article.title}</h4>
-                                    <p>{article.description}</p>
-                                    <div style={{ position: 'absolute', bottom: 0, right: 15, width: '85%'}}>
-                                      <span className="float-left"><b>{Moment.unix(article.datePosted).format('MMM DD, YYYY')}</b></span>
-                                      <span className="float-right">Posted by <b>{article.author.username}</b></span>
-                                    </div>
-                                  </div>
+              {state.articles.length === 0 && !state.showSpinner && <p>No articles have been posted yet.</p>}
+              {state.articles.length > 0 && (
+                <>
+                  <p style={{ marginTop: -45 }}>
+                    Showing <b>{state.articles.length}</b> articles
+                  </p>
+                  <div className="article-list">
+                    <ul>
+                      {state.articles.map((article) => (
+                        <li key={article.id}>
+                          <Link to={`/community/news/${article.id}`}>
+                            <div className="row mb-5" style={{ padding: 10 }}>
+                              <div className="col-4">
+                                <img alt="article thumbnail" src={article.thumbnailImage} />
+                              </div>
+                              <div className="col-8 text-right">
+                                <h4>{article.title}</h4>
+                                <p>{article.description}</p>
+                                <div style={{ position: 'absolute', bottom: 0, right: 15, width: '85%' }}>
+                                  <span className="float-left">
+                                    <b>{Moment.unix(article.datePosted).format('MMM DD, YYYY')}</b>
+                                  </span>
+                                  <span className="float-right">
+                                    Posted by <b>{article.author.username}</b>
+                                  </span>
                                 </div>
-                              </Link>
-                            </li>
-                          ))
-                        }
-                      </ul>
-                    </div>
-                  </>
-                )
-              }
+                              </div>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
             </Card>
           </div>
           <Column side="right">
@@ -81,5 +79,5 @@ export function ListNews() {
         </Container>
       </Loading>
     </UserLayout>
-  )
+  );
 }

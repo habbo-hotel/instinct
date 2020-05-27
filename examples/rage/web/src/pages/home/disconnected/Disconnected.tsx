@@ -3,7 +3,7 @@ import './Disconnected.scss';
 import { Button } from 'instinct-frontend';
 import { UserGuard, FrankBox, setURL, redirect } from 'instinct-frontend';
 
-setURL('disconnected', <Disconnected/>);
+setURL('disconnected', <Disconnected />);
 
 export function Disconnected() {
   return (
@@ -17,5 +17,5 @@ export function Disconnected() {
         </FrankBox>
       </div>
     </UserGuard>
-  )
+  );
 }

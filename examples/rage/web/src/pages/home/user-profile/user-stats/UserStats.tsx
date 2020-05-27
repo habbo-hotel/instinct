@@ -4,17 +4,19 @@ import { UserProfileWidgetProps } from '../UserProfile.types';
 import { UserStats as UserStatsT } from 'instinct-rp-interfaces';
 
 export function UserStats({ profile }: UserProfileWidgetProps) {
-
-  const killDeathRatio: ReactNode = profile?.stats !== undefined
-    ?  profile?.stats?.kills === 0 || profile?.stats.deaths === 0
-      ? 0
-      : profile.stats.kills / profile.stats.deaths
-    :  <Icon className="fa fa-spin" family="fas" type="spinner"/>;
+  const killDeathRatio: ReactNode =
+    profile?.stats !== undefined ? (
+      profile?.stats?.kills === 0 || profile?.stats.deaths === 0 ? (
+        0
+      ) : (
+        profile.stats.kills / profile.stats.deaths
+      )
+    ) : (
+      <Icon className="fa fa-spin" family="fas" type="spinner" />
+    );
 
   function renderStat<T extends keyof UserStatsT>(key: T) {
-    return profile?.stats[key] !== undefined
-      ? profile?.stats[key]
-      : <Icon className="fa fa-spin" family="fas" type="spinner"/>
+    return profile?.stats[key] !== undefined ? profile?.stats[key] : <Icon className="fa fa-spin" family="fas" type="spinner" />;
   }
 
   return (
@@ -32,7 +34,7 @@ export function UserStats({ profile }: UserProfileWidgetProps) {
           </div>
           <div className="col-4">
             <h4>Kill/Death Ratio</h4>
-            { killDeathRatio }
+            {killDeathRatio}
           </div>
         </div>
         <div className="row mt-5">
@@ -61,5 +63,5 @@ export function UserStats({ profile }: UserProfileWidgetProps) {
         </div>
       </Card>
     </>
-  )
+  );
 }

@@ -9,7 +9,7 @@ import { UserEmployment } from './user-employment';
 import React, { useEffect, useState } from 'react';
 import { BackButton, UserLayout } from 'components';
 import { defaultUserProfileState, UserProfileState } from './';
-import { Container, Column, Loading, Jumbotron, setURL  } from 'instinct-frontend';
+import { Container, Column, Loading, Jumbotron, setURL } from 'instinct-frontend';
 
 setURL('profile/:username', <UserProfile />);
 
@@ -36,15 +36,15 @@ export function UserProfile() {
       <Loading isLoading={state.isLoading}>
         <Jumbotron title={`The profile of ${state.profile?.user.username}`} />
         <Container>
-          <BackButton/>
+          <BackButton />
           <Column side="right">
             <UserContainer profile={state.profile} />
-            <UserEmployment profile={state.profile}/>
+            <UserEmployment profile={state.profile} />
             <UserGang profile={state.profile} />
           </Column>
           <Column side="left">
-            <UserStats profile={state.profile}/>
-            <YoutubeVideo profile={state.profile}/>
+            <UserStats profile={state.profile} />
+            <YoutubeVideo profile={state.profile} />
           </Column>
         </Container>
       </Loading>

@@ -8,4 +8,4 @@ export interface ArmoryState {
 export const defaultArmoryState: ArmoryState = {
   weapons: [],
   showSpinner: true,
-}
+};

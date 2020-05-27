@@ -12,4 +12,4 @@ export const defaultSearchCorporationsState: SearchCorporationsState = {
   showSpinner: false,
   query: '',
   lastQuery: undefined,
-}
+};
