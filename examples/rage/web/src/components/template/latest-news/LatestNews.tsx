@@ -1,8 +1,9 @@
 import { take } from 'lodash';
+import { Card } from 'instinct-frontend';
+import{articleService} from 'app/service';
 import { ArticleRow } from '../article-row';
 import { Article } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
-import { articleService, Card } from 'instinct-frontend';
 import { defaultLatestNewsState, LatestNewsState } from './';
 
 export function LatestNews() {

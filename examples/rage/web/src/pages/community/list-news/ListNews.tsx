@@ -2,10 +2,11 @@ import './ListNews.scss';
 import Moment from 'moment';
 import { UserLayout } from 'components';
 import { Link } from 'react-router-dom';
+import { articleService } from 'app/service';
 import { Article } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultListNewsState, ListNewsState } from './';
-import { articleService, Card, Column, Container, Jumbotron, Loading, setURL } from 'instinct-frontend';
+import { Card, Column, Container, Jumbotron, Loading, setURL } from 'instinct-frontend';
 
 setURL('community/news', <ListNews/>);
 

@@ -1,4 +1,5 @@
 import { UserLayout } from 'components';
+import { rankService } from 'app/service';
 import { Rank } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultStaffState, StaffState } from './';
@@ -9,7 +10,6 @@ import {
   Icon,
   Jumbotron,
   Loading,
-  rankService,
   setURL,
   UserContainer
 } from 'instinct-frontend';
