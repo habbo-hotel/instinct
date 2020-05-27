@@ -3,7 +3,7 @@
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
-    "fix": "gts clean && gts fix --fix"
+    "fix": "gts clean && gts fix"
   },
   "dependencies": {
     "axios": "^0.19.2",

@@ -9,7 +9,7 @@
     "build": "tsc -p .",
     "deploy:unsafe": "npm run clean && npm run build && cp package.json build/package.json && cp package-lock.json build/package-lock.json && npm publish build",
     "deploy": "npm run clean && npm run test && npm run deploy:unsafe",
-    "fix": "npm run clean && gts fix --fix",
+    "fix": "npm run clean && gts fix",
     "test": "npm run clean && tsc && gts check",
     "clean": "rm -rf build"
   },
