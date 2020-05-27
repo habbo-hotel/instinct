@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { userService } from 'app/service';
 import { User } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
-import { Avatar, Loading  } from 'instinct-frontend';
-import { defaultLeaderboardState, LeaderBoardState } from '../';
+import { Avatar, Loading } from 'instinct-frontend';
+import { defaultLeaderboardState, LeaderBoardState } from '../index';
 
-export function MostKills() {
+export function MostMoney() {
   const [state, setState] = useState<LeaderBoardState>(defaultLeaderboardState);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function MostKills() {
           <thead>
             <tr>
               <th colSpan={2}>Username</th>
-              <th>Most Kills</th>
+              <th>Most Money</th>
             </tr>
           </thead>
           <tbody>

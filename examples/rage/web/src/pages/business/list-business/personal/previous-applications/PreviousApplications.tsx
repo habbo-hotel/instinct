@@ -23,6 +23,7 @@ export function PreviousApplications() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
+        {state.applications.length === 0 && !state.showSpinner && <p>You haven't applied for any jobs</p>}
         {state.applications.map((application) => (
           <div
             className="row-container"

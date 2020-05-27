@@ -124,6 +124,8 @@ p {
 
 .aside-title {
   border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .logo-container {
@@ -185,6 +187,10 @@ p {
 
 .tab-card {
 
+  .aside-title {
+    margin-bottom: 20px;
+  }
+
   .navigation {
     background: $cuteBlack;
   }
@@ -192,5 +198,9 @@ p {
 }
 
 .page-container[data-page = "games_ranking"] .ranking-content td:nth-child(2) a {
+  color: white;
+}
+
+.details-username {
   color: white;
 }

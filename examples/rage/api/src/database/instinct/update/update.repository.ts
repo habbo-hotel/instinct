@@ -1,12 +1,11 @@
-import { Repository } from 'typeorm';
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { UpdateEntity } from './update.entity';
+import {Repository} from 'typeorm';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {UpdateEntity} from './update.entity';
 
 @Injectable()
 export class UpdateRepository {
-
-  constructor(@InjectRepository(UpdateEntity) private readonly updateRepo: Repository<UpdateEntity>) { }
+  constructor(@InjectRepository(UpdateEntity) private readonly updateRepo: Repository<UpdateEntity>) {}
 
   readonly eagerRelations: string[] = ['user'];
 
@@ -24,5 +23,4 @@ export class UpdateRepository {
       relations: this.eagerRelations,
     });
   }
-
 }

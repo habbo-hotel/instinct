@@ -3,9 +3,9 @@ import { userService } from 'app/service';
 import { User } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
 import { Avatar, Loading } from 'instinct-frontend';
-import { defaultLeaderboardState, LeaderBoardState } from '../';
+import { defaultLeaderboardState, LeaderBoardState } from '../index';
 
-export function MostMoney() {
+export function MostHits() {
   const [state, setState] = useState<LeaderBoardState>(defaultLeaderboardState);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export function MostMoney() {
           <thead>
             <tr>
               <th colSpan={2}>Username</th>
-              <th>Most Money</th>
+              <th>Most Hits</th>
             </tr>
           </thead>
           <tbody>

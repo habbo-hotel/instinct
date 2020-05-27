@@ -22,6 +22,7 @@ export function NavBar() {
             <NavBarChildLink to="/community/news">News and Updates</NavBarChildLink>
             <NavBarChildLink to="/community/staff">Staff Team</NavBarChildLink>
             <NavBarChildLink to="/community/updates">Updates</NavBarChildLink>
+            <NavBarChildLink to="/community/leaderboard">Leaderboard</NavBarChildLink>
           </NavBarDropdown>
           <NavBarDropdown
             text={
@@ -31,6 +32,7 @@ export function NavBar() {
             }
             to="/business/corporations"
           >
+            <NavBarChildLink to="/business/job-centre">Job Centre</NavBarChildLink>
             <NavBarChildLink to="/business/corporations">Corporations</NavBarChildLink>
             <NavBarChildLink to="/business/state-funded">State Funded</NavBarChildLink>
             <NavBarChildLink to="/business/personal">My Businesses</NavBarChildLink>
@@ -46,9 +48,9 @@ export function NavBar() {
             <NavBarChildLink to="/crime/gangs">Gangs</NavBarChildLink>
             <NavBarChildLink to="/crime/armory">Armory</NavBarChildLink>
           </NavBarDropdown>
-          <NavBarLink to="/leaderboard">
-            <Icon family="fas" type="trophy" />
-            Leaderboard
+          <NavBarLink to="/education/job-training">
+            <Icon family="fas" type="graduation-cap" />
+            Education
           </NavBarLink>
           <li className="navigation-item navigation-right-side-item has-items">
             <UserDropdown />

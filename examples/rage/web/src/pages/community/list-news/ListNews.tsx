@@ -37,7 +37,7 @@ export function ListNews() {
               {state.articles.length === 0 && !state.showSpinner && <p>No articles have been posted yet.</p>}
               {state.articles.length > 0 && (
                 <>
-                  <p style={{ marginTop: -45 }}>
+                  <p style={{ marginTop: -10 }}>
                     Showing <b>{state.articles.length}</b> articles
                   </p>
                   <div className="article-list">

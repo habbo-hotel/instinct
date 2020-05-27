@@ -24,7 +24,7 @@ export function Staff() {
   }, []);
 
   return (
-    <UserLayout>
+    <UserLayout section="community_team">
       <Jumbotron title="Staff Team">
         <p>Coming soon</p>
       </Jumbotron>

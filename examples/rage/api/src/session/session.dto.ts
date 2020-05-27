@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import {IsEmail, IsNotEmpty, IsString} from 'class-validator';
 import {UserExists} from '../user/constraint/user-exists/user-exists.constraint';
 
 export class NewSessionDTO {
@@ -12,26 +12,20 @@ export class NewSessionDTO {
   password!: string;
 }
 
-
 export class UpdateEmailDTO {
-
   @IsEmail()
   email!: string;
 
   @IsString()
   password!: string;
-
 }
 
 export class UpdateProfileDTO {
-
   @IsString()
   youtube!: string;
-
 }
 
 export class UpdateSecurityDTO {
-
   @IsString()
   oldPassword!: string;
 
@@ -40,5 +34,4 @@ export class UpdateSecurityDTO {
 
   @IsString()
   newPasswordAgain!: string;
-
 }

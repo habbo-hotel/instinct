@@ -23,6 +23,7 @@ export function PersonalBusinesses() {
   return (
     <Card>
       <Loading isLoading={state.showSpinner}>
+        {state.businesses.length === 0 && !state.showSpinner && <p>You don't own any businesses</p>}
         {state.businesses.map((business) => (
           <div
             className="row-container"

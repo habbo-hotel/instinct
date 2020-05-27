@@ -74,7 +74,7 @@ export class UserRepository {
     return this.userRepo.save({
       id: userID,
       ...changes,
-    })
+    });
   }
 
   async checkPasswordByID(hashedPassword: string, unHashedPassword: string): Promise<boolean> {
