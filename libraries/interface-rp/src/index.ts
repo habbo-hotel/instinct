@@ -7,5 +7,6 @@ export * from './gang';
 export * from './health';
 export * from './rank';
 export * from './room';
+export * from './update';
 export * from './user';
 export * from './utility';

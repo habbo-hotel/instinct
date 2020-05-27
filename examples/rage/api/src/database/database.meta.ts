@@ -6,10 +6,12 @@ import {GangEntity} from './rage/gang/gang/gang.entity';
 import {WeaponEntity} from './rage/weapon/weapon.entity';
 import {RoomRepository} from './rage/room/room.repository';
 import {RankRepository} from './rage/rank/rank.repository';
+import {UpdateEntity} from './instinct/update/update.entity';
 import {ConfigEntity} from './instinct/config/config.entity';
 import {UserRepository} from './rage/user/user/user.repository';
 import {GangRepository} from './rage/gang/gang/gang.repository';
 import {WeaponRepository} from './rage/weapon/weapon.repository';
+import {UpdateRepository} from './instinct/update/update.repository';
 import {ConfigRepository} from './instinct/config/config.repository';
 import {GangRankEntity} from './rage/gang/gang-rank/gang-rank.entity';
 import {ArticleEntity} from './instinct/article/article/article.entity';
@@ -34,6 +36,7 @@ export const databaseEntities: Function[] = [
   RankEntity,
   RoomEntity,
   UserEntity,
+  UpdateEntity,
   ConfigEntity,
   WeaponEntity,
   ArticleEntity,
@@ -58,6 +61,7 @@ export const databaseEntities: Function[] = [
 export const databaseCustomRepositories: Provider[] = [
   UserRepository,
   WeaponRepository,
+  UpdateRepository,
   BusinessRepository,
   UserRPStatsRepository,
   BusinessPositionRepository,

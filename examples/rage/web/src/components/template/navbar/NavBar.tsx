@@ -11,6 +11,11 @@ export function NavBar() {
             <Icon family="fas" type="home"/>
             Home
           </NavBarLink>
+          <NavBarDropdown text={<><Icon family="fas" type="bullhorn"/> Community</>} to="/community/news">
+            <NavBarChildLink to="/community/news">News and Updates</NavBarChildLink>
+            <NavBarChildLink to="/community/staff">Staff Team</NavBarChildLink>
+            <NavBarChildLink to="/community/updates">Updates</NavBarChildLink>
+          </NavBarDropdown>
           <NavBarDropdown text={<><Icon family="fas" type="building"/> Business</>} to="/business/corporations">
             <NavBarChildLink to="/business/corporations">Corporations
             </NavBarChildLink>

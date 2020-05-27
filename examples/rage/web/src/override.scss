@@ -8,11 +8,17 @@ $darkTeal: #004D40;
 $medianGray: #303030;
 $darkGray: #2E2E3B;
 
+$cuteBlack: #121212;
+
 $habboBlue: #0C4B70;
 
 body {
-  background: #121212;
+  background: $cuteBlack;
   color: white;
+}
+
+p {
+  color: darken(white, 20%);
 }
 
 #root {
@@ -136,7 +142,7 @@ body {
 }
 
 .card {
-  background: #121212;
+  background: $cuteBlack;
 
   .card-title {
     text-transform: uppercase;
