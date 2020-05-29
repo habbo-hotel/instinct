@@ -11,7 +11,6 @@ export class NewRankDTO {
   @IsString()
   readonly badge!: string;
 
-  @IsEnum(AUTH_SCOPE, { each: true })
+  @IsEnum(AUTH_SCOPE, {each: true})
   readonly scopes!: AUTH_SCOPE[];
-
 }

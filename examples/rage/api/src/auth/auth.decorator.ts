@@ -5,8 +5,5 @@ import {applyDecorators, SetMetadata, UseGuards} from '@nestjs/common';
 
 // tslint:disable-next-line:variable-name - In Typescript decorators start with a capital letter
 export function HasScope(scope: AUTH_SCOPE) {
-  return applyDecorators(
-    UseGuards(AuthGuard('bearer-token'), AuthScopeGuard),
-    SetMetadata('scope', scope),
-  );
+  return applyDecorators(UseGuards(AuthGuard('bearer-token'), AuthScopeGuard), SetMetadata('scope', scope));
 }

@@ -30,7 +30,7 @@ export class RankController {
   @Post()
   @HasScope(AUTH_SCOPE.CREATE_RANK)
   async createRank(@GetSession() session: UserEntity, @Body() rankDTO: NewRankDTO): Promise<Rank> {
-    const newRank: RankEntity = await this.rankRepo.create(omit(rankDTO, 'scopes'), rankDTO.scopes)
+    const newRank: RankEntity = await this.rankRepo.create(omit(rankDTO, 'scopes'), rankDTO.scopes);
     return rankWire(newRank);
   }
 

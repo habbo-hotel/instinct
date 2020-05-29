@@ -9,6 +9,11 @@ export class UpdateRepository {
 
   readonly eagerRelations: string[] = ['user'];
 
+  async create(update: UpdateEntity): Promise<UpdateEntity> {
+    const newUpdate: UpdateEntity = await this.updateRepo.save(update);
+    return this.findOneByIDOrFail(newUpdate.id!);
+  }
+
   getAll(): Promise<UpdateEntity[]> {
     return this.updateRepo.find({
       relations: this.eagerRelations,
@@ -22,5 +27,14 @@ export class UpdateRepository {
       },
       relations: this.eagerRelations,
     });
+  }
+
+  async updateOneByIDOrFail(updateID: number, changes: Partial<UpdateEntity>): Promise<UpdateEntity> {
+    await this.updateRepo.update(updateID, changes);
+    return this.findOneByIDOrFail(updateID);
+  }
+
+  async deleteOneByID(updateID: number): Promise<void> {
+    await this.updateRepo.delete(updateID);
   }
 }

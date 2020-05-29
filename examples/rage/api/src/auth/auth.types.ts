@@ -3,6 +3,9 @@ export enum AUTH_SCOPE {
   SHOW_STAFF = 'show_staff',
   CREATE_RANK = 'create_rank',
   DELETE_RANK = 'delete_rank',
+  CREATE_UPDATE = 'create_update',
+  MODIFY_UPDATE = 'modify_update',
+  DELETE_UPDATE = 'delete_update',
 }
 
 export interface SingleAuthScope {

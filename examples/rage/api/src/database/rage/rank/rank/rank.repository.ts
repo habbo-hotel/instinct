@@ -15,15 +15,17 @@ export class RankRepository {
     private readonly rankRepo: Repository<RankEntity>,
     @InjectRepository(UserEntity)
     private readonly userRepo: Repository<UserEntity>,
-    private readonly rankScopeRepo: RankScopeRepository,
+    private readonly rankScopeRepo: RankScopeRepository
   ) {}
 
   async create(rank: RankEntity, authScopes: AUTH_SCOPE[]): Promise<RankEntity> {
     const newRank: RankEntity = await this.rankRepo.save(rank);
 
-    await Promise.all(authScopes.map(authScope => {
-      return this.rankScopeRepo.addScopeToRank(newRank.id!, authScope);
-    }));
+    await Promise.all(
+      authScopes.map(authScope => {
+        return this.rankScopeRepo.addScopeToRank(newRank.id!, authScope);
+      })
+    );
 
     return this.findOneByIDOrFail(newRank.id!);
   }
