@@ -48,10 +48,6 @@ export function NavBar() {
             <NavBarChildLink to="/crime/gangs">Gangs</NavBarChildLink>
             <NavBarChildLink to="/crime/armory">Armory</NavBarChildLink>
           </NavBarDropdown>
-          <NavBarLink to="/education/job-training">
-            <Icon family="fas" type="graduation-cap" />
-            Education
-          </NavBarLink>
           <li className="navigation-item navigation-right-side-item has-items">
             <UserDropdown />
           </li>
