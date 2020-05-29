@@ -43,9 +43,6 @@ export function Personal() {
             <b>Requirements</b>
             <br />
             <p>
-              Business owners must receive the online certification for <b>Business Management</b>.
-            </p>
-            <p>
               When applying for a business, the application fee will be collected upon submission. This is non refundable regardless of
               approval status and goes to HM's Treasury.
             </p>
