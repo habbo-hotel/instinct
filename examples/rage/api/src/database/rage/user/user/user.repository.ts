@@ -42,13 +42,23 @@ export class UserRepository {
     });
   }
 
-  findOneByUsernameOrFail(username: string): Promise<UserEntity> {
-    return this.userRepo.findOneOrFail({
+  findOneByUsername(username: string): Promise<UserEntity|undefined> {
+    return this.userRepo.findOne({
       where: {
         username,
       },
       relations: this.eagerRelations,
     });
+  }
+
+  async findOneByUsernameOrFail(username: string): Promise<UserEntity> {
+    const user: UserEntity|undefined = await this.findOneByUsername(username);
+
+    if (user === undefined) {
+      throw new Error('user does not exist');
+    }
+
+    return user;
   }
 
   findOneByEmailOrFail(email: string): Promise<UserEntity> {

@@ -30,7 +30,7 @@ export function ViewArticle() {
     <UserLayout>
       <Jumbotron title={state.article?.title}>
         <p>
-          Posted on <b>{Moment(state.article?.datePosted).format('MMMM DD, YYYY hh:mmA')}</b>
+          Posted on <b>{state.article && Moment.unix(state.article.datePosted).format('MMMM DD, YYYY hh:mmA')}</b>
         </p>
       </Jumbotron>
       <Loading isLoading={state.showSpinner}>

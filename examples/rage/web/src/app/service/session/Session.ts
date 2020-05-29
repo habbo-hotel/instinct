@@ -16,8 +16,12 @@ class SessionServiceImplementation implements SessionService {
   }
 
   async attemptCredentials(username: string, password: string) {
-    const bearerToken: AxiosResponse<string> = await backendAPI.post('session', { username, password });
-    return bearerToken.data;
+    try {
+      const bearerToken: AxiosResponse<string> = await backendAPI.post('session', { username, password });
+      return bearerToken.data;
+    } catch (e) {
+      throw new Error(e?.response?.data?.message ?? e);
+    }
   }
 
   async attemptBearerToken(bearerToken: string) {

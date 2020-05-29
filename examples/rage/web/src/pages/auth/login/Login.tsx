@@ -1,14 +1,14 @@
-import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { GuestLayout } from 'components';
 import { SessionContext } from 'app/context';
 import { defaultLoginState, LoginState } from './';
 import React, { useContext, useState } from 'react';
-import { Card, Form, Icon, Loading, redirect, setURL } from 'instinct-frontend';
+import { Card, ConfigContext, Form, Icon, Loading, redirect, setURL } from 'instinct-frontend';
 
 setURL('login', <Login />);
 
 export function Login() {
+  const configContext = useContext(ConfigContext);
   const sessionContext = useContext(SessionContext);
   const [state, setState] = useState<LoginState>(defaultLoginState);
 
@@ -25,12 +25,19 @@ export function Login() {
 
   async function tryLogin(): Promise<void> {
     try {
-      setValue('showSpinner', true);
+      setState({
+        ...state,
+        error: undefined,
+        showSpinner: true,
+      })
       await sessionContext.login(state.username!, state.password!);
       redirect('home');
-    } catch {
-      toast.error('There was a problem with your username or password.');
-      setValue('showSpinner', false);
+    } catch (error) {
+      setState({
+        ...state,
+        error: error.message,
+        showSpinner: false,
+      })
     }
   }
 
@@ -38,7 +45,7 @@ export function Login() {
     <GuestLayout>
       <div>
         <h2>Login</h2>
-        <p>Welcome to HabboRP. If you are a current member, please sign in below.</p>
+        <p>Welcome to {configContext.siteName}. If you are a current member, please sign in below.</p>
       </div>
       <Card className="w-100">
         <Loading isLoading={state.showSpinner} text="Attempting to login...">
@@ -46,7 +53,7 @@ export function Login() {
             <div className="form-group">
               <label>Username</label>
               <input
-                className="form-control"
+                className={`form-control ${state.error === 'invalid_username' ? 'border-danger' : ''}`}
                 placeholder="John-Doe"
                 value={state.username}
                 onChange={(e) => setValue('username', e.target.value)}
@@ -55,7 +62,7 @@ export function Login() {
             <div className="form-group">
               <label>Password</label>
               <input
-                className="form-control"
+                className={`form-control ${state.error === 'invalid_password' ? 'border-danger' : ''}`}
                 type="password"
                 value={state.password}
                 onChange={(e) => setValue('password', e.target.value)}

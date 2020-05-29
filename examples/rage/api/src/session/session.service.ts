@@ -13,11 +13,16 @@ export class SessionService {
   ) {}
 
   async loginWithCredentials(username: string, password: string): Promise<string> {
-    const user: UserEntity = await this.userRepo.findOneByUsernameOrFail(username);
+    const user: UserEntity|undefined = await this.userRepo.findOneByUsername(username);
+
+    if (user === undefined) {
+      throw new UnauthorizedException('invalid_username');
+    }
+
     const samePassword: boolean = await this.hashService.compare(password, user.password);
 
     if (!samePassword) {
-      throw new UnauthorizedException('That is not the right password');
+      throw new UnauthorizedException('invalid_password');
     }
 
     return this.bearerTokenService.signToken(user.id!);
