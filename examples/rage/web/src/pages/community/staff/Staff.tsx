@@ -1,9 +1,9 @@
-import { UserLayout } from 'components';
 import { rankService } from 'app/service';
 import { Rank } from 'instinct-rp-interfaces';
 import React, { useEffect, useState } from 'react';
 import { defaultStaffState, StaffState } from './';
-import { Card, Column, Container, Icon, Jumbotron, Loading, setURL, UserContainer } from 'instinct-frontend';
+import { UserContainer, UserLayout } from 'components';
+import { Card, Column, Container, Icon, Jumbotron, Loading, setURL } from 'instinct-frontend';
 
 setURL('community/staff', <Staff />);
 
@@ -46,7 +46,7 @@ export function Staff() {
               <Card key={rank.id} header={rank.name}>
                 <div className="members-container">
                   {rank.users!.map((user) => (
-                    <UserContainer key={user.id} user={user} />
+                    <UserContainer key={user.id} user={{ ...user, rank }}/>
                   ))}
                 </div>
               </Card>

@@ -204,3 +204,22 @@ p {
 .details-username {
   color: white;
 }
+
+.member-container {
+  background: $cuteBlack;
+  padding: 10px;
+
+  &:hover {
+    box-shadow: 2px 2px #2E2E2E;
+  }
+
+}
+
+.login-popup {
+  padding: 37px 50px 50px 175px;
+  max-width: 550px;
+}
+
+.login-popup:before, .login-popup:after {
+  width: 250px;
+}

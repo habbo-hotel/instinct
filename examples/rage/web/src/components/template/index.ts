@@ -8,4 +8,5 @@ export * from './my-job';
 export * from './navbar';
 export * from './popular-gangs';
 export * from './search-corporations';
+export * from './user-container';
 export * from './user-dropdown';
