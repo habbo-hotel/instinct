@@ -1,6 +1,8 @@
 export enum AUTH_SCOPE {
-  VIEW_ADMIN = 'viewAdmin',
-  LIST_STAFF = 'listStaff'
+  VIEW_ADMIN = 'view_admin',
+  LIST_STAFF = 'list_staff',
+  CREATE_RANK = 'create_rank',
+  DELETE_RANK = 'delete_rank',
 }
 
 export interface SingleAuthScope {

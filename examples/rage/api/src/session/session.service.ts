@@ -13,7 +13,7 @@ export class SessionService {
   ) {}
 
   async loginWithCredentials(username: string, password: string): Promise<string> {
-    const user: UserEntity|undefined = await this.userRepo.findOneByUsername(username);
+    const user: UserEntity | undefined = await this.userRepo.findOneByUsername(username);
 
     if (user === undefined) {
       throw new UnauthorizedException('invalid_username');

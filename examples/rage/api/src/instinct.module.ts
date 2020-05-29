@@ -1,5 +1,6 @@
 import {join} from 'path';
 import {Module} from '@nestjs/common';
+import {AuthModule} from './auth/auth.module';
 import {UserModule} from './user/user.module';
 import {RankModule} from './rank/rank.module';
 import {GangModule} from './gang/gang.module';
@@ -17,6 +18,7 @@ import {BusinessModule} from './business/business.module';
 
 @Module({
   imports: [
+    AuthModule,
     UserModule,
     RankModule,
     GangModule,
@@ -37,6 +39,18 @@ import {BusinessModule} from './business/business.module';
       },
     }),
   ],
-  exports: [UserModule, RankModule, GangModule, RoomModule, BusinessModule, CommonModule, ArticleModule, HealthModule, SessionModule, DatabaseModule],
+  exports: [
+    AuthModule,
+    UserModule,
+    RankModule,
+    GangModule,
+    RoomModule,
+    BusinessModule,
+    CommonModule,
+    ArticleModule,
+    HealthModule,
+    SessionModule,
+    DatabaseModule,
+  ],
 })
 export class InstinctModule {}

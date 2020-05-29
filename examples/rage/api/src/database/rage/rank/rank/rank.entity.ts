@@ -1,5 +1,6 @@
 import {UserEntity} from '../../user/user/user.entity';
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {RankScopeEntity} from '../rank-scope/rank-scope.entity';
+import {Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('ranks')
 export class RankEntity {
@@ -17,4 +18,7 @@ export class RankEntity {
 
   @OneToMany(() => UserEntity, user => user.rank)
   users?: UserEntity[];
+
+  @ManyToMany(() => RankScopeEntity, rankScope => rankScope.ranks)
+  scopes?: RankScopeEntity[];
 }

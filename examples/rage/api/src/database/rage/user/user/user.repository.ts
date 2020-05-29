@@ -42,7 +42,7 @@ export class UserRepository {
     });
   }
 
-  findOneByUsername(username: string): Promise<UserEntity|undefined> {
+  findOneByUsername(username: string): Promise<UserEntity | undefined> {
     return this.userRepo.findOne({
       where: {
         username,
@@ -52,7 +52,7 @@ export class UserRepository {
   }
 
   async findOneByUsernameOrFail(username: string): Promise<UserEntity> {
-    const user: UserEntity|undefined = await this.findOneByUsername(username);
+    const user: UserEntity | undefined = await this.findOneByUsername(username);
 
     if (user === undefined) {
       throw new Error('user does not exist');

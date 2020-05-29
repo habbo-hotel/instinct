@@ -21,7 +21,9 @@ import {ServerStatusEntity} from './rage/server-status/server-status.entity';
 import {GangRankRepository} from './rage/gang/gang-rank/gang-rank.repository';
 import {BusinessRepository} from './rage/business/business/business.repository';
 import {ArticleRepository} from './instinct/article/article/article.repository';
+import {RankScopeEntity} from './rage/rank/rank-scope/rank-scope.entity';
 import {UserRPStatsEntity} from './rage/user/user-rp-stats/user-rp-stats.entity';
+import {RankScopeRepository} from './rage/rank/rank-scope/rank-scope.repository';
 import {ServerStatusRepository} from './rage/server-status/server-status.repository';
 import {UserRPStatsRepository} from './rage/user/user-rp-stats/user-rp-stats.repository';
 import {BusinessPositionEntity} from './rage/business/business-position/business-position.entity';
@@ -43,8 +45,8 @@ export const databaseEntities: Function[] = [
   GangRankEntity,
   BusinessEntity,
   RoomRepository,
-  RankRepository,
   GangRepository,
+  RankScopeEntity,
   UserBadgeEntity,
   ConfigRepository,
   UserRPStatsEntity,
@@ -60,9 +62,11 @@ export const databaseEntities: Function[] = [
 
 export const databaseCustomRepositories: Provider[] = [
   UserRepository,
+  RankRepository,
   WeaponRepository,
   UpdateRepository,
   BusinessRepository,
+  RankScopeRepository,
   UserRPStatsRepository,
   BusinessPositionRepository,
   BusinessJobApplicationRepository,
