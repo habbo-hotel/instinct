@@ -10,4 +10,4 @@ export const defaultBusinessWidgetState: BusinessWidgetState = {
   activeBusiness: undefined,
   businesses: [],
   showSpinner: true,
-}
+};

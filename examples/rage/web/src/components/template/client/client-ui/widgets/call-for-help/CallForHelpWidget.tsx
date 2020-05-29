@@ -30,11 +30,11 @@ export function CallForHelpWidget() {
               <Form className="container">
                 <div className="mt-3">
                   <label>Title</label>
-                  <input className="form-control"/>
+                  <input className="form-control" />
                 </div>
                 <div className="mt-3">
                   <label>What's Going On</label>
-                  <textarea className="form-control" rows={4}/>
+                  <textarea className="form-control" rows={4} />
                 </div>
                 <div className="mt-3 text-right">
                   <button>Submit Ticket</button>

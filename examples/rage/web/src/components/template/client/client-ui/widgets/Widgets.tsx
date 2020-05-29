@@ -7,8 +7,8 @@ import { CallForHelpWidget } from './call-for-help';
 export function Widgets() {
   return (
     <>
-      <MapWidget/>
-      <BusinessWidget/>
+      <MapWidget />
+      <BusinessWidget />
       <CallForHelpWidget />
       <WantedListWidget />
     </>

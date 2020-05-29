@@ -7,7 +7,7 @@ import { defaultVacantPositionState, VacantPositionsState } from './';
 
 export function VacantPositions() {
   const configContext = useContext(ConfigContext);
-  const [ state, setState ] = useState<VacantPositionsState>(defaultVacantPositionState);
+  const [state, setState] = useState<VacantPositionsState>(defaultVacantPositionState);
 
   useEffect(() => {
     async function fetchVacantPositions(): Promise<void> {
@@ -24,18 +24,17 @@ export function VacantPositions() {
   return (
     <Card header="Vacant Positions">
       <Loading isLoading={state.showSpinner}>
-        {
-          state.positions.length === 0 && !state.showSpinner && (
-            <p>There are no open positions at this time!</p>
-          )
-        }
-        {
-          state.positions.map(position => (
-            <RowContainer key={position.id} image={`${configContext.siteLink}/swfs/assets/c_images/corp-badges/${position.business!.badge}.gif`} header={position.name} users={position.vacantSpots}>
-              <p>O</p>
-            </RowContainer>
-          ))
-        }
+        {state.positions.length === 0 && !state.showSpinner && <p>There are no open positions at this time!</p>}
+        {state.positions.map((position) => (
+          <RowContainer
+            key={position.id}
+            image={`${configContext.siteLink}/swfs/assets/c_images/corp-badges/${position.business!.badge}.gif`}
+            header={position.name}
+            users={position.vacantSpots}
+          >
+            <p>O</p>
+          </RowContainer>
+        ))}
       </Loading>
     </Card>
   );

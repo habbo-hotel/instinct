@@ -14,7 +14,7 @@ export function JobCentre() {
       <Loading isLoading={false}>
         <Container>
           <Column side="left">
-            <VacantPositions/>
+            <VacantPositions />
           </Column>
           <Column side="right">
             <Card header="Employment">

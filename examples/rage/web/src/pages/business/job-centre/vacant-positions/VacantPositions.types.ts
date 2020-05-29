@@ -8,4 +8,4 @@ export interface VacantPositionsState {
 export const defaultVacantPositionState: VacantPositionsState = {
   positions: [],
   showSpinner: true,
-}
+};
