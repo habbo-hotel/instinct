@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
-    "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
+    "start": "PORT=3001 react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "gts clean && gts check && tsc -p . && react-app-rewired test --coverage",
     "fix": "gts clean && gts fix"
   },
   "dependencies": {
@@ -41,12 +41,15 @@
     "@types/reactstrap": "^8.4.2",
     "@types/websocket": "^1.0.0",
     "@types/ws": "^7.2.4",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.0.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-plugin-jest": "^23.13.2",
     "gts": "^2.0.2",
     "instinct-rp-interfaces": "^0.1.23",
     "node-sass": "^4.14.1",
+    "react-app-rewired": "^2.1.6",
     "react-scripts": "^3.4.1",
     "typescript": "^3.9.3"
   },
