@@ -1,5 +1,5 @@
 import {RoomEntity} from '../../room/room.entity';
-import {RankEntity} from '../../rank/rank.entity';
+import {RankEntity} from '../../rank/rank/rank.entity';
 import {GangEntity} from '../../gang/gang/gang.entity';
 import {UserBadgeEntity} from '../user-badge/user-badge.entity';
 import {BusinessEntity} from '../../business/business/business.entity';

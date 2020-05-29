@@ -1,9 +1,9 @@
 import {RankPipe} from './rank.pipe';
 import {Rank} from 'instinct-rp-interfaces';
 import {Controller, Get, Param} from '@nestjs/common';
-import {rankWire} from '../database/rage/rank/rank.wire';
-import {RankEntity} from '../database/rage/rank/rank.entity';
-import {RankRepository} from '../database/rage/rank/rank.repository';
+import {rankWire} from '../database/rage/rank/rank/rank.wire';
+import {RankEntity} from '../database/rage/rank/rank/rank.entity';
+import {RankRepository} from '../database/rage/rank/rank/rank.repository';
 
 @Controller('ranks')
 export class RankController {
