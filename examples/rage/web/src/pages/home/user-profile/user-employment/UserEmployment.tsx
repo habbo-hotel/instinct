@@ -5,7 +5,7 @@ import { UserProfileWidgetProps } from '../UserProfile.types';
 
 export function UserEmployment({ profile }: UserProfileWidgetProps) {
   return (
-    <div className="mt-4">
+    <div className="mt-4 no-user-count">
       <h3>Employment</h3>
       {profile?.stats?.job?.business ? (
         <BusinessRow business={profile.stats.job.business} />

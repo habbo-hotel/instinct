@@ -22,3 +22,9 @@
   }
 
 }
+
+.no-user-count {
+  .user-count {
+    visibility: hidden;
+  }
+}

@@ -32,11 +32,6 @@ export function UserContainer({ profile }: UserProfileWidgetProps) {
         <DetailsContainer icon="door-open" header="Last Logged In">
           {Moment(profile?.user.lastLoginDate).format('MM/DD/YYYY')}
         </DetailsContainer>
-        <DetailsContainer icon="headphones-alt">
-          <a className="youtube-link" href="https://youtu.be/GfxcnX7XWfg" target="_blank" rel="noopener noreferrer">
-            https://youtu.be/GfxcnX7XWfg
-          </a>
-        </DetailsContainer>
       </div>
     </aside>
   );
