@@ -38,6 +38,8 @@ export class BusinessPositionRepository {
       vacantJobs.map(x => this.businessJobApplicationRepo.findOneForUserAndBusiness(userID, x.businessID))
     );
 
+    console.log(vacantJobs);
+
     return vacantJobs.map((vacantJob, index) => {
       return businessPositionWire(vacantJob, !!jobApplication[index]);
     });

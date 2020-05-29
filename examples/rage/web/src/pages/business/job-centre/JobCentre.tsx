@@ -1,5 +1,6 @@
 import React from 'react';
 import { MyJob, UserLayout } from 'components';
+import { VacantPositions } from './vacant-positions';
 import { Card, Column, Container, Jumbotron, Loading, setURL } from 'instinct-frontend';
 
 setURL('business/job-centre', <JobCentre />);
@@ -13,9 +14,7 @@ export function JobCentre() {
       <Loading isLoading={false}>
         <Container>
           <Column side="left">
-            <Card header="Vacant Jobs">
-              <p>Coming soon</p>
-            </Card>
+            <VacantPositions/>
           </Column>
           <Column side="right">
             <Card header="Employment">

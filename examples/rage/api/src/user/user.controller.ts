@@ -54,7 +54,7 @@ export class UserController {
       credits: defaultUserCredits,
       pixels: defaultUserPixels,
       points: defaultUserPoints,
-      online: 0,
+      online: '0',
       ipRegister: '127.0.0.1',
       ipCurrent: '127.0.0.1',
       homeRoom: defaultUserHomeRoom,

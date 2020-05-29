@@ -4,11 +4,11 @@ import { MostHits } from './most-hits';
 import { UserLayout } from 'components';
 import { MostMoney } from './most-money';
 import { MostKills } from './most-kills';
-import { Container, Jumbotron, Row, setURL } from 'instinct-frontend';
+import { Container, Row, Jumbotron, setURL } from 'instinct-frontend';
 
-setURL('leaderboard', <Discord />);
+setURL('community/leaderboard', <Leaderboard />);
 
-export function Discord() {
+export function Leaderboard() {
   return (
     <UserLayout section="games_ranking">
       <Jumbotron title="Leaderboard">

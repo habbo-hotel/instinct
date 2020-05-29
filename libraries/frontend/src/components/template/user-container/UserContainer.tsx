@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserContainer.scss';
 import { UserContainerProps } from './';
 import { Avatar, UserModal } from 'components';
 
@@ -18,7 +19,7 @@ export function UserContainer({ user }: UserContainerProps) {
             <div className="details-motto">{user.motto}</div>
           </div>
           <div className="member-status flex-container flex-vertical-center flex-horizontal-center">
-            <span className="status-icon " title={user.online ? 'Online' : 'Offline'} />
+            <span className={user.online ? 'status-icon online' : 'status-icon'} title={user.online ? 'Online' : 'Offline'} />
           </div>
         </div>
       </UserModal>

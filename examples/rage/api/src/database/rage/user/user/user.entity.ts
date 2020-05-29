@@ -56,7 +56,7 @@ export class UserEntity {
   points!: number;
 
   @Column({name: 'online', type: 'enum', enum: ['0', '1', '2'], default: '0'})
-  online!: number;
+  online!: string;
 
   @Column({name: 'auth_ticket', nullable: true})
   authTicket?: string;
