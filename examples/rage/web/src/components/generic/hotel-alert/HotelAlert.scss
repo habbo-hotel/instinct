@@ -52,6 +52,12 @@
       margin-left: auto;
       position: relative;
       z-index: 1;
+      opacity: 1;
+
+      &:hover {
+        background-position: 19px 0;
+      }
+
     }
 
   }
@@ -70,6 +76,16 @@
     border-bottom-width: 2px;
     border-top-width: 0;
   }
+
+  .rounded-input, .rounded-textarea, .form-control {
+    background: white;
+    color: black !important;
+
+    &:focus {
+      background: white;
+    }
+  }
+
 
 
 }
