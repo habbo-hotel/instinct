@@ -1,0 +1,25 @@
+.business-widget {
+
+  .business-list {
+    list-style: none;
+
+    li {
+      background: #D7D7D0;
+      border: 1px solid transparent;;
+      border-radius: 60%;
+      padding: 10px;
+      text-align: center;
+      overflow: hidden;
+      margin-bottom: 10px;
+      height: 55px;
+      width: 55px;
+    }
+
+    .active {
+      border-color: black;
+    }
+
+
+  }
+
+}

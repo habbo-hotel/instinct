@@ -1,7 +1,7 @@
-import { HotelAlert, Widget } from 'components';
-import { Form } from 'instinct-frontend';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'app/context';
+import { ClientCard, HotelAlert, Widget } from 'components';
+import { Form } from 'instinct-frontend';
 
 export function CallForHelpWidget() {
   const themeContext = useContext(ThemeContext);
@@ -19,13 +19,30 @@ export function CallForHelpWidget() {
   return (
     <Widget>
       <HotelAlert title="Call For Help" onToggle={onToggle}>
-        <Form className="">
-          <div className="form-group">
-            <h3>What is the problem</h3>
-            <p>u a bdditch</p>
-            <input className="form-control" />
+        <div className="row">
+          <div className="col-4">
+            <ClientCard header="My Tickets">
+              <p className="text-center">No Past Tickets</p>
+            </ClientCard>
           </div>
-        </Form>
+          <div className="col-8">
+            <ClientCard header="Create Ticket">
+              <Form className="container">
+                <div className="mt-3">
+                  <label>Title</label>
+                  <input className="form-control"/>
+                </div>
+                <div className="mt-3">
+                  <label>What's Going On</label>
+                  <textarea className="form-control" rows={4}/>
+                </div>
+                <div className="mt-3 text-right">
+                  <button>Submit Ticket</button>
+                </div>
+              </Form>
+            </ClientCard>
+          </div>
+        </div>
       </HotelAlert>
     </Widget>
   );
