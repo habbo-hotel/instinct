@@ -1,5 +1,6 @@
 import {RankEntity} from '../rank/rank.entity';
-import {Column, Entity, JoinColumn, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
+import {AUTH_SCOPE} from '../../../../auth/auth.types';
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('ranks_scopes')
 export class RankScopeEntity {
@@ -10,9 +11,9 @@ export class RankScopeEntity {
   rankID!: number;
 
   @Column({type: 'varchar'})
-  scope!: string;
+  scope!: AUTH_SCOPE;
 
-  @ManyToMany(() => RankEntity, rank => rank.scopes)
+  @ManyToOne(() => RankEntity, rank => rank.scopes)
   @JoinColumn({name: 'ranks_id'})
   ranks?: RankEntity[];
 }

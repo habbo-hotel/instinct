@@ -1,10 +1,10 @@
 import {Module} from '@nestjs/common';
-import {AuthGuard} from './auth.guard';
+import {AuthScopeGuard} from './auth-scope.guard';
 import {DatabaseModule} from '../database/database.module';
 
 @Module({
   imports: [DatabaseModule],
-  providers: [AuthGuard],
-  exports: [AuthGuard],
+  providers: [AuthScopeGuard],
+  exports: [AuthScopeGuard],
 })
 export class AuthModule {}

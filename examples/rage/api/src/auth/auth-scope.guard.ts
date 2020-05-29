@@ -4,7 +4,7 @@ import {Injectable, CanActivate, ExecutionContext} from '@nestjs/common';
 import {RankScopeRepository} from '../database/rage/rank/rank-scope/rank-scope.repository';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthScopeGuard implements CanActivate {
   constructor(private readonly reflector: Reflector, private readonly rankScopeRepo: RankScopeRepository) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {

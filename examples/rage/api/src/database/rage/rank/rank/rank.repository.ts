@@ -3,20 +3,29 @@ import {RankEntity} from './rank.entity';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
 import {UserEntity} from '../../user/user/user.entity';
+import {AUTH_SCOPE} from '../../../../auth/auth.types';
+import {RankScopeRepository} from '../rank-scope/rank-scope.repository';
 
 @Injectable()
 export class RankRepository {
-  readonly eagerRelations: string[] = ['users'];
+  readonly eagerRelations: string[] = ['users', 'scopes'];
 
   constructor(
     @InjectRepository(RankEntity)
     private readonly rankRepo: Repository<RankEntity>,
     @InjectRepository(UserEntity)
-    private readonly userRepo: Repository<UserEntity>
+    private readonly userRepo: Repository<UserEntity>,
+    private readonly rankScopeRepo: RankScopeRepository,
   ) {}
 
-  create(rank: RankEntity): Promise<RankEntity> {
-    return this.rankRepo.save(rank);
+  async create(rank: RankEntity, authScopes: AUTH_SCOPE[]): Promise<RankEntity> {
+    const newRank: RankEntity = await this.rankRepo.save(rank);
+
+    await Promise.all(authScopes.map(authScope => {
+      return this.rankScopeRepo.addScopeToRank(newRank.id!, authScope);
+    }));
+
+    return this.findOneByIDOrFail(newRank.id!);
   }
 
   getAll(): Promise<RankEntity[]> {

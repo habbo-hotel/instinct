@@ -1,9 +1,9 @@
+import {omit} from 'lodash';
 import {RankPipe} from './rank.pipe';
 import {NewRankDTO} from './rank.dto';
 import {Rank} from 'instinct-rp-interfaces';
 import {AUTH_SCOPE} from '../auth/auth.types';
 import {HasScope} from '../auth/auth.decorator';
-import {HasSession} from '../session/has-session.decorator';
 import {GetSession} from '../session/get-session.decorator';
 import {rankWire} from '../database/rage/rank/rank/rank.wire';
 import {RankEntity} from '../database/rage/rank/rank/rank.entity';
@@ -29,9 +29,8 @@ export class RankController {
 
   @Post()
   @HasScope(AUTH_SCOPE.CREATE_RANK)
-  @HasSession()
   async createRank(@GetSession() session: UserEntity, @Body() rankDTO: NewRankDTO): Promise<Rank> {
-    const newRank: RankEntity = await this.rankRepo.create(rankDTO);
+    const newRank: RankEntity = await this.rankRepo.create(omit(rankDTO, 'scopes'), rankDTO.scopes)
     return rankWire(newRank);
   }
 
@@ -42,7 +41,6 @@ export class RankController {
 
   @Delete(':rankID')
   @HasScope(AUTH_SCOPE.DELETE_RANK)
-  @HasSession()
   async deleteRank(@GetSession() session: UserEntity, @Param('rankID', RankPipe) rank: RankEntity): Promise<string> {
     await this.rankRepo.deleteByID(rank.id!);
     return 'Rank has been deleted and all users assigned to it have been removed';

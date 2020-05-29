@@ -1,12 +1,17 @@
-import {IsString} from 'class-validator';
+import {IsEnum, IsString} from 'class-validator';
+import {AUTH_SCOPE} from '../auth/auth.types';
 
 export class NewRankDTO {
   @IsString()
-  name!: string;
+  readonly name!: string;
 
   @IsString()
-  desc!: string;
+  readonly desc!: string;
 
   @IsString()
-  badge!: string;
+  readonly badge!: string;
+
+  @IsEnum(AUTH_SCOPE, { each: true })
+  readonly scopes!: AUTH_SCOPE[];
+
 }
