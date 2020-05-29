@@ -1,4 +1,5 @@
 export enum AUTH_SCOPE {
+  ROOT = 'root',
   VIEW_ADMIN = 'view_admin',
   SHOW_STAFF = 'show_staff',
   CREATE_RANK = 'create_rank',

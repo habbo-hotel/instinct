@@ -3,7 +3,7 @@ import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
 @Entity('instinct_config')
 export class ConfigEntity {
   @PrimaryGeneratedColumn()
-  id?: number;
+  id!: number;
 
   @Column({name: 'site_name'})
   siteName!: string;
