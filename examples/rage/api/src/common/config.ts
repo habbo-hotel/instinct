@@ -17,8 +17,10 @@ export const databasePass: string = getEnvOrFail('DATABASE_PASS');
 export const databaseName: string = getEnvOrFail('DATABASE_NAME');
 
 // Authentication
-export const jwtSecret: string = getEnvOrFail('JWT_SECRET');
-export const jwtExpires = Number(getEnvOrFail('JWT_EXPIRES'));
+export const authJwtSecret: string = getEnvOrFail('AUTH_JWT_SECRET');
+export const authJwtExpires = Number(getEnvOrFail('AUTH_JWT_EXPIRES'));
+export const authMfaSecret: string = getEnvOrFail('AUTH_MFA_SECRET');
+export const authMfaService: string = getEnvOrFail('AUTH_MFA_SERVICE');
 
 // Defaults - User
 export const defaultUserRank = Number(getEnvOrFail('DEFAULT_USER_RANK'));

@@ -29,7 +29,7 @@ export class SessionController {
     private readonly businessRepo: BusinessRepository,
     private readonly userRPStatsRepo: UserRPStatsRepository,
     private readonly businessPositionRepo: BusinessPositionRepository,
-    private businessJobApplicationRepo: BusinessJobApplicationRepository
+    private businessJobApplicationRepo: BusinessJobApplicationRepository,
   ) {}
 
   @Post()

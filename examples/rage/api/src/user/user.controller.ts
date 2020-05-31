@@ -59,6 +59,7 @@ export class UserController {
       ipCurrent: '127.0.0.1',
       homeRoom: defaultUserHomeRoom,
       youtube: '_5lUSTmkM_0',
+      twoFactorAuthentication: 0,
     });
     return userWire(user);
   }

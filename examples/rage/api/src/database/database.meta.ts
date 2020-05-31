@@ -28,8 +28,10 @@ import {ServerStatusRepository} from './rage/server-status/server-status.reposit
 import {UserRPStatsRepository} from './rage/user/user-rp-stats/user-rp-stats.repository';
 import {BusinessPositionEntity} from './rage/business/business-position/business-position.entity';
 import {ArticleCategoryEntity} from './instinct/article/article-category/article-category.entity';
+import {UserTwoFactorAuthEntity} from './rage/user/user-two-factor-auth/user-two-factor-auth.entity';
 import {BusinessPositionRepository} from './rage/business/business-position/business-position.repository';
 import {ArticleCategoryRepository} from './instinct/article/article-category/article-category.repository';
+import {UserTwoFactorAuthRepository} from './rage/user/user-two-factor-auth/user-two-factor-auth.repository';
 import {BusinessJobApplicationEntity} from './rage/business/business-job-application/business-job-application.entity';
 import {BusinessJobApplicationRepository} from './rage/business/business-job-application/business-job-application.repository';
 
@@ -55,6 +57,7 @@ export const databaseEntities: Function[] = [
   ArticleCategoryEntity,
   BusinessPositionEntity,
   ServerStatusRepository,
+  UserTwoFactorAuthEntity,
   ArticleCategoryRepository,
   BusinessJobApplicationEntity,
 ];
@@ -69,5 +72,6 @@ export const databaseCustomRepositories: Provider[] = [
   RankScopeRepository,
   UserRPStatsRepository,
   BusinessPositionRepository,
+  UserTwoFactorAuthRepository,
   BusinessJobApplicationRepository,
 ];

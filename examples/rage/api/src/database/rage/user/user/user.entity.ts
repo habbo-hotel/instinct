@@ -73,6 +73,9 @@ export class UserEntity {
   @Column()
   youtube!: string;
 
+  @Column({ name: 'two_factor_authentication', type: 'tinyint' })
+  twoFactorAuthentication!: number;
+
   @OneToMany(() => RoomEntity, room => room.owner)
   @JoinColumn({name: 'username'})
   rooms?: RoomEntity[];
