@@ -8,5 +8,5 @@ setLanding(<Landing />);
 export function Landing() {
   const sessionContext = useContext<SessionTypes>(SessionContext);
 
-  return sessionContext.user === undefined ? <Redirect to="/login" /> : <Redirect to="/home" />;
+  return sessionContext.session === undefined ? <Redirect to="/login" /> : <Redirect to="/home" />;
 }

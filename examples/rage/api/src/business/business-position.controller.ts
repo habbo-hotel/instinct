@@ -1,8 +1,8 @@
 import {BusinessJobApplicationDTO} from './business.dto';
-import {HasSession} from '../session/has-session.decorator';
-import {GetSession} from '../session/get-session.decorator';
 import {BusinessPositionPipe} from './business-position.pipe';
-import {UserEntity} from '../database/rage/user/user/user.entity';
+import {HasSession} from '../session/session/has-session.decorator';
+import {GetSession} from '../session/session/get-session.decorator';
+import {BackendUserSession} from '../session/session/session.type';
 import {BusinessJobApplicationPipe} from './business-job-application,pipe';
 import {BusinessJobApplication, BusinessPosition} from 'instinct-rp-interfaces';
 import {businessPositionWire} from '../database/rage/business/business-position/business-position.wire';
@@ -28,7 +28,7 @@ export class BusinessPositionController {
   }
 
   @Get('positions/vacant')
-  getVacantPositions(@GetSession() user: UserEntity): Promise<BusinessPosition[]> {
+  getVacantPositions(@GetSession() { user }: BackendUserSession): Promise<BusinessPosition[]> {
     return this.businessJobRepo.getVacantForUserID(user.id!);
   }
 
@@ -48,7 +48,7 @@ export class BusinessPositionController {
   @Post(':businessID/positions/:positionID/applications')
   async applyForPosition(
     @Param('positionID', BusinessPositionPipe) businessPosition: BusinessPositionEntity,
-    @GetSession() user: UserEntity,
+    @GetSession() { user }: BackendUserSession,
     @Body() jobApplicationDTO: BusinessJobApplicationDTO
   ): Promise<BusinessJobApplication> {
     const existingJobApplication: BusinessJobApplicationEntity | undefined = await this.businessJobApplicationRepo.findOneForUserAndBusiness(
@@ -72,7 +72,7 @@ export class BusinessPositionController {
   async updateJobApplicationByID(
     @Param('jobApplicationID', BusinessJobApplicationPipe) jobApplication: BusinessJobApplicationEntity,
     @Body() jobApplicationDTO: BusinessJobApplicationDTO,
-    @GetSession() user: UserEntity
+    @GetSession() { user }: BackendUserSession,
   ): Promise<BusinessJobApplication> {
     if (jobApplication.userID !== user.id) {
       throw new UnauthorizedException("You can't edit another user's job application");
@@ -88,7 +88,7 @@ export class BusinessPositionController {
   @Delete(':businessID/positions/:positionID/applications/:jobApplicationID')
   async deleteJobApplicationByID(
     @Param('jobApplicationID', BusinessJobApplicationPipe) jobApplication: BusinessJobApplicationEntity,
-    @GetSession() user: UserEntity
+    @GetSession() { user }: BackendUserSession,
   ): Promise<string> {
     if (jobApplication.userID !== user.id) {
       throw new UnauthorizedException("You can't delete another user's job application");

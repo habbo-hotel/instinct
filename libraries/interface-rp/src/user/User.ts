@@ -10,6 +10,7 @@ export interface User {
   points: number;
   online: boolean;
   figure: string;
+  twoFactor: boolean;
   joinDate: string; // ISO Date
   lastLoginDate: string; // ISO Date
   youtube: string;
@@ -27,6 +28,7 @@ export const exampleUser: User = {
   pixels: 1,
   points: 1,
   online: false,
+  twoFactor: false,
   figure: 'sh-908-92.hd-180-1015.lg-285-77.hr-828-158640.ch-210-153640',
   joinDate: new Date().toISOString(),
   lastLoginDate: new Date().toISOString(),

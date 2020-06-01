@@ -1,10 +1,10 @@
-import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
+import {Business, BusinessJobApplication, User, UserSession, UserStats} from 'instinct-rp-interfaces';
 
 export interface SessionService {
   // Fetches user bearer token if it exists
   // Attempts to fetch user with the bearer token
   // Upon failure will logout and return undefined
-  init(): Promise<User | undefined>;
+  init(): Promise<UserSession| undefined>;
 
   // Returns a bearer token upon success
   // Throws exception upon failure
@@ -12,13 +12,17 @@ export interface SessionService {
 
   // Returns an user upon success
   // Throws exception upon failure
-  attemptBearerToken(authToken: string): Promise<User>;
+  attemptBearerToken(authToken: string): Promise<UserSession>;
+
+  enableTwoFactor(): Promise<void>;
 
   // Creates a SSO for client use
   // Throws exception upon failure
   createSSO(): Promise<string>;
 
-  getCurrentUser(): Promise<User>;
+  getCurrentSession(): Promise<UserSession>;
+
+  getMyTwoFactorQrCode(): Promise<string>;
 
   getMyStats(): Promise<UserStats>;
 

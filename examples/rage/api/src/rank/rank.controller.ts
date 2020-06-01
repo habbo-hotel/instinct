@@ -4,10 +4,10 @@ import {NewRankDTO} from './rank.dto';
 import {Rank} from 'instinct-rp-interfaces';
 import {AUTH_SCOPE} from '../auth/auth.types';
 import {HasScope} from '../auth/auth.decorator';
-import {GetSession} from '../session/get-session.decorator';
 import {rankWire} from '../database/rage/rank/rank/rank.wire';
 import {RankEntity} from '../database/rage/rank/rank/rank.entity';
 import {UserEntity} from '../database/rage/user/user/user.entity';
+import {GetSession} from '../session/session/get-session.decorator';
 import {Body, Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import {RankRepository} from '../database/rage/rank/rank/rank.repository';
 
@@ -29,7 +29,7 @@ export class RankController {
 
   @Post()
   @HasScope(AUTH_SCOPE.CREATE_RANK)
-  async createRank(@GetSession() session: UserEntity, @Body() rankDTO: NewRankDTO): Promise<Rank> {
+  async createRank(@Body() rankDTO: NewRankDTO): Promise<Rank> {
     const newRank: RankEntity = await this.rankRepo.create(omit(rankDTO, 'scopes'), rankDTO.scopes);
     return rankWire(newRank);
   }

@@ -13,7 +13,6 @@ export function Staff() {
   useEffect(() => {
     async function fetchStaff(): Promise<void> {
       const ranks: Rank[] = await rankService.getStaff();
-      console.log(ranks);
       setState({
         ranks,
         showSpinner: false,

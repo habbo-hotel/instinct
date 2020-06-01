@@ -1,10 +1,11 @@
 import { sessionService } from 'app/service';
 import React, { PureComponent } from 'react';
-import { exampleUser, User } from 'instinct-rp-interfaces';
 import { ClientEvent, clientService } from 'instinct-frontend';
+import {exampleUser, exampleUserSession, UserSession} from 'instinct-rp-interfaces';
 import { SessionContext, SessionTypes, SessionProviderProps } from './';
 
 export class SessionContextProvider extends PureComponent<SessionProviderProps> {
+
   setStore = (changes: Partial<SessionTypes>): void => {
     return this.setState(changes);
   };
@@ -14,24 +15,24 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
     clientService.eventListener.on(ClientEvent.ENTERED_HOTEL, this.hasEnteredHotel);
   }
 
-  init = async (): Promise<void> => {
-    const user: User | undefined = await sessionService.init();
+  init = async () => {
+    const session: UserSession | undefined = await sessionService.init();
 
-    if (user) {
-      this.initSession(user);
+    if (session) {
+      this.initSession(session);
     } else {
       this.logout();
     }
   };
 
-  login = async (username: string, password: string): Promise<User> => {
+  login = async (username: string, password: string) => {
     const authToken: string = await sessionService.attemptCredentials(username, password);
-    const user: User = await sessionService.attemptBearerToken(authToken);
-    this.initSession(user);
-    return user;
+    const session: UserSession = await sessionService.attemptBearerToken(authToken);
+    this.initSession(session);
+    return session;
   };
 
-  logout = (): void => {
+  logout = () => {
     sessionService.logout();
     this.setState({
       user: undefined,
@@ -39,12 +40,20 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
     });
   };
 
-  initSession = (user: User): void => {
+  initSession = (session: UserSession): void => {
     this.setState({
-      user,
+      session,
       startedAt: new Date(),
     });
   };
+
+  refresh = async () => {
+    const session: UserSession = await sessionService.getCurrentSession();
+    this.setState({
+      ...this.state,
+      session,
+    });
+  }
 
   private hasEnteredHotel = () => {
     console.log('Hotel has been entered');
@@ -52,11 +61,12 @@ export class SessionContextProvider extends PureComponent<SessionProviderProps> 
 
   state: SessionTypes = {
     startedAt: undefined,
-    user: exampleUser,
+    session: undefined,
     setStore: this.setStore,
     login: this.login,
     logout: this.logout,
     forceStart: this.initSession,
+    refresh: this.refresh,
   };
 
   render() {

@@ -1,5 +1,5 @@
 import {Reflector} from '@nestjs/core';
-import {RequestWithSession} from '../session/session.type';
+import {RequestWithSession} from '../session/session/session.type';
 import {Injectable, CanActivate, ExecutionContext} from '@nestjs/common';
 import {RankScopeRepository} from '../database/rage/rank/rank-scope/rank-scope.repository';
 
@@ -20,6 +20,6 @@ export class AuthScopeGuard implements CanActivate {
       throw new Error('A request without a scope attached made its way into AuthGuard.  Is the @HasScope decorator applied?');
     }
 
-    return await this.rankScopeRepo.doesRankHaveScope(request.user.rankID, scope);
+    return await this.rankScopeRepo.doesRankHaveScope(request.user.user.rankID, scope);
   }
 }

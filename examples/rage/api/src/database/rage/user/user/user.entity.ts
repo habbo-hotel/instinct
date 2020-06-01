@@ -6,6 +6,7 @@ import {BusinessEntity} from '../../business/business/business.entity';
 import {UserRPStatsEntity} from '../user-rp-stats/user-rp-stats.entity';
 import {BusinessJobApplicationEntity} from '../../business/business-job-application/business-job-application.entity';
 import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import {UserSessionEntity} from '../user-session/user-session.entity';
 
 @Entity('users')
 export class UserEntity {
@@ -73,8 +74,8 @@ export class UserEntity {
   @Column()
   youtube!: string;
 
-  @Column({ name: 'two_factor_authentication', type: 'tinyint' })
-  twoFactorAuthentication!: number;
+  @Column({ name: 'two_factor_secret', type: 'varchar' })
+  twoFactorSecret?: string;
 
   @OneToMany(() => RoomEntity, room => room.owner)
   @JoinColumn({name: 'username'})
@@ -108,4 +109,8 @@ export class UserEntity {
 
   @OneToOne(() => UserRPStatsEntity, rpStats => rpStats.user)
   rpStats?: UserRPStatsEntity;
+
+  @OneToMany(() => UserSessionEntity, userSession => userSession.user)
+  sessions?: UserSessionEntity[];
+
 }

@@ -3,7 +3,7 @@ import {EntityRepository, Repository} from 'typeorm';
 
 @EntityRepository(ArticleEntity)
 export class ArticleRepository extends Repository<ArticleEntity> {
-  readonly eagerRelations: string[] = ['author', 'author.rank', 'category'];
+  readonly eagerRelations: string[] = ['author', 'author.rank', 'author.rank.scopes', 'category'];
 
   async createAndReturn(article: ArticleEntity): Promise<ArticleEntity> {
     const newArticle: ArticleEntity = await this.save(article);

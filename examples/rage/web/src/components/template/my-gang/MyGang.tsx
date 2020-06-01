@@ -7,8 +7,8 @@ export function MyGang() {
   const sessionContext = useContext(SessionContext);
   return (
     <Card header="My Gang">
-      {sessionContext.user?.gang && <GangRow gang={sessionContext.user.gang} />}
-      {sessionContext.user?.job === undefined && (
+      {sessionContext.session?.user?.gang && <GangRow gang={sessionContext.session?.user.gang} />}
+      {sessionContext.session?.user?.job === undefined && (
         <>
           <p>You don't belong to a gang</p>
         </>

@@ -1,11 +1,11 @@
+import {ConfigDTO} from './config.dto';
+import {AUTH_SCOPE} from '../auth/auth.types';
 import {Config} from 'instinct-rp-interfaces';
+import {HasScope} from '../auth/auth.decorator';
 import {Body, Controller, Get, Patch} from '@nestjs/common';
 import {configWire} from '../database/instinct/config/config.wire';
 import {ConfigEntity} from '../database/instinct/config/config.entity';
 import {ConfigRepository} from '../database/instinct/config/config.repository';
-import {ConfigDTO} from './config.dto';
-import {HasScope} from '../auth/auth.decorator';
-import {AUTH_SCOPE} from '../auth/auth.types';
 
 @Controller('config')
 export class ConfigController {

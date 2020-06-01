@@ -1,7 +1,7 @@
 import { SessionService } from './';
 import { AxiosResponse } from 'axios';
 import { backendAPI, setAPIToken, localStorageService } from 'instinct-frontend';
-import { Business, BusinessJobApplication, User, UserStats } from 'instinct-rp-interfaces';
+import {Business, BusinessJobApplication, User, UserSession, UserStats} from 'instinct-rp-interfaces';
 
 class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';
@@ -15,24 +15,37 @@ class SessionServiceImplementation implements SessionService {
     }
   }
 
+  // Throws 'AuthError'
   async attemptCredentials(username: string, password: string) {
     try {
       const bearerToken: AxiosResponse<string> = await backendAPI.post('session', { username, password });
       return bearerToken.data;
     } catch (e) {
-      throw new Error(e?.response?.data?.message ?? e);
+
+      if (e?.response?.data?.type !== undefined) {
+        throw {
+          type: e.response.data.type,
+          data: e.response.data.data,
+        }
+      }
+
+      throw e;
     }
   }
 
   async attemptBearerToken(bearerToken: string) {
     try {
       this.setBearerToken(bearerToken);
-      const session: AxiosResponse<User> = await backendAPI.get('session');
+      const session: AxiosResponse<UserSession> = await backendAPI.get('session');
       return session.data;
     } catch {
       setAPIToken();
       throw new Error('Invalid bearer token');
     }
+  }
+
+  async enableTwoFactor() {
+    await backendAPI.patch('session/settings/two_factor');
   }
 
   setBearerToken(bearerToken: string) {
@@ -48,9 +61,14 @@ class SessionServiceImplementation implements SessionService {
     return sso.data;
   }
 
-  async getCurrentUser() {
-    const user: AxiosResponse<User> = await backendAPI.get('session');
-    return user.data;
+  async getCurrentSession() {
+    const session: AxiosResponse<UserSession> = await backendAPI.get('session');
+    return session.data;
+  }
+
+  async getMyTwoFactorQrCode() {
+    const twoFactor: AxiosResponse<string> = await backendAPI.get('session/two_factor/qr');
+    return twoFactor.data;
   }
 
   async getMyStats() {

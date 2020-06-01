@@ -16,6 +16,7 @@ export function userWire(userEntity: UserEntity): User {
     online: userEntity.online === '1',
     figure: userEntity.figure,
     youtube: userEntity.youtube,
+    twoFactor: !!userEntity.twoFactorSecret,
     joinDate: Moment.unix(userEntity.accountCreated).toISOString(),
     lastLoginDate: Moment.unix(userEntity.lastOnline).toISOString(),
     rank: userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,

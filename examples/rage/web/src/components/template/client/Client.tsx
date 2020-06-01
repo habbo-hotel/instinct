@@ -15,7 +15,7 @@ export function Client() {
   const sessionContext = useContext(SessionContext);
   const flashEnabled: boolean = Flash.getFlashPlayerVersion().major > 0;
 
-  if (sessionContext.user?.online) {
+  if (sessionContext.session?.user?.online) {
     return null;
   }
 

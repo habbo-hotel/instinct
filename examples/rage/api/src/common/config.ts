@@ -17,6 +17,7 @@ export const databasePass: string = getEnvOrFail('DATABASE_PASS');
 export const databaseName: string = getEnvOrFail('DATABASE_NAME');
 
 // Authentication
+export const authJwtIssuer: string = getEnvOrFail('AUTH_JWT_ISSUER');
 export const authJwtSecret: string = getEnvOrFail('AUTH_JWT_SECRET');
 export const authJwtExpires = Number(getEnvOrFail('AUTH_JWT_EXPIRES'));
 export const authMfaSecret: string = getEnvOrFail('AUTH_MFA_SECRET');

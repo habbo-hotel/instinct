@@ -8,7 +8,7 @@ export function ProfilePreferences() {
   const sessionContext = useContext(SessionContext);
   const [state, setState] = useState<ProfilePreferencesState>({
     ...defaultProfilePreferencesState,
-    youtube: sessionContext.user?.youtube ?? '',
+    youtube: sessionContext.session?.user?.youtube ?? '',
   });
 
   const isDisabled: boolean = state.youtube === '' || state.showSpinner;

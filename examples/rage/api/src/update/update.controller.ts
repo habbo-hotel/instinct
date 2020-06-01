@@ -2,10 +2,10 @@ import {UpdatePipe} from './update.pipe';
 import {Update} from 'instinct-rp-interfaces';
 import {AUTH_SCOPE} from '../auth/auth.types';
 import {HasScope} from '../auth/auth.decorator';
-import {GetSession} from '../session/get-session.decorator';
 import {NewUpdateDTO, PartialUpdateDTO} from './update.dto';
-import {UserEntity} from '../database/rage/user/user/user.entity';
 import {updateWire} from '../database/instinct/update/update.wire';
+import {BackendUserSession} from '../session/session/session.type';
+import {GetSession} from '../session/session/get-session.decorator';
 import {UpdateEntity} from '../database/instinct/update/update.entity';
 import {UpdateRepository} from '../database/instinct/update/update.repository';
 import {Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
@@ -22,10 +22,10 @@ export class UpdateController {
 
   @Post()
   @HasScope(AUTH_SCOPE.CREATE_UPDATE)
-  async createUpdate(@GetSession() session: UserEntity, @Body() updateDTO: NewUpdateDTO): Promise<Update> {
+  async createUpdate(@GetSession() { user }: BackendUserSession, @Body() updateDTO: NewUpdateDTO): Promise<Update> {
     const newUpdate: UpdateEntity = await this.updateRepo.create({
       ...updateDTO,
-      userID: session.id!,
+      userID: user.id!,
       timestamp: new Date(),
     });
 

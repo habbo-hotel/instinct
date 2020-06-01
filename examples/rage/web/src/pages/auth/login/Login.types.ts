@@ -1,13 +1,7 @@
 export interface LoginState {
-  error?: string;
-  username: string;
-  password: string;
-  showSpinner: boolean;
+  twoFactorID?: number;
 }
 
 export const defaultLoginState: LoginState = {
-  error: undefined,
-  username: '',
-  password: '',
-  showSpinner: false,
+  twoFactorID: undefined,
 };

@@ -1,13 +1,14 @@
-import { User } from 'instinct-rp-interfaces';
+import { UserSession as UserSessionRP } from 'instinct-rp-interfaces';
 
 export interface UserSession {
-  user?: User;
+  session?: UserSessionRP;
   startedAt?: Date;
 }
 
 export interface SessionTypes extends UserSession {
   setStore: (changes: Partial<SessionTypes>) => void;
-  login(username: string, password: string): Promise<User>;
+  login(username: string, password: string): Promise<UserSessionRP>;
   logout(): void;
-  forceStart(user: User): void;
+  forceStart(user: UserSessionRP): void;
+  refresh(): Promise<void>;
 }

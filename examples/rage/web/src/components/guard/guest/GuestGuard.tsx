@@ -6,7 +6,7 @@ import { SessionContext, SessionTypes } from 'app/context';
 export function GuestGuard({ children }: GuestGuardProps) {
   const sessionContext: SessionTypes = useContext(SessionContext);
 
-  if (sessionContext.user) {
+  if (sessionContext.session) {
     redirect('home');
   }
 
