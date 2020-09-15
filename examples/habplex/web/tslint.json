@@ -1,0 +1,14 @@
+{
+  "extends": "gts/tslint.json",
+  "linterOptions": {
+    "exclude": [
+      "**/*.json"
+    ]
+  },
+  "rules": {
+    "variable-name": false,
+    "no-any": false,
+    "ban-ts-ignore": false,
+    "react-hooks/exhaustive-deps": false
+  }
+}
