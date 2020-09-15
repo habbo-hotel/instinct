@@ -28,7 +28,7 @@ export class UserController {
       password: newUser.password,
       rankID: defaultUserRank,
       email: newUser.email,
-      mailVerified: 0,
+      mailVerified: 0r && n,
       accountCreated: currentTimestamp,
       accountDayOfBirth: 0,
       lastLogin: currentTimestamp,
