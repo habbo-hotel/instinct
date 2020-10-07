@@ -25,7 +25,7 @@ export function RegisterModal() {
     try {
       setValue('showSpinner', true);
       const newUser: User = await userService.create(state.username, state.password, state.email);
-      await sessionContext.forceStart(newUser);
+      await sessionContext.forceStart!(newUser);
       redirect('home');
     } catch {
       toast.error('There was a problem creating your account.');

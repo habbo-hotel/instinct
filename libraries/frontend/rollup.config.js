@@ -1,8 +1,8 @@
-import scss from 'rollup-plugin-scss';
 import filesize from 'rollup-plugin-filesize';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
+import bundleScss from 'rollup-plugin-bundle-scss';
 import localResolve from 'rollup-plugin-local-resolve';
 
 const INPUT_FILE_PATH = 'src/index.ts';
@@ -15,7 +15,7 @@ const GLOBALS = {
 
 const PLUGINS = [
   typescript(),
-  scss(),
+  bundleScss(),
   localResolve(),
   resolve({
     browser: true,

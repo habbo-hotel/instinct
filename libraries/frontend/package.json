@@ -75,6 +75,7 @@
     "reactstrap": "^8.6.0",
     "rollup": "^2.28.2",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-bundle-scss": "^0.1.1",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-local-resolve": "^1.0.7",
     "rollup-plugin-postcss": "^3.1.8",

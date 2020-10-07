@@ -19,7 +19,7 @@ export function LoginModal() {
   async function tryLogin(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      await sessionContext.login(state.username!, state.password!);
+      await sessionContext.login!(state.username!, state.password!);
       redirect('home');
     } catch {
       toast.error('There was a problem with your username or password.');

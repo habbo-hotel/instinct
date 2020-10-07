@@ -19,7 +19,7 @@ export function DataPolling() {
 
     async function fetchSession(): Promise<void> {
       const user: User = await sessionService.getCurrentUser();
-      sessionContext.setStore({
+      sessionContext.setStore!({
         ...sessionContext,
         user,
       });
