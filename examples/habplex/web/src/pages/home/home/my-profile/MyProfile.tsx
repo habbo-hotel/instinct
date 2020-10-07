@@ -1,10 +1,10 @@
 import './MyProfile.scss';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { Avatar, SessionContext, SessionTypes } from 'instinct-frontend';
+import { Avatar, sessionContext} from 'instinct-frontend';
 
 export function MyProfile() {
-  const { user }: SessionTypes = useContext<SessionTypes>(SessionContext);
+  const { user } = useContext(sessionContext);
   return (
     <article className="default-section profile-section">
       <div className="background-image">

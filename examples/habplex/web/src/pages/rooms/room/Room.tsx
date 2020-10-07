@@ -3,12 +3,12 @@ import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
 import { Link, useParams } from 'react-router-dom';
 import React, { useContext, useEffect, useState } from 'react';
-import { Card, Column, Container, Jumbotron, Loading, SessionContext, clientService, roomService, UserLayout, setURL } from 'instinct-frontend';
+import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext } from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 
 export function RoomPage() {
-  const sessionContext = useContext(SessionContext);
+  const { user } = useContext(sessionContext);
   const { roomID } = useParams<Record<'roomID', string>>();
   const [state, setState] = useState<RoomState>(defaultRoomState);
 
@@ -42,7 +42,7 @@ export function RoomPage() {
                 <li>Max Users: <b>{state.room?.maxUsers}</b></li>
                 <li>Current Users: <b>{state.room?.currentUsers}</b></li>
               </ul>
-              <button className="rounded-button blue plain" disabled={!sessionContext.user?.online} onClick={enterRoom}>Enter Room</button>
+              <button className="rounded-button blue plain" disabled={!user?.online} onClick={enterRoom}>Enter Room</button>
             </Card>
           </Column>
         </Container>

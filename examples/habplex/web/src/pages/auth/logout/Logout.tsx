@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { SessionContext, SessionTypes, setURL } from 'instinct-frontend';
+import { sessionContext, setURL } from 'instinct-frontend';
 
 setURL('logout', <Logout />);
 
 export function Logout() {
-  const sessionContext = useContext<SessionTypes>(SessionContext);
+  const { logout } = useContext(sessionContext);
 
-  sessionContext.logout();
+  logout!();
 
   return <Redirect to="/login" />;
 }
