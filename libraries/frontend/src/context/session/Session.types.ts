@@ -7,6 +7,7 @@ export interface UserSession {
 
 export interface SessionContext extends UserSession {
   setStore?: (changes: Partial<SessionContext>) => void;
+  init?(): Promise<void>;
   login?(username: string, password: string): Promise<User>;
   logout?(): void;
   forceStart?(user: User): void;
@@ -15,6 +16,7 @@ export interface SessionContext extends UserSession {
 export const defaultSessionContext: SessionContext = {
   user: undefined,
   startedAt: undefined,
+  init: undefined,
   setStore: undefined,
   login: undefined,
   logout: undefined,

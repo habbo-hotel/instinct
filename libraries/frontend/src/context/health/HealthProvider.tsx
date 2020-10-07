@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { healthContext, HealthContext } from './';
+import { configService } from '../../services/config';
+import { Health, exampleHealth } from 'instinct-interfaces';
 import { ContextProvidersProps } from '../ContextProviders.types';
-import { defaultHealthInterface, healthContext, HealthContext } from './';
 
 export function HealthContextProvider({ children }: ContextProvidersProps) {
-  const [state, setState] = useState<HealthContext>(defaultHealthInterface);
+  const [state, setState] = useState<Health>(exampleHealth);
+
+  async function init(): Promise<void> {
+    const health = await configService.getHealth();
+    setState(health);
+  }
 
   function setStore(changes: Partial<HealthContext>): void {
     setState((_) => ({
@@ -12,5 +19,5 @@ export function HealthContextProvider({ children }: ContextProvidersProps) {
     }));
   }
 
-  return <healthContext.Provider value={{ ...state, setStore }}>{children}</healthContext.Provider>;
+  return <healthContext.Provider value={{ ...state, setStore, init }}>{children}</healthContext.Provider>;
 }

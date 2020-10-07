@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { configContext, ConfigContext } from './';
+import { configService } from '../../services/config';
+import { Config, defaultConfig } from 'instinct-interfaces';
 import { ContextProvidersProps } from '../ContextProviders.types';
-import { configContext, ConfigContext, defaultConfigInterface } from './';
 
 export function ConfigContextProvider({ children }: ContextProvidersProps) {
-  const [state, setState] = useState<ConfigContext>(defaultConfigInterface);
+  const [state, setState] = useState<Config>(defaultConfig);
+
+  async function init(): Promise<void> {
+    const config = await configService.getConfig();
+    setState(config);
+  }
 
   function setStore(changes: Partial<ConfigContext>): void {
     setState((_) => ({
@@ -12,5 +19,5 @@ export function ConfigContextProvider({ children }: ContextProvidersProps) {
     }));
   }
 
-  return <configContext.Provider value={{ ...state, setStore }}>{children}</configContext.Provider>;
+  return <configContext.Provider value={{ ...state, setStore, init }}>{children}</configContext.Provider>;
 }

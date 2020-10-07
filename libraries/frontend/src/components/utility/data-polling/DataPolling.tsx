@@ -18,18 +18,16 @@ export function DataPolling() {
     }
 
     async function fetchSession(): Promise<void> {
-      const user: User = await sessionService.getCurrentUser();
-      sessionC.forceStart!(user);
+      if (sessionC.user) {
+        const user: User = await sessionService.getCurrentUser();
+        sessionC.forceStart!(user);
+      }
     }
 
     async function fetchConfig(): Promise<void> {
       const config: Config = await configService.getConfig();
       configC.setStore!(config);
     }
-
-    fetchHealth();
-    fetchConfig();
-    fetchSession();
 
     setInterval(fetchHealth, TWENTY_SECONDS_IN_MS);
     setInterval(fetchConfig(), FIVE_MINUTE_IN_MS);

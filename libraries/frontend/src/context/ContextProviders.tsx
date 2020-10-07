@@ -6,6 +6,7 @@ import {
   ThemeContextProvider,
   HealthContextProvider,
 } from './index';
+import { BootStrap } from '../components/utility/bootstrap/Bootstrap';
 
 export function ContextProviders({ children }: ContextProvidersProps) {
   return (
@@ -13,7 +14,9 @@ export function ContextProviders({ children }: ContextProvidersProps) {
       <ConfigContextProvider>
         <SessionContextProvider>
           <HealthContextProvider>
-            <ThemeContextProvider>{children}</ThemeContextProvider>
+            <ThemeContextProvider>
+              <BootStrap>{children}</BootStrap>
+            </ThemeContextProvider>
           </HealthContextProvider>
         </SessionContextProvider>
       </ConfigContextProvider>
