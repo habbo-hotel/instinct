@@ -22,7 +22,7 @@ export function Footer() {
           <Icon className="fa-2x" type="thunderstorm" onClick={toggleAboutModal} />
         </div>
         <div className="footer-copyright">
-          <b onClick={toggleAboutModal}>Instinct</b> by <b>LeChris</b>
+          <b onClick={toggleAboutModal}>Instinct</b>
         </div>
       </footer>
       <AboutModal isOpen={showAbout} onToggle={toggleAboutModal} />

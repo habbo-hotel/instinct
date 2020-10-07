@@ -48,3 +48,23 @@ body {
   background: $backgroundOne;
   color: white !important;
 }
+
+.article-container {
+
+  .article-header {
+    background-color: $backgroundTwo !important;
+    color: $primaryFontColor !important;
+  }
+
+  .article-content {
+    background-color: transparent !important;
+    box-shadow: 0 0 10px $backgroundTwo !important;
+  }
+
+}
+
+.login-popup {
+  &:after {
+    background-image: none;
+  }
+}

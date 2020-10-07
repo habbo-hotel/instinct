@@ -46,8 +46,12 @@ class SessionServiceImplementation implements SessionService {
   }
 
   async getCurrentUser(): Promise<User> {
-    const user: AxiosResponse<User> = await backendAPI.get('session');
-    return user.data;
+    try {
+      const user: AxiosResponse<User> = await backendAPI.get('session');
+      return user.data;
+    } catch {
+      throw new Error('Not Authenticated');
+    }
   }
 
   logout(): void {
