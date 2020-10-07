@@ -7,11 +7,11 @@ import { ClientActions } from './client-actions';
 import { FlashDisabled } from './flash-disabled';
 import { LoadingScreen } from './loading-screen';
 import { ClientContainer } from './client-container';
-import { SessionContext, ThemeContext } from 'context';
+import { sessionContext, ThemeContext } from 'context';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);
-  const sessionContext = useContext(SessionContext);
+  const sessionContext = useContext(sessionContext);
   const flashEnabled: boolean = Flash.getFlashPlayerVersion().major > 0;
 
   if (sessionContext.user?.online) {

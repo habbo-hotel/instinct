@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { GuestGuardProps } from './';
 import { redirect } from '../../utility/router';
-import { SessionContext, SessionTypes } from 'context';
+import { sessionContext, SessionContext } from 'context';
 
 export function GuestGuard({ children }: GuestGuardProps) {
-  const sessionContext: SessionTypes = useContext(SessionContext);
+  const sessionContext: SessionContext = useContext(sessionContext);
 
   if (sessionContext.user) {
     redirect('home');

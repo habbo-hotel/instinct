@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { configService, sessionService } from 'services';
 import { Config, Health, User } from 'instinct-interfaces';
-import { ConfigContext, HealthContext, SessionContext } from 'context';
+import { ConfigContext, HealthContext, sessionContext } from 'context';
 
 const TWENTY_SECONDS_IN_MS = 20000;
 const FIVE_MINUTE_IN_MS = 300000000;
@@ -9,7 +9,7 @@ const FIVE_MINUTE_IN_MS = 300000000;
 export function DataPolling() {
   const configContext = useContext(ConfigContext);
   const healthContext = useContext(HealthContext);
-  const sessionContext = useContext(SessionContext);
+  const sessionContext = useContext(sessionContext);
 
   useEffect(() => {
     async function fetchHealth(): Promise<void> {

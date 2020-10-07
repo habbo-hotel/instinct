@@ -1,12 +1,12 @@
 import { UserLayoutProps } from './';
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
-import { HealthContext, SessionContext } from 'context';
+import { HealthContext, sessionContext } from 'context';
 import { Footer, Header, Icon, NavBar, redirect, UserGuard } from 'components';
 
 export function UserLayout({ children, section = 'home', style }: UserLayoutProps) {
   const healthContext = useContext(HealthContext);
-  const sessionContext = useContext(SessionContext);
+  const sessionContext = useContext(sessionContext);
 
   if (sessionContext.user === undefined) {
     redirect('login');

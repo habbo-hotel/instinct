@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { redirect } from 'components';
-import { SessionContext } from 'context';
+import { sessionContext } from 'context';
 import { PermissionGuardProps } from './';
 
 export function PermissionGuard({ children, permission }: PermissionGuardProps) {
-  const sessionContext = useContext(SessionContext);
+  const sessionContext = useContext(sessionContext);
 
   if (sessionContext.user === undefined) {
     redirect('login');

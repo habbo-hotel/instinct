@@ -1,12 +1,12 @@
 import { redirect } from 'components';
 import { toast } from 'react-toastify';
-import { SessionContext } from 'context';
+import { sessionContext } from 'context';
 import React, { useContext, useState } from 'react';
 import { LoginModalState, defaultLoginModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function LoginModal() {
-  const sessionContext = useContext(SessionContext);
+  const sessionContext = useContext(sessionContext);
   const [state, setState] = useState<LoginModalState>(defaultLoginModalState);
 
   function setValue<T extends keyof LoginModalState>(key: T, value: LoginModalState[T]): void {

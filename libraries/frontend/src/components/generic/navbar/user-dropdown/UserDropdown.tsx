@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { Avatar, Icon, NavBarChildLink } from '../../';
-import { SessionTypes, SessionContext } from 'context';
+import { SessionContext, sessionContext } from 'context';
 
 export function UserDropdown() {
-  const sessionContext = useContext<SessionTypes>(SessionContext);
+  const sessionContext = useContext<SessionContext>(sessionContext);
 
   if (sessionContext.user === undefined) {
     return null;

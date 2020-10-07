@@ -1,6 +1,6 @@
 {
   "name": "instinct-frontend",
-  "version": "0.1.4",
+  "version": "1.0.1",
   "description": "Shared components across Instinct Apps",
   "scripts": {
     "build": "rollup -c",
