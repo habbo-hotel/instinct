@@ -4,13 +4,13 @@ import { sessionContext } from 'context';
 import { PermissionGuardProps } from './';
 
 export function PermissionGuard({ children, permission }: PermissionGuardProps) {
-  const sessionContext = useContext(sessionContext);
+  const { user } = useContext(sessionContext);
 
-  if (sessionContext.user === undefined) {
+  if (user === undefined) {
     redirect('login');
   }
 
-  if (!sessionContext.user?.rank?.permissions[permission]) {
+  if (user?.rank?.permissions[permission]) {
     redirect('home');
     return null;
   }

@@ -6,7 +6,7 @@ import { LoginModalState, defaultLoginModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function LoginModal() {
-  const sessionContext = useContext(sessionContext);
+  const { login } = useContext(sessionContext);
   const [state, setState] = useState<LoginModalState>(defaultLoginModalState);
 
   function setValue<T extends keyof LoginModalState>(key: T, value: LoginModalState[T]): void {
@@ -19,7 +19,7 @@ export function LoginModal() {
   async function tryLogin(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      await sessionContext.login!(state.username!, state.password!);
+      await login!(state.username!, state.password!);
       redirect('home');
     } catch {
       toast.error('There was a problem with your username or password.');

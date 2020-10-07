@@ -9,7 +9,7 @@ const FIVE_MINUTE_IN_MS = 300000000;
 export function DataPolling() {
   const configContext = useContext(ConfigContext);
   const healthContext = useContext(HealthContext);
-  const sessionContext = useContext(sessionContext);
+  const { forceStart } = useContext(sessionContext);
 
   useEffect(() => {
     async function fetchHealth(): Promise<void> {
@@ -19,10 +19,7 @@ export function DataPolling() {
 
     async function fetchSession(): Promise<void> {
       const user: User = await sessionService.getCurrentUser();
-      sessionContext.setStore!({
-        ...sessionContext,
-        user,
-      });
+      forceStart!(user);
     }
 
     async function fetchConfig(): Promise<void> {

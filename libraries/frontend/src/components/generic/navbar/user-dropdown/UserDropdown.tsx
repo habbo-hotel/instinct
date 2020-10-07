@@ -4,31 +4,29 @@ import { Avatar, Icon, NavBarChildLink } from '../../';
 import { SessionContext, sessionContext } from 'context';
 
 export function UserDropdown() {
-  const sessionContext = useContext<SessionContext>(sessionContext);
+  const { user } = useContext<SessionContext>(sessionContext);
 
-  if (sessionContext.user === undefined) {
+  if (user === undefined) {
     return null;
   }
 
   return (
     <>
-      <Link to={`/profile/${sessionContext.user.username}`}>
+      <Link to={`/profile/${user.username}`}>
         <div className="account-avatar">
           <Avatar
-            look={`${sessionContext.user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`}
+            look={`${user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`}
           />
         </div>
         <span>
-          {sessionContext.user.username}
+          {user.username}
           <Icon className="ml-2" type="caret-down" />
         </span>
       </Link>
       <ul className="navigation-submenu">
-        {sessionContext.user.rank?.permissions.websiteShowAdminPanel && (
-          <NavBarChildLink to="/admin">Admin Panel</NavBarChildLink>
-        )}
+        {user.rank?.permissions.websiteShowAdminPanel && <NavBarChildLink to="/admin">Admin Panel</NavBarChildLink>}
         <NavBarChildLink to="/preferences">Account Settings</NavBarChildLink>
-        <NavBarChildLink to={`/profile/${sessionContext.user.username}`}>My Profile</NavBarChildLink>
+        <NavBarChildLink to={`/profile/${user.username}`}>My Profile</NavBarChildLink>
         <NavBarChildLink to="/logout">Logout</NavBarChildLink>
       </ul>
     </>

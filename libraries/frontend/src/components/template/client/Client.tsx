@@ -11,10 +11,10 @@ import { sessionContext, ThemeContext } from 'context';
 
 export function Client() {
   const themeContext = useContext(ThemeContext);
-  const sessionContext = useContext(sessionContext);
+  const { user } = useContext(sessionContext);
   const flashEnabled: boolean = Flash.getFlashPlayerVersion().major > 0;
 
-  if (sessionContext.user?.online) {
+  if (user?.online) {
     return null;
   }
 

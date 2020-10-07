@@ -6,9 +6,9 @@ import { Footer, Header, Icon, NavBar, redirect, UserGuard } from 'components';
 
 export function UserLayout({ children, section = 'home', style }: UserLayoutProps) {
   const healthContext = useContext(HealthContext);
-  const sessionContext = useContext(sessionContext);
+  const { user } = useContext(sessionContext);
 
-  if (sessionContext.user === undefined) {
+  if (user === undefined) {
     redirect('login');
   }
 

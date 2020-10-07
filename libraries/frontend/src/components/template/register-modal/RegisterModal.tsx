@@ -9,7 +9,7 @@ import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
-  const sessionContext = useContext(sessionContext);
+  const { forceStart } = useContext(sessionContext);
 
   const disabled: boolean =
     state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
@@ -25,7 +25,7 @@ export function RegisterModal() {
     try {
       setValue('showSpinner', true);
       const newUser: User = await userService.create(state.username, state.password, state.email);
-      await sessionContext.forceStart!(newUser);
+      await forceStart!(newUser);
       redirect('home');
     } catch {
       toast.error('There was a problem creating your account.');
