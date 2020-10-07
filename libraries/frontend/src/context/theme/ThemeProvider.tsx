@@ -1,19 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import { ThemeContextInterface, ThemeContext, defaultThemeContextInterface } from './';
+import { ContextProvidersProps } from '../ContextProviders.types';
 
-export class ThemeContextProvider extends PureComponent {
-  setStore = (changes: Partial<ThemeContextInterface>): void => {
-    return this.setState(changes);
-  };
+export function ThemeContextProvider({ children }: ContextProvidersProps) {
+  const [state, setState] = useState<ThemeContextInterface>(defaultThemeContextInterface);
 
-  state: ThemeContextInterface = {
-    ...defaultThemeContextInterface,
-    setStore: this.setStore,
-    toggleClient: (visible) => this.setStore({ showClient: visible }),
-  };
-
-  render() {
-    const { children } = this.props;
-    return <ThemeContext.Provider value={this.state}>{children}</ThemeContext.Provider>;
+  function setStore(changes: Partial<ThemeContextInterface>): void {
+    setState((_) => ({
+      ..._,
+      ...changes,
+    }));
   }
+
+  return <ThemeContext.Provider value={{ ...state, setStore }}>{children}</ThemeContext.Provider>;
 }

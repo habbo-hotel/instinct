@@ -6,8 +6,17 @@ export interface UserSession {
 }
 
 export interface SessionTypes extends UserSession {
-  setStore: (changes: Partial<SessionTypes>) => void;
-  login(username: string, password: string): Promise<User>;
-  logout(): void;
-  forceStart(user: User): void;
+  setStore?: (changes: Partial<SessionTypes>) => void;
+  login?(username: string, password: string): Promise<User>;
+  logout?(): void;
+  forceStart?(user: User): void;
 }
+
+export const defaultSessionContext: SessionTypes = {
+  user: undefined,
+  startedAt: undefined,
+  setStore: undefined,
+  login: undefined,
+  logout: undefined,
+  forceStart: undefined,
+};

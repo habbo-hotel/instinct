@@ -1,18 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import { defaultHealthInterface, HealthContext, HealthTypes, HealthProviderProps } from './index';
 
-export class HealthProvider extends PureComponent<HealthProviderProps> {
-  setStore = (changes: Partial<HealthTypes>): void => {
-    return this.setState(changes);
-  };
+export function HealthProvider({ children }: HealthProviderProps) {
+  const [state, setState] = useState<HealthTypes>(defaultHealthInterface);
 
-  state: HealthTypes = {
-    ...defaultHealthInterface,
-    setStore: this.setStore,
-  };
-
-  render() {
-    const { children } = this.props;
-    return <HealthContext.Provider value={this.state}>{children}</HealthContext.Provider>;
+  function setStore(changes: Partial<HealthTypes>): void {
+    setState((_) => ({
+      ..._,
+      ...changes,
+    }));
   }
+
+  return <HealthContext.Provider value={{ ...state, setStore }}>{children}</HealthContext.Provider>;
 }

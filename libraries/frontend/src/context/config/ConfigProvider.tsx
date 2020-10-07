@@ -1,18 +1,15 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import { ConfigContext, ConfigProviderProps, ConfigTypes, defaultConfigInterface } from './';
 
-export class ConfigProvider extends PureComponent<ConfigProviderProps> {
-  setStore = (changes: Partial<ConfigTypes>): void => {
-    return this.setState(changes);
-  };
+export function ConfigProvider({ children }: ConfigProviderProps) {
+  const [state, setState] = useState<ConfigTypes>(defaultConfigInterface);
 
-  state: ConfigTypes = {
-    ...defaultConfigInterface,
-    setStore: this.setStore,
-  };
-
-  render() {
-    const { children } = this.props;
-    return <ConfigContext.Provider value={this.state}>{children}</ConfigContext.Provider>;
+  function setStore(changes: Partial<ConfigTypes>): void {
+    setState((_) => ({
+      ..._,
+      ...changes,
+    }));
   }
+
+  return <ConfigContext.Provider value={{ ...state, setStore }}>{children}</ConfigContext.Provider>;
 }
