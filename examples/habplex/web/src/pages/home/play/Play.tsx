@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react';
-import { setURL, ThemeContext } from 'instinct-frontend';
+import { setURL, themeContext } from 'instinct-frontend';
 
 setURL('play', <PlayPage />);
 
 export function PlayPage() {
-  const themeContext = useContext(ThemeContext);
+  const { toggleClient } = useContext(themeContext);
 
   useEffect(() => {
-    themeContext.toggleClient!(true);
+    toggleClient!(true);
   });
 
   return null;

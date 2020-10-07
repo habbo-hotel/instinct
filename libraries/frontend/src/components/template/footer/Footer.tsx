@@ -5,9 +5,9 @@ import React, { useContext, useState } from 'react';
 
 export function Footer() {
   const [showAbout, toggleAbout] = useState<boolean>(false);
-  const themeContext = useContext(themeContext);
+  const { showFooter } = useContext(themeContext);
 
-  if (!themeContext.showFooter) {
+  if (!showFooter) {
     return null;
   }
 

@@ -10,7 +10,7 @@ import { ClientContainer } from './client-container';
 import { sessionContext, themeContext } from 'context';
 
 export function Client() {
-  const themeContext = useContext(themeContext);
+  const { showClient } = useContext(themeContext);
   const { user } = useContext(sessionContext);
   const flashEnabled: boolean = Flash.getFlashPlayerVersion().major > 0;
 
@@ -20,7 +20,7 @@ export function Client() {
 
   return (
     <UserGuard redirect={false}>
-      <div className={`hotel-container ${themeContext.showClient ? 'visible' : 'not-visible'}`}>
+      <div className={`hotel-container ${showClient ? 'visible' : 'not-visible'}`}>
         <ClientActions />
         {flashEnabled && (
           <>

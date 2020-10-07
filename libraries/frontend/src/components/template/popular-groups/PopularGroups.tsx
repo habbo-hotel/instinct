@@ -7,7 +7,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { defaultPopularGroupsState, PopularGroupsState } from './';
 
 export function PopularGroups() {
-  const configContext = useContext(configContext);
+  const { groupBadgeURL } = useContext(configContext);
   const [state, setState] = useState<PopularGroupsState>(defaultPopularGroupsState);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function PopularGroups() {
         {state.groups.map((group) => (
           <div
             className="popular-group"
-            style={{ background: `url(${configContext.groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}
+            style={{ background: `url(${groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}
             key={group.id}
           >
             <div className="user-count">0</div>

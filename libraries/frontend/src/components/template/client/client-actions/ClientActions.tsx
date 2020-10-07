@@ -4,12 +4,12 @@ import React, { useContext, useState } from 'react';
 import { healthContext, themeContext } from 'context';
 
 export function ClientActions() {
-  const themeContext = useContext(themeContext);
-  const healthContext = useContext(healthContext);
+  const { showClient, toggleClient } = useContext(themeContext);
+  const { usersOnline } = useContext(healthContext);
   const [isExpanded, setExpanded] = useState<boolean>(false);
 
   function toggleWebView(): void {
-    themeContext.toggleClient!(!themeContext.showClient);
+    toggleClient!(!showClient);
     redirect('home');
   }
 
@@ -28,7 +28,7 @@ export function ClientActions() {
       </button>
       <button style={{ cursor: 'default' }}>
         <Icon family="fas" type="user" />
-        <b>{healthContext.usersOnline}</b>
+        <b>{usersOnline}</b>
       </button>
     </div>
   );
