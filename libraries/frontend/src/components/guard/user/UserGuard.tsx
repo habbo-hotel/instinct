@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { UserGuardProps } from './';
+import { sessionContext } from 'context';
 import { redirect as redirectUser } from 'components';
-import { sessionContext, SessionContext } from 'context';
 
 export function UserGuard({ children, redirect = true }: UserGuardProps) {
-  const sessionContext: SessionContext = useContext(sessionContext);
+  const { user } = useContext(sessionContext);
 
-  if (sessionContext.user === undefined) {
+  if (user === undefined) {
     if (redirect) {
       redirectUser('login');
     }

@@ -4,9 +4,9 @@ import { redirect } from '../../utility/router';
 import { sessionContext, SessionContext } from 'context';
 
 export function GuestGuard({ children }: GuestGuardProps) {
-  const sessionContext: SessionContext = useContext(sessionContext);
+  const { user } = useContext(sessionContext);
 
-  if (sessionContext.user) {
+  if (user) {
     redirect('home');
   }
 
