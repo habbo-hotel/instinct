@@ -1,12 +1,12 @@
 // @ts-ignore this dependency does not support Typescript
 import Flash from 'swfobject';
-import { ConfigContext } from 'context';
+import { configContext } from 'context';
 import { sessionService } from 'services';
 import React, { useContext, useEffect, useState } from 'react';
 
 export function ClientContainer() {
   const [sso, setSSO] = useState<string>();
-  const configContext = useContext(ConfigContext);
+  const configContext = useContext(configContext);
 
   useEffect(() => {
     async function fetchSSO(): Promise<void> {

@@ -1,11 +1,11 @@
 import './ClientActions.scss';
 import { redirect, Icon } from 'components';
 import React, { useContext, useState } from 'react';
-import { HealthContext, ThemeContext } from 'context';
+import { healthContext, themeContext } from 'context';
 
 export function ClientActions() {
-  const themeContext = useContext(ThemeContext);
-  const healthContext = useContext(HealthContext);
+  const themeContext = useContext(themeContext);
+  const healthContext = useContext(healthContext);
   const [isExpanded, setExpanded] = useState<boolean>(false);
 
   function toggleWebView(): void {

@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import { defaultThemeContextInterface, ThemeContextInterface } from './Theme.types';
+import { defaultThemeContextInterface, ThemeContext } from './Theme.types';
 
-export const ThemeContext = createContext<ThemeContextInterface>(defaultThemeContextInterface);
+export const themeContext = createContext<ThemeContext>(defaultThemeContextInterface);

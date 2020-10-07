@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { defaultHealthInterface, HealthContext, HealthTypes, HealthProviderProps } from './index';
+import { ContextProvidersProps } from '../ContextProviders.types';
+import { defaultHealthInterface, healthContext, HealthContext } from './';
 
-export function HealthProvider({ children }: HealthProviderProps) {
-  const [state, setState] = useState<HealthTypes>(defaultHealthInterface);
+export function HealthContextProvider({ children }: ContextProvidersProps) {
+  const [state, setState] = useState<HealthContext>(defaultHealthInterface);
 
-  function setStore(changes: Partial<HealthTypes>): void {
+  function setStore(changes: Partial<HealthContext>): void {
     setState((_) => ({
       ..._,
       ...changes,
     }));
   }
 
-  return <HealthContext.Provider value={{ ...state, setStore }}>{children}</HealthContext.Provider>;
+  return <healthContext.Provider value={{ ...state, setStore }}>{children}</healthContext.Provider>;
 }

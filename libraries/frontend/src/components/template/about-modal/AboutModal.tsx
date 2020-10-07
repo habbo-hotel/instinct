@@ -1,10 +1,10 @@
 import { AboutModalProps } from './';
-import { HealthContext } from 'context';
+import { healthContext } from 'context';
 import React, { useContext } from 'react';
 import { ModalOverlay } from 'components';
 
 export function AboutModal({ isOpen, onToggle }: AboutModalProps) {
-  const healthContext = useContext(HealthContext);
+  const healthContext = useContext(healthContext);
   return (
     <>
       <ModalOverlay header="Instinct" isOpen={isOpen} onToggle={onToggle}>

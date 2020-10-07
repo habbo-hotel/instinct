@@ -1,5 +1,5 @@
 import './PopularGroup.scss';
-import { ConfigContext } from 'context';
+import { configContext } from 'context';
 import { groupService } from 'services';
 import { Card, Loading } from 'components';
 import { Group } from 'instinct-interfaces';
@@ -7,7 +7,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { defaultPopularGroupsState, PopularGroupsState } from './';
 
 export function PopularGroups() {
-  const configContext = useContext(ConfigContext);
+  const configContext = useContext(configContext);
   const [state, setState] = useState<PopularGroupsState>(defaultPopularGroupsState);
 
   useEffect(() => {

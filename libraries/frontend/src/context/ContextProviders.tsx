@@ -1,14 +1,14 @@
 import React from 'react';
-import { ContextProvidersProps, ConfigProvider, SessionContextProvider, ThemeContextProvider } from './index';
+import { ContextProvidersProps, ConfigContextProvider, SessionContextProvider, ThemeContextProvider } from './index';
 
 export function ContextProviders({ children }: ContextProvidersProps) {
   return (
     <>
-      <ConfigProvider>
+      <ConfigContextProvider>
         <SessionContextProvider>
           <ThemeContextProvider>{children}</ThemeContextProvider>
         </SessionContextProvider>
-      </ConfigProvider>
+      </ConfigContextProvider>
     </>
   );
 }

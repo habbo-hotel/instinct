@@ -1,11 +1,11 @@
 import './Footer.scss';
-import { ThemeContext } from 'context';
+import { themeContext } from 'context';
 import { AboutModal, Icon } from 'components';
 import React, { useContext, useState } from 'react';
 
 export function Footer() {
   const [showAbout, toggleAbout] = useState<boolean>(false);
-  const themeContext = useContext(ThemeContext);
+  const themeContext = useContext(themeContext);
 
   if (!themeContext.showFooter) {
     return null;

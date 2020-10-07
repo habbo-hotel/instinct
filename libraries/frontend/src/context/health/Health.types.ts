@@ -1,10 +1,10 @@
 import { exampleHealth, Health } from 'instinct-interfaces';
 
-export interface HealthTypes extends Health {
-  setStore?: (changes: Partial<HealthTypes>) => void;
+export interface HealthContext extends Health {
+  setStore?: (changes: Partial<HealthContext>) => void;
 }
 
-export const defaultHealthInterface: HealthTypes = {
+export const defaultHealthInterface: HealthContext = {
   ...exampleHealth,
   setStore: undefined,
 };

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { sessionService } from 'services';
 import { User } from 'instinct-interfaces';
-import { sessionContext, SessionContext, SessionProviderProps, defaultSessionContext } from './';
+import { ContextProvidersProps } from '../ContextProviders.types';
+import { sessionContext, SessionContext, defaultSessionContext } from './';
 
-export function SessionContextProvider({ children }: SessionProviderProps) {
+export function SessionContextProvider({ children }: ContextProvidersProps) {
   const [state, setState] = useState<SessionContext>(defaultSessionContext);
 
   async function login(username: string, password: string): Promise<User> {

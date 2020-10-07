@@ -1,7 +1,7 @@
 import { Config, defaultConfig } from 'instinct-interfaces';
 
-export interface ConfigTypes extends Config {
-  setStore?: (changes: Partial<ConfigTypes>) => void;
+export interface ConfigContext extends Config {
+  setStore?: (changes: Partial<ConfigContext>) => void;
 }
 
-export const defaultConfigInterface: ConfigTypes = defaultConfig;
+export const defaultConfigInterface: ConfigContext = defaultConfig;

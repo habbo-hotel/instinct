@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { ConfigContext, ConfigProviderProps, ConfigTypes, defaultConfigInterface } from './';
+import { ContextProvidersProps } from '../ContextProviders.types';
+import { configContext, ConfigContext, defaultConfigInterface } from './';
 
-export function ConfigProvider({ children }: ConfigProviderProps) {
-  const [state, setState] = useState<ConfigTypes>(defaultConfigInterface);
+export function ConfigContextProvider({ children }: ContextProvidersProps) {
+  const [state, setState] = useState<ConfigContext>(defaultConfigInterface);
 
-  function setStore(changes: Partial<ConfigTypes>): void {
+  function setStore(changes: Partial<ConfigContext>): void {
     setState((_) => ({
       ..._,
       ...changes,
     }));
   }
 
-  return <ConfigContext.Provider value={{ ...state, setStore }}>{children}</ConfigContext.Provider>;
+  return <configContext.Provider value={{ ...state, setStore }}>{children}</configContext.Provider>;
 }
