@@ -7,6 +7,10 @@ body {
   background: $backgroundOne;
 }
 
+.header-container.is-small {
+  height: 75px;
+}
+
 .header-container {
   background-image: none;
 
@@ -14,13 +18,29 @@ body {
     display: none;
   }
 
+  .header-content {
+    padding-top: 110px;
+  }
+
 }
 
 .navigation-container {
   background: $backgroundTwo;
 
-  navigation-menu .navigation-item > a {
-    color: $primaryFontColor;
+  .navigation-menu {
+
+    .navigation-item.main-link-item>a {
+      width: 138px;
+      height: 33px;
+      margin-top: 25px;
+      margin-left: 10px;
+      background-size: cover;
+    }
+
+    .navigation-item > a {
+      color: $primaryFontColor;
+    }
+
   }
 }
 
