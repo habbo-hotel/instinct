@@ -27,7 +27,7 @@ export function Router() {
 export function setURL(url: string, component: ReactNode): void {
   routes.push({
     exact: true,
-    path: `/${url}`,
+    path: url,
     children: component,
   });
 }
@@ -41,5 +41,6 @@ export function setLanding(component: ReactNode): void {
 }
 
 export function redirect(path: string): void {
-  routerHistory.push(`/${path}`);
+  console.log('ur redirected to: ', path);
+  routerHistory.push(`${path}`);
 }

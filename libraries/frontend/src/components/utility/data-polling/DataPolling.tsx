@@ -1,6 +1,4 @@
 import { useContext, useEffect } from 'react';
-import { configService, sessionService } from 'services';
-import { Config, Health, User } from 'instinct-interfaces';
 import { configContext, healthContext, sessionContext } from 'context';
 
 const TWENTY_SECONDS_IN_MS = 20000;
@@ -12,26 +10,13 @@ export function DataPolling() {
   const sessionC = useContext(sessionContext);
 
   useEffect(() => {
-    async function fetchHealth(): Promise<void> {
-      const health: Health = await configService.getHealth();
-      healthC.setStore!(health);
-    }
+    configC.init!();
+    healthC.init!();
+    sessionC.init!();
 
-    async function fetchSession(): Promise<void> {
-      if (sessionC.user) {
-        const user: User = await sessionService.getCurrentUser();
-        sessionC.forceStart!(user);
-      }
-    }
-
-    async function fetchConfig(): Promise<void> {
-      const config: Config = await configService.getConfig();
-      configC.setStore!(config);
-    }
-
-    setInterval(fetchHealth, TWENTY_SECONDS_IN_MS);
-    setInterval(fetchConfig(), FIVE_MINUTE_IN_MS);
-    setInterval(fetchSession, FIVE_MINUTE_IN_MS);
+    setInterval(configC.init!, TWENTY_SECONDS_IN_MS);
+    setInterval(healthC.init!, FIVE_MINUTE_IN_MS);
+    setInterval(sessionC.init!, FIVE_MINUTE_IN_MS);
   }, []);
 
   return null;
