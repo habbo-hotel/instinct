@@ -1,7 +1,7 @@
 import './Room.scss';
+import { Link, useRoute } from 'wouter';
 import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
-import { Link, useRoute } from 'wouter';
 import React, { useContext, useEffect, useState } from 'react';
 import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext } from 'instinct-frontend';
 
@@ -23,7 +23,7 @@ export function RoomPage() {
 
     setState(defaultRoomState);
     fetchRoom();
-  }, [params]);
+  }, [params?.roomID]);
 
   function enterRoom(): void {
     clientService.enterRoom(state.room!.id);

@@ -12,7 +12,7 @@ import { Container, Column, userService, Loading, Jumbotron, UserLayout, setURL 
 setURL('profile/:username', <UserProfile />);
 
 export function UserProfile() {
-  const [ match, params ] = useRoute<{ username: string }>('profile/:username');
+  const [ match, params ] = useRoute<{ username: string }>('/profile/:username');
   const [state, setState] = useState<UserProfileState>(defaultUserProfileState);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function UserProfile() {
     }
 
     fetchUser();
-  }, [params]);
+  }, [params?.username]);
 
   return (
     <UserLayout section="profile">

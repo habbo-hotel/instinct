@@ -1,11 +1,11 @@
 import React from 'react';
-import { ContextProviders, Router } from 'instinct-frontend';
-import 'react-toastify/dist/ReactToastify.css';
+import { Bootstrap } from './Bootstrap';
+import { ContextProviders } from 'instinct-frontend';
 
 export function App() {
   return (
     <ContextProviders>
-      <Router/>
+      <Bootstrap/>
     </ContextProviders>
   );
 }

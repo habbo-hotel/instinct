@@ -10,7 +10,7 @@ import { Avatar, Card, Container, Column, Jumbotron, Loading, RecentNews, UserLa
 setURL('community/news/:articleID', <NewsArticle />);
 
 export function NewsArticle() {
-  const [ match, params ] = useRoute<{ articleID: string }>('community/news/:articleID');
+  const [ match, params ] = useRoute<{ articleID: string }>('/community/news/:articleID');
   const [state, setState] = useState<NewsArticleState>(defaultNewsArticleState);
 
   useEffect(() => {
@@ -21,9 +21,10 @@ export function NewsArticle() {
         showSpinner: false,
       });
     }
+
     setState(defaultNewsArticleState);
     fetchArticle();
-  }, [params]);
+  }, [params?.articleID]);
 
   return (
     <UserLayout section="article">
