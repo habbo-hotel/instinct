@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
 import { Redirect } from 'wouter';
-import { sessionContext, setLanding } from 'instinct-frontend';
+import React, { useContext } from 'react';
+import { sessionContext, setURL } from 'instinct-frontend';
 
-setLanding(<Landing />);
+setURL('/', <Landing/>);
 
 export function Landing() {
   const { user } = useContext(sessionContext);

@@ -4,11 +4,11 @@ import { setURL, themeContext } from 'instinct-frontend';
 setURL('play', <PlayPage />);
 
 export function PlayPage() {
-  const { toggleClient } = useContext(themeContext);
+  const { setStore } = useContext(themeContext);
 
   useEffect(() => {
-    toggleClient!(true);
-  });
+    setStore({ showClient: true })
+  }, []);
 
   return null;
 }

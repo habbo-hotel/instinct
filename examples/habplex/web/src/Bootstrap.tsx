@@ -1,6 +1,6 @@
 import { User } from 'instinct-interfaces';
 import React, { useContext, useEffect, useState } from 'react';
-import { sessionService, Router, sessionContext } from 'instinct-frontend';
+import { sessionService, Router, sessionContext, Client } from 'instinct-frontend';
 
 export function Bootstrap() {
   const [ready, setReady] = useState(false);
@@ -16,7 +16,14 @@ export function Bootstrap() {
     init();
   }, [setUser]);
 
-  return ready
-    ? <Router/>
-    : <i className="fa fa-spin fa-spinner"/>
+  if (!ready) {
+    return <i className="fa fa-spin fa-spinner"/>
+  }
+
+  return (
+    <>
+      <Router/>
+      <Client/>
+    </>
+  )
 }

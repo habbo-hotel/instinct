@@ -7,11 +7,11 @@ import { healthContext, themeContext } from 'context';
 export function ClientActions() {
   const [location, setLocation] = useLocation();
   const { usersOnline } = useContext(healthContext);
-  const { showClient, toggleClient } = useContext(themeContext);
+  const { showClient, setStore } = useContext(themeContext);
   const [isExpanded, setExpanded] = useState<boolean>(false);
 
   function toggleWebView(): void {
-    toggleClient!(!showClient);
+    setStore({ showClient: !showClient });
     setLocation('/home');
   }
 
