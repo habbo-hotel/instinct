@@ -1,12 +1,6 @@
-import { initCommunityPages } from './community';
-
-export async function initPages(): Promise<void> {
-  await Promise.all([
-    import('./admin'),
-    import('./auth'),
-    initCommunityPages(),
-    import('./error'),
-    import('./home'),
-    import('./rooms'),
-  ]);
-}
+import './admin';
+import './auth';
+import './community';
+import './error';
+import './home';
+import './rooms';
