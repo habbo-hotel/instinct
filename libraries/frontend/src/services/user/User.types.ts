@@ -12,4 +12,6 @@ export interface UserTypes {
   getMostPixels(): Promise<User[]>;
 
   getMostPoints(): Promise<User[]>;
+
+  getOnline(): Promise<User[]>;
 }

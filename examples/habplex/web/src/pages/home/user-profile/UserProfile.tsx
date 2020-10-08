@@ -27,7 +27,7 @@ export function UserProfile() {
     }
 
     fetchUser();
-  }, [params?.username]);
+  }, [params]);
 
   return (
     <UserLayout section="profile">

@@ -19,6 +19,12 @@ import {
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Get('online')
+  async getOnlineUsers(): Promise<User[]> {
+    const onlineUsers = await this.userService.getOnline();
+    return onlineUsers.map(_ => userWire(_));
+  }
+
   @Post()
   async createUser(@Body() newUser: NewUserDTO): Promise<User> {
     const currentTimestamp: number = Moment().unix();

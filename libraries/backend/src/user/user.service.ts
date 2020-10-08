@@ -55,4 +55,13 @@ export class UserService {
       relations: this.eagerRelations,
     });
   }
+
+  getOnline(): Promise<UserEntity[]> {
+    return this.userRepository.find({
+      where: {
+        online: 1,
+      },
+      relations: this.eagerRelations,
+    });
+  }
 }

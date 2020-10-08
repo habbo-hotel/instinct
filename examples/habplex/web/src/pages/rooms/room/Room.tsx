@@ -23,7 +23,7 @@ export function RoomPage() {
 
     setState(defaultRoomState);
     fetchRoom();
-  }, [params?.roomID]);
+  }, [params]);
 
   function enterRoom(): void {
     clientService.enterRoom(state.room!.id);
