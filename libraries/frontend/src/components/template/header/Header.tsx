@@ -1,17 +1,10 @@
-import './Header.scss';
 import React from 'react';
-import { Link } from 'wouter';
 import { HeaderProps } from './';
 
 export function Header({ children }: HeaderProps) {
   return (
     <header id="header" className="header-container pixelated is-small is-logged">
-      <div className="header-content">
-        <div className="logo-container">
-          <Link to="/">
-            <img alt="site logo" src="/img/logo/regular.png" />
-          </Link>
-        </div>
+      <div className="header-content" style={{ width: '100%', maxWidth: 1055, margin: '0 auto' }}>
         <div className="account-container">
           <div id="account-buttons" className="account-buttons">
             {children}

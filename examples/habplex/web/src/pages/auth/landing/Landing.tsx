@@ -2,6 +2,7 @@ import { Redirect } from 'wouter';
 import React, { useContext } from 'react';
 import { sessionContext, setURL } from 'instinct-frontend';
 
+setURL('', <Landing/>);
 setURL('/', <Landing/>);
 
 export function Landing() {

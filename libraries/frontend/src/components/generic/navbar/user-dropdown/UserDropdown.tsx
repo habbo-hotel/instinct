@@ -12,7 +12,7 @@ export function UserDropdown() {
 
   return (
     <>
-      <Link to={`/profile/${user.username}`}>
+      <Link to={`/profile/${user.username}`} style={{ paddingRight: 0 }}>
         <div className="account-avatar">
           <Avatar
             look={`${user.figure}&amp;action=std&amp;gesture=std&amp;direction=2&amp;head_direction=2&amp;size=n`}

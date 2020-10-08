@@ -1,12 +1,10 @@
 import React from 'react';
-import { NavBarChildLink, NavBarDropdown, NavBarLink, NavBarLabel, UserDropdown } from 'components';
+import { NavBarChildLink, NavBarDropdown, NavBarLink, UserDropdown } from 'components';
 
 export function NavBar() {
   return (
     <nav className="navigation-container">
-      <ul className="navigation-menu flex-container">
-        <NavBarLabel>Menu</NavBarLabel>
-        <NavBarLink className="main-link-item" to="/" />
+      <ul className="navigation-menu flex-container" style={{ width: '100%', maxWidth: 1055, margin: '0 auto' }}>
         <NavBarLink to="/home">Home</NavBarLink>
         <NavBarDropdown text="Community" to="/community/news">
           <NavBarChildLink to="/community/staff">Staff</NavBarChildLink>
