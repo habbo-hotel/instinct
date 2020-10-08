@@ -5,5 +5,6 @@ export interface InputProps {
   placeholder?: string;
   value?: string | number;
   name: string;
+  className?: string;
   onChange?: (field: any, value: any) => void;
 }

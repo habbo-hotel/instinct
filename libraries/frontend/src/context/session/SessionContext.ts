@@ -1,10 +1,4 @@
 import { createContext } from 'react';
-import { SessionContext } from './';
-import { exampleUser, User } from 'instinct-interfaces';
+import { defaultSessionContext, SessionContext } from './';
 
-export const sessionContext = createContext<SessionContext>({
-  setStore: () => {},
-  login: async (username: string, password: string) => exampleUser,
-  logout: () => {},
-  forceStart: (user: User) => {},
-});
+export const sessionContext = createContext<SessionContext>(defaultSessionContext);

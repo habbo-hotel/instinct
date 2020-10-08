@@ -18,7 +18,6 @@ export function Router() {
           <Route key={index} {...route} exact />
         ))}
         {landingRoute && <Route path="/" children={landingRoute} exact />}
-        {notFoundRoute && <Route children={notFoundRoute} />}
       </Switch>
     </BrowserRouter>
   );
@@ -27,7 +26,7 @@ export function Router() {
 export function setURL(url: string, component: ReactNode): void {
   routes.push({
     exact: true,
-    path: url,
+    path: `/${url}`,
     children: component,
   });
 }
@@ -42,5 +41,5 @@ export function setLanding(component: ReactNode): void {
 
 export function redirect(path: string): void {
   console.log('ur redirected to: ', path);
-  routerHistory.push(`${path}`);
+  routerHistory.push(`/${path}`);
 }

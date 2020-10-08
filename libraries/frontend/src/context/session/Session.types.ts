@@ -1,24 +1,15 @@
 import { User } from 'instinct-interfaces';
 
-export interface UserSession {
+export interface SessionContext {
   user?: User;
-  startedAt?: Date;
-}
-
-export interface SessionContext extends UserSession {
-  setStore?: (changes: Partial<SessionContext>) => void;
   init?(): Promise<void>;
-  login?(username: string, password: string): Promise<User>;
+  login?(username: string, password: string): Promise<void>;
   logout?(): void;
-  forceStart?(user: User): void;
 }
 
 export const defaultSessionContext: SessionContext = {
   user: undefined,
-  startedAt: undefined,
   init: undefined,
-  setStore: undefined,
   login: undefined,
   logout: undefined,
-  forceStart: undefined,
 };

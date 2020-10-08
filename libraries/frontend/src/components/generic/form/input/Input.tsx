@@ -9,5 +9,5 @@ export function Input(props: InputProps) {
     }
   }
 
-  return <input {...props} className="rounded-input" onChange={onChange} />;
+  return <input {...props} className={`rounded-input ${props.className ?? ''}`} onChange={onChange} />;
 }

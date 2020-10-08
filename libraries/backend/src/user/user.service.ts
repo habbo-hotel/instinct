@@ -38,8 +38,8 @@ export class UserService {
     });
   }
 
-  getByUsername(username: string): Promise<UserEntity> {
-    return this.userRepository.findOneOrFail({
+  getByUsername(username: string): Promise<UserEntity | undefined> {
+    return this.userRepository.findOne({
       where: {
         username,
       },

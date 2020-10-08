@@ -3,7 +3,7 @@ import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
 import {Room, User, UserProfile} from 'instinct-interfaces';
-import {Body, Controller, Get, Param, Post} from '@nestjs/common';
+import {Body, Controller, Get, NotFoundException, Param, Post} from '@nestjs/common';
 import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
 import {
   defaultUserCredits,
@@ -58,7 +58,12 @@ export class UserController {
 
   @Get('profile/:username')
   async getUserByUsername(@Param('username') username: string): Promise<UserProfile> {
-    const user: UserEntity = await this.userService.getByUsername(username);
+    const user: UserEntity | undefined = await this.userService.getByUsername(username);
+
+    if (!user) {
+      throw new NotFoundException('User does not exist');
+    }
+
     return {
       user: userWire(user),
       rooms: user.rooms!.map(room => roomWire(room)),

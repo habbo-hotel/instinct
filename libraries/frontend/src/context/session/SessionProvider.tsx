@@ -1,11 +1,12 @@
+import { sessionContext } from './';
 import React, { useState } from 'react';
 import { sessionService } from 'services';
 import { User } from 'instinct-interfaces';
+import { redirect } from '../../components/utility/router';
 import { ContextProvidersProps } from '../ContextProviders.types';
-import { sessionContext, defaultSessionContext, UserSession } from './';
 
 export function SessionContextProvider({ children }: ContextProvidersProps) {
-  const [session, setSession] = useState<UserSession | undefined>(undefined);
+  const [user, setUser] = useState<User>();
 
   async function init(): Promise<void> {
     const session: User | undefined = await sessionService.init();
@@ -19,28 +20,21 @@ export function SessionContextProvider({ children }: ContextProvidersProps) {
     }
   }
 
-  async function login(username: string, password: string): Promise<User> {
+  async function login(username: string, password: string): Promise<void> {
     const authToken: string = await sessionService.attemptCredentials(username, password);
-    const user: User = await sessionService.attemptBearerToken(authToken);
-    forceStart(user);
-    return user;
+    const userData: User = await sessionService.attemptBearerToken(authToken);
+    setUser(userData);
+    redirect('home');
   }
 
   function logout(): void {
     sessionService.logout();
-    setSession(defaultSessionContext);
+    setUser(undefined);
   }
 
   function forceStart(user: User): void {
-    setSession({
-      user,
-      startedAt: new Date(),
-    });
+    setUser(user);
   }
 
-  return (
-    <sessionContext.Provider value={{ ...session, login, logout, forceStart, init }}>
-      {children}
-    </sessionContext.Provider>
-  );
+  return <sessionContext.Provider value={{ user, login, logout, init }}>{children}</sessionContext.Provider>;
 }

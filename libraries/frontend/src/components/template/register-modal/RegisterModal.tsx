@@ -1,15 +1,13 @@
-import { redirect } from 'components';
 import { toast } from 'react-toastify';
 import { userService } from 'services';
 import { sessionContext } from 'context';
-import { User } from 'instinct-interfaces';
 import React, { useContext, useState } from 'react';
 import { RegisterModalState, defaultRegisterModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function RegisterModal() {
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
-  const { forceStart } = useContext(sessionContext);
+  const { login } = useContext(sessionContext);
 
   const disabled: boolean =
     state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
@@ -24,9 +22,8 @@ export function RegisterModal() {
   async function tryRegister(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      const newUser: User = await userService.create(state.username, state.password, state.email);
-      await forceStart!(newUser);
-      redirect('home');
+      await userService.create(state.username, state.password, state.email);
+      await login!(state.username, state.password);
     } catch {
       toast.error('There was a problem creating your account.');
       setValue('showSpinner', false);
