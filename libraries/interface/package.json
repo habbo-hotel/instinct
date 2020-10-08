@@ -1,6 +1,6 @@
 {
   "name": "instinct-interfaces",
-  "version": "1.0.9",
+  "version": "2.1.0",
   "description": "Shared interfaces across Instinct",
   "license": "MIT",
   "private": false,

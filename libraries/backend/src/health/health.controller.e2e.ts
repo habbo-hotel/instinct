@@ -1,5 +1,6 @@
 import * as supertest from 'supertest';
 import {TestingModule} from '@nestjs/testing';
+import {exampleHealth} from 'instinct-interfaces';
 import {mockHealthModule} from './health.module.mock';
 import {HttpServer, HttpStatus, INestApplication} from '@nestjs/common';
 
@@ -19,11 +20,11 @@ describe('HealthController ', () => {
   });
 
   describe('GET `/health`', () => {
-    it('will return HTTP 200 with a string', async () => {
+    it('will return HTTP 200 with health', async () => {
       const response: any = await supertest(httpServer).get('/health');
 
       expect(response.status).toEqual(HttpStatus.OK);
-      expect(response.text).toEqual('Healthy');
+      expect(response.text).toEqual(exampleHealth);
     });
   });
 });

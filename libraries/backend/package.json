@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -21,7 +21,7 @@
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "express": "^4.17.1",
-    "instinct-interfaces": "^1.0.9",
+    "instinct-interfaces": "^2.1.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",
@@ -47,7 +47,7 @@
     "@types/supertest": "^2.0.10",
     "dotenv": "^8.2.0",
     "eslint-plugin-jest": "^24.1.0",
-    "gts": "^2.0.2",
+    "gts": "^3.0.0",
     "jest": "^26.5.2",
     "sinon": "^9.2.0",
     "supertest": "^5.0.0",
