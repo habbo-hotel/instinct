@@ -1,12 +1,15 @@
 import './LoadingScreen.scss';
-import React, { useEffect, useState } from 'react';
+import { sessionContext } from 'context';
 import { ClientEvent, clientService } from 'services';
+import React, { useContext, useEffect, useState } from 'react';
 
 export function LoadingScreen() {
+  const { setOnline } = useContext(sessionContext);
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
     clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setProgress);
+    clientService.eventListener.on(ClientEvent.ENTERED_HOTEL, () => setOnline(true));
   }, []);
 
   if (progress === 100) {

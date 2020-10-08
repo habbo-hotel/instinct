@@ -25,6 +25,7 @@ export function PopularGroups() {
   return (
     <Loading isLoading={state.showSpinner}>
       <Card header="Popular Groups" subHeader="Who do you want to join?">
+        {state.groups.length === 0 && !state.showSpinner && <p>There aren't any groups yet.</p>}
         {state.groups.map((group) => (
           <div
             className="popular-group"

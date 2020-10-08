@@ -3,13 +3,14 @@ import { Link, useRoute } from 'wouter';
 import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
 import React, { useContext, useEffect, useState } from 'react';
-import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext } from 'instinct-frontend';
+import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext, themeContext } from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 
 export function RoomPage() {
-  const [ match, params ] = useRoute<{ roomID: string }>('rooms/:roomID');
-  const { user } = useContext(sessionContext);
+  const [ match, params ] = useRoute<{ roomID: string }>('/rooms/:roomID');
+  const { online } = useContext(sessionContext);
+  const { setStore } = useContext(themeContext)
   const [state, setState] = useState<RoomState>(defaultRoomState);
 
   useEffect(() => {
@@ -23,10 +24,11 @@ export function RoomPage() {
 
     setState(defaultRoomState);
     fetchRoom();
-  }, [params]);
+  }, [params?.roomID]);
 
   function enterRoom(): void {
     clientService.enterRoom(state.room!.id);
+    setStore({ showClient: true });
   }
 
   return (
@@ -42,7 +44,7 @@ export function RoomPage() {
                 <li>Max Users: <b>{state.room?.maxUsers}</b></li>
                 <li>Current Users: <b>{state.room?.currentUsers}</b></li>
               </ul>
-              <button className="rounded-button blue plain" disabled={!user?.online} onClick={enterRoom}>Enter Room</button>
+              <button className="rounded-button blue plain" disabled={!online} onClick={enterRoom}>Enter Room</button>
             </Card>
           </Column>
         </Container>
