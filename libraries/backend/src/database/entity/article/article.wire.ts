@@ -1,5 +1,5 @@
 import {userWire} from '../user';
-import {Article} from 'instinct-interfaces-interfaces';
+import {Article} from 'instinct-interfaces';
 import {ArticleEntity} from './article.entity';
 import {articleCategoryWire} from './article-category.wire';
 

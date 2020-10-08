@@ -1,4 +1,4 @@
-import {Class} from 'instinct-interfaces-interfaces';
+import {Class} from 'instinct-interfaces';
 import {UserExistsConstraint} from './user-exists';
 import {UniqueEmailConstraint} from './unique-email';
 import {UniqueUsernameConstraint} from './unique-username';

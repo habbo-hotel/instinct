@@ -1,5 +1,5 @@
 import {UserService} from '../user';
-import {User} from 'instinct-interfaces-interfaces';
+import {User} from 'instinct-interfaces';
 import {NewSessionDTO} from './session.dto';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
