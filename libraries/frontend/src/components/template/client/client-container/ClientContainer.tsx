@@ -6,7 +6,7 @@ import React, { useContext, useEffect, useState } from 'react';
 
 export function ClientContainer() {
   const [sso, setSSO] = useState<string>();
-  const configContextC = useContext(configContext);
+  const { config } = useContext(configContext);
 
   useEffect(() => {
     async function fetchSSO(): Promise<void> {
@@ -20,21 +20,21 @@ export function ClientContainer() {
   useEffect(() => {
     function setupGame(): void {
       const variables: Record<string, string> = {
-        'connection.info.host': configContextC.emulatorIP,
-        'connection.info.port': configContextC.emulatorPort,
-        'url.prefix': configContextC.siteLink,
-        'site.url': configContextC.siteLink,
-        'client.reload.url': `${configContextC.siteLink}/client`,
-        'client.fatal.error.url': `${configContextC.siteLink}/client`,
-        'client.connection.failed.url': `${configContextC.siteLink}/client`,
-        'external.variables.txt': configContextC.swfExternalVariables,
-        'external.texts.txt': configContextC.swfExternalTexts,
-        'productdata.load.url': configContextC.swfProductData,
-        'furnidata.load.url': configContextC.swfFurniData,
-        'external.figurepartlist.txt': configContextC.swfFigureData,
-        'external.override.variables.txt': `${configContextC.swfBaseURL}}/override/variables.txt`,
-        'flash.client.url': configContextC.swfBaseURL,
-        'client.starting.revolving': configContextC.loadingMessage,
+        'connection.info.host': config.emulatorIP,
+        'connection.info.port': config.emulatorPort,
+        'url.prefix': config.siteLink,
+        'site.url': config.siteLink,
+        'client.reload.url': `${config.siteLink}/client`,
+        'client.fatal.error.url': `${config.siteLink}/client`,
+        'client.connection.failed.url': `${config.siteLink}/client`,
+        'external.variables.txt': config.swfExternalVariables,
+        'external.texts.txt': config.swfExternalTexts,
+        'productdata.load.url': config.swfProductData,
+        'furnidata.load.url': config.swfFurniData,
+        'external.figurepartlist.txt': config.swfFigureData,
+        'external.override.variables.txt': `${config.swfBaseURL}}/override/variables.txt`,
+        'flash.client.url': config.swfBaseURL,
+        'client.starting.revolving': config.loadingMessage,
         'processlog.enabled': '1',
         'use.sso.ticket': '1',
         'sso.ticket': sso!,
@@ -44,12 +44,12 @@ export function ClientContainer() {
       };
 
       const parameters: Record<string, string> = {
-        base: configContextC.swfBaseURL,
+        base: config.swfBaseURL,
         allowScriptAccess: 'always',
         menu: 'false',
       };
 
-      Flash.embedSWF(configContextC.swfHabbo, 'client-area', '100%', '100%', '10.0.0', '', variables, parameters, null);
+      Flash.embedSWF(config.swfHabbo, 'client-area', '100%', '100%', '10.0.0', '', variables, parameters, null);
     }
 
     if (sso !== undefined) {

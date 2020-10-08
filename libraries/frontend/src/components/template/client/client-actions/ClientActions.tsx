@@ -6,7 +6,7 @@ import { healthContext, themeContext } from 'context';
 
 export function ClientActions() {
   const [location, setLocation] = useLocation();
-  const { usersOnline } = useContext(healthContext);
+  const { health } = useContext(healthContext);
   const { showClient, setStore } = useContext(themeContext);
   const [isExpanded, setExpanded] = useState<boolean>(false);
 
@@ -30,7 +30,7 @@ export function ClientActions() {
       </button>
       <button style={{ cursor: 'default' }}>
         <Icon family="fas" type="user" />
-        <b>{usersOnline}</b>
+        <b>{health.usersOnline}</b>
       </button>
     </div>
   );

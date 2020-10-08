@@ -1,27 +1,28 @@
 import { useContext, useEffect } from 'react';
-import { sessionService } from '../../../services/session';
+import { configService, sessionService } from 'services';
 import { configContext, healthContext, sessionContext } from 'context';
 
-const TWENTY_SECONDS_IN_MS = 20000;
 const FIVE_MINUTE_IN_MS = 300000000;
 
 export function DataPolling() {
-  const configC = useContext(configContext);
-  const healthC = useContext(healthContext);
-  const sessionC = useContext(sessionContext);
+  const { setConfig } = useContext(configContext);
+  const { setHealth } = useContext(healthContext);
+  const { setUser } = useContext(sessionContext);
 
-  async function refreshSession(): Promise<void> {
-    const user = await sessionService.getCurrentUser();
-    sessionC.setUser(user);
+  async function refresh(): Promise<void> {
+    const [user, config, health] = await Promise.all([
+      sessionService.init(),
+      configService.getConfig(),
+      configService.getHealth(),
+    ]);
+
+    setUser(user);
+    setConfig(config);
+    setHealth(health);
   }
 
   useEffect(() => {
-    configC.init!();
-    healthC.init!();
-
-    setInterval(configC.init!, TWENTY_SECONDS_IN_MS);
-    setInterval(healthC.init!, FIVE_MINUTE_IN_MS);
-    setInterval(refreshSession, FIVE_MINUTE_IN_MS);
+    setInterval(refresh, FIVE_MINUTE_IN_MS);
   }, []);
 
   return null;

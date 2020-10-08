@@ -7,7 +7,7 @@ import { Footer, Header, Icon, NavBar, UserGuard } from 'components';
 export function UserLayout({ children, section = 'home', style }: UserLayoutProps) {
   const [location, setLocation] = useLocation();
   const { user } = useContext(sessionContext);
-  const { usersOnline } = useContext(healthContext);
+  const { health } = useContext(healthContext);
 
   useEffect(() => {
     if (user === undefined) {
@@ -27,7 +27,7 @@ export function UserLayout({ children, section = 'home', style }: UserLayoutProp
             Enter Hotel
           </Link>
           <button className="rounded-button white">
-            {usersOnline}
+            {health.usersOnline}
             <Icon className="ml-2" type="user" />
           </button>
         </Header>

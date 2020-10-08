@@ -1,6 +1,5 @@
 import React from 'react';
-import { Bootstrap } from './Bootstrap';
-import { ContextProviders } from 'instinct-frontend';
+import { Bootstrap, ContextProviders } from 'instinct-frontend';
 
 export function App() {
   return (

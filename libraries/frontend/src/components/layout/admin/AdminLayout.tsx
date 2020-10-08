@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import { AdminNavBar, Footer, Header, Icon, PermissionGuard } from 'components';
 
 export function AdminLayout({ children, permission }: AdminLayoutProps) {
-  const { usersOnline } = useContext(healthContext);
+  const { health } = useContext(healthContext);
 
   return (
     <PermissionGuard permission={permission}>
@@ -15,7 +15,7 @@ export function AdminLayout({ children, permission }: AdminLayoutProps) {
             Enter Hotel
           </Link>
           <button className="rounded-button white">
-            {usersOnline}
+            {health.usersOnline}
             <Icon className="ml-2" type="user" />
           </button>
         </Header>

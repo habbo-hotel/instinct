@@ -7,6 +7,7 @@ export class HealthController {
   getHealth(): Health {
     return {
       ...exampleHealth,
+      systemVersion: '1.0.0',
     };
   }
 }
