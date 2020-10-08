@@ -8,15 +8,15 @@
   "dependencies": {
     "axios": "^0.20.0",
     "events": "^3.2.0",
-    "instinct-frontend": "^2.14.0",
+    "instinct-frontend": "^4.3.0",
     "moment": "2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-loading-overlay": "^1.0.1",
-    "react-router-dom": "^5.2.0",
     "react-toastify": "^6.0.9",
     "reactstrap": "^8.6.0",
-    "swfobject": "^2.2.1"
+    "swfobject": "^2.2.1",
+    "wouter": "^2.5.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -30,11 +30,10 @@
     "@types/node": "^14.11.5",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
-    "@types/react-router-dom": "^5.1.6",
     "@types/reactstrap": "^8.5.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
-    "gts": "^2.0.2",
+    "gts": "^3.0.0",
     "instinct-interfaces": "^1.0.9",
     "node-sass": "^4.14.1",
     "react-scripts": "^3.4.3",

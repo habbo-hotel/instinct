@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'wouter';
 import { ArticleCardProps } from './';
-import { Link } from 'react-router-dom';
 
 export function ArticleCard({ article }: ArticleCardProps) {
   return (

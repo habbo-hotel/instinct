@@ -1,16 +1,17 @@
 import { UserLayoutProps } from './';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'wouter';
 import React, { useContext, useEffect } from 'react';
 import { healthContext, sessionContext } from 'context';
-import { Footer, Header, Icon, NavBar, redirect, UserGuard } from 'components';
+import { Footer, Header, Icon, NavBar } from 'components';
 
 export function UserLayout({ children, section = 'home', style }: UserLayoutProps) {
-  const { usersOnline } = useContext(healthContext);
+  const [location, setLocation] = useLocation();
   const { user } = useContext(sessionContext);
+  const { usersOnline } = useContext(healthContext);
 
   useEffect(() => {
     if (user === undefined) {
-      redirect('login');
+      setLocation('/login');
     }
   }, [user]);
 
@@ -19,7 +20,7 @@ export function UserLayout({ children, section = 'home', style }: UserLayoutProp
   }
 
   return (
-    <UserGuard>
+    <>
       <span className="page-container">
         <Header>
           <Link className="rounded-button white plain mr-4" to="/play">
@@ -38,6 +39,6 @@ export function UserLayout({ children, section = 'home', style }: UserLayoutProp
         </main>
       </span>
       <Footer />
-    </UserGuard>
+    </>
   );
 }

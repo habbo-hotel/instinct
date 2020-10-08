@@ -1,5 +1,5 @@
+import { Link } from 'wouter';
 import { AdminLayoutProps } from './';
-import { Link } from 'react-router-dom';
 import { healthContext } from 'context';
 import React, { useContext } from 'react';
 import { AdminNavBar, Header, Icon, PermissionGuard } from 'components';

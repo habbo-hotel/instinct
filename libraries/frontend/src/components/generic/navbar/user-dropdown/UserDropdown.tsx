@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import React, { useContext } from 'react';
 import { Avatar, Icon, NavBarChildLink } from '../../';
 import { SessionContext, sessionContext } from 'context';

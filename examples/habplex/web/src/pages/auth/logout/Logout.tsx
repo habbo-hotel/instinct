@@ -1,14 +1,15 @@
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'wouter';
 import React, { useContext, useEffect } from 'react';
-import { sessionContext, setURL } from 'instinct-frontend';
+import { sessionContext, sessionService, setURL } from 'instinct-frontend';
 
 setURL('logout', <Logout />);
 
 export function Logout() {
-  const { logout } = useContext(sessionContext);
+  const { setUser } = useContext(sessionContext);
 
   useEffect(() => {
-    logout!();
+    sessionService.logout();
+    setUser(undefined);
   }, []);
 
   return <Redirect to="/login" />;

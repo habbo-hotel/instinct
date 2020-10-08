@@ -1,3 +1,7 @@
-import { LinkProps } from 'react-router-dom';
+import { ReactNode } from 'react';
 
-export type NavBarLinkProps = LinkProps;
+export interface NavBarLinkProps {
+  children?: ReactNode;
+  to: string;
+  className?: string;
+}

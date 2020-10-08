@@ -1,21 +1,21 @@
 import './NewsArticle.scss';
 import * as Moment from 'moment';
-import { useParams } from 'react-router';
+import { useRoute } from 'wouter';
 import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { articleService } from 'instinct-frontend';
-import { defaultNewsArticleState, NewsArticleParameters, NewsArticleState } from './';
+import { defaultNewsArticleState, NewsArticleState } from './';
 import { Avatar, Card, Container, Column, Jumbotron, Loading, RecentNews, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('community/news/:articleID', <NewsArticle />);
 
 export function NewsArticle() {
-  const { articleID } = useParams<NewsArticleParameters>();
+  const [ match, params ] = useRoute<{ articleID: string }>('community/news/:articleID');
   const [state, setState] = useState<NewsArticleState>(defaultNewsArticleState);
 
   useEffect(() => {
     async function fetchArticle(): Promise<void> {
-      const article: Article = await articleService.getByID(articleID);
+      const article: Article = await articleService.getByID(params!.articleID);
       setState({
         article,
         showSpinner: false,
@@ -23,7 +23,7 @@ export function NewsArticle() {
     }
     setState(defaultNewsArticleState);
     fetchArticle();
-  }, [articleID]);
+  }, [params]);
 
   return (
     <UserLayout section="article">

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { User } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { Avatar, userService, Loading } from 'instinct-frontend';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from 'moment';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { PhotoContainerProps } from './';
 import { Avatar } from 'components';
 

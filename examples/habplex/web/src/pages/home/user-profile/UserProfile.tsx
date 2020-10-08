@@ -2,8 +2,8 @@ import './UserProfile.scss';
 import { Rooms } from './rooms';
 import { Badges } from './badges';
 import { Groups } from './groups';
+import { useRoute } from 'wouter';
 import { Friends } from './friends';
-import { useParams } from 'react-router';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
@@ -12,14 +12,14 @@ import { Container, Column, userService, Loading, Jumbotron, UserLayout, setURL 
 setURL('profile/:username', <UserProfile />);
 
 export function UserProfile() {
-  const { username } = useParams<Record<'username', string>>();
+  const [ match, params ] = useRoute<{ username: string }>('profile/:username');
   const [state, setState] = useState<UserProfileState>(defaultUserProfileState);
 
   useEffect(() => {
     setState(defaultUserProfileState);
 
     async function fetchUser(): Promise<void> {
-      const profile = await userService.getByUsername(username);
+      const profile = await userService.getByUsername(params!.username);
       setState({
         profile,
         isLoading: false,
@@ -27,7 +27,7 @@ export function UserProfile() {
     }
 
     fetchUser();
-  }, [username]);
+  }, [params]);
 
   return (
     <UserLayout section="profile">

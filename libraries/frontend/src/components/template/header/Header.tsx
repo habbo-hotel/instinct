@@ -1,7 +1,7 @@
 import './Header.scss';
 import React from 'react';
+import { Link } from 'wouter';
 import { HeaderProps } from './';
-import { Link } from 'react-router-dom';
 
 export function Header({ children }: HeaderProps) {
   return (

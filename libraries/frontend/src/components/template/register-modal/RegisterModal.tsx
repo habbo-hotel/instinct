@@ -1,13 +1,15 @@
+import { useLocation } from 'wouter';
 import { toast } from 'react-toastify';
-import { userService } from 'services';
 import { sessionContext } from 'context';
 import React, { useContext, useState } from 'react';
+import { sessionService, userService } from 'services';
 import { RegisterModalState, defaultRegisterModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function RegisterModal() {
+  const [location, setLocation] = useLocation();
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
-  const { login } = useContext(sessionContext);
+  const { setUser } = useContext(sessionContext);
 
   const disabled: boolean =
     state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
@@ -23,7 +25,10 @@ export function RegisterModal() {
     try {
       setValue('showSpinner', true);
       await userService.create(state.username, state.password, state.email);
-      await login!(state.username, state.password);
+      const bearer = await sessionService.attemptCredentials(state.username, state.password);
+      const user = await sessionService.attemptBearerToken(bearer);
+      await setUser(user);
+      setLocation('/home');
     } catch {
       toast.error('There was a problem creating your account.');
       setValue('showSpinner', false);

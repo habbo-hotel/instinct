@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'wouter';
 import { sessionContext, setLanding } from 'instinct-frontend';
 
 setLanding(<Landing />);

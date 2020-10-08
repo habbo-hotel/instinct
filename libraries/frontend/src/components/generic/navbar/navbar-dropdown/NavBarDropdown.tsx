@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'components';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { NavBarDropdownProps } from './';
 
 export function NavBarDropdown({ children, text, to }: NavBarDropdownProps) {

@@ -1,11 +1,11 @@
 import React from 'react';
 import './GuestLayout.scss';
 import { GuestLayoutProps } from './';
-import { Footer, GuestGuard, Header, LoginModal, NavBar, RegisterModal } from 'components';
+import { Footer, Header, LoginModal, NavBar, RegisterModal } from 'components';
 
 export function GuestLayout({ children, section = 'home', style }: GuestLayoutProps) {
   return (
-    <GuestGuard>
+    <>
       <span className="page-container">
         <Header>
           <RegisterModal />
@@ -19,6 +19,6 @@ export function GuestLayout({ children, section = 'home', style }: GuestLayoutPr
         </main>
       </span>
       <Footer />
-    </GuestGuard>
+    </>
   );
 }

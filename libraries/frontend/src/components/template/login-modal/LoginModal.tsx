@@ -1,10 +1,13 @@
 import { sessionContext } from 'context';
 import React, { useContext, useState } from 'react';
+import { useLocation } from 'wouter';
+import { sessionService } from '../../../services/session';
 import { LoginModalState, defaultLoginModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
 export function LoginModal() {
-  const { login } = useContext(sessionContext);
+  const [location, setLocation] = useLocation();
+  const { setUser } = useContext(sessionContext);
   const [state, setState] = useState<LoginModalState>(defaultLoginModalState);
 
   function setValue<T extends keyof LoginModalState>(key: T, value: LoginModalState[T]): void {
@@ -18,7 +21,10 @@ export function LoginModal() {
   async function tryLogin(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      await login!(state.username!, state.password!);
+      const bearer = await sessionService.attemptCredentials(state.username!, state.password!);
+      const user = await sessionService.attemptBearerToken(bearer);
+      setUser(user);
+      setLocation('/home');
     } catch (e) {
       setValue('error', e.response.data.message[0]);
       setValue('showSpinner', false);

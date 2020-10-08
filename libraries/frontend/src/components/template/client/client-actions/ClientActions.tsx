@@ -1,16 +1,18 @@
 import './ClientActions.scss';
-import { redirect, Icon } from 'components';
+import { Icon } from 'components';
+import { useLocation } from 'wouter';
 import React, { useContext, useState } from 'react';
 import { healthContext, themeContext } from 'context';
 
 export function ClientActions() {
-  const { showClient, toggleClient } = useContext(themeContext);
+  const [location, setLocation] = useLocation();
   const { usersOnline } = useContext(healthContext);
+  const { showClient, toggleClient } = useContext(themeContext);
   const [isExpanded, setExpanded] = useState<boolean>(false);
 
   function toggleWebView(): void {
     toggleClient!(!showClient);
-    redirect('home');
+    setLocation('/home');
   }
 
   async function toggleFullScreen(): Promise<void> {

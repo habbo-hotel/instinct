@@ -1,6 +1,6 @@
 import './RecentNews.scss';
 import Moment from 'moment';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { articleService } from 'services';
 import { Card, Loading } from 'components';
 import { Article } from 'instinct-interfaces';

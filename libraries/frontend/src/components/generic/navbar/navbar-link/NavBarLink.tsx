@@ -1,15 +1,12 @@
 import React from 'react';
 import { NavBarLinkProps } from './';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useRoute } from 'wouter';
 
-function NavBarLinkComponent({ children, className = '', to }: NavBarLinkProps) {
-  const location = useLocation();
-  const active: boolean = location.pathname === to;
+export function NavBarLink({ children, className = '', to }: NavBarLinkProps) {
+  const [match] = useRoute(to);
   return (
-    <li className={`navigation-item ${className} ${active ? 'selected' : ''}`}>
+    <li className={`navigation-item ${className} ${match ? 'selected' : ''}`}>
       <Link to={to}>{children}</Link>
     </li>
   );
 }
-
-export const NavBarLink = NavBarLinkComponent;

@@ -1,5 +1,5 @@
 import { roomService } from 'services';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import { Room } from 'instinct-interfaces';
 import { Card, Loading } from 'components';
 import React, { useEffect, useState } from 'react';

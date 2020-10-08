@@ -1,20 +1,20 @@
 import './Room.scss';
 import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useRoute } from 'wouter';
 import React, { useContext, useEffect, useState } from 'react';
 import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext } from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 
 export function RoomPage() {
+  const [ match, params ] = useRoute<{ roomID: string }>('rooms/:roomID');
   const { user } = useContext(sessionContext);
-  const { roomID } = useParams<Record<'roomID', string>>();
   const [state, setState] = useState<RoomState>(defaultRoomState);
 
   useEffect(() => {
     async function fetchRoom(): Promise<void> {
-      const room: Room = await roomService.getByID(Number(roomID));
+      const room: Room = await roomService.getByID(Number(params!.roomID));
       setState({
         room,
         showSpinner: false,
@@ -23,7 +23,7 @@ export function RoomPage() {
 
     setState(defaultRoomState);
     fetchRoom();
-  }, [roomID]);
+  }, [params]);
 
   function enterRoom(): void {
     clientService.enterRoom(state.room!.id);

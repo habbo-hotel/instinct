@@ -68,3 +68,16 @@ body {
     background-image: none;
   }
 }
+
+.page-container .page-content article.default-section, .page-container .page-content aside.default-section {
+  background: $backgroundTwo;
+  color: $primaryFontColor;
+}
+
+.table {
+  color: $primaryFontColor;
+}
+
+.page-container .related-articles-container .related-article-container .related-article-title {
+  color: $primaryFontColor;
+}

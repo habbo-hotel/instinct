@@ -1,19 +1,20 @@
 import { useContext } from 'react';
-import { redirect } from 'components';
+import { useLocation } from 'wouter';
 import { sessionContext } from 'context';
 import { PermissionGuardProps } from './';
 
 export function PermissionGuard({ children, permission }: PermissionGuardProps) {
+  const [location, setLocation] = useLocation();
   const { user } = useContext(sessionContext);
   const hasPermission = !!user?.rank?.permissions[permission];
 
   if (user === undefined) {
-    redirect('login');
+    setLocation('/login');
     return null;
   }
 
   if (!hasPermission) {
-    redirect('home');
+    setLocation('/home');
     return null;
   }
 
