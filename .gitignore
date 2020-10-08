@@ -9,6 +9,7 @@ lerna-debug.log*
 
 build
 dist
+examples/habplex/api/public
 
 .env
 
