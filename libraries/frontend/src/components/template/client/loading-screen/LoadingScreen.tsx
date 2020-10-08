@@ -1,11 +1,13 @@
 import './LoadingScreen.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ClientEvent, clientService } from 'services';
 
 export function LoadingScreen() {
   const [progress, setProgress] = useState<number>(0);
 
-  clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setProgress);
+  useEffect(() => {
+    clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setProgress);
+  }, []);
 
   if (progress === 100) {
     return null;
