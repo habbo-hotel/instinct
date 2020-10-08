@@ -10,11 +10,12 @@ let landingRoute: ReactNode | undefined;
 let notFoundRoute: ReactNode | undefined;
 
 export function Router() {
+  console.log(routes, routes.length);
   return (
     <BrowserRouter history={routerHistory}>
       <Switch>
         {routes.map((route: RouteProps, index: number) => (
-          <Route key={index} {...route} />
+          <Route key={index} {...route} exact />
         ))}
         {landingRoute && <Route path="/" children={landingRoute} exact />}
         {notFoundRoute && <Route children={notFoundRoute} />}

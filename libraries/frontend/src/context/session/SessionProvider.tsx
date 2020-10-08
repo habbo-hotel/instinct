@@ -11,13 +11,13 @@ export function SessionContextProvider({ children }: ContextProvidersProps) {
     const session: User | undefined = await sessionService.init();
 
     if (session) {
+      console.log('Session Context - Starting Session');
       forceStart(session);
     } else {
-      logout();
+      console.log('Session Context - Logging Out');
+      sessionService.logout();
     }
   }
-
-  init();
 
   async function login(username: string, password: string): Promise<User> {
     const authToken: string = await sessionService.attemptCredentials(username, password);

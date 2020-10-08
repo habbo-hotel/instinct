@@ -8,6 +8,7 @@ export function HealthContextProvider({ children }: ContextProvidersProps) {
   const [state, setState] = useState<Health>(exampleHealth);
 
   async function init(): Promise<void> {
+    console.log('Health Context - Init');
     const health = await configService.getHealth();
     setState(health);
   }

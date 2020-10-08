@@ -21,7 +21,8 @@ export function LoginModal() {
       setValue('showSpinner', true);
       await login!(state.username!, state.password!);
       redirect('home');
-    } catch {
+    } catch (e) {
+      console.log('Login Modal Error: ', e);
       toast.error('There was a problem with your username or password.');
       setValue('showSpinner', false);
     }

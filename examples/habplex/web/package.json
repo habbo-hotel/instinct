@@ -8,7 +8,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "events": "^3.2.0",
-    "instinct-frontend": "1.7.0",
+    "instinct-frontend": "file:../../../libraries/frontend/build",
     "moment": "2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

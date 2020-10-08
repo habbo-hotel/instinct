@@ -12,5 +12,9 @@ export function GuestGuard({ children }: GuestGuardProps) {
     }
   }, [user]);
 
+  if (user) {
+    return null;
+  }
+
   return children;
 }

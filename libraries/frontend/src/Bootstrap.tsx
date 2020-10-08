@@ -1,7 +1,7 @@
-import { configContext } from '../../../context/config';
-import { healthContext } from '../../../context/health';
-import { ContextProvidersProps } from '../../../context';
-import { sessionContext } from '../../../context/session';
+import { configContext } from './context/config';
+import { healthContext } from './context/health';
+import { ContextProvidersProps } from './context';
+import { sessionContext } from './context/session';
 import React, { useContext, useEffect, useState } from 'react';
 
 export function BootStrap({ children }: ContextProvidersProps) {
@@ -20,5 +20,5 @@ export function BootStrap({ children }: ContextProvidersProps) {
     bootstrap();
   }, []);
 
-  return locked ? null : children;
+  return locked ? <i className="fa fa-spinner fa-spin" /> : children;
 }

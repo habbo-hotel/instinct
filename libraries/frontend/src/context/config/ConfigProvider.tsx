@@ -8,6 +8,7 @@ export function ConfigContextProvider({ children }: ContextProvidersProps) {
   const [state, setState] = useState<Config>(defaultConfig);
 
   async function init(): Promise<void> {
+    console.log('Config Context - Init');
     const config = await configService.getConfig();
     setState(config);
   }
