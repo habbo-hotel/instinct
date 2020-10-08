@@ -2,7 +2,7 @@ import { Photo } from 'instinct-interfaces';
 import { photoService } from 'instinct-frontend';
 import React, { useEffect, useState } from 'react';
 import { defaultPhotosState, PhotosState } from './';
-import { Container, Jumbotron, Row, Loading, UserLayout, setURL, PhotoContainer } from 'instinct-frontend';
+import { Card, Container, Jumbotron, Row, Loading, UserLayout, setURL, PhotoContainer } from 'instinct-frontend';
 
 setURL('community/photos', <Photos />);
 
@@ -29,10 +29,10 @@ export function Photos() {
         <Loading isLoading={state.showSpinner}>
           {
             state.photos.length === 0 && (
-              <>
+              <Card>
                 <h3>Hmmm...</h3>
                 <p>It looks like there aren't any pictures.  Maybe you could be the first!</p>
-              </>
+              </Card>
             )
           }
           <Row>

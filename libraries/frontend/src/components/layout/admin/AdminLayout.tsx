@@ -2,7 +2,7 @@ import { Link } from 'wouter';
 import { AdminLayoutProps } from './';
 import { healthContext } from 'context';
 import React, { useContext } from 'react';
-import { AdminNavBar, Header, Icon, PermissionGuard } from 'components';
+import { AdminNavBar, Footer, Header, Icon, PermissionGuard } from 'components';
 
 export function AdminLayout({ children, permission }: AdminLayoutProps) {
   const { usersOnline } = useContext(healthContext);
@@ -24,6 +24,7 @@ export function AdminLayout({ children, permission }: AdminLayoutProps) {
           <section className="page-container">{children}</section>
         </main>
       </span>
+      <Footer />
     </PermissionGuard>
   );
 }

@@ -12,6 +12,8 @@ export function AboutModal({ isOpen, onToggle }: AboutModalProps) {
           <p>High performance, scalable content management system developed with Typescript, React and Nest.</p>
           <h5>Version</h5>
           <p>{systemVersion}</p>
+          <h5>Developed By</h5>
+          <p>LeChris</p>
         </div>
       </ModalOverlay>
       .
