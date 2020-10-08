@@ -13,13 +13,13 @@
     "test": "gts clean && tsc && gts check"
   },
   "devDependencies": {
-    "ts-node": "8.10.1",
+    "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
-    "typescript": "~3.9.3",
-    "ts-jest": "^26.0.0",
+    "typescript": "~4.0.3",
+    "ts-jest": "^26.4.1",
     "tslint": "^6.1.2",
-    "@types/node": "^14.0.5",
-    "@types/jest": "^25.2.3",
-    "gts": "^2.0.2"
+    "@types/node": "^14.11.5",
+    "@types/jest": "^26.0.14",
+    "gts": "^3.0.0"
   }
 }
