@@ -1,1 +1,2 @@
 import './ForgotPassword';
+import './RedeemForgotPassword';

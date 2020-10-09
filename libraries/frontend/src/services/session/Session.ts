@@ -72,6 +72,17 @@ class SessionServiceImplementation implements SessionService {
       newPasswordAgain,
     });
   }
+
+  async generateForgotPasswordToken(email: string): Promise<void> {
+    await backendAPI.post(`session/forgot-password?email=${email}`);
+  }
+
+  async redeemForgotPasswordToken(token: string, newPassword: string, newPasswordAgain: string): Promise<void> {
+    await backendAPI.post(`session/forgot-password/redeem?token=${token}`, {
+      password: newPassword,
+      passwordAgain: newPasswordAgain,
+    });
+  }
 }
 
 export const sessionService: SessionService = new SessionServiceImplementation();

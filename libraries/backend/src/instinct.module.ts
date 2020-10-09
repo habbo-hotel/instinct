@@ -9,6 +9,7 @@ import {CommonModule} from './common';
 import {ConfigModule} from './config';
 import {ArticleModule} from './article';
 import {SessionModule} from './session';
+import {FeatureModule} from './feature';
 import {DatabaseModule} from './database';
 
 @Module({
@@ -23,6 +24,7 @@ import {DatabaseModule} from './database';
     ArticleModule,
     HealthModule,
     SessionModule,
+    FeatureModule,
     DatabaseModule,
   ],
   exports: [
@@ -34,6 +36,7 @@ import {DatabaseModule} from './database';
     ConfigModule,
     CommonModule,
     ArticleModule,
+    FeatureModule,
     HealthModule,
     SessionModule,
     DatabaseModule,

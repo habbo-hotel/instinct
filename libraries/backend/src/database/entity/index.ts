@@ -1,3 +1,5 @@
+import {UserForgotPasswordEntity} from './user/forgot-password.entity';
+
 export * from './rank';
 export * from './user';
 export * from './room';
@@ -17,11 +19,13 @@ import {ArticleCategoryEntity} from './article';
 import {UserBansEntity} from './user/bans.entity';
 import {ConfigEntity} from './config/config.entity';
 import {ConfigRepository} from './config/config.repository';
+import {UserForgotPasswordRepository} from './user/forgot-password.repository';
 
 export const databaseEntities: Function[] = [
   ArticleEntity,
   ArticleCategoryEntity,
   PhotoEntity,
+  UserForgotPasswordEntity,
   GroupEntity,
   RankEntity,
   UserEntity,
@@ -31,4 +35,4 @@ export const databaseEntities: Function[] = [
   UserBansEntity,
 ];
 
-export const databaseRepositories: Provider[] = [ConfigRepository];
+export const databaseRepositories: Provider[] = [ConfigRepository, UserForgotPasswordRepository];

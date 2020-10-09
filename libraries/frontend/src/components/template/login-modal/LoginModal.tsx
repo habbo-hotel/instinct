@@ -1,7 +1,7 @@
 import { sessionContext } from 'context';
+import { sessionService } from 'services';
+import { useLocation, Link } from 'wouter';
 import React, { useContext, useState } from 'react';
-import { useLocation } from 'wouter';
-import { sessionService } from '../../../services/session';
 import { LoginModalState, defaultLoginModalState } from './';
 import { Form, Input, Icon, ModalButton, Loading } from 'components';
 
@@ -62,6 +62,11 @@ export function LoginModal() {
             />
             <Icon type="lock" />
           </label>
+          <div className="mt-2 mb-3">
+            <Link className="text-warning" to="/forgot-password">
+              Forgot your password?
+            </Link>
+          </div>
           <button className="rounded-button blue plain" type="submit">
             Log In
           </button>

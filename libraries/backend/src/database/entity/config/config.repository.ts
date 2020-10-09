@@ -1,7 +1,5 @@
 import {Repository} from 'typeorm';
-import {configWire} from './config.wire';
 import {Injectable} from '@nestjs/common';
-import {Config} from 'instinct-interfaces';
 import {ConfigEntity} from './config.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 
@@ -9,10 +7,9 @@ import {InjectRepository} from '@nestjs/typeorm';
 export class ConfigRepository {
   constructor(@InjectRepository(ConfigEntity) private readonly configRepo: Repository<ConfigEntity>) {}
 
-  async getConfig(): Promise<Config> {
+  async getConfig(): Promise<ConfigEntity> {
     try {
-      const config = await this.configRepo.findOneOrFail();
-      return configWire(config);
+      return await this.configRepo.findOneOrFail();
     } catch {
       throw new Error('Missing Configuration');
     }

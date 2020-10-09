@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.16.0",
+  "version": "1.30.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -17,9 +17,11 @@
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
+    "@sendgrid/mail": "^7.2.6",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
+    "crypto-random-string": "^3.3.0",
     "express": "^4.17.1",
     "instinct-interfaces": "^2.1.0",
     "jsonwebtoken": "^8.5.1",
