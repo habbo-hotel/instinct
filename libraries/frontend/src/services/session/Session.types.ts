@@ -22,4 +22,8 @@ export interface SessionService {
 
   // Removes the user's bearer token from localStorage
   logout(): void;
+
+  updateEmail(currentPassword: string, newEmail: string): Promise<void>;
+
+  updatePassword(currentPassword: string, newPassword: string, newPasswordAgain: string): Promise<void>;
 }

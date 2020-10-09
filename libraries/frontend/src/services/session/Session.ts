@@ -57,6 +57,21 @@ class SessionServiceImplementation implements SessionService {
   logout(): void {
     localStorageService.delete(this.localStorageKey);
   }
+
+  async updateEmail(currentPassword: string, newEmail: string): Promise<void> {
+    await backendAPI.post('session/settings/email', {
+      password: currentPassword,
+      email: newEmail,
+    });
+  }
+
+  async updatePassword(currentPassword: string, newPassword: string, newPasswordAgain: string): Promise<void> {
+    await backendAPI.post('session/settings/password', {
+      oldPassword: currentPassword,
+      newPassword,
+      newPasswordAgain,
+    });
+  }
 }
 
 export const sessionService: SessionService = new SessionServiceImplementation();

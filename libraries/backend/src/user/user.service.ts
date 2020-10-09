@@ -38,6 +38,10 @@ export class UserService {
     });
   }
 
+  async updateByID(userID: number, changes: Partial<UserEntity>): Promise<void> {
+    await this.userRepository.update(userID, changes);
+  }
+
   getByUsername(username: string): Promise<UserEntity | undefined> {
     return this.userRepository.findOne({
       where: {
@@ -47,8 +51,8 @@ export class UserService {
     });
   }
 
-  getByEmail(email: string): Promise<UserEntity> {
-    return this.userRepository.findOneOrFail({
+  getByEmail(email: string): Promise<UserEntity | undefined> {
+    return this.userRepository.findOne({
       where: {
         email,
       },

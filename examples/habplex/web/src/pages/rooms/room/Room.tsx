@@ -3,7 +3,20 @@ import { Link, useRoute } from 'wouter';
 import { Room } from 'instinct-interfaces';
 import { defaultRoomState, RoomState } from './';
 import React, { useContext, useEffect, useState } from 'react';
-import {Card, Column, Container, Jumbotron, Loading, clientService, roomService, UserLayout, setURL, sessionContext, themeContext } from 'instinct-frontend';
+import {
+  Card,
+  Column,
+  Container,
+  Jumbotron,
+  Loading,
+  clientService,
+  roomService,
+  UserLayout,
+  setURL,
+  sessionContext,
+  themeContext,
+  Avatar, UserContainer
+} from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 
@@ -24,7 +37,7 @@ export function RoomPage() {
 
     setState(defaultRoomState);
     fetchRoom();
-  }, [params?.roomID]);
+  }, [params]);
 
   function enterRoom(): void {
     clientService.enterRoom(state.room!.id);
@@ -45,6 +58,17 @@ export function RoomPage() {
                 <li>Current Users: <b>{state.room?.currentUsers}</b></li>
               </ul>
               <button className="rounded-button blue plain" disabled={!online} onClick={enterRoom}>Enter Room</button>
+            </Card>
+          </Column>
+          <Column side="right">
+            <Card header="Owned By">
+              {
+                state.room?.user && (
+                  <div className="mb-2">
+                    <UserContainer user={state.room?.user}/>
+                  </div>
+                )
+              }
             </Card>
           </Column>
         </Container>

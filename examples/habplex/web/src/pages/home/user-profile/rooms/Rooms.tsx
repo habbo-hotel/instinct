@@ -6,7 +6,7 @@ import { RoomContainer } from './room-container';
 export function Rooms({ profile }: UserProfileWidgetProps) {
   return (
     <Card header="Rooms">
-      <div className="items-container">
+      <div className="items-container mt-2">
         {
           profile?.rooms.length === 0 && (
             <p>{profile?.user.username} doesn't own any rooms</p>
@@ -14,7 +14,7 @@ export function Rooms({ profile }: UserProfileWidgetProps) {
         }
         {
           profile?.rooms.map(room => (
-            <div className="item-container" key={room.id}>
+            <div className="item-container mb-2" key={room.id}>
               <RoomContainer room={room}/>
             </div>
           ))

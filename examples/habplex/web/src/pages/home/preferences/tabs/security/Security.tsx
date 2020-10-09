@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Icon, Input, Row } from 'instinct-frontend';
+import { Form, Icon, Input, Row, sessionService } from 'instinct-frontend';
 import { defaultSecurityPreferencesState, SecurityPreferencesState } from './';
 
 export function SecurityPreferences() {
@@ -13,23 +13,43 @@ export function SecurityPreferences() {
       [key]: value,
     })
   }
+  async function onSubmit(): Promise<void> {
+    setState(_ => ({
+      ..._,
+      showError: false,
+      showSpinner: true,
+    }));
 
-  function toggleSpinner(showSpinner: boolean): void {
-    setState({
-      ...state,
-      showSpinner,
-    })
+    try {
+      await sessionService.updatePassword(state.currentPassword, state.newPassword, state.newPasswordAgain);
+      updateField('showCompletion', true);
+    } catch {
+      setState(_ => ({
+        ..._,
+        showError: true,
+        showSpinner: false,
+      }));
+    }
   }
 
-  async function onSubmit(): Promise<void> {
-    toggleSpinner(true);
-    setTimeout(() => {
-      toggleSpinner(false);
-    }, 1200);
+  if (state.showCompletion) {
+    return (
+      <div className="text-center">
+        <i className="fa fa-thumbs-up fa-5x"/>
+        <p>Your password has been updated!</p>
+      </div>
+    )
   }
 
   return (
     <Form className="" onSubmit={onSubmit}>
+      {
+        state.showError && (
+          <div className="alert alert-danger">
+            <h4>There was a problem changing your password</h4>
+          </div>
+        )
+      }
       <div>
         <h4 className="form-subcategory">Current Password</h4>
         <Row>

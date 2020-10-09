@@ -9,6 +9,7 @@ export function UserModal({ children, user }: UserModalProps) {
 
   function toggleModal(): void {
     setModal(!showModal);
+    setLocation(`/profile/${user.username}`);
   }
 
   return (

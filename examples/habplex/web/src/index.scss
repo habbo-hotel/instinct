@@ -1,0 +1,14 @@
+.popular-group {
+  background-color: #10426d !important;
+  border-color: #0b6395;
+  color: white;
+
+  &:hover {
+    border-color: #70c8e8;
+  }
+}
+
+.alert-danger {
+  color: white;
+  background-color: #C2185B;
+}

@@ -5,6 +5,6 @@ import ReactDOM from 'react-dom';
 
 import 'react-toggle/style.css';
 import 'instinct-frontend/index.scss';
-import './override.scss';
+import './index.scss';
 
 ReactDOM.render(<App />, document.getElementById('root'));

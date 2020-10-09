@@ -25,18 +25,20 @@ export function PopularGroups() {
   return (
     <Loading isLoading={state.showSpinner}>
       <Card header="Popular Groups" subHeader="Who do you want to join?">
-        {state.groups.length === 0 && !state.showSpinner && <p>There aren't any groups yet.</p>}
-        {state.groups.map((group) => (
-          <div
-            className="popular-group"
-            style={{ background: `url(${config.groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}
-            key={group.id}
-          >
-            <div className="user-count">0</div>
-            <div className="name">{group.name}</div>
-            <div className="desc">{group.desc}</div>
-          </div>
-        ))}
+        <div className="mt-2">
+          {state.groups.length === 0 && !state.showSpinner && <p>There aren't any groups yet.</p>}
+          {state.groups.map((group) => (
+            <div
+              className="popular-group"
+              style={{ backgroundImage: `url(${config.groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}
+              key={group.id}
+            >
+              <div className="user-count">0</div>
+              <div className="name">{group.name}</div>
+              <div className="desc">{group.desc}</div>
+            </div>
+          ))}
+        </div>
       </Card>
     </Loading>
   );
