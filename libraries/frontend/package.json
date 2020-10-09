@@ -1,10 +1,10 @@
 {
   "name": "instinct-frontend",
-  "version": "4.43.0",
+  "version": "4.51.0",
   "description": "Shared components across Instinct Apps",
   "scripts": {
-    "build": "rollup -c",
-    "deploy:unsafe": "gts clean && npm run build && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json && npm publish build",
+    "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",
+    "deploy:unsafe": "gts clean && npm run build && npm publish build",
     "deploy": "gts clean && npm run test && npm run deploy:unsafe",
     "fix": "gts clean && gts fix",
     "test": "gts clean && tsc && gts check && jest --coverage --forceExit && gts clean",

@@ -1,9 +1,11 @@
-import { Client, DataPolling, Router } from 'components';
+import { useBanListener } from 'hooks';
 import { configService, sessionService } from 'services';
 import React, { useContext, useEffect, useState } from 'react';
+import { BannedGuard, Client, DataPolling, Router } from 'components';
 import { configContext, healthContext, sessionContext } from 'context';
 
 export function Bootstrap() {
+  useBanListener();
   const [ready, setReady] = useState(false);
   const { setConfig } = useContext(configContext);
   const { setHealth } = useContext(healthContext);
@@ -31,10 +33,10 @@ export function Bootstrap() {
   }
 
   return (
-    <>
+    <BannedGuard>
       <Router />
       <Client />
       <DataPolling />
-    </>
+    </BannedGuard>
   );
 }
