@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.11.0",
+  "version": "1.16.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -29,6 +29,7 @@
     "passport-jwt": "^4.0.0",
     "randomstring": "^1.1.5",
     "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.3",
     "typeorm": "^0.2.28",
     "winston": "^3.3.3"
   },

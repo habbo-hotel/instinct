@@ -5,6 +5,7 @@ import {DatabaseModule} from '../database';
 import {PassportModule} from '@nestjs/passport';
 import {SessionService} from './session.service';
 import {SessionController} from './session.controller';
+import {AccountBannedGuard} from './account-ban.guard';
 import {BearerTokenService} from './bearer-token.service';
 import {BearerTokenStrategy} from './bearer-token.strategy';
 import {CommonModule, jwtExpires, jwtSecret} from '../common';
@@ -23,8 +24,8 @@ import {CommonModule, jwtExpires, jwtSecret} from '../common';
     }),
   ],
   controllers: [SessionController],
-  providers: [SessionService, BearerTokenService, BearerTokenStrategy],
-  exports: [SessionService, BearerTokenService, BearerTokenStrategy],
+  providers: [SessionService, BearerTokenService, BearerTokenStrategy, AccountBannedGuard],
+  exports: [SessionService, BearerTokenService, BearerTokenStrategy, AccountBannedGuard],
 })
 export class SessionModule {
   constructor() {

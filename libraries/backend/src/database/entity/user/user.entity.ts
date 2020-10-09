@@ -2,6 +2,7 @@ import {RankEntity} from '../rank';
 import {RoomEntity} from '../room';
 import {PhotoEntity} from '../photo';
 import {GroupEntity} from '../group';
+import {UserBansEntity} from './bans.entity';
 import {UserBadgesEntity} from './user-badges.entity';
 import {Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
@@ -111,4 +112,7 @@ export class UserEntity {
 
   @ManyToMany(() => GroupEntity, group => group.members)
   joinedGroups?: GroupEntity[];
+
+  @OneToMany(() => UserBansEntity, ban => ban.user)
+  bans?: UserBansEntity[];
 }

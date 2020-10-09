@@ -1,5 +1,3 @@
-import {ConfigEntity} from './config/config.entity';
-
 export * from './rank';
 export * from './user';
 export * from './room';
@@ -16,6 +14,8 @@ import {UserBadgesEntity} from './user';
 import {ArticleEntity} from './article';
 import {Provider} from '@nestjs/common';
 import {ArticleCategoryEntity} from './article';
+import {UserBansEntity} from './user/bans.entity';
+import {ConfigEntity} from './config/config.entity';
 import {ConfigRepository} from './config/config.repository';
 
 export const databaseEntities: Function[] = [
@@ -28,6 +28,7 @@ export const databaseEntities: Function[] = [
   UserBadgesEntity,
   RoomEntity,
   ConfigEntity,
+  UserBansEntity,
 ];
 
 export const databaseRepositories: Provider[] = [ConfigRepository];
