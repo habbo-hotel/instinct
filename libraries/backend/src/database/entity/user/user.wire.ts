@@ -16,5 +16,6 @@ export function userWire(userEntity: UserEntity): User {
     joinDate: Moment.unix(userEntity.accountCreated).toISOString(),
     lastLoginDate: Moment.unix(userEntity.lastLogin).toISOString(),
     rank: userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
+    favoriteYoutubeVideo: userEntity.favoriteYoutubeVideo,
   };
 }

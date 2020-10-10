@@ -7,6 +7,7 @@ import { Friends } from './friends';
 import { UserContainer } from './user-container';
 import React, { useEffect, useState } from 'react';
 import { defaultUserProfileState, UserProfileState } from './';
+import { FavoriteVideo } from './favorite-video/FavoriteVideo';
 import { Container, Column, userService, Loading, Jumbotron, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('profile/:username', <UserProfile />);
@@ -27,7 +28,7 @@ export function UserProfile() {
     }
 
     fetchUser();
-  }, [params]);
+  }, [params?.username]);
 
   return (
     <UserLayout section="profile">
@@ -36,6 +37,7 @@ export function UserProfile() {
         <Container>
           <Column side="right">
             <UserContainer profile={state.profile} />
+            <FavoriteVideo profile={state.profile} />
           </Column>
           <Column side="left">
             <Badges profile={state.profile} />

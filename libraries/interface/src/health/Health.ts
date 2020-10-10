@@ -10,4 +10,4 @@ export const exampleHealth: Health = {
   roomsActive: 0,
   systemVersion: '0.0.0',
   maintenanceMode: false,
-}
+};

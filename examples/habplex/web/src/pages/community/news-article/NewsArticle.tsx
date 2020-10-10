@@ -24,7 +24,7 @@ export function NewsArticle() {
 
     setState(defaultNewsArticleState);
     fetchArticle();
-  }, [params]);
+  }, [params?.articleID]);
 
   return (
     <UserLayout section="article">

@@ -48,6 +48,7 @@ export class UserController {
       ipRegister: '127.0.0.1',
       ipCurrent: '127.0.0.1',
       homeRoom: defaultUserHomeRoom,
+      favoriteYoutubeVideo: 'GfxcnX7XWfg',
     });
     return userWire(user);
   }

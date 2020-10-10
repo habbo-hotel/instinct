@@ -13,6 +13,12 @@ export class NewSessionDTO {
   password!: string;
 }
 
+export class UpdatePreferencesDTO {
+  @IsString()
+  @IsNotEmpty()
+  favoriteYoutubeVideo!: string;
+}
+
 export class UpdatePasswordDTO {
   @IsString()
   @IsNotEmpty()

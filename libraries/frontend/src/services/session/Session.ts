@@ -58,6 +58,12 @@ class SessionServiceImplementation implements SessionService {
     localStorageService.delete(this.localStorageKey);
   }
 
+  async updateProfile(favoriteYoutubeVideo: string): Promise<void> {
+    await backendAPI.post('session/settings/preferences', {
+      favoriteYoutubeVideo,
+    });
+  }
+
   async updateEmail(currentPassword: string, newEmail: string): Promise<void> {
     await backendAPI.post('session/settings/email', {
       password: currentPassword,

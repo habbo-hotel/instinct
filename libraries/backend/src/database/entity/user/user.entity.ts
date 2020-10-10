@@ -84,6 +84,9 @@ export class UserEntity {
   @Column({name: 'home_room', default: 0})
   homeRoom!: number;
 
+  @Column({name: 'youtube_video'})
+  favoriteYoutubeVideo!: string;
+
   @OneToMany(() => PhotoEntity, photo => photo.user)
   photos?: PhotoEntity[];
 

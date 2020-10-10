@@ -12,6 +12,8 @@ export function useBanListener() {
         if (error.response.status === 403 && !banned) {
           setBanned(true);
         }
+
+        throw error;
       }
     );
   }, []);

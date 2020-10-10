@@ -4,9 +4,9 @@ import {User} from 'instinct-interfaces';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import {BadRequestException, Body, Controller, Get, Post} from '@nestjs/common';
 import {UserEntity, userWire} from '../database/entity/user';
-import {NewSessionDTO, UpdateEmailDTO, UpdatePasswordDTO} from './session.dto';
+import {BadRequestException, Body, Controller, Get, Post} from '@nestjs/common';
+import {NewSessionDTO, UpdateEmailDTO, UpdatePasswordDTO, UpdatePreferencesDTO} from './session.dto';
 
 @Controller('session')
 export class SessionController {
@@ -27,10 +27,13 @@ export class SessionController {
     return this.userService.createSSO(session.id!);
   }
 
-  @Post('settings')
+  @Post('settings/preferences')
   @HasSession()
-  async changeSettings(@GetSession() session: UserEntity): Promise<string> {
-    return 'Your settings have been updated';
+  async changePreferences(@GetSession() session: UserEntity, @Body() preferencesDTO: UpdatePreferencesDTO): Promise<string> {
+    await this.userService.updateByID(session.id!, {
+      favoriteYoutubeVideo: preferencesDTO.favoriteYoutubeVideo,
+    });
+    return 'Your preferences have been updated';
   }
 
   @Post('settings/email')

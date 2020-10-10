@@ -8,7 +8,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "events": "^3.2.0",
-    "instinct-frontend": "^4.56.0",
+    "instinct-frontend": "^4.60.0",
     "moment": "2.29.1",
     "query-string": "^6.13.5",
     "react": "^16.13.1",
@@ -39,7 +39,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "gts": "^3.0.0",
-    "instinct-interfaces": "^2.1.0",
+    "instinct-interfaces": "^2.3.0",
     "node-sass": "^4.14.1",
     "react-app-rewired": "^2.1.6",
     "react-scripts": "^3.4.3",
