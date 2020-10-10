@@ -15,7 +15,6 @@ export class ForgotPasswordService {
     private readonly userService: UserService,
     private readonly hashService: HashService,
     private readonly emailService: EmailService,
-    private readonly forgotPasswordService: ForgotPasswordService,
     private readonly forgotPasswordRepo: UserForgotPasswordRepository
   ) {}
 

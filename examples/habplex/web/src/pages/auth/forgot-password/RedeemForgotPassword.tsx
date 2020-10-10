@@ -1,7 +1,7 @@
 import { parse } from 'query-string';
 import React, { useState } from 'react';
 import { RedeemForgotPasswordState, defaultForgotPasswordState } from './RedeemForgotPassword.types';
-import { Card, Container, Form, GuestLayout, Icon, Input, Row, setURL } from 'instinct-frontend';
+import { Card, Container, Form, GuestLayout, Icon, Input, Row, sessionService, setURL } from 'instinct-frontend';
 
 setURL('forgot-password/redeem', <RedeemForgotPassword />);
 
@@ -20,6 +20,22 @@ export function RedeemForgotPassword() {
   }
 
   async function onSubmit(): Promise<void> {
+    setState(_ => ({
+      ..._,
+      showError: false,
+      showSpinner: true,
+    }));
+
+    try {
+      await sessionService.redeemForgotPasswordToken(params.token!, state.password, state.passwordAgain);
+      updateField('showCompletion', true);
+    } catch {
+      setState(_ => ({
+        ..._,
+        showError: true,
+        showSpinner: false,
+      }));
+    }
 
   }
 

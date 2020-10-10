@@ -17,12 +17,12 @@ export class ForgotPasswordController {
   }
 
   @Post('redeem')
-  async redeemPasswordLink(@Query('token') token: string, @Body() forgotPasswordDTO: ForgotPasswordDTO): Promise<string> {
+  async redeemPasswordLink(@Body() forgotPasswordDTO: ForgotPasswordDTO): Promise<string> {
     if (forgotPasswordDTO.password !== forgotPasswordDTO.passwordAgain) {
       throw new BadRequestException('Your passwords must match');
     }
 
-    await this.forgotPasswordService.redeemPasswordToken(token, forgotPasswordDTO.password);
+    await this.forgotPasswordService.redeemPasswordToken(forgotPasswordDTO.token, forgotPasswordDTO.password);
     return 'Your password has been updated';
   }
 }

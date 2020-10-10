@@ -78,7 +78,8 @@ class SessionServiceImplementation implements SessionService {
   }
 
   async redeemForgotPasswordToken(token: string, newPassword: string, newPasswordAgain: string): Promise<void> {
-    await backendAPI.post(`session/forgot-password/redeem?token=${token}`, {
+    await backendAPI.post('session/forgot-password/redeem', {
+      token,
       password: newPassword,
       passwordAgain: newPasswordAgain,
     });
