@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.32.0",
+  "version": "1.33.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {

@@ -1,7 +1,19 @@
+import { Link } from 'wouter';
 import { parse } from 'query-string';
 import React, { useState } from 'react';
 import { RedeemForgotPasswordState, defaultForgotPasswordState } from './RedeemForgotPassword.types';
-import { Card, Container, Form, GuestLayout, Icon, Input, Row, sessionService, setURL } from 'instinct-frontend';
+import {
+  Button,
+  Card,
+  Container,
+  Form,
+  GuestLayout,
+  Icon,
+  Input,
+  Row,
+  sessionService,
+  setURL
+} from 'instinct-frontend';
 
 setURL('forgot-password/redeem', <RedeemForgotPassword />);
 
@@ -37,6 +49,24 @@ export function RedeemForgotPassword() {
       }));
     }
 
+  }
+
+  if (state.showCompletion) {
+    return (
+      <GuestLayout>
+        <Container>
+          <Card header="Password Reset">
+            <div className="text-center">
+              <i className="fa fa-thumbs-up fa-3x"/>
+              <p>Your password has been reset</p>
+              <Link to="/login">
+                <Button>Login</Button>
+              </Link>
+            </div>
+          </Card>
+        </Container>
+      </GuestLayout>
+    )
   }
 
   return (

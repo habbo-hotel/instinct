@@ -25,7 +25,7 @@ export class ForgotPasswordService {
       throw new BadRequestException('User does not exist');
     }
 
-    const token = randomString({length: 50, type: 'base64'});
+    const token = randomString({length: 50, type: 'url-safe'});
     const expiration = Moment().add('4', 'hours').unix();
     await this.forgotPasswordRepo.create(user!.id!, token, expiration);
 
