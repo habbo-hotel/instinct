@@ -2,14 +2,6 @@ import {UserEntity} from '../user';
 import {ArticleCategoryEntity} from './article-category.entity';
 import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
 
-export enum ArticleForm {
-  None = 'none',
-  Photo = 'photo',
-  Badge = 'badge',
-  Look = 'look',
-  Word = 'word',
-}
-
 export enum ArticleVisibility {
   Show = '1',
   Hidden = '0',

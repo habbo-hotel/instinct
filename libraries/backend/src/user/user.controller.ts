@@ -2,9 +2,10 @@ import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {NewUserDTO} from './user.dto';
 import {UserService} from './user.service';
+import {maxAccountsPerIP} from '../config/environment';
 import {Room, User, UserProfile} from 'instinct-interfaces';
-import {Body, Controller, Get, NotFoundException, Param, Post} from '@nestjs/common';
 import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
+import {Body, Controller, ForbiddenException, Get, Ip, NotFoundException, Param, Post} from '@nestjs/common';
 import {
   defaultUserCredits,
   defaultUserHomeRoom,
@@ -26,7 +27,13 @@ export class UserController {
   }
 
   @Post()
-  async createUser(@Body() newUser: NewUserDTO): Promise<User> {
+  async createUser(@Body() newUser: NewUserDTO, @Ip() ipAddress: string): Promise<User> {
+    const alreadyRegistered = await this.userService.getByIPAddress(ipAddress);
+
+    if (alreadyRegistered.length >= maxAccountsPerIP) {
+      throw new ForbiddenException('Too many accounts');
+    }
+
     const currentTimestamp: number = Moment().unix();
     const user: UserEntity = await this.userService.create({
       username: newUser.username,
@@ -45,8 +52,8 @@ export class UserController {
       pixels: defaultUserPixels,
       points: defaultUserPoints,
       online: 0,
-      ipRegister: '127.0.0.1',
-      ipCurrent: '127.0.0.1',
+      ipRegister: ipAddress,
+      ipCurrent: ipAddress,
       homeRoom: defaultUserHomeRoom,
       favoriteYoutubeVideo: 'GfxcnX7XWfg',
     });

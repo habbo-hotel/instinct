@@ -5,11 +5,12 @@ import {UserService} from './user.service';
 import {DatabaseModule} from '../database';
 import {userConstraints} from './constraint';
 import {UserController} from './user.controller';
+import {GoogleModule} from '../google/google.module';
 import {UserLeaderBoardService} from './leaderboard.service';
 import {UserLeaderBoardController} from './leaderboard.controller';
 
 @Module({
-  imports: [CommonModule, DatabaseModule],
+  imports: [CommonModule, DatabaseModule, GoogleModule],
   controllers: [UserController, UserLeaderBoardController],
   providers: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],
   exports: [UserPipe, UserService, UserLeaderBoardService, ...userConstraints],

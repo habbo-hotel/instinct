@@ -1,6 +1,7 @@
 import { useLocation } from 'wouter';
 import { toast } from 'react-toastify';
 import { sessionContext } from 'context';
+import ReCAPTCHA from 'react-google-recaptcha';
 import React, { useContext, useState } from 'react';
 import { sessionService, userService } from 'services';
 import { RegisterModalState, defaultRegisterModalState } from './';
@@ -10,6 +11,8 @@ export function RegisterModal() {
   const [location, setLocation] = useLocation();
   const [state, setState] = useState<RegisterModalState>(defaultRegisterModalState);
   const { setUser } = useContext(sessionContext);
+
+  console.log(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
 
   const disabled: boolean =
     state.username === '' || state.password === '' || state.email === '' || state.password !== state.passwordAgain;
@@ -24,7 +27,7 @@ export function RegisterModal() {
   async function tryRegister(): Promise<void> {
     try {
       setValue('showSpinner', true);
-      await userService.create(state.username, state.password, state.email);
+      await userService.create(state.username, state.password, state.email, state.captcha);
       const bearer = await sessionService.attemptCredentials(state.username, state.password);
       const user = await sessionService.attemptBearerToken(bearer);
       await setUser(user);
@@ -61,6 +64,12 @@ export function RegisterModal() {
             />
             <Icon type="lock" />
           </label>
+          <div className="row mt-2 mb-2">
+            <ReCAPTCHA
+              sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY!}
+              onChange={(x) => setValue('captcha', x as string)}
+            />
+          </div>
           <button className="rounded-button blue plain" disabled={disabled} type="submit">
             Create Account
           </button>

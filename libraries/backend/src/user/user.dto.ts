@@ -1,5 +1,6 @@
 import {UniqueEmail} from './constraint/unique-email';
 import {UniqueUsername} from './constraint/unique-username';
+import {ValidRecaptcha} from '../google/recaptcha.constraint';
 import {IsEmail, IsNotEmpty, IsString} from 'class-validator';
 
 export class NewUserDTO {
@@ -15,4 +16,7 @@ export class NewUserDTO {
 
   @IsString()
   password!: string;
+
+  @ValidRecaptcha()
+  recaptcha!: string;
 }

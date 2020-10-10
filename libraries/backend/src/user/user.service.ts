@@ -60,6 +60,14 @@ export class UserService {
     });
   }
 
+  getByIPAddress(ipAddress: string): Promise<UserEntity[]> {
+    return this.userRepository.find({
+      where: {
+        ipRegister: ipAddress,
+      },
+    });
+  }
+
   getOnline(): Promise<UserEntity[]> {
     return this.userRepository.find({
       where: {

@@ -3,6 +3,7 @@ export interface RegisterModalState {
   password: string;
   passwordAgain: string;
   email: string;
+  captcha: string;
   showSpinner: boolean;
 }
 
@@ -11,5 +12,6 @@ export const defaultRegisterModalState: RegisterModalState = {
   password: '',
   passwordAgain: '',
   email: '',
+  captcha: '',
   showSpinner: false,
 };

@@ -1,7 +1,7 @@
 import { backendAPI } from 'api';
 import { ArticleTypes } from './';
 import { AxiosResponse } from 'axios';
-import { Article } from 'instinct-interfaces';
+import { Article, CreateNewsArticleRequest } from 'instinct-interfaces';
 
 class ArticleService implements ArticleTypes {
   async getAll() {
@@ -11,6 +11,11 @@ class ArticleService implements ArticleTypes {
 
   async getByID(articleID: string) {
     const article: AxiosResponse<Article> = await backendAPI.get(`articles/${articleID}`);
+    return article.data;
+  }
+
+  async create(articleDTO: CreateNewsArticleRequest): Promise<Article> {
+    const article: AxiosResponse<Article> = await backendAPI.post('articles', { ...articleDTO });
     return article.data;
   }
 }

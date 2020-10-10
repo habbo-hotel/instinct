@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.36.0",
+  "version": "1.41.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -18,12 +18,13 @@
     "@nestjs/platform-express": "^7.4.4",
     "@nestjs/typeorm": "^7.1.4",
     "@sendgrid/mail": "^7.2.6",
+    "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "crypto-random-string": "^3.3.0",
     "express": "^4.17.1",
-    "instinct-interfaces": "^2.3.0",
+    "instinct-interfaces": "^2.6.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",

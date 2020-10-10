@@ -12,6 +12,7 @@ export function rankWire(rankEntity: RankEntity): Rank {
     permissions: {
       websiteShowStaff: rankEntity.websiteShowStaff === PermissionStatus.Enabled,
       websiteShowAdminPanel: rankEntity.websiteShowAdminPanel === PermissionStatus.Enabled,
+      websiteManageNews: rankEntity.websiteManageNews === PermissionStatus.Enabled,
     },
   };
 }
