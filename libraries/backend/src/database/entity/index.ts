@@ -8,7 +8,6 @@ export * from './group';
 export * from './article';
 
 import {RoomEntity} from './room';
-import {RankEntity} from './rank';
 import {UserEntity} from './user';
 import {PhotoEntity} from './photo';
 import {GroupEntity} from './group';
@@ -16,6 +15,7 @@ import {UserBadgesEntity} from './user';
 import {Provider} from '@nestjs/common';
 import {UserBansEntity} from './user/bans.entity';
 import {ConfigEntity} from './config/config.entity';
+import {RankEntity, RankRepository} from './rank';
 import {ConfigRepository} from './config/config.repository';
 import {ArticleCategoryRepository, ArticleEntity} from './article';
 import {ArticleCategoryEntity, ArticleRepository} from './article';
@@ -35,4 +35,10 @@ export const databaseEntities: Function[] = [
   UserBansEntity,
 ];
 
-export const databaseRepositories: Provider[] = [ConfigRepository, UserForgotPasswordRepository, ArticleRepository, ArticleCategoryRepository];
+export const databaseRepositories: Provider[] = [
+  ConfigRepository,
+  UserForgotPasswordRepository,
+  ArticleRepository,
+  ArticleCategoryRepository,
+  RankRepository,
+];

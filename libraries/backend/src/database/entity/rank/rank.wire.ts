@@ -1,7 +1,7 @@
 import {userWire} from '../user';
 import {RankEntity} from './rank.entity';
-import {Rank} from 'instinct-interfaces';
-import {PermissionStatus} from './rank.types';
+import {Rank, RankDTO} from 'instinct-interfaces';
+import {booleanToPermissionStatus, PermissionStatus} from './rank.types';
 
 export function rankWire(rankEntity: RankEntity): Rank {
   return {
@@ -13,6 +13,23 @@ export function rankWire(rankEntity: RankEntity): Rank {
       websiteShowStaff: rankEntity.websiteShowStaff === PermissionStatus.Enabled,
       websiteShowAdminPanel: rankEntity.websiteShowAdminPanel === PermissionStatus.Enabled,
       websiteManageNews: rankEntity.websiteManageNews === PermissionStatus.Enabled,
+      websiteManageRanks: rankEntity.websiteManageRanks === PermissionStatus.Enabled,
+      websiteManageUsers: rankEntity.websiteManageUsers === PermissionStatus.Enabled,
+      websiteManageBans: rankEntity.websiteManageBans === PermissionStatus.Enabled,
     },
+  };
+}
+
+export function rankDataTransferObjectToEntity(rankDTO: RankDTO): RankEntity {
+  return {
+    name: rankDTO.name,
+    badge: rankDTO.badge,
+    level: rankDTO.level,
+    websiteManageBans: booleanToPermissionStatus(rankDTO.websiteManageBans),
+    websiteManageUsers: booleanToPermissionStatus(rankDTO.websiteManageUsers),
+    websiteManageRanks: booleanToPermissionStatus(rankDTO.websiteManageRanks),
+    websiteManageNews: booleanToPermissionStatus(rankDTO.websiteManageNews),
+    websiteShowStaff: booleanToPermissionStatus(rankDTO.websiteShowStaff),
+    websiteShowAdminPanel: booleanToPermissionStatus(rankDTO.websiteShowAdminPanel),
   };
 }

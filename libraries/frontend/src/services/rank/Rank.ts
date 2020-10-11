@@ -1,9 +1,14 @@
 import { RankTypes } from './';
 import { backendAPI } from 'api';
 import { AxiosResponse } from 'axios';
-import { Rank } from 'instinct-interfaces';
+import { Rank, RankDTO } from 'instinct-interfaces';
 
 class RankService implements RankTypes {
+  async create(rankDTO: RankDTO) {
+    const newRank: AxiosResponse<Rank> = await backendAPI.post('ranks', rankDTO);
+    return newRank.data;
+  }
+
   async getAll() {
     const ranks: AxiosResponse<Rank[]> = await backendAPI.get('ranks');
     return ranks.data;
@@ -17,6 +22,14 @@ class RankService implements RankTypes {
   async getByID(rankID: string): Promise<any> {
     const rank: AxiosResponse<Rank> = await backendAPI.get(`ranks/${rankID}`);
     return rank.data;
+  }
+
+  async updateByID(rankID: string, rankDTO: RankDTO) {
+    await backendAPI.patch(`ranks/${rankID}`, rankDTO);
+  }
+
+  async deleteByID(rankID: string) {
+    await backendAPI.delete(`ranks/${rankID}`);
   }
 }
 

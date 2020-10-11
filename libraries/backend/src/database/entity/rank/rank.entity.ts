@@ -27,4 +27,13 @@ export class RankEntity {
 
   @Column({name: 'website_manage_news', type: 'enum', default: '0'})
   websiteManageNews!: PermissionStatus;
+
+  @Column({name: 'website_manage_ranks', type: 'enum', default: '0'})
+  websiteManageRanks!: PermissionStatus;
+
+  @Column({name: 'website_manage_users', type: 'enum', default: '0'})
+  websiteManageUsers!: PermissionStatus;
+
+  @Column({name: 'website_manage_bans', type: 'enum', default: '0'})
+  websiteManageBans!: PermissionStatus;
 }

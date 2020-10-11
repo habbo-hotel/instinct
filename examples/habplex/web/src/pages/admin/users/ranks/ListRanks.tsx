@@ -1,22 +1,28 @@
-import { Link } from 'wouter';
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   AdminLayout,
   Card,
   Column,
-  configContext,
   Container,
   Jumbotron,
   Row,
   setURL,
   useFetchAllRanks
 } from 'instinct-frontend';
+import { CreateRankModal, EditRankModal } from './modal';
 
 setURL('admin/users/ranks', <ListRanks/>);
 
 export function ListRanks() {
-  const { config } = useContext(configContext);
   const ranks = useFetchAllRanks();
+
+  const header = (
+    <div className="row">
+      <div className="col-6">Permission Groups</div>
+      <div className="col-6 text-right">
+      </div>
+    </div>
+  )
 
   return (
     <AdminLayout permission="websiteShowAdminPanel">
@@ -26,26 +32,19 @@ export function ListRanks() {
       <Container>
         <Row>
           <Column side="left">
-            <Card header="Permission Groups">
-              {
-                ranks === undefined && (
-                  <i className="fa fa-spin fa-spinner"/>
-                )
-              }
-              {
-                ranks?.map(_ => (
-                  <Link to={`/admin/users/ranks/${_.id}`}>
-                    <div className="admin-article row mb-3" key={_.id} style={{ height: 'auto' }}>
-                      <div className="col-2">
-                        <img alt="rank badge" src={`${config.swfBadgeURL}/${_.badge}.gif`} />
-                      </div>
-                      <div className="col-10 text-right">
-                        <h2>{_.name}</h2>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              }
+            <Card header={header}>
+              <div style={{ overflowY: 'scroll', maxHeight: 600, padding: 10 }}>
+                {
+                  ranks === undefined && (
+                    <i className="fa fa-spin fa-spinner"/>
+                  )
+                }
+                {
+                  ranks?.map(_ => (
+                    <EditRankModal key={_.id} rank={_}/>
+                  ))
+                }
+              </div>
             </Card>
           </Column>
         </Row>

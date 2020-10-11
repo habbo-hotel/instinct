@@ -1,14 +1,13 @@
-import {RankService} from './rank.service';
-import {RankEntity} from '../database/entity/rank';
+import {RankEntity, RankRepository} from '../database/entity/rank';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()
 export class RankPipe implements PipeTransform {
-  constructor(private readonly rankService: RankService) {}
+  constructor(private readonly rankRepo: RankRepository) {}
 
   async transform(rankID: number): Promise<RankEntity> {
     try {
-      return await this.rankService.getByID(rankID);
+      return await this.rankRepo.getByID(rankID);
     } catch (e) {
       throw new NotFoundException('Rank does not exist');
     }

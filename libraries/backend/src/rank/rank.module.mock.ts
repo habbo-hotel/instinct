@@ -1,16 +1,15 @@
 import {RankPipe} from './rank.pipe';
 import {Module} from '@nestjs/common';
-import {RankService} from './rank.service';
+import {DatabaseModule} from '../database';
 import {RankController} from './rank.controller';
 import {Test, TestingModule} from '@nestjs/testing';
 import {ModuleMetadata} from '@nestjs/common/interfaces';
-import {DatabaseModule} from '../database/database.module';
 
 const rankModuleMeta: ModuleMetadata = {
   imports: [DatabaseModule],
   controllers: [RankController],
-  providers: [RankPipe, RankService],
-  exports: [RankPipe, RankService],
+  providers: [RankPipe],
+  exports: [RankPipe],
 };
 
 export function mockRankModule(): Promise<TestingModule> {

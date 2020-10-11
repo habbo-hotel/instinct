@@ -1,6 +1,6 @@
 {
   "name": "instinct-backend",
-  "version": "1.43.0",
+  "version": "1.45.0",
   "description": "Shared Nest logic across Instinct apps",
   "main": "build/",
   "scripts": {
@@ -24,7 +24,7 @@
     "class-validator": "^0.12.2",
     "crypto-random-string": "^3.3.0",
     "express": "^4.17.1",
-    "instinct-interfaces": "^2.6.0",
+    "instinct-interfaces": "^2.8.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.1",
     "mysql2": "^2.2.5",

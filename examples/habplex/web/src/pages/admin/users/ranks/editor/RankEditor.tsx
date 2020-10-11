@@ -1,12 +1,12 @@
-import { Link } from 'wouter';
 import Toggle from 'react-toggle';
 import { toast } from 'react-toastify';
 import React, { useContext, useState } from 'react';
+import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { exampleRank, Rank, Permissions } from 'instinct-interfaces';
+import { configContext, Form, Input, Row, PreviewImage } from 'instinct-frontend';
 import { defaultRankEditorState, RankEditorState, RankEditorProps } from './RankEditor.types';
-import { AdminLayout, Card, configContext, Container, Form, Icon, Input, Jumbotron, Row, PreviewImage } from 'instinct-frontend';
 
-export function RankEditor({ defaultRank = exampleRank, onSave }: RankEditorProps) {
+export function RankEditor({ children, defaultRank = exampleRank, onSave }: RankEditorProps) {
   const { config } = useContext(configContext);
   const [ state, setState ] = useState<RankEditorState>({
     ...defaultRankEditorState,
@@ -27,6 +27,13 @@ export function RankEditor({ defaultRank = exampleRank, onSave }: RankEditorProp
         ..._.rank,
         [key]: value,
       }
+    }));
+  }
+
+  function toggleModal(): void {
+    setState(_ => ({
+      ..._,
+      showModal: !_.showModal,
     }));
   }
 
@@ -60,61 +67,55 @@ export function RankEditor({ defaultRank = exampleRank, onSave }: RankEditorProp
     }
   }
 
+  const permissionKeyToWord: Record<keyof Permissions, string> = {
+    websiteShowStaff: 'Show as Staff',
+    websiteShowAdminPanel: 'Use Admin Panel',
+    websiteManageNews: 'Manage News',
+    websiteManageRanks: 'Manage Ranks',
+    websiteManageUsers: 'Manage Users',
+    websiteManageBans: 'Manage Bans',
+  }
+
+  const permissionIndexes: Array<keyof Permissions> = Object.keys(permissionKeyToWord) as any;
+
   return (
-    <AdminLayout permission="websiteManageNews">
-      <Jumbotron style={{ background: '#263238' }} title={state.rank.name}>
-        <Icon type="users" />
-        {state.rank.users!.length}
-      </Jumbotron>
-      <Container>
-        <Link to="/admin/users/ranks">
-          <Icon className="text-white fa-2x" type="arrow-left" />
-        </Link>
-        <Card header="Editor">
+    <>
+      <div onClick={toggleModal}>
+        {children}
+      </div>
+      <Modal isOpen={state.showModal} toggle={toggleModal}>
+        <ModalHeader toggle={toggleModal}>Rank Editor</ModalHeader>
+        <ModalBody>
           <Form className="" onSubmit={onSubmit}>
             <div className="mt-3" style={{ padding: 2 }}>
               <h4>Name</h4>
               <Input type="text" name="name" onChange={setRank} value={state.rank.name}/>
             </div>
-            <div className="mt-3" style={{ padding: 2 }}>
-              <h4>
-                Badge
-                <PreviewImage className="ml-2" image={`${config.swfBadgeURL}/${state.rank.badge}.gif`} style={{ height: 31, width: 31 }} />
-              </h4>
-              <Input type="text" name="badge" onChange={setRank} value={state.rank.badge}/>
+            <div className="mt-3 row" style={{ padding: 2 }}>
+             <div className="col-8">
+               <h4>Badge</h4>
+               <Input type="text" name="badge" onChange={setRank} value={state.rank.badge}/>
+             </div>
+              <div className="col-4">
+                <img alt="rank badge" src={`${config.swfBadgeURL}/${state.rank.badge}.gif`} style={{ marginTop: 30 }}/>
+              </div>
             </div>
             <div className="mt-3" style={{ padding: 2 }}>
               <h4>Permissions</h4>
-              <div className="col-lg-4">
-                <div className="row">
-                  <div className="col-2">
-                    <Toggle checked={state.rank.permissions.websiteShowStaff} onChange={() => togglePermission('websiteShowStaff')}/>
+              {
+                permissionIndexes.map(permission => (
+                  <div className="col-lg-6" key={permission}>
+                    <div className="row">
+                      <div className="col-2">
+                        <Toggle checked={state.rank.permissions[permission]} onChange={() => togglePermission(permission)}/>
+                      </div>
+                      <div className="col-10 text-right">
+                        {permissionKeyToWord[permission]}
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-10 text-right">
-                    Show as Staff
-                  </div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="col-2">
-                    <Toggle checked={state.rank.permissions.websiteShowAdminPanel} onChange={() => togglePermission('websiteShowAdminPanel')}/>
-                  </div>
-                  <div className="col-10 text-right">
-                    See Admin Panel
-                  </div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="col-2">
-                    <Toggle checked={state.rank.permissions.websiteManageNews} onChange={() => togglePermission('websiteManageNews')}/>
-                  </div>
-                  <div className="col-10 text-right">
-                    Manage News
-                  </div>
-                </div>
-              </div>
+                ))
+              }
             </div>
             <Row className="mt-3">
               <div className="col-6">&nbsp;</div>
@@ -129,8 +130,8 @@ export function RankEditor({ defaultRank = exampleRank, onSave }: RankEditorProp
               </div>
             </Row>
           </Form>
-        </Card>
-      </Container>
-    </AdminLayout>
+        </ModalBody>
+      </Modal>
+    </>
   );
 }
