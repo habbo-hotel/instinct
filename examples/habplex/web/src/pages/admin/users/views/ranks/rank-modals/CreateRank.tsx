@@ -12,9 +12,9 @@ export function CreateRankModal() {
 
   return (
     <RankEditor onSave={onSave}>
-      <button className="btn btn-primary">
+      <button className="btn btn-dark">
         <Icon type="plus-circle mr-2"/>
-        Create
+        New
       </button>
     </RankEditor>
   )

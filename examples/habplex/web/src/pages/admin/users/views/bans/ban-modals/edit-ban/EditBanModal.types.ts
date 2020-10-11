@@ -1,5 +1,6 @@
 import { UserBan } from 'instinct-interfaces';
 
-export interface CreateBanModalProps {
+export interface EditBanModalProps {
   ban: UserBan;
+  onChange(): void;
 }

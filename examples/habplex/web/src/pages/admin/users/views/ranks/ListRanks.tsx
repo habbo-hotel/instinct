@@ -29,7 +29,7 @@ export function ListRanks() {
           <p><b>{filteredRanks?.length}</b> results</p>
         </div>
       </div>
-      <div style={{ overflowY: 'scroll', maxHeight: 600, padding: 10 }}>
+      <div className="row" style={{ overflowY: 'scroll', maxHeight: 600, padding: 10 }}>
         {
           ranks === undefined && (
             <i className="fa fa-spin fa-spinner"/>
@@ -37,7 +37,9 @@ export function ListRanks() {
         }
         {
           filteredRanks?.map(_ => (
-            <EditRankModal key={_.id} rank={_} onChanges={() => setCounter(counter+1)}/>
+            <div className="col-lg-4" key={_.id}>
+              <EditRankModal rank={_} onChanges={() => setCounter(counter+1)}/>
+            </div>
           ))
         }
       </div>
