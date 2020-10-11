@@ -1,14 +1,47 @@
-import React, { useState } from 'react';
 import { UserBanDTO } from 'instinct-interfaces';
-import { Form, Input, Row } from 'instinct-frontend';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Avatar, Form, Input, Row, sessionContext, userService } from 'instinct-frontend';
 import { BanEditorProps, BanEditorState, defaultBanDTO, defaultBanEditorState } from './BanEditor.types';
+import { DatePicker } from '../../../../../../components/date-picker';
 
 export function BanEditor({ children, defaultBan = defaultBanDTO, onSave }: BanEditorProps) {
+  const session = useContext(sessionContext);
+  const [ username, setUsername ] = useState('');
   const [ state, setState ] = useState<BanEditorState>({
     ...defaultBanEditorState,
-    ban: defaultBan,
+    ban: {
+      ...defaultBan,
+      userID: session.user!.id,
+    },
   });
+
+  useEffect(() => {
+    async function mergeUser(userID: number) {
+      const user = await userService.getByID(userID);
+      setUsername(user.username);
+    }
+
+    mergeUser(state.ban.userID);
+  }, []);
+
+  useEffect(() => {
+    async function fetchUser(userID: number) {
+      const user = await userService.getByID(userID);
+      setValue('user', user);
+    }
+
+    fetchUser(state.ban.userID);
+  }, [state.ban.userID]);
+
+  useEffect(() => {
+    async function fetchUser(username: string) {
+      const user = await userService.getByUsername(username);
+      setBan('userID', user.user.id);
+    }
+
+    fetchUser(username);
+  }, [username]);
 
   function setValue<K extends keyof BanEditorState>(key: K, value: BanEditorState[K]): void {
     setState(_ => ({
@@ -58,9 +91,29 @@ export function BanEditor({ children, defaultBan = defaultBanDTO, onSave }: BanE
         <ModalHeader toggle={toggleModal}>Ban Editor</ModalHeader>
         <ModalBody>
           <Form className="" onSubmit={onSubmit}>
+            <div className="row mt-3" style={{ padding: 2 }}>
+              <div className="col-8">
+                <h4>Username</h4>
+                <input className="form-control" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+              </div>
+              <div className="col-4">
+                <Avatar className="mt-2" look={state.user?.figure} headOnly/>
+              </div>
+            </div>
+
             <div className="mt-3" style={{ padding: 2 }}>
               <h4>Reason</h4>
-              <Input type="text" name="name" onChange={setBan} value={state.ban.reason}/>
+              <textarea className="form-control" rows={3} value={state.ban.reason} onChange={e => setBan('reason', e.target.value)} />
+            </div>
+
+            <div className="mt-3" style={{ padding: 2 }}>
+              <h4>Start Date</h4>
+              <DatePicker defaultTimestamp={state.ban.banStart} onChange={val => setBan('banStart', val)} />
+            </div>
+
+            <div className="mt-3" style={{ padding: 2 }}>
+              <h4>End Date</h4>
+              <DatePicker defaultTimestamp={state.ban.banEnd} onChange={val => setBan('banEnd', val)} />
             </div>
 
             <Row className="mt-3">

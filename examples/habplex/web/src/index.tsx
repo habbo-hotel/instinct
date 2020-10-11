@@ -3,6 +3,7 @@ import React from 'react';
 import { App } from './App';
 import ReactDOM from 'react-dom';
 
+import "react-datepicker/dist/react-datepicker.css";
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toggle/style.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';

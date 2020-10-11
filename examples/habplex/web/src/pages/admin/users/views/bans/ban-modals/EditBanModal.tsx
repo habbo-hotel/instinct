@@ -1,8 +1,9 @@
+import Moment from 'moment';
 import React from 'react';
 import { toast } from 'react-toastify';
-import { banService } from 'instinct-frontend';
+import { BanEditor } from '../ban-editor';
 import { UserBanDTO } from 'instinct-interfaces';
-import { BanEditor } from '../ban-editor/BanEditor';
+import { Avatar, banService } from 'instinct-frontend';
 import { CreateBanModalProps } from './CreateBanModal.types';
 
 export function EditBanModal({ ban }: CreateBanModalProps) {
@@ -21,10 +22,24 @@ export function EditBanModal({ ban }: CreateBanModalProps) {
 
   return (
     <BanEditor defaultBan={defaultBan} onSave={onSave}>
-      <button className="btn btn-primary">
-        <i className="fa fa-plus-circle mr-2"/>
-        Edit
-      </button>
+      <div className="admin-article row mb-3" key={ban.id} style={{ height: 100, width: '100%' }}>
+        <div className="col-2">
+          <Avatar look={ban.user.figure} headOnly />
+        </div>
+        <div className="col-10 text-right">
+          <h3>{ban.user.username}</h3>
+          <h5 style={{ marginTop: -10 }}>
+            <b style={{ fontWeight: 'bold' }}>Ban Expires:</b> {Moment.unix(ban.banEnd).format('MM/DD/YYYY (hh:mmA)')}
+          </h5>
+          <div className="row mr-2" style={{ float: 'right' }}>
+            <BanEditor defaultBan={defaultBan} onSave={onSave}>
+              <button className="btn btn-primary btn-sm">
+                <i className="fa fa-pencil"/>
+              </button>
+            </BanEditor>
+          </div>
+        </div>
+      </div>
     </BanEditor>
   )
 }

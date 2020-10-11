@@ -1,10 +1,13 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import { BanEditor } from '../ban-editor';
+import { banService } from 'instinct-frontend';
 import { UserBanDTO } from 'instinct-interfaces';
-import { BanEditor } from '../ban-editor/BanEditor';
 
 export function CreateBanModal() {
   async function onSave(banDTO: UserBanDTO) {
-
+    await banService.create(banDTO);
+    toast.success(`User ${banDTO.userID} has been banned`);
   }
 
   return (

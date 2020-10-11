@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { UserBanDTO } from 'instinct-interfaces';
+import { User, UserBanDTO } from 'instinct-interfaces';
 
 export interface BanEditorProps {
   children: ReactNode;
@@ -9,6 +9,7 @@ export interface BanEditorProps {
 
 export interface BanEditorState {
   ban: UserBanDTO;
+  user?: User;
   showModal: boolean;
   showError: boolean;
   showSpinner: boolean;
@@ -23,6 +24,7 @@ export const defaultBanDTO: UserBanDTO = {
 
 export const defaultBanEditorState: BanEditorState = {
   ban: defaultBanDTO,
+  user: undefined,
   showModal: false,
   showError: false,
   showSpinner: false,
