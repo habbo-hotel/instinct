@@ -1,9 +1,8 @@
 import { UserBanDTO } from 'instinct-interfaces';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 import React, { useContext, useEffect, useState } from 'react';
-import { Avatar, Form, Input, Row, sessionContext, userService } from 'instinct-frontend';
-import { BanEditorProps, BanEditorState, defaultBanDTO, defaultBanEditorState } from './BanEditor.types';
-import { DatePicker } from '../../../../../../components/date-picker';
+import { Avatar, Form, Row, sessionContext, userService } from 'instinct-frontend';
+import { BanEditorProps, BanEditorState, defaultBanDTO, defaultBanEditorState, DatePicker } from './BanEditor.types';
 
 export function BanEditor({ children, defaultBan = defaultBanDTO, onSave }: BanEditorProps) {
   const session = useContext(sessionContext);

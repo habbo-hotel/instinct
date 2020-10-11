@@ -3,6 +3,7 @@ export * from './button';
 export * from './card';
 export * from './column';
 export * from './container';
+export * from './date-picker';
 export * from './form';
 export * from './logo';
 export * from './modal';
