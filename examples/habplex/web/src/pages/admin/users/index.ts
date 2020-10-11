@@ -1,2 +1,1 @@
-import './ranks';
-import './ListUsers';
+import './Users';

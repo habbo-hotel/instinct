@@ -1,3 +1,4 @@
+import { Rank } from './Rank';
 import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
 export class RankDTO {
@@ -32,4 +33,19 @@ export class RankDTO {
 
   @IsBoolean()
   websiteManageBans!: boolean;
+}
+
+export function rankWireToRankDTO(rankWire: Rank): RankDTO {
+  return {
+    name: rankWire.name,
+    badge: rankWire.badge,
+    level: 1,
+    users: rankWire.users!.map((_) => _.id),
+    websiteShowStaff: rankWire.permissions.websiteShowStaff,
+    websiteShowAdminPanel: rankWire.permissions.websiteShowAdminPanel,
+    websiteManageBans: rankWire.permissions.websiteManageBans,
+    websiteManageNews: rankWire.permissions.websiteManageNews,
+    websiteManageUsers: rankWire.permissions.websiteManageUsers,
+    websiteManageRanks: rankWire.permissions.websiteManageRanks,
+  };
 }

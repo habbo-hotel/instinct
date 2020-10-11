@@ -1,12 +1,12 @@
 import Toggle from 'react-toggle';
 import { toast } from 'react-toastify';
 import React, { useContext, useState } from 'react';
+import { Permissions, RankDTO } from 'instinct-interfaces';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { exampleRank, Rank, Permissions } from 'instinct-interfaces';
-import { configContext, Form, Input, Row, PreviewImage } from 'instinct-frontend';
-import { defaultRankEditorState, RankEditorState, RankEditorProps } from './RankEditor.types';
+import { configContext, Form, Input, Row } from 'instinct-frontend';
+import { defaultRankEditorState, RankEditorState, RankEditorProps, defaultRankDTO } from './RankEditor.types';
 
-export function RankEditor({ children, defaultRank = exampleRank, onSave }: RankEditorProps) {
+export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: RankEditorProps) {
   const { config } = useContext(configContext);
   const [ state, setState ] = useState<RankEditorState>({
     ...defaultRankEditorState,
@@ -20,7 +20,7 @@ export function RankEditor({ children, defaultRank = exampleRank, onSave }: Rank
     }));
   }
 
-  function setRank<K extends keyof Rank>(key: K, value: Rank[K]): void {
+  function setRank<K extends keyof RankDTO>(key: K, value: RankDTO[K]): void {
     setState(_ => ({
       ..._,
       rank: {
@@ -35,19 +35,6 @@ export function RankEditor({ children, defaultRank = exampleRank, onSave }: Rank
       ..._,
       showModal: !_.showModal,
     }));
-  }
-
-  function togglePermission<K extends keyof Permissions>(key: K): void {
-    setState(_ => ({
-      ..._,
-      rank: {
-        ..._.rank,
-        permissions: {
-          ..._.rank.permissions,
-          [key]: !_.rank.permissions[key],
-        }
-      }
-    }))
   }
 
 
@@ -97,7 +84,9 @@ export function RankEditor({ children, defaultRank = exampleRank, onSave }: Rank
                <Input type="text" name="badge" onChange={setRank} value={state.rank.badge}/>
              </div>
               <div className="col-4">
-                <img alt="rank badge" src={`${config.swfBadgeURL}/${state.rank.badge}.gif`} style={{ marginTop: 30 }}/>
+                <div style={{ background: '#001726', borderRadius: '50%', marginTop: 30, padding: 5, height: 45, width: 45, textAlign: 'center' }}>
+                  <img alt="rank badge" src={`${config.swfBadgeURL}/${state.rank.badge}.gif`} />
+                </div>
               </div>
             </div>
             <div className="mt-3" style={{ padding: 2 }}>
@@ -107,7 +96,7 @@ export function RankEditor({ children, defaultRank = exampleRank, onSave }: Rank
                   <div className="col-lg-6" key={permission}>
                     <div className="row">
                       <div className="col-2">
-                        <Toggle checked={state.rank.permissions[permission]} onChange={() => togglePermission(permission)}/>
+                        <Toggle checked={state.rank[permission]} onChange={() => setRank(permission, !state.rank[permission])}/>
                       </div>
                       <div className="col-10 text-right">
                         {permissionKeyToWord[permission]}
@@ -120,7 +109,7 @@ export function RankEditor({ children, defaultRank = exampleRank, onSave }: Rank
             <Row className="mt-3">
               <div className="col-6">&nbsp;</div>
               <div className="col-6 text-right">
-                <button className="btn btn-primary" disabled={state.showSpinner}>
+                <button className="btn btn-success" disabled={state.showSpinner}>
                   {
                     state.showSpinner
                       ? <i className="fa fa-spinner fa-spin" />

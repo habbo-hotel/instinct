@@ -1,6 +1,6 @@
 {
   "name": "instinct-frontend",
-  "version": "4.79.0",
+  "version": "4.83.0",
   "description": "Shared components across Instinct Apps",
   "scripts": {
     "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",
@@ -12,7 +12,6 @@
     "build-storybook": "build-storybook -s public -o public",
     "start": "start-storybook"
   },
-
   "dependencies": {
     "axios": "^0.20.0",
     "instinct-interfaces": "^2.8.0",

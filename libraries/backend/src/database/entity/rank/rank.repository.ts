@@ -11,7 +11,8 @@ export class RankRepository {
   private readonly eagerRelations: Array<keyof RankEntity> = ['users'];
 
   async create(rank: RankEntity): Promise<RankEntity> {
-    return this.rankRepository.save(rank);
+    const newRank = await this.rankRepository.save(rank);
+    return this.getByID(newRank.id!);
   }
 
   getAll(): Promise<RankEntity[]> {

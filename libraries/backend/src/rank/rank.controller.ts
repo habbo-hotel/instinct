@@ -4,7 +4,7 @@ import {RankRepository} from '../database/entity/rank';
 import {RankEntity, rankWire} from '../database/entity/rank';
 import {HasScope} from '../session/permission-scope.decorator';
 import {rankDataTransferObjectToEntity} from '../database/entity/rank';
-import {Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Patch, Post} from '@nestjs/common';
 
 @Controller('ranks')
 export class RankController {
@@ -12,7 +12,7 @@ export class RankController {
 
   @Post()
   @HasScope('websiteManageRanks')
-  async createRank(rankDTO: RankDTO): Promise<Rank> {
+  async createRank(@Body() rankDTO: RankDTO): Promise<Rank> {
     const newRank = await this.rankRepo.create(rankDataTransferObjectToEntity(rankDTO));
     return rankWire(newRank);
   }
@@ -36,7 +36,7 @@ export class RankController {
 
   @Patch(':rankID')
   @HasScope('websiteManageRanks')
-  async updateByID(@Param('rankID', RankPipe) rank: RankEntity, rankDTO: RankDTO): Promise<string> {
+  async updateByID(@Param('rankID', RankPipe) rank: RankEntity, @Body() rankDTO: RankDTO): Promise<string> {
     // TODO: Implement syncing users in a rank DTO
     await this.rankRepo.updateByID(rank.id!, rankDataTransferObjectToEntity(rankDTO));
     return 'Your changes have been saved';

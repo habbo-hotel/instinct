@@ -14,7 +14,7 @@ export function WebsiteSettings() {
         <Row>
           <Container>
             <article className="default-section" style={{ paddingLeft: 60 }}>
-              <TabCard header="Website Settings" tabs={[
+              <TabCard tabs={[
                 {
                   name: 'Site Preferences',
                   icon: 'wrench',
