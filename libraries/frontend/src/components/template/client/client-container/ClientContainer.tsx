@@ -55,7 +55,7 @@ export function ClientContainer() {
     if (sso !== undefined) {
       setupGame();
     }
-  }, [configContext, sso]);
+  }, [config, sso]);
 
   return <div id="client-area" />;
 }

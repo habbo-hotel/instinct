@@ -1,6 +1,6 @@
 {
   "name": "instinct-frontend",
-  "version": "4.86.0",
+  "version": "4.87.0",
   "description": "Shared components across Instinct Apps",
   "scripts": {
     "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",

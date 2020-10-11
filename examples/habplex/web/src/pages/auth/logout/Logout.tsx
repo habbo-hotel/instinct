@@ -8,9 +8,13 @@ export function Logout() {
   const { setUser } = useContext(sessionContext);
 
   useEffect(() => {
-    sessionService.logout();
-    setUser(undefined);
-  }, [setUser]);
+    function logout() {
+      sessionService.logout();
+      setUser(undefined);
+    }
+
+    logout();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <Redirect to="/login" />;
 }

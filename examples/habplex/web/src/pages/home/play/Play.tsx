@@ -8,7 +8,7 @@ export function PlayPage() {
 
   useEffect(() => {
     setStore({ showClient: true })
-  }, [setStore]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return null;
 }

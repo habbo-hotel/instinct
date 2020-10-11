@@ -26,7 +26,7 @@ export function Bootstrap() {
     }
 
     init();
-  }, [setUser]);
+  }, []);
 
   if (!ready) {
     return <i className="fa fa-spin fa-spinner" />;
