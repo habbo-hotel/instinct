@@ -1,32 +1,17 @@
-import { roomService } from 'services';
+import React from 'react';
 import { Link } from 'wouter';
-import { Room } from 'instinct-interfaces';
 import { Card, Loading } from 'components';
-import React, { useEffect, useState } from 'react';
-
-import { defaultPopularRoomsState, PopularRoomsState } from './';
+import { useFetchPopularRooms } from 'hooks';
 
 export function PopularRooms() {
-  const [state, setState] = useState<PopularRoomsState>(defaultPopularRoomsState);
-
-  useEffect(() => {
-    async function fetchMostPopular(): Promise<void> {
-      const mostPoplarRooms: Room[] = await roomService.getMostPopular();
-      setState({
-        rooms: mostPoplarRooms,
-        showSpinner: false,
-      });
-    }
-
-    fetchMostPopular();
-  }, []);
+  const rooms = useFetchPopularRooms();
 
   return (
-    <Loading isLoading={state.showSpinner}>
+    <Loading isLoading={rooms === undefined}>
       <Card header="Popular Rooms">
         <table className="rooms table table-striped">
           <tbody>
-            {state.rooms.map((room) => (
+            {rooms?.map((room) => (
               <tr key={room.id}>
                 <td style={{ textAlign: 'center' }}>
                   <img src="/img/icons/room/1.gif" />

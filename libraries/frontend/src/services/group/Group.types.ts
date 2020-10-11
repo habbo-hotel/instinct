@@ -5,5 +5,5 @@ export interface GroupService {
 
   getMostPopular(): Promise<Group[]>;
 
-  getByID(groupID: number): Promise<Group>;
+  getByID(groupID: string): Promise<Group>;
 }

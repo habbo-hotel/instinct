@@ -1,23 +1,9 @@
-import { ArticleCard } from 'components';
-import { articleService } from 'services';
-import { Article } from 'instinct-interfaces';
-import React, { useEffect, useState } from 'react';
-import { Container, Jumbotron, Loading } from 'components';
-import { ArticleListState, defaultArticleListState } from './';
+import React from 'react';
+import { useFetchAllArticles } from 'hooks';
+import { ArticleCard, Container, Jumbotron, Loading } from 'components';
 
 export function ArticleList() {
-  const [{ articles, showSpinner }, setState] = useState<ArticleListState>(defaultArticleListState);
-
-  useEffect(() => {
-    async function getArticles(): Promise<void> {
-      const articles: Article[] = await articleService.getAll();
-      setState({
-        articles,
-        showSpinner: false,
-      });
-    }
-    getArticles();
-  }, []);
+  const articles = useFetchAllArticles();
 
   return (
     <>
@@ -26,14 +12,14 @@ export function ArticleList() {
       </Jumbotron>
       <Container>
         <div className="articles-container">
-          <Loading isLoading={showSpinner}>
-            {articles.length === 0 && (
+          <Loading isLoading={articles === undefined}>
+            {articles?.length === 0 && (
               <>
                 <h3>Hmmm...</h3>
                 <p>It looks like there aren't any articles.</p>
               </>
             )}
-            {articles.map((article) => (
+            {articles?.map((article) => (
               <ArticleCard article={article} key={article.id} />
             ))}
           </Loading>

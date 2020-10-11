@@ -1,33 +1,19 @@
 import './PopularGroup.scss';
 import { configContext } from 'context';
-import { groupService } from 'services';
 import { Card, Loading } from 'components';
-import { Group } from 'instinct-interfaces';
-import React, { useContext, useEffect, useState } from 'react';
-import { defaultPopularGroupsState, PopularGroupsState } from './';
+import React, { useContext } from 'react';
+import { useFetchPopularGroups } from 'hooks';
 
 export function PopularGroups() {
   const { config } = useContext(configContext);
-  const [state, setState] = useState<PopularGroupsState>(defaultPopularGroupsState);
-
-  useEffect(() => {
-    async function fetchPopularGroups(): Promise<void> {
-      const popularGroups: Group[] = await groupService.getMostPopular();
-      setState({
-        groups: popularGroups,
-        showSpinner: false,
-      });
-    }
-
-    fetchPopularGroups();
-  }, []);
+  const popularGroups = useFetchPopularGroups();
 
   return (
-    <Loading isLoading={state.showSpinner}>
+    <Loading isLoading={popularGroups === undefined}>
       <Card header="Popular Groups" subHeader="Who do you want to join?">
         <div className="mt-2">
-          {state.groups.length === 0 && !state.showSpinner && <p>There aren't any groups yet.</p>}
-          {state.groups.map((group) => (
+          {popularGroups?.length === 0 && popularGroups !== undefined && <p>There aren't any groups yet.</p>}
+          {popularGroups?.map((group) => (
             <div
               className="popular-group"
               style={{ backgroundImage: `url(${config.groupBadgeURL}/${group.badge}.png) 10px no-repeat` }}

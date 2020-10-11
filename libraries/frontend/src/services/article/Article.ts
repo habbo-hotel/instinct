@@ -28,12 +28,12 @@ class ArticleService implements ArticleTypes {
   }
 
   async getAllCategories() {
-    const categories: AxiosResponse<ArticleCategory[]> = await backendAPI.get('articles/categories');
+    const categories: AxiosResponse<ArticleCategory[]> = await backendAPI.get('article/categories');
     return categories.data;
   }
 
   async createCategory(title: string) {
-    const newCategory: AxiosResponse<ArticleCategory> = await backendAPI.post('articles/categories', { title });
+    const newCategory: AxiosResponse<ArticleCategory> = await backendAPI.post('article/categories', { title });
     return newCategory.data;
   }
 

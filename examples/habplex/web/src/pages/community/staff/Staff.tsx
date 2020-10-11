@@ -1,22 +1,11 @@
-import { Rank } from 'instinct-interfaces';
-import { defaultStaffState, StaffState } from './';
-import React, { useEffect, useState } from 'react';
-import { Card, Container, Column, rankService, Jumbotron, Row, Loading, UserContainer, UserLayout, setURL } from 'instinct-frontend';
+import React from 'react';
+import { useFetchStaffTeam } from 'hooks';
+import { Card, Container, Column,Jumbotron, Row, Loading, UserContainer, UserLayout, setURL } from 'instinct-frontend';
 
 setURL('community/staff', <Staff />);
 
 export function Staff() {
-  const [{ ranks, showSpinner }, setState] = useState<StaffState>(defaultStaffState);
-  useEffect(() => {
-    fetchRanks();
-    async function fetchRanks(): Promise<void> {
-      const ranks: Rank[] = await rankService.getStaff();
-      setState({
-        ranks,
-        showSpinner: false,
-      });
-    }
-  }, []);
+  const staff = useFetchStaffTeam();
 
   return (
     <UserLayout section="community_team">
@@ -24,11 +13,11 @@ export function Staff() {
         <p>These volunteer players represent the official team and are responsible for maintaining order and security inside the hotel.</p>
       </Jumbotron>
       <Container>
-        <Loading isLoading={showSpinner}>
+        <Loading isLoading={staff === undefined}>
           <Row>
             <Column side="left">
               <div className="members-container">
-                {ranks.map(rank => (
+                {staff?.map(rank => (
                   <Card key={rank.id} header={rank.name}>
                       {rank.users!.map(user => (
                         <div key={user.id} className="mt-2">
