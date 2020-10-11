@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PreviewImageProps } from './PreviewImage.types';
 import { Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-export function PreviewImage({ className = '', image }: PreviewImageProps) {
+export function PreviewImage({ className = '', image, style }: PreviewImageProps) {
   const [ showModal, setModal ] = useState(false);
 
   function toggleModal(): void {
@@ -15,7 +15,7 @@ export function PreviewImage({ className = '', image }: PreviewImageProps) {
       <Modal isOpen={showModal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Image Preview</ModalHeader>
         <ModalBody>
-          <img alt="preview" src={image} style={{ width: '100%' }}/>
+          <img alt="preview" src={image} style={{ width: '100%', ...style }}/>
         </ModalBody>
       </Modal>
     </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavBarLink, UserDropdown } from 'components';
+import { NavBarDropdown, NavBarLink, UserDropdown } from 'components';
 
 export function AdminNavBar() {
   return (
@@ -8,6 +8,10 @@ export function AdminNavBar() {
         <NavBarLink to="/admin">Dashboard</NavBarLink>
         <NavBarLink to="/admin/website">Configure Website</NavBarLink>
         <NavBarLink to="/admin/news">News Articles</NavBarLink>
+        <NavBarDropdown to="/admin/users" text="Users">
+          <NavBarLink to="/admin/users">Users</NavBarLink>
+          <NavBarLink to="/admin/users/ranks">Permission Groups</NavBarLink>
+        </NavBarDropdown>
         <li className="navigation-item navigation-right-side-item has-items">
           <UserDropdown />
         </li>
