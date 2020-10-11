@@ -27,5 +27,5 @@ export function EditNewsArticle() {
     return <i className="fa fa-spin fa-spinner"/>
   }
 
-  return <NewsArticleEditor onSave={onSave}/>
+  return <NewsArticleEditor defaultArticle={article} onSave={onSave}/>
 }

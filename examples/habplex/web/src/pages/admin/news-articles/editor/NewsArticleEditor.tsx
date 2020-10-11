@@ -4,6 +4,7 @@ import MDEditor from '@uiw/react-md-editor';
 import { Article } from 'instinct-interfaces';
 import { AdminLayout, Card, Container, Form, Input, Jumbotron, Row } from 'instinct-frontend';
 import { defaultNewsArticleEditorState, NewsArticleEditorProps, NewsArticleEditorState } from './NewsArticleEdtitor.types';
+import { PreviewImage } from './preview-image';
 
 export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorProps) {
   const [ state, setState ] = useState<NewsArticleEditorState>({
@@ -63,11 +64,21 @@ export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorP
               <Input type="text" name="description" onChange={setArticleValue} value={state.article.description }/>
             </div>
             <div className="mt-3" style={{ padding: 2 }}>
-              <h4>Header Image</h4>
+              <h4>
+                Header
+                <small>
+                  <PreviewImage className="ml-2" image={state.article.headerImage}/>
+                </small>
+              </h4>
               <Input type="text" name="headerImage" onChange={setArticleValue} value={state.article.headerImage}/>
             </div>
             <div className="mt-3" style={{ padding: 2 }}>
-              <h4>Thumbnail Image</h4>
+              <h4>
+                Thumbnail
+                <small>
+                  <PreviewImage className="ml-2" image={state.article.thumbnailImage}/>
+                </small>
+              </h4>
               <Input type="text" name="thumbnailImage" onChange={setArticleValue} value={state.article.thumbnailImage}/>
             </div>
             <div className="mt-3">
