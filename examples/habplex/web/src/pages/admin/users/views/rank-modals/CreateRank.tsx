@@ -1,8 +1,8 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import { RankDTO } from 'instinct-interfaces';
-import { RankEditor } from '../rank-editor/RankEditor';
 import { Icon, rankService } from 'instinct-frontend';
+import { RankEditor } from '../rank-editor/RankEditor';
 
 export function CreateRankModal() {
   async function onSave(rank: RankDTO): Promise<void> {

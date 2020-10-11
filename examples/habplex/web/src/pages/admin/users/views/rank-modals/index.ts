@@ -1,2 +1,2 @@
 export * from './CreateRank';
-export * from './EditRank';
+export * from './edit-rank';

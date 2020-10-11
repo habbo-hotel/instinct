@@ -43,7 +43,6 @@ export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: R
 
     try {
       await onSave(state.rank);
-      toast.success('Your changes have been saved');
       setValue('showSpinner', false);
     } catch {
       setState(_ => ({
@@ -107,7 +106,7 @@ export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: R
               }
             </div>
             <Row className="mt-3">
-              <div className="col-6">&nbsp;</div>
+              <div className="col-6">&nbsp; </div>
               <div className="col-6 text-right">
                 <button className="btn btn-success" disabled={state.showSpinner}>
                   {
