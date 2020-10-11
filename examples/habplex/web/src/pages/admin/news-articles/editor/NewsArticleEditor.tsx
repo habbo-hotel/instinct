@@ -3,8 +3,7 @@ import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import { Article } from 'instinct-interfaces';
-import { PreviewImage } from './preview-image';
-import { AdminLayout, Card, Container, Form, Icon, Input, Jumbotron, Row } from 'instinct-frontend';
+import { AdminLayout, Card, Container, Form, Icon, Input, Jumbotron, Row, PreviewImage } from 'instinct-frontend';
 import { defaultNewsArticleEditorState, NewsArticleEditorProps, NewsArticleEditorState } from './NewsArticleEdtitor.types';
 
 export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorProps) {

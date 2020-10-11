@@ -14,6 +14,7 @@ export * from './photo-container';
 export * from './photo-view';
 export * from './popular-groups';
 export * from './popular-rooms';
+export * from './preview-image';
 export * from './recent-news';
 export * from './register-modal';
 export * from './user-container';
