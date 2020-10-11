@@ -23,7 +23,7 @@ export function BanEditor({ children, defaultBan = defaultBanDTO, onSave }: BanE
     }
 
     mergeUser(state.ban.userID);
-  }, []);
+  }, [state.ban.userID]);
 
   useEffect(() => {
     async function fetchUser(userID: number) {
