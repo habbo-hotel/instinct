@@ -13,12 +13,12 @@ import {UserEntity} from './user';
 import {PhotoEntity} from './photo';
 import {GroupEntity} from './group';
 import {UserBadgesEntity} from './user';
-import {ArticleEntity} from './article';
 import {Provider} from '@nestjs/common';
 import {ArticleCategoryEntity} from './article';
 import {UserBansEntity} from './user/bans.entity';
 import {ConfigEntity} from './config/config.entity';
 import {ConfigRepository} from './config/config.repository';
+import {ArticleCategoryRepository, ArticleEntity} from './article';
 import {UserForgotPasswordRepository} from './user/forgot-password.repository';
 
 export const databaseEntities: Function[] = [
@@ -35,4 +35,4 @@ export const databaseEntities: Function[] = [
   UserBansEntity,
 ];
 
-export const databaseRepositories: Provider[] = [ConfigRepository, UserForgotPasswordRepository];
+export const databaseRepositories: Provider[] = [ConfigRepository, UserForgotPasswordRepository, ArticleCategoryRepository];

@@ -18,6 +18,12 @@ export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorP
     }));
   }
 
+  function setArticleValue<K extends keyof Article>(key: K, value: Article[K]): void {
+    editArticle({
+      [key]: value,
+    });
+  }
+
   function editArticle(article: Partial<Article>): void {
     setState(_ => ({
       ..._,
@@ -54,7 +60,15 @@ export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorP
           <Form className="" onSubmit={onSubmit}>
             <div className="mt-3" style={{ padding: 2 }}>
               <h4>Description</h4>
-              <Input type="text" name="description" onChange={description => editArticle({ description })} value={state.article.description }/>
+              <Input type="text" name="description" onChange={setArticleValue} value={state.article.description }/>
+            </div>
+            <div className="mt-3" style={{ padding: 2 }}>
+              <h4>Header Image</h4>
+              <Input type="text" name="headerImage" onChange={setArticleValue} value={state.article.headerImage}/>
+            </div>
+            <div className="mt-3" style={{ padding: 2 }}>
+              <h4>Thumbnail Image</h4>
+              <Input type="text" name="thumbnailImage" onChange={setArticleValue} value={state.article.thumbnailImage}/>
             </div>
             <div className="mt-3">
               <h4>Content</h4>

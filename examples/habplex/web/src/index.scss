@@ -12,3 +12,13 @@
   color: white;
   background-color: #C2185B;
 }
+
+#loader {
+  background: url('/img/logo/regular.png');
+  width: 259px;
+
+  .loading_bar {
+    margin-top: 15px;
+  }
+
+}

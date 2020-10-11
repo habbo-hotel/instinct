@@ -1,7 +1,7 @@
 import { backendAPI } from 'api';
 import { ArticleTypes } from './';
 import { AxiosResponse } from 'axios';
-import { Article, CreateNewsArticleRequest } from 'instinct-interfaces';
+import { Article, ArticleCategory, CreateNewsArticleRequest } from 'instinct-interfaces';
 
 class ArticleService implements ArticleTypes {
   async getAll() {
@@ -14,9 +14,31 @@ class ArticleService implements ArticleTypes {
     return article.data;
   }
 
-  async create(articleDTO: CreateNewsArticleRequest): Promise<Article> {
+  async create(articleDTO: CreateNewsArticleRequest) {
     const article: AxiosResponse<Article> = await backendAPI.post('articles', { ...articleDTO });
     return article.data;
+  }
+
+  async updateByID(articleID: number, articleDTO: CreateNewsArticleRequest) {
+    await backendAPI.patch(`articles/${articleID}`, { ...articleDTO });
+  }
+
+  async deleteByID(articleID: number) {
+    await backendAPI.delete(`articles/${articleID}`);
+  }
+
+  async getAllCategories() {
+    const categories: AxiosResponse<ArticleCategory[]> = await backendAPI.get('articles/categories');
+    return categories.data;
+  }
+
+  async createCategory(title: string) {
+    const newCategory: AxiosResponse<ArticleCategory> = await backendAPI.post('articles/categories', { title });
+    return newCategory.data;
+  }
+
+  async deleteCategoryByID(categoryID: number) {
+    await backendAPI.delete(`articles/categories/${categoryID}`);
   }
 }
 
