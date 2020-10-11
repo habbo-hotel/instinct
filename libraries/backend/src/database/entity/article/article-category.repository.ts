@@ -14,4 +14,26 @@ export class ArticleCategoryRepository {
       relations: this.eagerRelations,
     });
   }
+
+  getByID(categoryID: number): Promise<ArticleCategoryEntity> {
+    return this.articleCategoryRepo.findOneOrFail({
+      where: {
+        id: categoryID,
+      },
+    });
+  }
+
+  create(category: string): Promise<ArticleCategoryEntity> {
+    return this.articleCategoryRepo.save({
+      category,
+    });
+  }
+
+  async updateByID(categoryID: number, category: string): Promise<void> {
+    await this.articleCategoryRepo.update(categoryID, {category});
+  }
+
+  async deleteByID(categoryID: number): Promise<void> {
+    await this.articleCategoryRepo.delete(categoryID);
+  }
 }

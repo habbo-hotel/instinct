@@ -1,14 +1,11 @@
 import {Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
+import {ArticleEntity} from './article.entity';
 import {InjectRepository} from '@nestjs/typeorm';
-import {ArticleEntity} from '../database/entity/article';
 
 @Injectable()
-export class ArticleService {
-  constructor(
-    @InjectRepository(ArticleEntity)
-    private readonly articleRepo: Repository<ArticleEntity>
-  ) {}
+export class ArticleRepository {
+  constructor(@InjectRepository(ArticleEntity) private readonly articleRepo: Repository<ArticleEntity>) {}
 
   private readonly eagerRelations: string[] = ['author', 'author.rank', 'category'];
 
@@ -30,5 +27,13 @@ export class ArticleService {
       },
       relations: this.eagerRelations,
     });
+  }
+
+  async updateByID(articleID: number, changes: Partial<ArticleEntity>): Promise<void> {
+    await this.articleRepo.update(articleID, changes);
+  }
+
+  async deleteByID(articleID: number): Promise<void> {
+    await this.articleRepo.delete(articleID);
   }
 }
