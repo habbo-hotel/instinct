@@ -15,7 +15,7 @@ import {
   setURL,
   sessionContext,
   themeContext,
-  Avatar, UserContainer
+  UserContainer
 } from 'instinct-frontend';
 
 setURL('rooms/:roomID', <RoomPage />);

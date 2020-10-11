@@ -5,5 +5,5 @@ export interface RoomService {
 
   getMostPopular(): Promise<Room[]>;
 
-  getByID(roomID: number): Promise<Room>;
+  getByID(roomID: string): Promise<Room>;
 }

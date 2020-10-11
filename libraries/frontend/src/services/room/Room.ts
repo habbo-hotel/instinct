@@ -14,7 +14,7 @@ class RoomServiceImplementation implements RoomService {
     return mostPopularRooms.data;
   }
 
-  async getByID(roomID: number): Promise<Room> {
+  async getByID(roomID: string): Promise<Room> {
     const room: AxiosResponse<Room> = await backendAPI.get(`rooms/${roomID}`);
     return room.data;
   }

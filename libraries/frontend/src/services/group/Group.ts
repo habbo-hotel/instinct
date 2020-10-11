@@ -14,7 +14,7 @@ class GroupServiceImplementation implements GroupService {
     return groups.data;
   }
 
-  async getByID(groupID: number): Promise<Group> {
+  async getByID(groupID: string): Promise<Group> {
     const group: AxiosResponse<Group> = await backendAPI.get(`groups/${groupID}`);
     return group.data;
   }

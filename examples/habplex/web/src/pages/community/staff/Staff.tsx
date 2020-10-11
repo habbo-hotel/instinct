@@ -1,6 +1,5 @@
 import React from 'react';
-import { useFetchStaffTeam } from 'hooks';
-import { Card, Container, Column,Jumbotron, Row, Loading, UserContainer, UserLayout, setURL } from 'instinct-frontend';
+import { Card, Container, Column,Jumbotron, Row, Loading, UserContainer, UserLayout, setURL, useFetchStaffTeam} from 'instinct-frontend';
 
 setURL('community/staff', <Staff />);
 
