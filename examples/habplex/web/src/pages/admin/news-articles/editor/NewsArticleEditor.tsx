@@ -1,10 +1,11 @@
+import { Link } from 'wouter';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
 import { Article } from 'instinct-interfaces';
-import { AdminLayout, Card, Container, Form, Input, Jumbotron, Row } from 'instinct-frontend';
-import { defaultNewsArticleEditorState, NewsArticleEditorProps, NewsArticleEditorState } from './NewsArticleEdtitor.types';
 import { PreviewImage } from './preview-image';
+import { AdminLayout, Card, Container, Form, Icon, Input, Jumbotron, Row } from 'instinct-frontend';
+import { defaultNewsArticleEditorState, NewsArticleEditorProps, NewsArticleEditorState } from './NewsArticleEdtitor.types';
 
 export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorProps) {
   const [ state, setState ] = useState<NewsArticleEditorState>({
@@ -57,6 +58,9 @@ export function NewsArticleEditor({ defaultArticle, onSave }: NewsArticleEditorP
         <p>{state.article.description}</p>
       </Jumbotron>
       <Container>
+        <Link to="/admin/news">
+          <Icon className="text-white fa-2x" type="arrow-left" />
+        </Link>
         <Card header="Editor">
           <Form className="" onSubmit={onSubmit}>
             <div className="mt-3" style={{ padding: 2 }}>
