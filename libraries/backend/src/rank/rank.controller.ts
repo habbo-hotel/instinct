@@ -1,5 +1,6 @@
 import {RankPipe} from './rank.pipe';
-import {Rank, RankDTO} from 'instinct-interfaces';
+import {RankDTOClass} from './rank.dto';
+import {Rank} from 'instinct-interfaces';
 import {RankRepository} from '../database/entity/rank';
 import {RankEntity, rankWire} from '../database/entity/rank';
 import {HasScope} from '../session/permission-scope.decorator';
@@ -12,7 +13,7 @@ export class RankController {
 
   @Post()
   @HasScope('websiteManageRanks')
-  async createRank(@Body() rankDTO: RankDTO): Promise<Rank> {
+  async createRank(@Body() rankDTO: RankDTOClass): Promise<Rank> {
     const newRank = await this.rankRepo.create(rankDataTransferObjectToEntity(rankDTO));
     return rankWire(newRank);
   }
@@ -36,7 +37,7 @@ export class RankController {
 
   @Patch(':rankID')
   @HasScope('websiteManageRanks')
-  async updateByID(@Param('rankID', RankPipe) rank: RankEntity, @Body() rankDTO: RankDTO): Promise<string> {
+  async updateByID(@Param('rankID', RankPipe) rank: RankEntity, @Body() rankDTO: RankDTOClass): Promise<string> {
     // TODO: Implement syncing users in a rank DTO
     await this.rankRepo.updateByID(rank.id!, rankDataTransferObjectToEntity(rankDTO));
     return 'Your changes have been saved';

@@ -1,38 +1,16 @@
 import { Rank } from './Rank';
-import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class RankDTO {
-  @IsString()
-  @IsNotEmpty()
-  name!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  badge!: string;
-
-  @IsNumber()
-  level!: number;
-
-  @IsNumber({}, { each: true })
-  users!: number[];
-
-  @IsBoolean()
-  websiteShowStaff!: boolean;
-
-  @IsBoolean()
-  websiteShowAdminPanel!: boolean;
-
-  @IsBoolean()
-  websiteManageNews!: boolean;
-
-  @IsBoolean()
-  websiteManageRanks!: boolean;
-
-  @IsBoolean()
-  websiteManageUsers!: boolean;
-
-  @IsBoolean()
-  websiteManageBans!: boolean;
+export interface RankDTO {
+  name: string;
+  badge: string;
+  level: number;
+  users: number[];
+  websiteShowStaff: boolean;
+  websiteShowAdminPanel: boolean;
+  websiteManageNews: boolean;
+  websiteManageRanks: boolean;
+  websiteManageUsers: boolean;
+  websiteManageBans: boolean;
 }
 
 export function rankWireToRankDTO(rankWire: Rank): RankDTO {

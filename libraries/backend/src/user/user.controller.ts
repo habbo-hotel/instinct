@@ -1,6 +1,6 @@
 import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
-import {NewUserDTO} from './user.dto';
+import {UserDTOClass} from './user.dto';
 import {UserService} from './user.service';
 import {maxAccountsPerIP} from '../config/environment';
 import {Room, User, UserProfile} from 'instinct-interfaces';
@@ -27,7 +27,7 @@ export class UserController {
   }
 
   @Post()
-  async createUser(@Body() newUser: NewUserDTO, @Ip() ipAddress: string): Promise<User> {
+  async createUser(@Body() newUser: UserDTOClass, @Ip() ipAddress: string): Promise<User> {
     const alreadyRegistered = await this.userService.getByIPAddress(ipAddress);
 
     if (alreadyRegistered.length >= maxAccountsPerIP) {
