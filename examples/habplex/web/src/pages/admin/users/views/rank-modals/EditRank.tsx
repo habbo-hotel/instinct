@@ -5,12 +5,13 @@ import { EditRankModalProps } from './EditRank.types';
 import { configContext, rankService } from 'instinct-frontend';
 import { RankDTO, rankWireToRankDTO } from 'instinct-interfaces';
 
-export function EditRankModal({ rank }: EditRankModalProps) {
+export function EditRankModal({ rank, onChanges }: EditRankModalProps) {
   const { config } = useContext(configContext);
 
   async function onSave(changes: RankDTO): Promise<void> {
     await rankService.updateByID(rank.id.toString(), changes);
     toast.success(`Rank ${changes.name} has been updated`);
+    onChanges();
   }
 
   return (

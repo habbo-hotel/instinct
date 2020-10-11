@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import { Rank } from 'instinct-interfaces';
 import { EditRankModal } from './rank-modals';
-import { setURL, useFetchAllRanks } from 'instinct-frontend';
+import React, { useEffect, useState } from 'react';
+import { rankService, setURL } from 'instinct-frontend';
 
 setURL('admin/users/ranks', <ListRanks/>);
 
 export function ListRanks() {
-  const ranks = useFetchAllRanks();
+  const [ ranks, setRanks ] = useState<Rank[]>();
   const [ filter, setFilter ] = useState('');
-
+  const [ counter, setCounter ] = useState(1);
   const filteredRanks = ranks?.filter(_ => _.name.includes(filter));
+
+  useEffect(() => {
+    setRanks(undefined);
+    async function fetchRanks() {
+      const rankData = await rankService.getAll();
+      setRanks(rankData);
+    }
+
+    fetchRanks();
+  }, [counter]);
 
   return (
     <>
@@ -26,7 +37,7 @@ export function ListRanks() {
         }
         {
           filteredRanks?.map(_ => (
-            <EditRankModal key={_.id} rank={_}/>
+            <EditRankModal key={_.id} rank={_} onChanges={() => setCounter(counter+1)}/>
           ))
         }
       </div>
