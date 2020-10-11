@@ -1,4 +1,5 @@
 export * from './article';
+export * from './ban';
 export * from './client';
 export * from './config';
 export * from './group';

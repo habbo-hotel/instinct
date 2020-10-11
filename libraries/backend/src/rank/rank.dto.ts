@@ -1,5 +1,5 @@
-import { RankDTO } from 'instinct-interfaces';
-import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {RankDTO} from 'instinct-interfaces';
+import {IsBoolean, IsNotEmpty, IsNumber, IsString} from 'class-validator';
 
 export class RankDTOClass implements RankDTO {
   @IsString()
@@ -13,7 +13,7 @@ export class RankDTOClass implements RankDTO {
   @IsNumber()
   level!: number;
 
-  @IsNumber({}, { each: true })
+  @IsNumber({}, {each: true})
   users!: number[];
 
   @IsBoolean()

@@ -1,19 +1,18 @@
-import {UserService} from '../user';
 import {HashService} from '../common';
-import {UserEntity} from '../database/entity/user';
+import {UserEntity, UserRepository} from '../database/entity/user';
 import {BearerTokenService} from './bearer-token.service';
 import {BadRequestException, Injectable} from '@nestjs/common';
 
 @Injectable()
 export class SessionService {
   constructor(
-    private readonly userService: UserService,
+    private readonly userRepo: UserRepository,
     private readonly hashService: HashService,
     private readonly bearerTokenService: BearerTokenService
   ) {}
 
   async loginWithCredentials(username: string, password: string): Promise<string> {
-    const user: UserEntity | undefined = await this.userService.getByUsername(username);
+    const user: UserEntity | undefined = await this.userRepo.getByUsername(username);
 
     if (!user) {
       throw new BadRequestException('invalid_username');

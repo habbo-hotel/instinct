@@ -1,6 +1,9 @@
 import React from 'react';
-import { CreateRankModal } from './views/rank-modals';
-import { ListBans, ListRanks, ListUsers } from './views';
+import { ListUsers } from './views/ListUsers';
+import { ListBans } from './views/bans/ListBans';
+import { ListRanks } from './views/ranks/ListRanks';
+import { CreateBanModal } from './views/bans/ban-modals';
+import { CreateRankModal } from './views/ranks/rank-modals';
 import { AdminLayout, Container, Jumbotron, Row, setURL, TabCard } from 'instinct-frontend';
 
 setURL('admin/users', <Users/>);
@@ -34,7 +37,14 @@ export function Users() {
                   children: <ListRanks/>
                 },
                 {
-                  name: 'Bans',
+                  name: (
+                    <div className="row">
+                      <div className="col-6">Bans</div>
+                      <div className="col-6 text-right">
+                        <CreateBanModal/>
+                      </div>
+                    </div>
+                  ),
                   icon: 'ban',
                   children: <ListBans/>,
                 },

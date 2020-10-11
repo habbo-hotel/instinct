@@ -1,15 +1,15 @@
 import {Injectable} from '@nestjs/common';
-import {UserService} from '../../user.service';
+import {UserRepository} from '../../../database/entity/user';
 import {registerDecorator, ValidationOptions, ValidatorConstraint, ValidatorConstraintInterface} from 'class-validator';
 
 @ValidatorConstraint({async: true})
 @Injectable()
 export class UserExistsConstraint implements ValidatorConstraintInterface {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userRepo: UserRepository) {}
 
   async validate(username: string) {
     try {
-      await this.userService.getByUsername(username);
+      await this.userRepo.getByUsername(username);
       return true;
     } catch (e) {
       return false;

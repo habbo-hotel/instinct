@@ -1,10 +1,9 @@
 import * as Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {UserDTOClass} from './user.dto';
-import {UserService} from './user.service';
 import {maxAccountsPerIP} from '../config/environment';
 import {Room, User, UserProfile} from 'instinct-interfaces';
-import {badgeWire, groupWire, roomWire, UserEntity, userWire} from '../database/entity';
+import {badgeWire, groupWire, roomWire, UserEntity, UserRepository, userWire} from '../database/entity';
 import {Body, Controller, ForbiddenException, Get, Ip, NotFoundException, Param, Post} from '@nestjs/common';
 import {
   defaultUserCredits,
@@ -18,24 +17,24 @@ import {
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userRepo: UserRepository) {}
 
   @Get('online')
   async getOnlineUsers(): Promise<User[]> {
-    const onlineUsers = await this.userService.getOnline();
+    const onlineUsers = await this.userRepo.getOnline();
     return onlineUsers.map(_ => userWire(_));
   }
 
   @Post()
   async createUser(@Body() newUser: UserDTOClass, @Ip() ipAddress: string): Promise<User> {
-    const alreadyRegistered = await this.userService.getByIPAddress(ipAddress);
+    const alreadyRegistered = await this.userRepo.getByIPAddress(ipAddress);
 
     if (alreadyRegistered.length >= maxAccountsPerIP) {
       throw new ForbiddenException('Too many accounts');
     }
 
     const currentTimestamp: number = Moment().unix();
-    const user: UserEntity = await this.userService.create({
+    const user: UserEntity = await this.userRepo.create({
       username: newUser.username,
       motto: defaultUserMotto,
       password: newUser.password,
@@ -72,7 +71,7 @@ export class UserController {
 
   @Get('profile/:username')
   async getUserByUsername(@Param('username') username: string): Promise<UserProfile> {
-    const user: UserEntity | undefined = await this.userService.getByUsername(username);
+    const user: UserEntity | undefined = await this.userRepo.getByUsername(username);
 
     if (!user) {
       throw new NotFoundException('User does not exist');

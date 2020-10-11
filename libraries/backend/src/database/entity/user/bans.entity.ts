@@ -2,7 +2,7 @@ import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from 'typ
 import {UserEntity} from './user.entity';
 
 @Entity('bans')
-export class UserBansEntity {
+export class UserBanEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -15,6 +15,9 @@ export class UserBansEntity {
 
   @Column({name: 'ip'})
   ipAddress!: string;
+
+  @Column({name: 'ban_reason'})
+  banReason!: string;
 
   @Column({name: 'machine_id'})
   machineID!: string;

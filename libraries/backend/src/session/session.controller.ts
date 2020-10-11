@@ -4,13 +4,14 @@ import {User} from 'instinct-interfaces';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import {UserEntity, userWire} from '../database/entity/user';
+import {UserEntity, UserRepository, userWire} from '../database/entity/user';
 import {BadRequestException, Body, Controller, Get, Post} from '@nestjs/common';
 import {NewSessionDTO, UpdateEmailDTO, UpdatePasswordDTO, UpdatePreferencesDTO} from './session.dto';
 
 @Controller('session')
 export class SessionController {
   constructor(
+    private readonly userRepo: UserRepository,
     private readonly userService: UserService,
     private readonly sessionService: SessionService,
     private readonly hashService: HashService
@@ -30,7 +31,7 @@ export class SessionController {
   @Post('settings/preferences')
   @HasSession()
   async changePreferences(@GetSession() session: UserEntity, @Body() preferencesDTO: UpdatePreferencesDTO): Promise<string> {
-    await this.userService.updateByID(session.id!, {
+    await this.userRepo.updateByID(session.id!, {
       favoriteYoutubeVideo: preferencesDTO.favoriteYoutubeVideo,
     });
     return 'Your preferences have been updated';
@@ -45,7 +46,7 @@ export class SessionController {
       throw new BadRequestException('That is not the right password');
     }
 
-    await this.userService.updateByID(session.id!, {
+    await this.userRepo.updateByID(session.id!, {
       email: emailDTO.email,
     });
 
@@ -65,7 +66,7 @@ export class SessionController {
       throw new BadRequestException('Your passwords must match');
     }
 
-    await this.userService.updateByID(session.id!, {
+    await this.userRepo.updateByID(session.id!, {
       password: this.hashService.generate(passwordDTO.newPassword),
     });
 
