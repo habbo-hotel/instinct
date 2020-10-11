@@ -17,7 +17,7 @@ export function EditNewsArticle() {
     }
 
     fetchArticle();
-  }, []);
+  }, [params]);
 
   async function onSave(article: Article) {
     console.log(article);

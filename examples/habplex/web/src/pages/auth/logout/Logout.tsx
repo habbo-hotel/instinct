@@ -10,7 +10,7 @@ export function Logout() {
   useEffect(() => {
     sessionService.logout();
     setUser(undefined);
-  }, []);
+  }, [setUser]);
 
   return <Redirect to="/login" />;
 }

@@ -1,4 +1,5 @@
 import { Link } from 'wouter';
+import './ListNewsArticles.scss';
 import { Article } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import {
@@ -26,6 +27,22 @@ export function ListNewsArticles() {
     fetchArticles();
   }, []);
 
+  const header = (
+    <div className="row">
+      <div className="col-6">
+        <div style={{ marginTop: 8 }}>News Articles</div>
+      </div>
+      <div className="col-6 text-right">
+        <Link to="/admin/news/create">
+          <button className="btn btn-primary">
+            <i className="fa fa-plus-square mr-2"/>
+            New
+          </button>
+        </Link>
+      </div>
+    </div>
+  )
+
   return (
     <AdminLayout permission="websiteManageNews">
       <Jumbotron style={{ background: '#263238' }} title="Admin Panel">
@@ -34,7 +51,7 @@ export function ListNewsArticles() {
       <Container>
         <Row>
           <Column side="left">
-            <Card header="News Articles">
+            <Card header={header}>
               {
                 articles === undefined && (
                   <i className="fa fa-spinner fa-spin"/>
@@ -43,7 +60,14 @@ export function ListNewsArticles() {
               {
                 articles?.map(_ => (
                   <Link key={_.id} to={`/admin/news/${_.id}`}>
-                    <h4>{_.title}</h4>
+                    <div className="admin-article row mb-2">
+                      <div className="col-6">
+                        <img alt="article header" src={_.thumbnailImage} height={100}/>
+                      </div>
+                      <div className="col-6 text-right">
+                        <h3>{_.title}</h3>
+                      </div>
+                    </div>
                   </Link>
                 ))
               }

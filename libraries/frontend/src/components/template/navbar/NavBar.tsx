@@ -11,6 +11,8 @@ export function NavBar() {
           <NavBarChildLink to="/community/news">News</NavBarChildLink>
           <NavBarChildLink to="/community/photos">Photos</NavBarChildLink>
           <NavBarChildLink to="/community/online">Online Users</NavBarChildLink>
+          <NavBarChildLink to="/rooms">Rooms</NavBarChildLink>
+          <NavBarChildLink to="/groups">Groups</NavBarChildLink>
         </NavBarDropdown>
         <NavBarLink to="/community/games">High Scores</NavBarLink>
         <li className="navigation-item navigation-right-side-item has-items">

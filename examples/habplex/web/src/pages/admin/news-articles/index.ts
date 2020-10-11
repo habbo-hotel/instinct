@@ -1,3 +1,3 @@
-import './list';
 import './CreateNewsArticle';
 import './EditNewsArticle';
+import './ListNewsArticles';
