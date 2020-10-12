@@ -5,7 +5,7 @@ The front-end library is responsible for providing a common suite of components,
 fast and engaging experience quickly.
 
 ## Directory
-* [Components](/components)
-* [Context](/context)
-* [Hooks](/hooks)
-* [Services](/service)
+* [Components](components)
+* [Context](context)
+* [Hooks](hooks)
+* [Services](service)
