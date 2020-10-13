@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFetchAllArticles } from 'hooks';
-import { ArticleCard, Container, Jumbotron, Loading } from 'components';
+import { ArticleCard, Container, Jumbotron, Loading, Skeleton } from 'components';
 
 export function ArticleList() {
   const articles = useFetchAllArticles();
@@ -11,19 +11,31 @@ export function ArticleList() {
         <p>Stay updated with our latest news!</p>
       </Jumbotron>
       <Container>
-        <div className="articles-container">
-          <Loading isLoading={articles === undefined}>
-            {articles?.length === 0 && (
+        {articles !== undefined ? (
+          <div className="articles-container">
+            {articles!.length === 0 && (
               <>
                 <h3>Hmmm...</h3>
                 <p>It looks like there aren't any articles.</p>
               </>
             )}
-            {articles?.map((article) => (
+            {articles!.map((article) => (
               <ArticleCard article={article} key={article.id} />
             ))}
-          </Loading>
-        </div>
+          </div>
+        ) : (
+          <div className="articles-container row">
+            <div className="col-4">
+              <Skeleton height={274} width={330} />
+            </div>
+            <div className="col-4">
+              <Skeleton height={274} width={330} />
+            </div>
+            <div className="col-4">
+              <Skeleton height={274} width={330} />
+            </div>
+          </div>
+        )}
       </Container>
     </>
   );
