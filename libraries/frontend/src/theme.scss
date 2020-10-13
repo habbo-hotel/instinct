@@ -19,9 +19,20 @@ body {
   }
 
   .header-content {
-    padding-top: 110px;
+    padding-top: 15px;
+    width: 100%;
+    max-width: 1055px;
+    margin: 0 auto;
   }
 
+  .header-logo {
+    margin-left: -25px;
+  }
+
+}
+
+.account-buttons {
+  margin-top: 10px;
 }
 
 .navigation-container {

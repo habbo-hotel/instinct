@@ -1,4 +1,5 @@
 import { useBanListener } from 'hooks';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { configService, sessionService } from 'services';
 import React, { useContext, useEffect, useState } from 'react';
 import { BannedGuard, Client, DataPolling, Router } from 'components';
@@ -33,10 +34,12 @@ export function Bootstrap() {
   }
 
   return (
-    <BannedGuard>
-      <Router />
-      <Client />
-      <DataPolling />
-    </BannedGuard>
+    <SkeletonTheme color="#0f416d" highlightColor="#1a4d6e">
+      <BannedGuard>
+        <Router />
+        <Client />
+        <DataPolling />
+      </BannedGuard>
+    </SkeletonTheme>
   );
 }

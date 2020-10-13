@@ -12,4 +12,5 @@ export * from './icon';
 export * from './jumbotron';
 export * from './loading';
 export * from './row';
+export * from './skeleton';
 export * from './tab-card';
