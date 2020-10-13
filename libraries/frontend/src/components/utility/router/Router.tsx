@@ -3,30 +3,10 @@ import { Switch, Route, RouteProps } from 'wouter';
 
 const routes: RouteProps[] = [];
 
-let landingRoute: ReactNode | undefined;
-let notFoundRoute: ReactNode | undefined;
-
-function getRoutes() {
-  return [
-    {
-      path: '',
-      children: landingRoute,
-    },
-    {
-      path: '/',
-      children: landingRoute,
-    },
-    ...routes,
-    {
-      children: notFoundRoute,
-    },
-  ];
-}
-
 export function Router() {
   return (
     <Switch>
-      {getRoutes().map((route: RouteProps, index: number) => (
+      {routes.map((route: RouteProps, index: number) => (
         <Route key={index} {...route} />
       ))}
     </Switch>
@@ -38,12 +18,4 @@ export function setURL(url: string, component: ReactNode): void {
     path: `/${url}`,
     children: <div>{component}</div>,
   });
-}
-
-export function set404(component: ReactNode): void {
-  notFoundRoute = component;
-}
-
-export function setLanding(component: ReactNode): void {
-  landingRoute = component;
 }

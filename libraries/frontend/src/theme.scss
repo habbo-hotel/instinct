@@ -112,3 +112,7 @@ body {
 .hotel-container {
   z-index: 100;
 }
+
+.page-container[data-page = "profile"] .profile-header .header-content {
+  background: url(https://i.imgur.com/5nou6fm.png);
+}

@@ -10,7 +10,7 @@
     "axios": "^0.20.0",
     "draft-js": "^0.11.7",
     "events": "^3.2.0",
-    "instinct-frontend": "^4.103.0",
+    "instinct-frontend": "^4.115.0",
     "moment": "2.29.1",
     "query-string": "^6.13.5",
     "react": "^16.13.1",
