@@ -6,10 +6,27 @@ const routes: RouteProps[] = [];
 let landingRoute: ReactNode | undefined;
 let notFoundRoute: ReactNode | undefined;
 
+function getRoutes() {
+  return [
+    {
+      path: '',
+      children: landingRoute,
+    },
+    {
+      path: '/',
+      children: landingRoute,
+    },
+    ...routes,
+    {
+      children: notFoundRoute,
+    },
+  ];
+}
+
 export function Router() {
   return (
     <Switch>
-      {routes.map((route: RouteProps, index: number) => (
+      {getRoutes().map((route: RouteProps, index: number) => (
         <Route key={index} {...route} />
       ))}
     </Switch>
