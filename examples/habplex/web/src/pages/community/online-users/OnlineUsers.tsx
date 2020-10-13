@@ -7,11 +7,10 @@ import {
   Column,
   Jumbotron,
   Row,
-  Loading,
   UserContainer,
   UserLayout,
   setURL,
-  userService
+  userService, UserContainerSkeleton
 } from 'instinct-frontend';
 
 setURL('community/online', <OnlineUsers />);
@@ -33,28 +32,33 @@ export function OnlineUsers() {
         <p>Come join the party!</p>
       </Jumbotron>
       <Container>
-        <Loading isLoading={onlineUsers === undefined}>
-          <Row>
-            <Column side="left">
-              <Card>
-                <div className="members-container">
-                  {
-                    onlineUsers?.map(_ => (
-                      <UserContainer key={_.id} user={_}/>
-                    ))
-                  }
-                  {
-                    onlineUsers?.length === 0 && (
-                      <Card header="Hmmm">
-                        <p>It looks like everybody is sleeping!</p>
-                      </Card>
-                    )
-                  }
-                </div>
-              </Card>
-            </Column>
-          </Row>
-        </Loading>
+        <Row>
+          <Column side="left">
+            <Card>
+              <div className="members-container">
+                {
+                  onlineUsers === undefined && (
+                    <>
+                      <UserContainerSkeleton/>
+                      <UserContainerSkeleton/>
+                      <UserContainerSkeleton/>
+                    </>
+                  )
+                }
+                {
+                  onlineUsers?.map(_ => (
+                    <UserContainer key={_.id} user={_}/>
+                  ))
+                }
+                {
+                  onlineUsers?.length === 0 && (
+                    <p>It looks like everybody is sleeping!</p>
+                  )
+                }
+              </div>
+            </Card>
+          </Column>
+        </Row>
       </Container>
     </UserLayout>
   );

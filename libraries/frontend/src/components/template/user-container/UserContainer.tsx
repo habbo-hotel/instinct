@@ -7,7 +7,7 @@ export function UserContainer({ user }: UserContainerProps) {
   return (
     <div className="member-container">
       <UserModal user={user}>
-        <div className="member-content flex-container flex-vertical-cente">
+        <div className="member-content flex-container flex-vertical-center">
           <div
             className="member-avatar flex-container flex-vertical-center flex-horizontal-center"
             style={{ overflow: 'hidden' }}

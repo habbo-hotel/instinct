@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { User } from 'instinct-interfaces';
 import React, { useEffect, useState } from 'react';
 import { Avatar, Loading, userService } from 'instinct-frontend';
+import { UserLeaderboardSkeleton } from '../UserLeaderboardSkeleton';
 import { GamesCardState, defaultGamesCardState } from '../Games.types';
 
 export function TopCredits() {
@@ -29,23 +30,34 @@ export function TopCredits() {
             </tr>
           </thead>
           <tbody>
-            {state.users.map(user => (
-              <tr key={user.id}>
-                <td>
-                  <div className="account-avatar">
-                    <Link to={`/profile/${user.username}`}>
-                      <Avatar look={user.figure} />
-                    </Link>
-                  </div>
-                </td>
-                <td>
-                  <Link to={`/profile/${user.username}`}>{user.username}</Link>
-                </td>
-                <td>
-                  <span>{user.credits}</span>
-                </td>
-              </tr>
-            ))}
+
+          {
+            state.showSpinner
+              ? state.users.map(user => (
+                <tr key={user.id}>
+                  <td>
+                    <div className="account-avatar">
+                      <Link to={`/profile/${user.username}`}>
+                        <Avatar look={user.figure} />
+                      </Link>
+                    </div>
+                  </td>
+                  <td>
+                    <Link to={`/profile/${user.username}`}>{user.username}</Link>
+                  </td>
+                  <td>
+                    <span>{user.credits}</span>
+                  </td>
+                </tr>
+              ))
+              : (
+                <>
+                  <UserLeaderboardSkeleton />
+                  <UserLeaderboardSkeleton />
+                  <UserLeaderboardSkeleton />
+                </>
+              )
+          }
           </tbody>
         </table>
       </Loading>
