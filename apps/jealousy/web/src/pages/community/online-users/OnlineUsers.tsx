@@ -28,8 +28,8 @@ export function OnlineUsers() {
 
   return (
     <UserLayout section="online">
-      <Jumbotron title="Online UsersLayout">
-        <p>Come join the party!</p>
+      <Jumbotron title="Come join the party!">
+        <p>Take a sneak peak at who's already online</p>
       </Jumbotron>
       <Container>
         <Row>
