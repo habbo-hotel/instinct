@@ -1,0 +1,15 @@
+.staff-widget-item {
+  background: lighten(#001726, 20%);
+  background: #001726;
+  border: 1px solid #0b6395;
+  cursor: pointer;
+  padding-left: 9px;
+  padding-right: 5px;
+  text-align: center;
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+.active-staff-widget {
+  border-color: white;
+}
