@@ -1,0 +1,67 @@
+{
+  "name": "@instinct/jealousy-web",
+  "private": true,
+  "scripts": {
+    "start": "PORT=3001 react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
+    "fix": "gts clean && gts fix"
+  },
+  "dependencies": {
+    "@uiw/react-md-editor": "^1.14.4",
+    "axios": "^0.20.0",
+    "draft-js": "^0.11.7",
+    "events": "^3.2.0",
+    "moment": "2.29.1",
+    "query-string": "^6.13.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-draft-wysiwyg": "^1.14.5",
+    "react-loading-overlay": "^1.0.1",
+    "react-loading-skeleton": "^2.1.1",
+    "react-toastify": "^6.0.9",
+    "react-toggle": "^4.1.1",
+    "reactstrap": "^8.6.0",
+    "swfobject": "^2.2.1",
+    "wouter": "^2.5.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.8",
+    "@types/enzyme": "^3.10.7",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.14",
+    "@types/lodash": "^4.14.162",
+    "@types/node": "^14.11.10",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-draft-wysiwyg": "^1.13.0",
+    "@types/react-toggle": "^4.0.2",
+    "@types/reactstrap": "^8.5.1",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "node-sass": "^4.14.1",
+    "react-app-rewired": "^2.1.6",
+    "react-scripts": "^3.4.3",
+    "typescript": "^4.0.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3000"
+}

@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.build.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@instinct/jealousy-web": ["./apps/jealousy/web/src"],
+      "@instinct/jealousy-api": ["./apps/jealousy/api/src"],
+      "@instinct/frontend": ["./packages/frontend/src"],
+      "@instinct/backend":  ["./packages/backend/src"],
+      "@instinct/interface": ["./packages/interface/src"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "lib": [
+      "es2015"
+    ]
+  },
+  "include": [
+    "apps",
+    "packages"
+  ]
+}
