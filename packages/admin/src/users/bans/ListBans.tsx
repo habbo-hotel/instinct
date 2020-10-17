@@ -1,7 +1,10 @@
 import {EditBanModal} from './ban-modals';
+import {UsersLayout} from '../UsersLayout';
 import {UserBan} from '@instinct/interface';
-import {banService} from '@instinct/frontend';
 import React, {useEffect, useState} from 'react';
+import {banService, setURL} from '@instinct/frontend';
+
+setURL('admin/users/bans', <ListBans />);
 
 export function ListBans() {
   const [bans, setBans] = useState<UserBan[]>();
@@ -19,7 +22,7 @@ export function ListBans() {
   }, []);
 
   return (
-    <>
+    <UsersLayout>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>
           <input
@@ -44,6 +47,6 @@ export function ListBans() {
           </div>
         ))}
       </div>
-    </>
+    </UsersLayout>
   );
 }

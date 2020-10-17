@@ -1,4 +1,5 @@
 import {Rank} from '@instinct/interface';
+import {UsersLayout} from '../UsersLayout';
 import {EditRankModal} from './rank-modals';
 import React, {useEffect, useState} from 'react';
 import {rankService, setURL} from '@instinct/frontend';
@@ -22,7 +23,7 @@ export function ListRanks() {
   }, [counter]);
 
   return (
-    <>
+    <UsersLayout>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>
           <input
@@ -47,6 +48,6 @@ export function ListRanks() {
           </div>
         ))}
       </div>
-    </>
+    </UsersLayout>
   );
 }

@@ -28,7 +28,7 @@ export function OnlineUsers() {
 
   return (
     <UserLayout section="online">
-      <Jumbotron title="Online Users">
+      <Jumbotron title="Online UsersLayout">
         <p>Come join the party!</p>
       </Jumbotron>
       <Container>

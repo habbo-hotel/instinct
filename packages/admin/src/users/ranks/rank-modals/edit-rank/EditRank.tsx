@@ -1,17 +1,15 @@
-import {toast} from 'react-toastify';
 import React, {useContext} from 'react';
 import {EditRankModalProps} from './EditRank.types';
 import {RankEditor} from '../../rank-editor/RankEditor';
+import {DeleteRankModal} from '../delete-rank/DeleteRank';
 import {configContext, rankService} from '@instinct/frontend';
 import {RankDTO, rankWireToRankDTO} from '@instinct/interface';
-import {DeleteRankModal} from '../delete-rank/DeleteRank';
 
 export function EditRankModal({rank, onChanges}: EditRankModalProps) {
   const {config} = useContext(configContext);
 
   async function onSave(changes: RankDTO): Promise<void> {
     await rankService.updateByID(rank.id.toString(), changes);
-    toast.success(`Rank ${changes.name} has been updated`);
     onChanges();
   }
 
