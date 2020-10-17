@@ -1,4 +1,4 @@
-import './admin';
+import '@instinct/admin';
 import './auth';
 import './community';
 import './error';

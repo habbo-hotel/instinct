@@ -5,6 +5,7 @@
     "paths": {
       "@instinct/jealousy-web": ["./apps/jealousy/web/src"],
       "@instinct/jealousy-api": ["./apps/jealousy/api/src"],
+      "@instinct/admin": ["./packages/admin/src"],
       "@instinct/frontend": ["./packages/frontend/src"],
       "@instinct/backend":  ["./packages/backend/src"],
       "@instinct/interface": ["./packages/interface/src"]
