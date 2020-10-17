@@ -19,4 +19,6 @@ export interface UserTypes {
   getMostPoints(): Promise<User[]>;
 
   getOnline(): Promise<User[]>;
+
+  getUserOfTheWeek(): Promise<User[]>;
 }

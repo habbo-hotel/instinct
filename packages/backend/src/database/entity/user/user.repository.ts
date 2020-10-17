@@ -79,4 +79,12 @@ export class UserRepository {
       relations: this.eagerRelations,
     });
   }
+
+  getUserOfTheWeek(): Promise<UserEntity[]> {
+    return this.userRepository.find({
+      where: {
+        userOfTheWeek: 1,
+      },
+    });
+  }
 }

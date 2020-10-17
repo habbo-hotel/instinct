@@ -1,25 +1,36 @@
+import React from 'react';
+import {Modal, ModalBody, ModalHeader} from 'reactstrap';
 import {AboutModalProps} from './';
-import React, {useContext} from 'react';
-import {healthContext} from '../../../context/health';
-import {ModalOverlay} from '../../generic/modal/modal-overlay';
 
 export function AboutModal({isOpen, onToggle}: AboutModalProps) {
-  const {health} = useContext(healthContext);
   return (
-    <>
-      <ModalOverlay header="Instinct" isOpen={isOpen} onToggle={onToggle}>
-        <div className="text-dark">
-          <p>
-            High performance, scalable content management system developed with
-            Typescript, React and Nest.
-          </p>
-          <h5>Version</h5>
-          <p>{health.systemVersion}</p>
-          <h5>Developed By</h5>
-          <p>LeChris</p>
-        </div>
-      </ModalOverlay>
-      .
-    </>
+    <Modal isOpen={isOpen} toggle={onToggle}>
+      <ModalHeader>
+        <img src="https://i.imgur.com/Bi8D2aL.png" />
+        Instinct
+      </ModalHeader>
+      <ModalBody>
+        <h5>About</h5>
+        <p>
+          Instinct is a development suite that enables developers to build
+          blazing fast, secure, state of the art features.
+        </p>
+        <h5>What is Jealousy?</h5>
+        <p>
+          Jealousy is a CMS built with the core libraries of Instinct to ensure
+          a smooth and feature rich experience.
+        </p>
+        <h5>Developed By</h5>
+        <p>LeChris</p>
+        <iframe
+          width={450}
+          height={315}
+          frameBorder={0}
+          allowFullScreen
+          src="https://www.youtube.com/embed/bt-IM0XJYOo?autoplay=1&modestbranding=1&rel=0&controls=0&loop=1&autohide=1&start=55"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
+      </ModalBody>
+    </Modal>
   );
 }

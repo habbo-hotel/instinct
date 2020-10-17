@@ -96,6 +96,9 @@ export class UserEntity {
   @Column({name: 'youtube_video'})
   favoriteYoutubeVideo!: string;
 
+  @Column({name: 'user_of_the_week', type: 'tinyint'})
+  userOfTheWeek!: number;
+
   @OneToMany(() => PhotoEntity, photo => photo.user)
   photos?: PhotoEntity[];
 

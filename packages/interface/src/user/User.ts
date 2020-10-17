@@ -12,6 +12,7 @@ export interface User {
   favoriteYoutubeVideo: string;
   joinDate: string; // ISO Date
   lastLoginDate: string; // ISO Date
+  userOfTheWeek: boolean;
   rank?: Omit<Rank, 'users'>;
 }
 
@@ -27,4 +28,5 @@ export const exampleUser: User = {
   favoriteYoutubeVideo: 'GfxcnX7XWfg',
   joinDate: new Date().toISOString(),
   lastLoginDate: new Date().toISOString(),
+  userOfTheWeek: false,
 };

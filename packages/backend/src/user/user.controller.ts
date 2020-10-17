@@ -41,6 +41,12 @@ export class UserController {
     return onlineUsers.map(_ => userWire(_));
   }
 
+  @Get('user-of-the-week')
+  async getUserOfTheWeek(): Promise<User[]> {
+    const usersOfTheWeek = await this.userRepo.getUserOfTheWeek();
+    return usersOfTheWeek.map(_ => userWire(_));
+  }
+
   @Post()
   async createUser(
     @Body() newUser: UserDTOClass,
@@ -74,6 +80,7 @@ export class UserController {
       ipCurrent: ipAddress,
       homeRoom: defaultUserHomeRoom,
       favoriteYoutubeVideo: 'GfxcnX7XWfg',
+      userOfTheWeek: 0,
     });
     return userWire(user);
   }

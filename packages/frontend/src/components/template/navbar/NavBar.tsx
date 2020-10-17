@@ -14,12 +14,12 @@ export function NavBar() {
         <NavBarLink to="/home">Home</NavBarLink>
         <NavBarDropdown text="Community" to="/community/news">
           <NavBarChildLink to="/community/staff">Staff</NavBarChildLink>
-          <NavBarChildLink to="/community/news">News</NavBarChildLink>
           <NavBarChildLink to="/community/photos">Photos</NavBarChildLink>
           <NavBarChildLink to="/community/online">Online Users</NavBarChildLink>
           <NavBarChildLink to="/rooms">Rooms</NavBarChildLink>
           <NavBarChildLink to="/groups">Groups</NavBarChildLink>
         </NavBarDropdown>
+        <NavBarLink to="/community/news">News</NavBarLink>
         <NavBarLink to="/community/games">High Scores</NavBarLink>
         <li className="navigation-item navigation-right-side-item has-items">
           <UserDropdown />

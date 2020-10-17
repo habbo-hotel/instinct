@@ -56,6 +56,13 @@ export class UserService implements UserTypes {
     const users: AxiosResponse<User[]> = await backendAPI.get('users/online');
     return users.data;
   }
+
+  async getUserOfTheWeek() {
+    const users: AxiosResponse<User[]> = await backendAPI.get(
+      'users/user-of-the-week'
+    );
+    return users.data;
+  }
 }
 
 export const userService: UserTypes = new UserService();
