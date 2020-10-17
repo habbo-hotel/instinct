@@ -10,10 +10,10 @@ export function Referral() {
         <b>10</b> diamonds
       </p>
       <div className="row">
-        <div className="col-2">
+        <div className="col-4 col-lg-2">
           <button className="btn btn-block btn-dark">Copy</button>
         </div>
-        <div className="col-10">
+        <div className="col-8 col-lg-10" style={{paddingLeft: 0}}>
           <input
             className="form-control"
             disabled
