@@ -1,4 +1,5 @@
-import './theme.scss';
+import 'react-datepicker/dist/react-datepicker.css';
+import './index.scss';
 
 export * from './api';
 export * from './components';
