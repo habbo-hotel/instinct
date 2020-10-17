@@ -1,12 +1,12 @@
 import React from 'react';
-import { setURL } from '@instinct/frontend';
+import {setURL} from '@instinct/frontend';
 
-setURL('admin/admin', <ListUsers/>);
+setURL('admin/admin', <ListUsers />);
 
 export function ListUsers() {
   return (
     <>
       <p>Coming soon</p>
     </>
-  )
+  );
 }

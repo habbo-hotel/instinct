@@ -9,6 +9,10 @@ class ConfigServiceImplementation implements ConfigService {
     return config.data;
   }
 
+  async updateConfig(config: Config): Promise<void> {
+    await backendAPI.post('config', config);
+  }
+
   async getHealth(): Promise<Health> {
     const health: AxiosResponse<Health> = await backendAPI.get('health');
     return health.data;

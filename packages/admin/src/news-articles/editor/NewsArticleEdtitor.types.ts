@@ -1,4 +1,4 @@
-import { Article, exampleArticle } from '@instinct/interface';
+import {Article, exampleArticle} from '@instinct/interface';
 
 export interface NewsArticleEditorProps {
   defaultArticle?: Article;
@@ -15,4 +15,4 @@ export const defaultNewsArticleEditorState: NewsArticleEditorState = {
   article: exampleArticle,
   showSpinner: false,
   showError: false,
-}
+};

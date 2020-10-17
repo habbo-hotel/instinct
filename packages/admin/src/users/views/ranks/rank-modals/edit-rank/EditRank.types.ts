@@ -1,4 +1,4 @@
-import { Rank } from '@instinct/interface';
+import {Rank} from '@instinct/interface';
 
 export interface EditRankModalProps {
   rank: Rank;

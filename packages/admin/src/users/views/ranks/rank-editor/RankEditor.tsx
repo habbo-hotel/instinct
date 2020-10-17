@@ -1,19 +1,31 @@
 import Toggle from 'react-toggle';
-import { toast } from 'react-toastify';
-import React, { useContext, useState } from 'react';
-import { Permissions, RankDTO } from '@instinct/interface';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
-import { configContext, Form, Input, Row } from '@instinct/frontend';
-import { defaultRankEditorState, RankEditorState, RankEditorProps, defaultRankDTO } from './RankEditor.types';
+import {toast} from 'react-toastify';
+import React, {useContext, useState} from 'react';
+import {Permissions, RankDTO} from '@instinct/interface';
+import {Modal, ModalBody, ModalHeader} from 'reactstrap';
+import {configContext, Form, Input, Row} from '@instinct/frontend';
+import {
+  defaultRankEditorState,
+  RankEditorState,
+  RankEditorProps,
+  defaultRankDTO,
+} from './RankEditor.types';
 
-export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: RankEditorProps) {
-  const { config } = useContext(configContext);
-  const [ state, setState ] = useState<RankEditorState>({
+export function RankEditor({
+  children,
+  defaultRank = defaultRankDTO,
+  onSave,
+}: RankEditorProps) {
+  const {config} = useContext(configContext);
+  const [state, setState] = useState<RankEditorState>({
     ...defaultRankEditorState,
     rank: defaultRank,
   });
 
-  function setValue<K extends keyof RankEditorState>(key: K, value: RankEditorState[K]): void {
+  function setValue<K extends keyof RankEditorState>(
+    key: K,
+    value: RankEditorState[K]
+  ): void {
     setState(_ => ({
       ..._,
       [key]: value,
@@ -26,7 +38,7 @@ export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: R
       rank: {
         ..._.rank,
         [key]: value,
-      }
+      },
     }));
   }
 
@@ -36,7 +48,6 @@ export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: R
       showModal: !_.showModal,
     }));
   }
-
 
   async function onSubmit() {
     setValue('showSpinner', true);
@@ -60,60 +71,89 @@ export function RankEditor({ children, defaultRank = defaultRankDTO, onSave }: R
     websiteManageRanks: 'Manage Ranks',
     websiteManageUsers: 'Manage Users',
     websiteManageBans: 'Manage Bans',
-  }
+  };
 
-  const permissionIndexes: Array<keyof Permissions> = Object.keys(permissionKeyToWord) as any;
+  const permissionIndexes: Array<keyof Permissions> = Object.keys(
+    permissionKeyToWord
+  ) as any;
 
   return (
     <>
-      <div onClick={toggleModal}>
-        {children}
-      </div>
+      <div onClick={toggleModal}>{children}</div>
       <Modal isOpen={state.showModal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal}>Rank Editor</ModalHeader>
         <ModalBody>
           <Form className="" onSubmit={onSubmit}>
-            <div className="mt-3" style={{ padding: 2 }}>
+            <div className="mt-3" style={{padding: 2}}>
               <h4>Name</h4>
-              <Input type="text" name="name" onChange={setRank} value={state.rank.name}/>
+              <Input
+                type="text"
+                name="name"
+                onChange={setRank}
+                value={state.rank.name}
+              />
             </div>
-            <div className="mt-3 row" style={{ padding: 2 }}>
-             <div className="col-8">
-               <h4>Badge</h4>
-               <Input type="text" name="badge" onChange={setRank} value={state.rank.badge}/>
-             </div>
+            <div className="mt-3 row" style={{padding: 2}}>
+              <div className="col-8">
+                <h4>Badge</h4>
+                <Input
+                  type="text"
+                  name="badge"
+                  onChange={setRank}
+                  value={state.rank.badge}
+                />
+              </div>
               <div className="col-4">
-                <div style={{ background: '#001726', borderRadius: '50%', marginTop: 30, padding: 5, height: 45, width: 45, textAlign: 'center' }}>
-                  <img alt="rank badge" src={`${config.swfBadgeURL}/${state.rank.badge}.gif`} />
+                <div
+                  style={{
+                    background: '#001726',
+                    borderRadius: '50%',
+                    marginTop: 30,
+                    padding: 5,
+                    height: 45,
+                    width: 45,
+                    textAlign: 'center',
+                  }}
+                >
+                  <img
+                    alt="rank badge"
+                    src={`${config.swfBadgeURL}/${state.rank.badge}.gif`}
+                  />
                 </div>
               </div>
             </div>
-            <div className="mt-3" style={{ padding: 2 }}>
+            <div className="mt-3" style={{padding: 2}}>
               <h4>Permissions</h4>
-              {
-                permissionIndexes.map(permission => (
-                  <div className="col-lg-6" key={permission}>
-                    <div className="row">
-                      <div className="col-2">
-                        <Toggle checked={state.rank[permission]} onChange={() => setRank(permission, !state.rank[permission])}/>
-                      </div>
-                      <div className="col-10 text-right">
-                        {permissionKeyToWord[permission]}
-                      </div>
+              {permissionIndexes.map(permission => (
+                <div className="col-lg-6" key={permission}>
+                  <div className="row">
+                    <div className="col-2">
+                      <Toggle
+                        checked={state.rank[permission]}
+                        onChange={() =>
+                          setRank(permission, !state.rank[permission])
+                        }
+                      />
+                    </div>
+                    <div className="col-10 text-right">
+                      {permissionKeyToWord[permission]}
                     </div>
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
             <Row className="mt-3">
               <div className="col-6">&nbsp; </div>
               <div className="col-6 text-right">
-                <button className="btn btn-success" disabled={state.showSpinner}>
-                  {
-                    state.showSpinner
-                      ? <i className="fa fa-spinner fa-spin" />
-                      : 'Save'
-                  }
+                <button
+                  className="btn btn-success"
+                  disabled={state.showSpinner}
+                >
+                  {state.showSpinner ? (
+                    <i className="fa fa-spinner fa-spin" />
+                  ) : (
+                    'Save'
+                  )}
                 </button>
               </div>
             </Row>

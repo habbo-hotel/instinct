@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { RankDTO } from '@instinct/interface';
+import {ReactNode} from 'react';
+import {RankDTO} from '@instinct/interface';
 
 export interface RankEditorProps {
   children: ReactNode;
@@ -25,11 +25,11 @@ export const defaultRankDTO: RankDTO = {
   websiteManageNews: false,
   websiteManageBans: false,
   users: [],
-}
+};
 
 export const defaultRankEditorState: RankEditorState = {
   rank: defaultRankDTO,
   showModal: false,
   showError: false,
   showSpinner: false,
-}
+};

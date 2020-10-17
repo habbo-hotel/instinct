@@ -1,8 +1,8 @@
 import React from 'react';
-import { toast } from 'react-toastify';
-import { BanEditor } from '../../ban-editor';
-import { banService } from '@instinct/frontend';
-import { UserBanDTO } from '@instinct/interface';
+import {toast} from 'react-toastify';
+import {BanEditor} from '../../ban-editor';
+import {banService} from '@instinct/frontend';
+import {UserBanDTO} from '@instinct/interface';
 
 export function CreateBanModal() {
   async function onSave(banDTO: UserBanDTO) {
@@ -13,9 +13,9 @@ export function CreateBanModal() {
   return (
     <BanEditor onSave={onSave}>
       <button className="btn btn-dark">
-        <i className="fa fa-plus-circle mr-2"/>
+        <i className="fa fa-plus-circle mr-2" />
         New
       </button>
     </BanEditor>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { UserBan } from '@instinct/interface';
+import {UserBan} from '@instinct/interface';
 
 export interface EditBanModalProps {
   ban: UserBan;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { toast } from 'react-toastify';
-import { RankDTO } from '@instinct/interface';
-import { Icon, rankService } from '@instinct/frontend';
-import { RankEditor } from '../rank-editor/RankEditor';
+import {toast} from 'react-toastify';
+import {RankDTO} from '@instinct/interface';
+import {Icon, rankService} from '@instinct/frontend';
+import {RankEditor} from '../rank-editor/RankEditor';
 
 export function CreateRankModal() {
   async function onSave(rank: RankDTO): Promise<void> {
@@ -13,9 +13,9 @@ export function CreateRankModal() {
   return (
     <RankEditor onSave={onSave}>
       <button className="btn btn-dark">
-        <Icon type="plus-circle mr-2"/>
+        <Icon type="plus-circle mr-2" />
         New
       </button>
     </RankEditor>
-  )
+  );
 }
