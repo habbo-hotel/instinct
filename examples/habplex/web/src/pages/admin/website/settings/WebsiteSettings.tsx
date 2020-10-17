@@ -1,5 +1,6 @@
 import React from 'react';
-import { MaintenanceMode } from './views/MaintenanceMode';
+import {GameSWFs} from './game-swfs/GameSWFs';
+import {SitePreferences} from './site-preferences/SitePreferences';
 import { AdminLayout, Container, Jumbotron, Row, setURL, TabCard } from 'instinct-frontend';
 
 setURL('admin/website', <WebsiteSettings/>);
@@ -18,18 +19,13 @@ export function WebsiteSettings() {
                 {
                   name: 'Site Preferences',
                   icon: 'wrench',
-                  children: <p>preferences</p>,
+                  children: <SitePreferences />,
                 },
                 {
                   name: 'Game SWFs',
                   icon: 'gamepad',
-                  children: <p>swfs</p>,
+                  children: <GameSWFs/>,
                 },
-                {
-                  name: 'Maintenance Mode',
-                  icon: 'user-hard-hat',
-                  children: <MaintenanceMode />,
-                }
               ]}/>
             </article>
           </Container>

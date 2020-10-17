@@ -19,7 +19,12 @@ export function Footer() {
     <>
       <footer className="footer-container">
         <div className="footer-social-buttons flex-container flex-horizontal-center">
-          <img alt="instinct logo" src="https://i.imgur.com/Bi8D2aL.png" onClick={toggleAboutModal} style={{ cursor: 'pointer' }} />
+          <img
+            alt="instinct logo"
+            src="https://i.imgur.com/Bi8D2aL.png"
+            onClick={toggleAboutModal}
+            style={{ cursor: 'pointer' }}
+          />
         </div>
         <div className="footer-copyright">
           <b onClick={toggleAboutModal}>Instinct</b>&nbsp;by&nbsp;<b>LeChris</b>

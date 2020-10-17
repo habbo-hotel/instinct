@@ -20,7 +20,7 @@ const PLUGINS = [
   resolve({
     browser: true,
   }),
-  commonjs(),
+  commonjs({ sourceMap: false}),
   filesize(),
 ];
 
