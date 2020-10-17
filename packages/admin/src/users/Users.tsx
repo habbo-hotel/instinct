@@ -1,9 +1,9 @@
 import React from 'react';
-import {ListUsers} from './views/ListUsers';
-import {ListBans} from './views/bans/ListBans';
-import {ListRanks} from './views/ranks/ListRanks';
-import {CreateBanModal} from './views/bans/ban-modals';
-import {CreateRankModal} from './views/ranks/rank-modals';
+import {ListUsers} from './ListUsers';
+import {ListBans} from './bans/ListBans';
+import {ListRanks} from './ranks/ListRanks';
+import {CreateBanModal} from './bans/ban-modals';
+import {CreateRankModal} from './ranks/rank-modals';
 import {
   AdminLayout,
   Container,
