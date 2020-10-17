@@ -8,8 +8,8 @@ export function PopularRooms() {
   const rooms = useFetchPopularRooms();
 
   return (
-    <Loading isLoading={rooms === undefined}>
-      <Card header="Popular Rooms">
+    <Card header="Popular Rooms">
+      <Loading isLoading={rooms === undefined}>
         <table className="rooms table table-striped">
           <tbody>
             {rooms?.map(room => (
@@ -35,7 +35,7 @@ export function PopularRooms() {
             ))}
           </tbody>
         </table>
-      </Card>
-    </Loading>
+      </Loading>
+    </Card>
   );
 }

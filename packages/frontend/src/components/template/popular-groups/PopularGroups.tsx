@@ -11,8 +11,8 @@ export function PopularGroups() {
   const popularGroups = useFetchPopularGroups();
 
   return (
-    <Loading isLoading={popularGroups === undefined}>
-      <Card header="Popular Groups" subHeader="Who do you want to join?">
+    <Card header="Popular Groups">
+      <Loading isLoading={popularGroups === undefined}>
         <div className="mt-2">
           {popularGroups?.length === 0 && popularGroups !== undefined && (
             <p>There aren't any groups yet.</p>
@@ -32,7 +32,7 @@ export function PopularGroups() {
             </Link>
           ))}
         </div>
-      </Card>
-    </Loading>
+      </Loading>
+    </Card>
   );
 }

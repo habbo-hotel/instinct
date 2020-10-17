@@ -9,6 +9,7 @@ import {
   PopularGroups,
   PopularRooms,
 } from '@instinct/frontend';
+import {Referral} from './referral/Referral';
 
 setURL('home', <Home />);
 
@@ -18,12 +19,11 @@ export function Home() {
       <Container>
         <Column side="left">
           <MyProfile />
-          <br />
+          <Referral />
           <PopularRooms />
         </Column>
         <Column side="right">
           <RecentNews />
-          <br />
           <PopularGroups />
         </Column>
       </Container>

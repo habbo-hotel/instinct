@@ -5,7 +5,6 @@ export interface CardProps {
   color?: PrimaryColor;
   className?: string;
   header?: Children;
-  subHeader?: Children;
   children: Children;
   icon?: string;
 }
