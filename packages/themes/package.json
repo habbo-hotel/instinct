@@ -1,0 +1,112 @@
+{
+  "name": "@instinct/themes",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",
+    "deploy:unsafe": "npm run build && npm publish build",
+    "deploy": "npm run test && npm run deploy:unsafe",
+    "test": "tsc && jest --coverage --forceExit"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "n": "^6.7.0",
+    "react-datepicker": "^3.3.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-loading-skeleton": "^2.1.1",
+    "react-toastify": "^6.0.9",
+    "styled-components": "^5.2.0",
+    "tslib": "^2.0.3",
+    "wouter": "^2.5.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@types/enzyme": "^3.10.7",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.14",
+    "@types/lodash": "^4.14.162",
+    "@types/node": "^14.11.10",
+    "@types/react": "^16.9.53",
+    "@types/react-datepicker": "^3.1.1",
+    "@types/react-google-recaptcha": "^2.1.0",
+    "@types/react-test-renderer": "^16.9.3",
+    "@types/reactstrap": "^8.5.1",
+    "@types/styled-components": "^5.1.4",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "cache-loader": "^4.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "fork-ts-checker-webpack-plugin": "^5.2.0",
+    "i": "^0.3.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.5.3",
+    "jsdom": "16.4.0",
+    "jsdom-global": "3.0.2",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-test-renderer": "^16.14.0",
+    "reactstrap": "^8.6.0",
+    "rollup": "^2.32.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-bundle-scss": "^0.1.1",
+    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-local-resolve": "^1.0.7",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-scss": "^2.6.1",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "sass-loader": "^10.0.3",
+    "thread-loader": "^3.0.0",
+    "ts-jest": "^26.4.1",
+    "ts-loader": "^8.0.5",
+    "typescript": "^4.0.3",
+    "typescript-styled-plugin": "^0.15.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0",
+    "typescript": "^4.0.3",
+    "npm": "^6.14.8"
+  },
+  "jest": {
+    "clearMocks": true,
+    "coverageDirectory": "../coverage",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "rootDir": "src",
+    "setupFiles": [
+      "./setupTests.ts"
+    ],
+    "testEnvironment": "node",
+    "transform": {
+      ".*.ts": "ts-jest",
+      ".*.tsx": "ts-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    }
+  }
+}

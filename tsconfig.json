@@ -8,7 +8,8 @@
       "@instinct/admin": ["./packages/admin/src"],
       "@instinct/frontend": ["./packages/frontend/src"],
       "@instinct/backend":  ["./packages/backend/src"],
-      "@instinct/interface": ["./packages/interface/src"]
+      "@instinct/interface": ["./packages/interface/src"],
+      "@instinct/themes": ["./packages/themes/src"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

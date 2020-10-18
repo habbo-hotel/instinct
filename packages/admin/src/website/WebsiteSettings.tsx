@@ -1,7 +1,7 @@
 import React from 'react';
-import {GameSettings} from './GameSettings';
-import {ServerSettings} from './ServerSettings';
-import {SitePreferences} from './SitePreferences';
+import {GameSettings} from './views/GameSettings';
+import {ServerSettings} from './views/ServerSettings';
+import {SitePreferences} from './views/SitePreferences';
 import {WebsiteSettingsProvider} from './context/WebsiteSettings.provider';
 import {
   AdminLayout,

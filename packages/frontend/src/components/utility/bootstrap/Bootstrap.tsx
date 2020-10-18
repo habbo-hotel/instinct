@@ -42,8 +42,8 @@ export function Bootstrap() {
 
   return (
     <SkeletonTheme color="#0f416d" highlightColor="#1a4d6e">
+      <ToastContainer />
       <BannedGuard>
-        <ToastContainer />
         <Router />
         <Client />
         <DataPolling />

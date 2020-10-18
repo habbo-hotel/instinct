@@ -1,8 +1,8 @@
 import {toast} from 'react-toastify';
 import {Config} from '@instinct/interface';
 import {websiteSettingsContext} from './WebsiteSettings';
-import {configService, Loading, useFetchConfig} from '@instinct/frontend';
 import React, {ReactElement, useEffect, useState} from 'react';
+import {configService, useFetchConfig} from '@instinct/frontend';
 import {
   defaultWebsiteSettingsContextState,
   WebsiteSettingsContextState,
@@ -16,7 +16,6 @@ export function WebsiteSettingsProvider({children}: {children: ReactElement}) {
 
   useEffect(() => {
     if (defaultConfig !== undefined) {
-      console.log('poo');
       setState(_ => ({
         ..._,
         config: defaultConfig,
@@ -62,15 +61,13 @@ export function WebsiteSettingsProvider({children}: {children: ReactElement}) {
 
   return (
     <Provider value={{...state, setConfig, saveChanges}}>
-      <Loading isLoading={state.showSpinner}>
-        {state.showError && (
-          <div className="alert alert-danger">
-            <i className="fa fa-exclamation-triangle mr-2" />
-            <span>Your changes could not be saved</span>
-          </div>
-        )}
-        {children}
-      </Loading>
+      {state.showError && (
+        <div className="alert alert-danger">
+          <i className="fa fa-exclamation-triangle mr-2" />
+          <span>Your changes could not be saved</span>
+        </div>
+      )}
+      {children}
     </Provider>
   );
 }
