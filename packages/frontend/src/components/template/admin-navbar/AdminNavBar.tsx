@@ -1,4 +1,5 @@
 import React from 'react';
+import {PermissionGuard} from '../../guard/permission';
 import {NavBarLink} from '../../generic/navbar/navbar-link';
 import {UserDropdown} from '../../generic/navbar/user-dropdown';
 
@@ -10,9 +11,15 @@ export function AdminNavBar() {
         style={{width: '100%', maxWidth: 1055, margin: '0 auto'}}
       >
         <NavBarLink to="/admin">Dashboard</NavBarLink>
-        <NavBarLink to="/admin/website">Website</NavBarLink>
-        <NavBarLink to="/admin/news">News</NavBarLink>
-        <NavBarLink to="/admin/users">Users</NavBarLink>
+        <PermissionGuard permission="websiteManageConfig" redirect={false}>
+          <NavBarLink to="/admin/website">Website</NavBarLink>
+        </PermissionGuard>
+        <PermissionGuard permission="websiteManageNews" redirect={false}>
+          <NavBarLink to="/admin/news">News</NavBarLink>
+        </PermissionGuard>
+        <PermissionGuard permission="websiteManageUsers" redirect={false}>
+          <NavBarLink to="/admin/users">Users</NavBarLink>
+        </PermissionGuard>
         <li className="navigation-item navigation-right-side-item has-items">
           <UserDropdown />
         </li>

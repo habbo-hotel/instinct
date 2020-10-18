@@ -13,7 +13,6 @@ export function PermissionGuard({
   const hasPermission = !!user?.rank?.permissions[permission];
 
   if (!hasPermission) {
-
     if (redirect) {
       setLocation(user ? '/home' : '/login');
     }

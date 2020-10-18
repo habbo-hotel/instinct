@@ -33,4 +33,7 @@ export class RankDTOClass implements RankDTO {
 
   @IsBoolean()
   websiteManageBans!: boolean;
+
+  @IsBoolean()
+  websiteManageConfig!: boolean;
 }

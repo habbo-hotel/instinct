@@ -1,4 +1,4 @@
-import {Children} from 'components';
+import {Children} from '../../../';
 
 export interface LabelProps {
   children: Children;

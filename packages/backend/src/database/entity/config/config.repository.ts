@@ -17,4 +17,14 @@ export class ConfigRepository {
       throw new Error('Missing Configuration');
     }
   }
+
+  async updateConfig(
+    configChanges: Partial<ConfigEntity>
+  ): Promise<ConfigEntity> {
+    const config = await this.getConfig();
+    return this.configRepo.save({
+      id: config.id!,
+      ...configChanges,
+    });
+  }
 }

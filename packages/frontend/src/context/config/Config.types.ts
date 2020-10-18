@@ -7,5 +7,6 @@ export interface ConfigContext {
 
 export const defaultConfigInterface: ConfigContext = {
   config: defaultConfig,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setConfig(changes: Partial<Config>) {},
 };

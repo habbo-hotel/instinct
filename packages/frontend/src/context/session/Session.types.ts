@@ -13,7 +13,10 @@ export const defaultSessionContext: SessionContext = {
   user: undefined,
   online: false,
   banned: false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setUser: (user?: User) => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setOnline: (isOnline: boolean) => {},
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setBanned: (banned: boolean) => {},
 };

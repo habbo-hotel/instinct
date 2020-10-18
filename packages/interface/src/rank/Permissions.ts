@@ -5,6 +5,7 @@ export interface Permissions {
   websiteManageRanks: boolean;
   websiteManageUsers: boolean;
   websiteManageBans: boolean;
+  websiteManageConfig: boolean;
 }
 
 export const examplePermissions: Permissions = {
@@ -14,4 +15,5 @@ export const examplePermissions: Permissions = {
   websiteManageRanks: true,
   websiteManageUsers: true,
   websiteManageBans: true,
+  websiteManageConfig: true,
 };

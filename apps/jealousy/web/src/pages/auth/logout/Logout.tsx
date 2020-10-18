@@ -1,6 +1,6 @@
 import { Redirect } from 'wouter';
 import React, { useContext, useEffect } from 'react';
-import { sessionContext, setURL } from '@instinct/frontend';
+import {sessionContext, sessionService, setURL} from '@instinct/frontend';
 
 setURL('logout', <Logout />);
 
@@ -9,6 +9,7 @@ export function Logout() {
 
   useEffect(() => {
     function logout() {
+      sessionService.logout();
       setUser(undefined);
     }
 

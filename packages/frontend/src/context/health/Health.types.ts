@@ -7,5 +7,6 @@ export interface HealthContext {
 
 export const defaultHealthInterface: HealthContext = {
   health: exampleHealth,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setHealth(changes: Partial<Health>) {},
 };

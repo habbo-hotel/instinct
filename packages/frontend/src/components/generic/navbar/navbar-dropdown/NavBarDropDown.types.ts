@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {Children} from 'components';
+import {Children} from '../../../';
 
 export interface NavBarDropdownProps {
   children: Children;

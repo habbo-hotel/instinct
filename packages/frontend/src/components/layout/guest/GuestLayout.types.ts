@@ -1,5 +1,4 @@
-import {Children} from 'components';
-import {FunctionComponent} from 'react';
+import {Children} from '../../../';
 
 export interface GuestLayoutProps {
   children: Children;

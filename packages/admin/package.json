@@ -8,6 +8,7 @@
     "test": "tsc && jest --coverage --forceExit"
   },
   "dependencies": {
+    "@types/react-toggle": "^4.0.2",
     "axios": "^0.20.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",

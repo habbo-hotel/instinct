@@ -1,4 +1,4 @@
-import {BackgroundColor, Children} from 'components';
+import {BackgroundColor, Children} from '../../';
 
 export interface ButtonProps {
   className?: string;

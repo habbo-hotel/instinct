@@ -1,6 +1,7 @@
 import {Router} from '../router';
 import {DataPolling} from '../data-polling';
 import {Client} from '../../template/client';
+import {ToastContainer} from 'react-toastify';
 import {BannedGuard} from '../../guard/banned';
 import {useBanListener} from '../../../hooks/user';
 import {SkeletonTheme} from 'react-loading-skeleton';
@@ -42,6 +43,7 @@ export function Bootstrap() {
   return (
     <SkeletonTheme color="#0f416d" highlightColor="#1a4d6e">
       <BannedGuard>
+        <ToastContainer />
         <Router />
         <Client />
         <DataPolling />

@@ -6,3 +6,9 @@ export enum PermissionStatus {
 export function booleanToPermissionStatus(value: boolean): PermissionStatus {
   return value ? PermissionStatus.Enabled : PermissionStatus.Disabled;
 }
+
+export function permissionStatusToBoolean(
+  permissionStatus: PermissionStatus
+): boolean {
+  return permissionStatus === PermissionStatus.Enabled;
+}

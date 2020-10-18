@@ -36,4 +36,7 @@ export class RankEntity {
 
   @Column({name: 'website_manage_bans', type: 'enum', default: '0'})
   websiteManageBans!: PermissionStatus;
+
+  @Column({name: 'website_manage_config', type: 'enum', default: '0'})
+  websiteManageConfig!: PermissionStatus;
 }

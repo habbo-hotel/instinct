@@ -1,4 +1,4 @@
-import {ModalOverlayProps} from 'components';
+import {ModalOverlayProps} from '../../../';
 
 export interface ModalButtonProps extends Omit<ModalOverlayProps, 'isOpen'> {
   button: string;
