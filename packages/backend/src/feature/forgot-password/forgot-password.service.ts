@@ -2,25 +2,24 @@ import Moment from 'moment';
 import {HashService} from '../../common';
 import randomString from 'crypto-random-string';
 import {EmailService} from '../../email/email.service';
+import {ConfigRepository} from '../../database/entity/config';
 import {BadRequestException, Injectable} from '@nestjs/common';
 import {ForgotPasswordEmailTemplate} from './forgot-password.types';
 import {UserEntity, UserRepository} from '../../database/entity/user';
 import {UserForgotPasswordRepository} from '../../database/entity/user';
-import {
-  sendGridForgotPasswordTemplate,
-  websiteLink,
-} from '../../config/environment';
 
 @Injectable()
 export class ForgotPasswordService {
   constructor(
     private readonly userRepo: UserRepository,
+    private readonly configRepo: ConfigRepository,
     private readonly hashService: HashService,
     private readonly emailService: EmailService,
     private readonly forgotPasswordRepo: UserForgotPasswordRepository
   ) {}
 
   async generatePasswordKey(email: string): Promise<void> {
+    const config = await this.configRepo.getConfig();
     const user: UserEntity | undefined = await this.userRepo.getByEmail(email);
 
     if (user === undefined) {
@@ -33,10 +32,10 @@ export class ForgotPasswordService {
 
     await this.emailService.sendEmail<ForgotPasswordEmailTemplate>(
       user.email,
-      sendGridForgotPasswordTemplate,
+      config.sendGridForgotPasswordTemplate,
       {
         username: user.username,
-        reset_link: `${websiteLink}/forgot-password?token=${token}`,
+        reset_link: `${config.siteLink}/forgot-password?token=${token}`,
       }
     );
   }

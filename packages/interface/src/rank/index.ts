@@ -1,3 +1,3 @@
 export * from './Permissions';
-export * from './Rank.dto';
+export * from './RankDTO';
 export * from './Rank';

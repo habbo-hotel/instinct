@@ -1,21 +1,21 @@
 import Sendgrid from '@sendgrid/mail';
 import {Injectable} from '@nestjs/common';
-import {sendGridAPIKey, sendGridSender} from '../config/environment';
+import {ConfigRepository} from '../database/entity/config';
 
 @Injectable()
 export class EmailService {
-  constructor() {
-    Sendgrid.setApiKey(sendGridAPIKey);
-  }
+  constructor(private readonly configRepo: ConfigRepository) {}
 
   async sendEmail<T>(
     recipient: string,
     templateID: string,
     payload: T
   ): Promise<void> {
+    const config = await this.configRepo.getConfig();
+    Sendgrid.setApiKey(config.sendGridAPIKey);
     await Sendgrid.send({
       to: recipient,
-      from: sendGridSender,
+      from: config.sendGridAPISender,
       templateId: templateID,
       dynamicTemplateData: payload,
     });

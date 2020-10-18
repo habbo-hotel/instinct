@@ -14,8 +14,8 @@ export class ConfigEntity {
   @Column({name: 'emulator_ip'})
   emulatorIP!: string;
 
-  @Column({name: 'emulator_port', type: 'int'})
-  emulatorPort!: number;
+  @Column({name: 'emulator_port'})
+  emulatorPort!: string;
 
   @Column({name: 'swf_habbo'})
   swfHabbo!: string;
@@ -53,8 +53,17 @@ export class ConfigEntity {
   @Column({name: 'group_badge_url'})
   groupBadgeURL!: string;
 
+  @Column({name: 'sendgrid_api_key'})
+  sendGridAPIKey!: string;
+
+  @Column({name: 'sendgrid_api_sender'})
+  sendGridAPISender!: string;
+
+  @Column({name: 'sendgrid_template_forgot_password'})
+  sendGridForgotPasswordTemplate!: string;
+
   @Column({name: 'google_recaptcha_site_key'})
-  googleRecaptchaSiteKey!: string;
+  googleRecaptchaClientKey!: string;
 
   @Column({name: 'google_recaptcha_secret_key'})
   googleRecaptchaSecretKey!: string;

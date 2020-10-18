@@ -1,6 +1,14 @@
-import {IsIP, IsNotEmpty, IsOptional, IsPort, IsString} from 'class-validator';
+import {ConfigDTO} from '@instinct/interface';
+import {
+  IsEmail,
+  IsIP,
+  IsNotEmpty,
+  IsOptional,
+  IsPort,
+  IsString,
+} from 'class-validator';
 
-export class UpdateConfigDTO {
+export class UpdateConfigDTO implements ConfigDTO {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
@@ -17,7 +25,7 @@ export class UpdateConfigDTO {
 
   @IsPort()
   @IsOptional()
-  emulatorPort!: number;
+  emulatorPort!: string;
 
   @IsString()
   @IsNotEmpty()
@@ -82,5 +90,24 @@ export class UpdateConfigDTO {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
+  sendGridAPIKey!: string;
+
+  @IsEmail()
+  @IsOptional()
+  sendGridAPISender!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  sendGridForgotPasswordTemplate!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
   googleRecaptchaSiteKey!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  googleRecaptchaClientKey!: string;
 }

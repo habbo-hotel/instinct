@@ -1,7 +1,7 @@
 import {ConfigService} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Config, Health} from '@instinct/interface';
+import {Config, ConfigDTO, Health} from '@instinct/interface';
 
 class ConfigServiceImplementation implements ConfigService {
   async getConfig(): Promise<Config> {
@@ -9,7 +9,14 @@ class ConfigServiceImplementation implements ConfigService {
     return config.data;
   }
 
-  async updateConfig(config: Config): Promise<void> {
+  async getFullConfig(): Promise<ConfigDTO> {
+    const config: AxiosResponse<ConfigDTO> = await backendAPI.get(
+      'config/full'
+    );
+    return config.data;
+  }
+
+  async updateConfig(config: ConfigDTO): Promise<void> {
     await backendAPI.post('config', config);
   }
 

@@ -1,4 +1,4 @@
-export interface Config {
+export interface ConfigDTO {
   siteName: string;
   siteLink: string;
   emulatorIP: string;
@@ -15,10 +15,14 @@ export interface Config {
   swfOverrideTexts: string;
   loadingMessage: string;
   groupBadgeURL: string;
+  sendGridAPIKey: string;
+  sendGridAPISender: string;
+  sendGridForgotPasswordTemplate: string;
+  googleRecaptchaSiteKey: string;
   googleRecaptchaClientKey: string;
 }
 
-export const defaultConfig: Config = {
+export const exampleConfigDTO: ConfigDTO = {
   siteName: 'Habbo',
   emulatorIP: '127.0.0.1',
   emulatorPort: '3002',
@@ -36,5 +40,9 @@ export const defaultConfig: Config = {
   swfOverrideTexts: 'http://localhost:3000/swfs/gamedata/override/texts.txt',
   loadingMessage: 'Please wait as I do some things',
   groupBadgeURL: 'http://localhost:3000/swfs/other/images/Badgeparts/generated',
+  sendGridAPIKey: '',
+  sendGridAPISender: '',
+  sendGridForgotPasswordTemplate: '',
+  googleRecaptchaSiteKey: '',
   googleRecaptchaClientKey: '',
 };

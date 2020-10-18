@@ -1,15 +1,15 @@
 import {toast} from 'react-toastify';
-import {Config} from '@instinct/interface';
+import {ConfigDTO} from '@instinct/interface';
 import {websiteSettingsContext} from './WebsiteSettings';
 import React, {ReactElement, useEffect, useState} from 'react';
-import {configService, useFetchConfig} from '@instinct/frontend';
+import {configService, useFetchFullConfig} from '@instinct/frontend';
 import {
   defaultWebsiteSettingsContextState,
   WebsiteSettingsContextState,
 } from './WebsiteSettings.types';
 
 export function WebsiteSettingsProvider({children}: {children: ReactElement}) {
-  const defaultConfig = useFetchConfig();
+  const defaultConfig = useFetchFullConfig();
   const [state, setState] = useState<WebsiteSettingsContextState>(
     defaultWebsiteSettingsContextState
   );
@@ -27,12 +27,15 @@ export function WebsiteSettingsProvider({children}: {children: ReactElement}) {
     return <i className="fa fa-spinner fa-spin" />;
   }
 
-  function setConfig(config: Partial<Config>): void {
+  function setConfig<K extends keyof ConfigDTO>(
+    key: K,
+    value: ConfigDTO[K]
+  ): void {
     setState(_ => ({
       ..._,
       config: {
         ..._.config,
-        ...config,
+        [key]: value,
       },
     }));
   }

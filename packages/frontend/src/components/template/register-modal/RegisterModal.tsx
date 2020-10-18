@@ -6,19 +6,20 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import {Form, Input} from '../../generic/form';
 import React, {useContext, useState} from 'react';
 import {userService} from '../../../services/user';
+import {configContext} from '../../../context/config';
 import {sessionContext} from '../../../context/session';
 import {sessionService} from '../../../services/session';
 import {ModalButton} from '../../generic/modal/modal-button';
 import {RegisterModalState, defaultRegisterModalState} from './';
 
 export function RegisterModal() {
+  const {config} = useContext(configContext);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [location, setLocation] = useLocation();
   const [state, setState] = useState<RegisterModalState>(
     defaultRegisterModalState
   );
   const {setUser} = useContext(sessionContext);
-
-  console.log(process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY);
 
   const disabled: boolean =
     state.username === '' ||
@@ -104,7 +105,7 @@ export function RegisterModal() {
           </label>
           <div className="row mt-2 mb-2">
             <ReCAPTCHA
-              sitekey={process.env.REACT_APP_GOOGLE_RECAPTCHA_KEY!}
+              sitekey={config.googleRecaptchaClientKey}
               onChange={x => setValue('captcha', x as string)}
             />
           </div>

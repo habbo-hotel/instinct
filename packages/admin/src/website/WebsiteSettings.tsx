@@ -11,6 +11,8 @@ import {
   setURL,
   TabCard,
 } from '@instinct/frontend';
+import {GoogleSettings} from './views/GoogleSettings';
+import {MailSettings} from './views/MailSettings';
 
 setURL('admin/website', <WebsiteSettings />);
 
@@ -44,6 +46,16 @@ export function WebsiteSettings() {
                       name: 'Game Settings',
                       icon: 'gamepad',
                       children: <GameSettings />,
+                    },
+                    {
+                      name: 'Captcha Settings',
+                      icon: 'robot',
+                      children: <GoogleSettings />,
+                    },
+                    {
+                      name: 'Email Settings',
+                      icon: 'envelope-open',
+                      children: <MailSettings />,
                     },
                   ]}
                 />
