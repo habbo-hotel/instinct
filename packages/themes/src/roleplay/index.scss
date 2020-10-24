@@ -1,0 +1,66 @@
+.popular-group {
+  background-color: #10426d !important;
+  border-color: #0b6395;
+  color: white;
+
+  &:hover {
+    border-color: #70c8e8;
+  }
+}
+
+.alert-danger {
+  color: white;
+  background-color: #C2185B;
+}
+
+#loader {
+  background: url('/img/logo/regular.png');
+  width: 259px;
+
+  .loading_bar {
+    margin-top: 15px;
+  }
+
+}
+
+.modal-header {
+  background: #001726;
+  color: white;
+  border-color: #0b6395;
+
+  .close {
+    color: white;
+  }
+}
+
+.modal-body {
+  background: #10426d;
+  color: white;
+}
+
+.modal-footer {
+  background: #001726;
+  color: white;
+  border-color: #0b6395;
+}
+
+.tab-card .navigation {
+  background: #001726;
+  top: 0px;
+  left: -100px;
+}
+
+.modal-backdrop.show {
+  opacity: 0.8;
+}
+
+.member-container .member-content {
+  color: white;
+}
+
+.popular-group {
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}

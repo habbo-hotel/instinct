@@ -9,7 +9,8 @@
       "@instinct/frontend": ["./packages/frontend/src"],
       "@instinct/backend":  ["./packages/backend/src"],
       "@instinct/interface": ["./packages/interface/src"],
-      "@instinct/themes": ["./packages/themes/src"]
+      "@instinct/themes": ["./packages/themes/src"],
+      "@instinct/interface-rp": ["./packages/interface-rp/src"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

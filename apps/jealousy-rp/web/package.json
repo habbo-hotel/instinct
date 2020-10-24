@@ -1,0 +1,41 @@
+{
+  "name": "@instinct/jealousy-web-rp",
+  "private": true,
+  "scripts": {
+    "start": "PORT=3001 react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "gts clean && gts check && tsc -p . && react-scripts test --coverage",
+    "fix": "gts clean && gts fix"
+  },
+  "dependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.10",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "customize-cra": "^1.0.0",
+    "customize-cra-react-refresh": "^1.1.0",
+    "node-sass": "^4.14.1",
+    "react-app-rewired": "^2.1.6",
+    "react-scripts": "^3.4.3",
+    "typescript": "^4.0.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3000"
+}
