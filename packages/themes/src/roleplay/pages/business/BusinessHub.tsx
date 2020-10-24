@@ -13,7 +13,7 @@ setURL('business', <BusinessHub />);
 
 export function BusinessHub() {
   return (
-    <UserLayout section="community_team">
+    <UserLayout section="business">
       <Jumbotron title="Business Hub">
         <p>Test </p>
       </Jumbotron>

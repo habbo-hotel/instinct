@@ -1,3 +1,4 @@
+import './Staff.scss';
 import React from 'react';
 import {UserLayout} from '../../../components/layout/user';
 import {

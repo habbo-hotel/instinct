@@ -2,6 +2,7 @@ import './StaffWidget.scss';
 import {Bans} from './views/Bans';
 import React, {useState} from 'react';
 import {Support} from './views/Support';
+import Draggable from 'react-draggable';
 import {ClientCard, Icon, PermissionGuard, TabItem} from '@instinct/frontend';
 
 export function StaffWidget() {
@@ -32,25 +33,29 @@ export function StaffWidget() {
         Staff
       </button>
       {showModal && (
-        <ClientCard header="Staff Tools">
-          <div className="row">
-            {tabs.map((tab, index) => (
-              <div
-                className={`${
-                  activeTab === index
-                    ? 'staff-widget-item active-staff-widget'
-                    : 'staff-widget-item'
-                }`}
-                key={index}
-                onClick={() => toggleTab(index)}
-              >
-                <Icon family="fas" type={tab.icon} />
+        <Draggable>
+          <div>
+            <ClientCard header="Staff Tools">
+              <div className="row">
+                {tabs.map((tab, index) => (
+                  <div
+                    className={`${
+                      activeTab === index
+                        ? 'staff-widget-item active-staff-widget'
+                        : 'staff-widget-item'
+                    }`}
+                    key={index}
+                    onClick={() => toggleTab(index)}
+                  >
+                    <Icon family="fas" type={tab.icon} />
+                  </div>
+                ))}
               </div>
-            ))}
+              <br />
+              {tabs[activeTab].children}
+            </ClientCard>
           </div>
-          <br />
-          {tabs[activeTab].children}
-        </ClientCard>
+        </Draggable>
       )}
     </PermissionGuard>
   );

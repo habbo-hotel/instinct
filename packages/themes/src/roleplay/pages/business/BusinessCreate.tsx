@@ -13,7 +13,7 @@ setURL('business/create', <BusinessCreate />);
 
 export function BusinessCreate() {
   return (
-    <UserLayout section="community_team">
+    <UserLayout section="business">
       <Jumbotron title="Business Creator">
         <p>Test </p>
       </Jumbotron>

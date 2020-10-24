@@ -13,7 +13,7 @@ setURL('business/:businessID/edit', <BusinessEdit />);
 
 export function BusinessEdit() {
   return (
-    <UserLayout section="community_team">
+    <UserLayout section="business">
       <Jumbotron title="Business Editorr">
         <p>Test </p>
       </Jumbotron>

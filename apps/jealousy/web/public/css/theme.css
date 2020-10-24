@@ -529,7 +529,6 @@ input:-webkit-autofill{
 }
 
 .header-container:before{
-    background-image: url(../img/header/pattern.png);
     background-color: rgba(32, 107, 156, 0.7);
     content: "";
     display: block;

@@ -27,6 +27,7 @@ body {
 
   .header-logo {
     margin-left: -30px;
+    margin-top: -10px;
     width: 350px;
   }
 
@@ -118,4 +119,10 @@ body {
 
 .page-container[data-page = "profile"] .profile-header .header-content {
   background: url(https://i.imgur.com/5nou6fm.png);
+}
+
+.img-overflow {
+  img {
+    max-width: 100%;
+  }
 }

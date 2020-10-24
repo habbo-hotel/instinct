@@ -1,4 +1,4 @@
-ke import {AppModule} from './app.module';
+import {AppModule} from './app.module';
 import {NestFactory} from '@nestjs/core';
 import {useContainer} from 'class-validator';
 import {ValidationPipe} from '@nestjs/common';

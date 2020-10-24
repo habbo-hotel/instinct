@@ -5,5 +5,9 @@
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/ban-ts-comment": 0,
     "node/no-unpublished-import": 0
-  }
+  },
+  "plugins": [
+    "react",
+    "react-hooks"
+  ]
 }
