@@ -1,5 +1,6 @@
 import {ConfigDTO} from '@instinct/interface';
 import {
+  IsBoolean,
   IsEmail,
   IsIP,
   IsNotEmpty,
@@ -7,6 +8,7 @@ import {
   IsPort,
   IsString,
 } from 'class-validator';
+import {ConfigEntity} from '../database/entity/config';
 
 export class UpdateConfigDTO implements ConfigDTO {
   @IsString()
@@ -110,4 +112,16 @@ export class UpdateConfigDTO implements ConfigDTO {
   @IsNotEmpty()
   @IsOptional()
   googleRecaptchaClientKey!: string;
+
+  @IsBoolean()
+  @IsOptional()
+  websocketEnabled!: boolean;
+
+  @IsString()
+  @IsOptional()
+  websocketIP!: string;
+
+  @IsString()
+  @IsOptional()
+  websocketPort!: string;
 }

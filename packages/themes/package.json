@@ -13,11 +13,13 @@
     "moment": "^2.29.1",
     "n": "^6.7.0",
     "react-datepicker": "^3.3.0",
+    "react-draggable": "^4.4.3",
     "react-google-recaptcha": "^2.1.0",
     "react-loading-skeleton": "^2.1.1",
     "react-toastify": "^6.0.9",
     "styled-components": "^5.2.0",
     "tslib": "^2.0.3",
+    "websocket": "^1.0.32",
     "wouter": "^2.5.3"
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@types/react-test-renderer": "^16.9.3",
     "@types/reactstrap": "^8.5.2",
     "@types/styled-components": "^5.1.4",
+    "@types/websocket": "^1.0.1",
     "autoprefixer": "^10.0.1",
     "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",

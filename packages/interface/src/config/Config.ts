@@ -16,6 +16,9 @@ export interface Config {
   loadingMessage: string;
   groupBadgeURL: string;
   googleRecaptchaClientKey: string;
+  websocketEnabled: boolean;
+  websocketIP: string;
+  websocketPort: string;
 }
 
 export const defaultConfig: Config = {
@@ -37,4 +40,7 @@ export const defaultConfig: Config = {
   loadingMessage: 'Please wait as I do some things',
   groupBadgeURL: 'http://localhost:3000/swfs/other/images/Badgeparts/generated',
   googleRecaptchaClientKey: '',
+  websocketEnabled: false,
+  websocketIP: '',
+  websocketPort: '',
 };

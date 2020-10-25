@@ -1,5 +1,5 @@
 {
-  "name": "@instinct/jealousy-api",
+  "name": "@instinct/jealousy-rp-api",
   "private": true,
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src/main.ts",

@@ -67,4 +67,13 @@ export class ConfigEntity {
 
   @Column({name: 'google_recaptcha_secret_key'})
   googleRecaptchaSecretKey!: string;
+
+  @Column({name: 'websocket_enabled', type: 'tinyint'})
+  websocketEnabled!: boolean;
+
+  @Column({name: 'websocket_ip'})
+  websocketIP!: string;
+
+  @Column({name: 'websocket_port'})
+  websocketPort!: string;
 }

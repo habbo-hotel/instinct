@@ -1,9 +1,9 @@
-import {Config, ConfigDTO} from '@instinct/interface';
 import {UpdateConfigDTO} from './config.dto';
+import {Config, ConfigDTO} from '@instinct/interface';
 import {Body, Controller, Get, Post} from '@nestjs/common';
 import {HasScope} from '../session/permission-scope.decorator';
-import {configDTOWire, configWire} from '../database/entity/config/config.wire';
 import {ConfigRepository} from '../database/entity/config/config.repository';
+import {configDTOWire, configWire} from '../database/entity/config/config.wire';
 
 @Controller('config')
 export class ConfigController {

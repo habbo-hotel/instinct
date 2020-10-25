@@ -20,6 +20,9 @@ export interface ConfigDTO {
   sendGridForgotPasswordTemplate: string;
   googleRecaptchaSiteKey: string;
   googleRecaptchaClientKey: string;
+  websocketEnabled: boolean;
+  websocketIP: string;
+  websocketPort: string;
 }
 
 export const exampleConfigDTO: ConfigDTO = {
@@ -45,4 +48,7 @@ export const exampleConfigDTO: ConfigDTO = {
   sendGridForgotPasswordTemplate: '',
   googleRecaptchaSiteKey: '',
   googleRecaptchaClientKey: '',
+  websocketEnabled: false,
+  websocketIP: '',
+  websocketPort: '',
 };
