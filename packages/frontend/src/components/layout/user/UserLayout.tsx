@@ -1,8 +1,8 @@
 import {UserLayoutProps} from './';
+import {useLocation} from 'wouter';
 import {Icon} from '../../generic/icon';
-import {Link, useLocation} from 'wouter';
 import {UserGuard} from '../../guard/user';
-import {Header} from '../../template/header';
+import {EnterHotelButton, Header} from '../../template/header';
 import {Footer} from '../../template/footer';
 import {NavBar} from '../../template/navbar';
 import React, {useContext, useEffect} from 'react';
@@ -32,9 +32,7 @@ export function UserLayout({
     <UserGuard>
       <span className="page-container">
         <Header>
-          <Link className="rounded-button white plain mr-4" to="/play">
-            Enter Hotel
-          </Link>
+          <EnterHotelButton />
           <button className="rounded-button white">
             {health.usersOnline}
             <Icon className="ml-2" type="user" />

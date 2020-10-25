@@ -1,5 +1,5 @@
 import {UserLayoutProps} from './';
-import {Link, useLocation} from 'wouter';
+import {useLocation} from 'wouter';
 import {NavBar} from '../../templates/navbar';
 import React, {useContext, useEffect} from 'react';
 import {
