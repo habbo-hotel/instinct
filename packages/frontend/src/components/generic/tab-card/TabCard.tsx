@@ -10,7 +10,7 @@ export function TabCard({tabs}: TabCardProps) {
   const activeTab: TabItem = tabs[active];
 
   return (
-    <article className="tab-card">
+    <article className="tab-card" style={{position: 'relative'}}>
       <ul className="navigation">
         {tabs.map((tab, index) => (
           <li

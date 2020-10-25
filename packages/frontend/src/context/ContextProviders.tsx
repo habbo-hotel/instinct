@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ClientContextProvider,
   ContextProvidersProps,
   ConfigContextProvider,
   SessionContextProvider,
@@ -12,9 +13,11 @@ export function ContextProviders({children}: ContextProvidersProps) {
     <>
       <ConfigContextProvider>
         <SessionContextProvider>
-          <HealthContextProvider>
-            <ThemeContextProvider>{children}</ThemeContextProvider>
-          </HealthContextProvider>
+          <ClientContextProvider>
+            <HealthContextProvider>
+              <ThemeContextProvider>{children}</ThemeContextProvider>
+            </HealthContextProvider>
+          </ClientContextProvider>
         </SessionContextProvider>
       </ConfigContextProvider>
     </>

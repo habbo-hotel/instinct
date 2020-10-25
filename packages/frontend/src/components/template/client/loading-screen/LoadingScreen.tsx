@@ -1,20 +1,20 @@
 import './LoadingScreen.scss';
-import {sessionContext} from '@instinct/frontend';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
+import {clientContext, sessionContext} from '@instinct/frontend';
 import {ClientEvent, clientService} from '@instinct/frontend';
 
 export function LoadingScreen() {
   const {setOnline} = useContext(sessionContext);
-  const [progress, setProgress] = useState<number>(0);
+  const {loadingProgress, setLoading} = useContext(clientContext);
 
   useEffect(() => {
-    clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setProgress);
+    clientService.eventListener.on(ClientEvent.LOADING_PROGRESS, setLoading);
     clientService.eventListener.on(ClientEvent.ENTERED_HOTEL, () =>
       setOnline(true)
     );
   }, []);
 
-  if (progress === 100) {
+  if (loadingProgress === 100) {
     return null;
   }
 
@@ -26,9 +26,9 @@ export function LoadingScreen() {
             <div
               className="percent"
               id="loader_bar"
-              style={{width: `${progress}%`}}
+              style={{width: `${loadingProgress}%`}}
             />
-            {progress}%
+            {loadingProgress}%
           </div>
         </div>
         <div className="loader-section section-top" />

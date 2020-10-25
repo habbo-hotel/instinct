@@ -16,7 +16,7 @@ export function UsersLayout({children}: {children: any}) {
         <Row>
           <Container>
             <article className="default-section" style={{paddingLeft: 60}}>
-              <article className="tab-card">
+              <article className="tab-card" style={{position: 'relative'}}>
                 <ul className="navigation">
                   <Link to="/admin/users">
                     <li

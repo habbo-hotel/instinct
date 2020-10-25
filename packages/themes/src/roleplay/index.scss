@@ -1,7 +1,3 @@
-body {
-  color: white;
-}
-
 .popular-group {
   background-color: #10426d !important;
   border-color: #0b6395;
@@ -15,16 +11,6 @@ body {
 .alert-danger {
   color: white;
   background-color: #C2185B;
-}
-
-#loader {
-  background: url('/img/logo/regular.png');
-  width: 259px;
-
-  .loading_bar {
-    margin-top: 15px;
-  }
-
 }
 
 .modal-header {
@@ -50,8 +36,6 @@ body {
 
 .tab-card .navigation {
   background: #001726;
-  top: 0px;
-  left: -100px;
 }
 
 .modal-backdrop.show {

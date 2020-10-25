@@ -14,7 +14,7 @@ export function ServerSettings() {
           <h4>Emulator IP</h4>
           <Input
             type="text"
-            name="siteName"
+            name="emulatorIP"
             onChange={setConfig}
             value={config.emulatorIP}
           />
@@ -23,7 +23,7 @@ export function ServerSettings() {
           <h4>Emulator Port</h4>
           <Input
             type="text"
-            name="siteLink"
+            name="emulatorPort"
             onChange={setConfig}
             value={config.emulatorPort}
           />

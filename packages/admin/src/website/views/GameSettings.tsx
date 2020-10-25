@@ -9,6 +9,15 @@ export function GameSettings() {
   return (
     <Form className="" onSubmit={saveChanges}>
       <div style={{padding: 2}}>
+        <h4>Habbo SWF</h4>
+        <Input
+          type="text"
+          name="swfHabbo"
+          onChange={setConfig}
+          value={config.swfHabbo}
+        />
+      </div>
+      <div style={{padding: 2}}>
         <h4>SWF Folder</h4>
         <Input
           type="text"

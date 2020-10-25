@@ -9,6 +9,7 @@ import {
   Footer,
   healthContext,
   sessionContext,
+  EnterHotelButton,
 } from '@instinct/frontend';
 
 export function UserLayout({
@@ -34,9 +35,7 @@ export function UserLayout({
     <UserGuard>
       <span className="page-container">
         <Header>
-          <Link className="rounded-button white plain mr-4" to="/play">
-            Enter Hotel
-          </Link>
+          <EnterHotelButton />
           <button className="rounded-button white">
             {health.usersOnline}
             <Icon className="ml-2" type="user" />
