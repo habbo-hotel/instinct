@@ -12,7 +12,7 @@ export interface Business {
 export const exampleBusiness: Business = {
   id: 1,
   owner: exampleUser,
-  name: 'Test Corp',
+  name: 'Police',
   desc: 'This corporation is a test',
   badge: 'ADM',
   employees: [exampleUser],

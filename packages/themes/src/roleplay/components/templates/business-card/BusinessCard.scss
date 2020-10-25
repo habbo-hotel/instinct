@@ -1,0 +1,15 @@
+.business-card {
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid white;
+  }
+
+}
+
+.avatar {
+  height: 170px;
+  width: 128px;
+  overflow: hidden;
+  margin-top: -40px;
+}
