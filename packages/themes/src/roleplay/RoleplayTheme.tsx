@@ -9,7 +9,6 @@ export function RoleplayTheme() {
   useEffect(() => {
     async function load() {
       await import('./pages');
-      await import('./widgets');
       setLoading(false);
     }
 

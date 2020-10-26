@@ -29,7 +29,15 @@ export class WebSocketService implements WebSocketServiceBase {
   };
 
   onMessage = (event: MessageEvent) => {
-    console.log('WS Connection Message: ', event);
+    const {event_name, event_data} = JSON.parse(event.data);
+    const subscribers = this.subscribers[event_name] ?? [];
+    console.log(
+      `Found ${subscribers.length} subscribers for event ${event_name}`
+    );
+
+    for (const subscriber of subscribers) {
+      subscriber(event_data);
+    }
   };
 
   addSubscriber = <K extends WebSocketIncomingEvent>(
