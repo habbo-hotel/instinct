@@ -1,27 +1,13 @@
 // @ts-ignore this dependency does not support Typescript
 import Flash from 'swfobject';
+import React, {useContext, useEffect} from 'react';
 import {configContext} from '../../../../context/config';
-import {sessionService} from '../../../../services/session';
-import React, {useContext, useEffect, useState} from 'react';
-import {webSocketContext} from '../../../../context/web-socket/WebSocket';
+import {sessionContext, useRenewSessionSSO} from '@instinct/frontend';
 
 export function ClientContainer() {
-  const [sso, setSSO] = useState<string>();
+  useRenewSessionSSO();
+  const {sso} = useContext(sessionContext);
   const {config} = useContext(configContext);
-  const {startConnection} = useContext(webSocketContext);
-
-  useEffect(() => {
-    async function fetchSSO(): Promise<void> {
-      const sso: string = await sessionService.createSSO();
-      setSSO(sso);
-
-      if (config.websocketEnabled) {
-        startConnection(sso);
-      }
-    }
-
-    fetchSSO();
-  }, []);
 
   useEffect(() => {
     function setupGame(): void {
@@ -66,10 +52,6 @@ export function ClientContainer() {
         parameters,
         null
       );
-    }
-
-    function setupWebSocket() {
-
     }
 
     if (sso !== undefined) {

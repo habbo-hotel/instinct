@@ -3,6 +3,5 @@ export * from './config';
 export * from './health';
 export * from './session';
 export * from './theme';
-export * from './web-socket';
 export * from './ContextProviders';
 export * from './ContextProviders.types';

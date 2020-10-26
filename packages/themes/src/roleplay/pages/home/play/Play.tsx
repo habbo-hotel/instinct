@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {setURL, themeContext} from '@instinct/frontend';
+import {ClientWidgets} from '../../../widgets/ClientWidgets';
 
 setURL('play', <PlayPage />);
 
@@ -8,7 +9,7 @@ export function PlayPage() {
 
   useEffect(() => {
     setStore({showClient: true});
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return null;
+  return <ClientWidgets />;
 }

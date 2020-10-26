@@ -38,7 +38,9 @@ class ClientServiceImplementation implements ClientService {
 
   enterRoom(roomID: number): void {
     // @ts-ignore - openlink is a property made up by flash
-    return document.getElementById('client-area')!.openlink('navigator/goto/' + roomID);
+    return document
+      .getElementById('client-area')!
+      .openlink('navigator/goto/' + roomID);
   }
 }
 

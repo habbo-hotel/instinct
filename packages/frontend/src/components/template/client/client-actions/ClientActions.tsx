@@ -4,7 +4,6 @@ import {Icon} from '../../../generic/icon';
 import React, {useContext, useState} from 'react';
 import {themeContext} from '../../../../context/theme';
 import {healthContext} from '../../../../context/health';
-import {StaffWidget} from '../../staff-widget/StaffWidget';
 
 export function ClientActions() {
   const [location, setLocation] = useLocation();
@@ -40,7 +39,6 @@ export function ClientActions() {
         <Icon family="fas" type="user" />
         <b>{health.usersOnline}</b>
       </button>
-      <StaffWidget />
     </div>
   );
 }

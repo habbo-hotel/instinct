@@ -1,5 +1,6 @@
 import '@instinct/frontend';
 import React, {useEffect, useState} from 'react';
+import {WebSocketContextProvider} from './context/web-socket';
 import {Bootstrap, ContextProviders} from '@instinct/frontend';
 
 export function RoleplayTheme() {
@@ -21,7 +22,9 @@ export function RoleplayTheme() {
 
   return (
     <ContextProviders>
-      <Bootstrap />
+      <WebSocketContextProvider>
+        <Bootstrap />
+      </WebSocketContextProvider>
     </ContextProviders>
   );
 }

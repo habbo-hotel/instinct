@@ -1,37 +1,18 @@
 import './JobOffer.scss';
-import React, {useContext, useEffect, useState} from 'react';
-import {registerClientWidget, sessionContext, webSocketContext} from '@instinct/frontend';
+import React, {useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
-
-interface UserOffer {
-  event_data: {
-    offer_name: 'job';
-  }
-}
-
-
-registerClientWidget(JobOfferWidget);
+import {WebSocketIncomingJobOfferEvent} from '@instinct/interface-rp';
+import {useWebSocketEventListener} from '../../hooks/web-socket';
 
 export function JobOfferWidget() {
-  const {online} = useContext(sessionContext);
-  const {onEvent} = useContext(webSocketContext);
+  useWebSocketEventListener('user_offered_something', handleOffer);
+
   const [isOpen, toggleModal] = useState(false);
 
-  function handleOffer(data: UserOffer) {
-    if (data.event_data.offer_name === 'job') {
-      toggleModal(true);
-    }
+  function handleOffer(data: WebSocketIncomingJobOfferEvent) {
+    console.log('Job Offer: ', data);
+    toggleModal(true);
   }
-
-  useEffect(() => {
-    function subscribeToJobOffers() {
-      onEvent('user_offered_something', handleOffer);
-    }
-
-    if (online) {
-      subscribeToJobOffers();
-    }
-  }, [online]);
 
   return (
     <Modal isOpen={isOpen}>
