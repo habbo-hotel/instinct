@@ -1,14 +1,40 @@
 import './JobOffer.scss';
-import React from 'react';
-import {registerClientWidget} from '@instinct/frontend';
+import React, {useContext, useEffect, useState} from 'react';
+import {registerClientWidget, sessionContext, webSocketContext} from '@instinct/frontend';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
+
+interface UserOffer {
+  event_data: {
+    offer_name: 'job';
+  }
+}
+
 
 registerClientWidget(JobOfferWidget);
 
 export function JobOfferWidget() {
-  return null;
+  const {online} = useContext(sessionContext);
+  const {onEvent} = useContext(webSocketContext);
+  const [isOpen, toggleModal] = useState(false);
+
+  function handleOffer(data: UserOffer) {
+    if (data.event_data.offer_name === 'job') {
+      toggleModal(true);
+    }
+  }
+
+  useEffect(() => {
+    function subscribeToJobOffers() {
+      onEvent('user_offered_something', handleOffer);
+    }
+
+    if (online) {
+      subscribeToJobOffers();
+    }
+  }, [online]);
+
   return (
-    <Modal isOpen>
+    <Modal isOpen={isOpen}>
       <ModalHeader>You've been offered a job!</ModalHeader>
       <ModalBody className="job-offer-widget">
         <div className="text-center">

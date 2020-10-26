@@ -20,7 +20,7 @@ export function configWire(configEntity: ConfigEntity): Config {
     loadingMessage: configEntity.loadingMessage,
     groupBadgeURL: configEntity.groupBadgeURL,
     googleRecaptchaClientKey: configEntity.googleRecaptchaClientKey,
-    websocketEnabled: configEntity.websocketEnabled,
+    websocketEnabled: configEntity.websocketEnabled === 1,
     websocketIP: configEntity.websocketIP,
     websocketPort: configEntity.websocketPort,
   };

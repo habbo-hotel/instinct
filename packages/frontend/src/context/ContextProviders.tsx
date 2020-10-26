@@ -7,17 +7,20 @@ import {
   ThemeContextProvider,
   HealthContextProvider,
 } from './index';
+import {WebSocketContextProvider} from './web-socket/WebSocket.provider';
 
 export function ContextProviders({children}: ContextProvidersProps) {
   return (
     <>
       <ConfigContextProvider>
         <SessionContextProvider>
-          <ClientContextProvider>
-            <HealthContextProvider>
-              <ThemeContextProvider>{children}</ThemeContextProvider>
-            </HealthContextProvider>
-          </ClientContextProvider>
+          <WebSocketContextProvider>
+            <ClientContextProvider>
+              <HealthContextProvider>
+                <ThemeContextProvider>{children}</ThemeContextProvider>
+              </HealthContextProvider>
+            </ClientContextProvider>
+          </WebSocketContextProvider>
         </SessionContextProvider>
       </ConfigContextProvider>
     </>

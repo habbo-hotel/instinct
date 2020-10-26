@@ -3,15 +3,21 @@ import Flash from 'swfobject';
 import {configContext} from '../../../../context/config';
 import {sessionService} from '../../../../services/session';
 import React, {useContext, useEffect, useState} from 'react';
+import {webSocketContext} from '../../../../context/web-socket/WebSocket';
 
 export function ClientContainer() {
   const [sso, setSSO] = useState<string>();
   const {config} = useContext(configContext);
+  const {startConnection} = useContext(webSocketContext);
 
   useEffect(() => {
     async function fetchSSO(): Promise<void> {
       const sso: string = await sessionService.createSSO();
       setSSO(sso);
+
+      if (config.websocketEnabled) {
+        startConnection(sso);
+      }
     }
 
     fetchSSO();
@@ -60,6 +66,10 @@ export function ClientContainer() {
         parameters,
         null
       );
+    }
+
+    function setupWebSocket() {
+
     }
 
     if (sso !== undefined) {
