@@ -1,6 +1,7 @@
 {
   "name": "@instinct-prj/backend",
   "private": true,
+  "version": "0.01",
   "main": "build/",
   "scripts": {
     "build": "tsc -p .",
