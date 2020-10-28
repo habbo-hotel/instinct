@@ -1,7 +1,7 @@
 {
   "name": "@instinct-prj/frontend",
   "private": true,
-  "version": null,
+  "version": "0.01",
   "scripts": {
     "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",
     "deploy:unsafe": "npm run build && npm publish build",
