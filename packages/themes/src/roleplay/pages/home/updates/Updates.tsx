@@ -1,6 +1,6 @@
 import React from 'react';
 import {UserLayout} from '../../../components/layout/user';
-import {Container, Column, setURL, Card, Jumbotron} from '@instinct/frontend';
+import {Container, Column, setURL, Card, Jumbotron} from '@instinct-prj/frontend';
 
 setURL('updates', <Updates />);
 

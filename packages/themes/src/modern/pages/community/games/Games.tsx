@@ -8,7 +8,7 @@ import {
   Row,
   UserLayout,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('community/games', <Games />);
 

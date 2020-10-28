@@ -1,7 +1,7 @@
-import '@instinct/frontend';
+import '@instinct-prj/frontend';
 import React, {useEffect, useState} from 'react';
 import {WebSocketContextProvider} from './context/web-socket';
-import {Bootstrap, ContextProviders} from '@instinct/frontend';
+import {Bootstrap, ContextProviders} from '@instinct-prj/frontend';
 
 export function RoleplayTheme() {
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import {SessionService} from './';
 import {AxiosResponse} from 'axios';
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import {backendAPI, setAPIToken} from '../../api';
 import {localStorageService} from '../../services';
 

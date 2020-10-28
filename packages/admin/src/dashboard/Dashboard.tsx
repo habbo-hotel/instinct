@@ -6,7 +6,7 @@ import {
   Container,
   Jumbotron,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('admin', <Dashboard />);
 

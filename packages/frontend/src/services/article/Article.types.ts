@@ -2,7 +2,7 @@ import {
   Article,
   ArticleCategory,
   CreateNewsArticleRequest,
-} from '@instinct/interface';
+} from '@instinct-prj/interface';
 
 export interface ArticleTypes {
   getAll(): Promise<Article[]>;

@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify';
 import React, {useState} from 'react';
-import {banService} from '@instinct/frontend';
+import {banService} from '@instinct-prj/frontend';
 import {DeleteBanModalProps} from './DeleteBan.types';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 

@@ -24,7 +24,7 @@ const PLUGINS = [
   filesize(),
 ];
 
-const EXTERNAL = ['react', 'react-dom', 'react-is', 'react-router-dom', '@instinct/interface'];
+const EXTERNAL = ['react', 'react-dom', 'react-is', 'react-router-dom', '@instinct-prj/interface'];
 
 const OUTPUT_DATA = [
   {

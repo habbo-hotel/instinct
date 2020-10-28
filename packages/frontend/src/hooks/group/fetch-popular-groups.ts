@@ -1,4 +1,4 @@
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 import {createFetchHook} from '../fetch-hook.base';
 import {groupService} from '../../services/group';
 

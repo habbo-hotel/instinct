@@ -1,4 +1,4 @@
-import {Rank, RankDTO} from '@instinct/interface';
+import {Rank, RankDTO} from '@instinct-prj/interface';
 
 export interface RankTypes {
   create(rank: RankDTO): Promise<Rank>;

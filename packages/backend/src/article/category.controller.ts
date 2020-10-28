@@ -1,4 +1,4 @@
-import {ArticleCategory} from '@instinct/interface';
+import {ArticleCategory} from '@instinct-prj/interface';
 import {ArticleCategoryDTO} from './category.dto';
 import {CategoryPipe} from './category.pipe';
 import {HasScope} from '../session/permission-scope.decorator';

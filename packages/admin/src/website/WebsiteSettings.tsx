@@ -10,7 +10,7 @@ import {
   Row,
   setURL,
   TabCard,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 import {GoogleSettings} from './views/GoogleSettings';
 import {MailSettings} from './views/MailSettings';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card} from '@instinct/frontend';
+import {Card} from '@instinct-prj/frontend';
 import {UserProfileWidgetProps} from '../UserProfile.types';
 
 export function FavoriteVideo({profile}: UserProfileWidgetProps) {

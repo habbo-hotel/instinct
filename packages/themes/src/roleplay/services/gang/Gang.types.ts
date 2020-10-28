@@ -1,4 +1,4 @@
-import {Gang} from '@instinct/interface-rp';
+import {Gang} from '@instinct-prj/interface-rp';
 
 export interface GangService {
   getAll(): Promise<Gang[]>;

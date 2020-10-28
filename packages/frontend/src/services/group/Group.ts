@@ -1,7 +1,7 @@
 import {GroupService} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 
 class GroupServiceImplementation implements GroupService {
   async getAll() {

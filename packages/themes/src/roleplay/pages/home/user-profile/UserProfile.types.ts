@@ -1,4 +1,4 @@
-import {UserProfile} from '@instinct/interface';
+import {UserProfile} from '@instinct-prj/interface';
 
 export interface UserProfileWidgetProps {
   profile?: UserProfile;

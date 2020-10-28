@@ -2,7 +2,7 @@ import Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {UserDTOClass} from './user.dto';
 import {maxAccountsPerIP} from '../config/environment';
-import {Room, User, UserProfile} from '@instinct/interface';
+import {Room, User, UserProfile} from '@instinct-prj/interface';
 import {
   badgeWire,
   groupWire,

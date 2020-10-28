@@ -1,6 +1,6 @@
 import {join} from 'path';
 import {Module} from '@nestjs/common';
-import {InstinctModule} from '@instinct/backend';
+import {InstinctModule} from '@instinct-prj/backend';
 import {ServeStaticModule} from '@nestjs/serve-static';
 
 @Module({

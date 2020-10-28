@@ -1,4 +1,4 @@
-import {RankDTO} from '@instinct/interface';
+import {RankDTO} from '@instinct-prj/interface';
 import {IsBoolean, IsNotEmpty, IsNumber, IsString} from 'class-validator';
 
 export class RankDTOClass implements RankDTO {

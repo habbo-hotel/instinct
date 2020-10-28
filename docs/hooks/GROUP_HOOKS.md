@@ -7,7 +7,7 @@ This hook will return an array of the most popular groups or undefined while wai
 ```
 import React from 'react';
 import { Group } from 'instinct-interface';
-import { useFetchPopularGroups } from '@instinct/frontend';
+import { useFetchPopularGroups } from '@instinct-prj/frontend';
 
 export function ListGroups() {
   const groups: Group[] | undefined  = useFetchPopularGroups();
@@ -38,7 +38,7 @@ This hook will return a group or return undefined while waiting on the back-end.
 import React from 'react';
 import { useRoute } from 'wouter';
 import { Group } from 'instinct-interface';
-import { useFetchGroupByID, setURL } from '@instinct/frontend';
+import { useFetchGroupByID, setURL } from '@instinct-prj/frontend';
 
 setURL('groups/:groupID', <ViewGroup/>);
 

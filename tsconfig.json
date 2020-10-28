@@ -3,14 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@instinct/jealousy-web": ["./apps/jealousy/web/src"],
-      "@instinct/jealousy-api": ["./apps/jealousy/api/src"],
-      "@instinct/admin": ["./packages/admin/src"],
-      "@instinct/frontend": ["./packages/frontend/src"],
-      "@instinct/backend":  ["./packages/backend/src"],
-      "@instinct/interface": ["./packages/interface/src"],
-      "@instinct/themes": ["./packages/themes/src"],
-      "@instinct/interface-rp": ["./packages/interface-rp/src"]
+      "@instinct-prj/jealousy-web": ["./apps/jealousy/web/src"],
+      "@instinct-prj/jealousy-api": ["./apps/jealousy/api/src"],
+      "@instinct-prj/admin": ["./packages/admin/src"],
+      "@instinct-prj/frontend": ["./packages/frontend/src"],
+      "@instinct-prj/backend":  ["./packages/backend/src"],
+      "@instinct-prj/interface": ["./packages/interface/src"],
+      "@instinct-prj/themes": ["./packages/themes/src"],
+      "@instinct-prj/interface-rp": ["./packages/interface-rp/src"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

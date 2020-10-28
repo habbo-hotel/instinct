@@ -1,6 +1,6 @@
 import React from 'react';
 import {useRoute} from 'wouter';
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 import {
   Card,
   Column,
@@ -10,7 +10,7 @@ import {
   useFetchGroupByID,
   UserContainer,
   UserLayout,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('groups/:groupID', <ViewGroup />);
 

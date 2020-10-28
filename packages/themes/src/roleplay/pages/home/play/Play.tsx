@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react';
-import {setURL, themeContext} from '@instinct/frontend';
+import {setURL, themeContext} from '@instinct-prj/frontend';
 import {ClientWidgets} from '../../../widgets/ClientWidgets';
 
 setURL('play', <PlayPage />);

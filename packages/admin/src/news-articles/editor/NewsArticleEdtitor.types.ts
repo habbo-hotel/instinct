@@ -1,4 +1,4 @@
-import {Article, exampleArticle} from '@instinct/interface';
+import {Article, exampleArticle} from '@instinct-prj/interface';
 
 export interface NewsArticleEditorProps {
   defaultArticle?: Article;

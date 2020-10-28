@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Gang} from '@instinct/interface-rp';
+import {Gang} from '@instinct-prj/interface-rp';
 import {gangService} from '../../services/gang';
 
 export function useFetchGangByID(gangID: string): Gang | undefined {

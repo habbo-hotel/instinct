@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'wouter';
 import './BusinessCard.scss';
-import {Avatar, Card, Row} from '@instinct/frontend';
+import {Avatar, Card, Row} from '@instinct-prj/frontend';
 import {BusinessCardProps} from './BusinessCard.types';
 
 export function BusinessCard({business}: BusinessCardProps) {

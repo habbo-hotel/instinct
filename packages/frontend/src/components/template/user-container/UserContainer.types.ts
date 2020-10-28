@@ -1,4 +1,4 @@
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 
 export interface UserContainerProps {
   user: User;

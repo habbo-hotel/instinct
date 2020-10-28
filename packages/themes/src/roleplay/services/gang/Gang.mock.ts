@@ -1,5 +1,5 @@
 import {GangService} from './Gang.types';
-import {exampleGang} from '@instinct/interface-rp';
+import {exampleGang} from '@instinct-prj/interface-rp';
 
 export class GangServiceMock implements GangService {
   async getAll() {

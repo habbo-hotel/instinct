@@ -1,9 +1,9 @@
 import Toggle from 'react-toggle';
 import {toast} from 'react-toastify';
 import React, {useContext, useState} from 'react';
-import {Permissions, RankDTO} from '@instinct/interface';
+import {Permissions, RankDTO} from '@instinct-prj/interface';
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
-import {configContext, Form, Input, Row} from '@instinct/frontend';
+import {configContext, Form, Input, Row} from '@instinct-prj/frontend';
 import {
   defaultRankEditorState,
   RankEditorState,

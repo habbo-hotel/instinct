@@ -1,7 +1,7 @@
 import {RankTypes} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Rank, RankDTO} from '@instinct/interface';
+import {Rank, RankDTO} from '@instinct-prj/interface';
 
 class RankService implements RankTypes {
   async create(rankDTO: RankDTO) {

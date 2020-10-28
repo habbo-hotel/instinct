@@ -5,13 +5,13 @@ import {
   configContext,
   ContextProvidersProps,
   sessionContext,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 import {
   WebSocketIncomingEvent,
   WebSocketIncomingEvents,
   WebSocketOutgoingEvent,
   WebSocketOutgoingEvents,
-} from '@instinct/interface-rp';
+} from '@instinct-prj/interface-rp';
 
 export function WebSocketContextProvider({children}: ContextProvidersProps) {
   const {sso} = useContext(sessionContext);

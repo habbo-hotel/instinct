@@ -1,5 +1,5 @@
 import './OnlineUsers.scss';
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import React, {useEffect, useState} from 'react';
 import {UserLayout} from '../../../components/layout/user';
 import {
@@ -12,7 +12,7 @@ import {
   setURL,
   userService,
   UserContainerSkeleton,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('community/online', <OnlineUsers />);
 

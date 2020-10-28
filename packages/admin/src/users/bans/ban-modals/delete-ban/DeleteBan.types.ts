@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {UserBan} from '@instinct/interface';
+import {UserBan} from '@instinct-prj/interface';
 
 export interface DeleteBanModalProps {
   ban: UserBan;

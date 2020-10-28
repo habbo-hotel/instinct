@@ -1,4 +1,4 @@
-import {UserDTO} from '@instinct/interface';
+import {UserDTO} from '@instinct-prj/interface';
 import {UniqueEmail} from './constraint/unique-email';
 import {UniqueUsername} from './constraint/unique-username';
 import {ValidRecaptcha} from '../google/recaptcha.constraint';

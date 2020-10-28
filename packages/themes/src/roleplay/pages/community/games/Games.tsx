@@ -3,7 +3,7 @@ import {TopPixels} from './top-pixels';
 import {TopPoints} from './top-points';
 import {TopCredits} from './top-credits';
 import {UserLayout} from '../../../components/layout/user';
-import {Container, Jumbotron, Row, setURL} from '@instinct/frontend';
+import {Container, Jumbotron, Row, setURL} from '@instinct-prj/frontend';
 
 setURL('community/games', <Games />);
 

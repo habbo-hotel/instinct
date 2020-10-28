@@ -1,5 +1,5 @@
 {
-  "name": "@instinct/interface",
+  "name": "@instinct-prj/interface",
   "private": true,
   "main": "build/",
   "scripts": {

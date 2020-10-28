@@ -10,7 +10,7 @@ import {
   Referral,
   MyProfile,
   UserOfTheWeek,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('home', <Home />);
 

@@ -1,6 +1,6 @@
 import {Link} from 'wouter';
 import './ListNewsArticles.scss';
-import {Article} from '@instinct/interface';
+import {Article} from '@instinct-prj/interface';
 import React, {useEffect, useState} from 'react';
 import {
   AdminLayout,
@@ -11,7 +11,7 @@ import {
   Jumbotron,
   Row,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('admin/news', <ListNewsArticles />);
 

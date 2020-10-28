@@ -14,7 +14,7 @@ import {
   setURL,
   useFetchArticleByID,
   Skeleton,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('community/news/:articleID', <NewsArticle />);
 

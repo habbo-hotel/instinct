@@ -1,5 +1,5 @@
 {
-  "name": "@instinct/backend",
+  "name": "@instinct-prj/backend",
   "private": true,
   "main": "build/",
   "scripts": {

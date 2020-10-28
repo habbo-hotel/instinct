@@ -1,4 +1,4 @@
-import {UserBanDTO} from '@instinct/interface';
+import {UserBanDTO} from '@instinct-prj/interface';
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
 import React, {useContext, useEffect, useState} from 'react';
 import {
@@ -8,7 +8,7 @@ import {
   sessionContext,
   userService,
   DatePicker,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 import {
   BanEditorProps,
   BanEditorState,

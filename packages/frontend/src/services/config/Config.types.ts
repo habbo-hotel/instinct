@@ -1,4 +1,4 @@
-import {Config, ConfigDTO, Health} from '@instinct/interface';
+import {Config, ConfigDTO, Health} from '@instinct-prj/interface';
 
 export interface ConfigService {
   getConfig(): Promise<Config>;

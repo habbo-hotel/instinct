@@ -1,8 +1,8 @@
 import React from 'react';
 import {useRoute} from 'wouter';
-import {Article} from '@instinct/interface';
+import {Article} from '@instinct-prj/interface';
 import {NewsArticleEditor} from './editor/NewsArticleEditor';
-import {setURL, useFetchArticleByID} from '@instinct/frontend';
+import {setURL, useFetchArticleByID} from '@instinct-prj/frontend';
 
 setURL('admin/news/:articleID', <EditNewsArticle />);
 

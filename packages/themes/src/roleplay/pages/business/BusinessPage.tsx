@@ -12,7 +12,7 @@ import {
   setURL,
   Skeleton,
   UserContainer,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('business/:businessID', <BusinessPage />);
 

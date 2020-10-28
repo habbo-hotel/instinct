@@ -1,6 +1,6 @@
 import React from 'react';
 import {take} from 'lodash';
-import {Card} from '@instinct/frontend';
+import {Card} from '@instinct-prj/frontend';
 import {UserProfileWidgetProps} from '../';
 import {GroupContainer} from './group-container';
 

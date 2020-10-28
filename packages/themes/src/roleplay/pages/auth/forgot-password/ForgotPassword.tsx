@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation} from 'wouter';
 import {GuestLayout} from '../../../components/layout/guest';
-import {ForgotPasswordModal, setURL} from '@instinct/frontend';
+import {ForgotPasswordModal, setURL} from '@instinct-prj/frontend';
 
 setURL('forgot-password', <ForgotPassword />);
 

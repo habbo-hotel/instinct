@@ -4,7 +4,7 @@ import {
   useFetchUserOfTheWeek,
   UserContainer,
   UserContainerSkeleton,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 export function UserOfTheWeek() {
   const users = useFetchUserOfTheWeek();

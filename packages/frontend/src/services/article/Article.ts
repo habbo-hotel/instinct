@@ -5,7 +5,7 @@ import {
   Article,
   ArticleCategory,
   CreateNewsArticleRequest,
-} from '@instinct/interface';
+} from '@instinct-prj/interface';
 
 class ArticleService implements ArticleTypes {
   async getAll() {

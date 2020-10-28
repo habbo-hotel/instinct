@@ -1,6 +1,6 @@
 import {healthContext} from './';
 import React, {useState} from 'react';
-import {Health, exampleHealth} from '@instinct/interface';
+import {Health, exampleHealth} from '@instinct-prj/interface';
 import {ContextProvidersProps} from '../ContextProviders.types';
 
 export function HealthContextProvider({children}: ContextProvidersProps) {

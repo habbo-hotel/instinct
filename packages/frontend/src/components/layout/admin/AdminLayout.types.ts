@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {Permissions} from '@instinct/interface';
+import {Permissions} from '@instinct-prj/interface';
 
 export interface AdminLayoutProps {
   children: ReactNode;

@@ -9,7 +9,7 @@ import {
   MyProfile,
   Card,
   Icon,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('home', <Home />);
 

@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {UserBan} from '@instinct/interface';
+import {UserBan} from '@instinct-prj/interface';
 import {banService} from '../../services/ban';
 
 export function useFetchBanByID(banID: string): UserBan | undefined {

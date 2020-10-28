@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {RankDTO} from '@instinct/interface';
+import {RankDTO} from '@instinct-prj/interface';
 
 export interface RankEditorProps {
   children: ReactNode;

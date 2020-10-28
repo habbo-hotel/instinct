@@ -1,8 +1,8 @@
 import React from 'react';
 import {toast} from 'react-toastify';
 import {BanEditor} from '../../ban-editor';
-import {banService} from '@instinct/frontend';
-import {UserBanDTO} from '@instinct/interface';
+import {banService} from '@instinct-prj/frontend';
+import {UserBanDTO} from '@instinct-prj/interface';
 
 export function CreateBanModal() {
   async function onSave(banDTO: UserBanDTO) {

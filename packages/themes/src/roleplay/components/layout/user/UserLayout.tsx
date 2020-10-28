@@ -10,7 +10,7 @@ import {
   healthContext,
   sessionContext,
   EnterHotelButton,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 export function UserLayout({
   children,

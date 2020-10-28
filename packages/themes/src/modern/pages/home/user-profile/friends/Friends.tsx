@@ -1,7 +1,7 @@
 import React from 'react';
 import {take} from 'lodash';
 import {UserProfileWidgetProps} from '../';
-import {Avatar, Card, UserModal} from '@instinct/frontend';
+import {Avatar, Card, UserModal} from '@instinct-prj/frontend';
 
 export function Friends({profile}: UserProfileWidgetProps) {
   return (

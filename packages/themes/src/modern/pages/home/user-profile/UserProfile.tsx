@@ -15,7 +15,7 @@ import {
   UserLayout,
   setURL,
   useFetchUserByUsername,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('profile/:username', <UserProfile />);
 

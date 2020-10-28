@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {UserProfile} from '@instinct/interface';
+import {UserProfile} from '@instinct-prj/interface';
 import {userService} from '../../services/user';
 
 export function useFetchUserByUsername(

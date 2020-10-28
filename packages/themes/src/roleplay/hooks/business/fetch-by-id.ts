@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Business} from '@instinct/interface-rp';
+import {Business} from '@instinct-prj/interface-rp';
 import {businessService} from '../../services/business';
 
 export function useFetchBusinessByID(businessID: string): Business | undefined {

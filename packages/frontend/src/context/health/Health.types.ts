@@ -1,4 +1,4 @@
-import {exampleHealth, Health} from '@instinct/interface';
+import {exampleHealth, Health} from '@instinct-prj/interface';
 
 export interface HealthContext {
   health: Health;

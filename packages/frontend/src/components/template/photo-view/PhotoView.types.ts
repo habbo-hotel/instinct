@@ -1,4 +1,4 @@
-import {Photo} from '@instinct/interface';
+import {Photo} from '@instinct-prj/interface';
 
 export interface PhotoViewProps {
   photo?: Photo;

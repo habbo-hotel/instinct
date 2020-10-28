@@ -1,4 +1,4 @@
-import {exampleUser, User} from '@instinct/interface';
+import {exampleUser, User} from '@instinct-prj/interface';
 
 export interface Business {
   id: number;

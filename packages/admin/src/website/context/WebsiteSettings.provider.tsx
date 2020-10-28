@@ -1,8 +1,8 @@
 import {toast} from 'react-toastify';
-import {ConfigDTO} from '@instinct/interface';
+import {ConfigDTO} from '@instinct-prj/interface';
 import {websiteSettingsContext} from './WebsiteSettings';
 import React, {ReactElement, useEffect, useState} from 'react';
-import {configService, useFetchFullConfig} from '@instinct/frontend';
+import {configService, useFetchFullConfig} from '@instinct-prj/frontend';
 import {
   defaultWebsiteSettingsContextState,
   WebsiteSettingsContextState,

@@ -1,4 +1,4 @@
-import {Room} from '@instinct/interface';
+import {Room} from '@instinct-prj/interface';
 import {useEffect, useState} from 'react';
 import {roomService} from '../../services/room';
 

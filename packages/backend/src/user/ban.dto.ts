@@ -1,4 +1,4 @@
-import {UserBanDTO} from '@instinct/interface';
+import {UserBanDTO} from '@instinct-prj/interface';
 import {IsNotEmpty, IsNumber, IsString} from 'class-validator';
 import {UserBanEntity} from '../database/entity/user';
 

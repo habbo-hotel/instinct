@@ -1,5 +1,5 @@
 {
-  "name": "@instinct/jealousy-web-rp",
+  "name": "@instinct-prj/jealousy-web-rp",
   "private": true,
   "scripts": {
     "start": "PORT=3001 react-app-rewired start",

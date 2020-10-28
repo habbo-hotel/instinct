@@ -16,7 +16,7 @@ import {
   Row,
   sessionService,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('forgot-password/redeem', <RedeemForgotPassword />);
 

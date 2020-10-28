@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import {Photo} from '@instinct/interface';
+import {Photo} from '@instinct-prj/interface';
 
 export function photoWire(photoEntity: PhotoEntity): Photo {
   return {

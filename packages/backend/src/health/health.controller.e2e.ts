@@ -1,6 +1,6 @@
 import supertest from 'supertest';
 import {TestingModule} from '@nestjs/testing';
-import {exampleHealth} from '@instinct/interface';
+import {exampleHealth} from '@instinct-prj/interface';
 import {mockHealthModule} from './health.module.mock';
 import {HttpServer, HttpStatus, INestApplication} from '@nestjs/common';
 

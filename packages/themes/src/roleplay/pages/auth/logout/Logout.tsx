@@ -1,6 +1,6 @@
 import {Redirect} from 'wouter';
 import React, {useContext, useEffect} from 'react';
-import {sessionContext, sessionService, setURL} from '@instinct/frontend';
+import {sessionContext, sessionService, setURL} from '@instinct-prj/frontend';
 
 setURL('logout', <Logout />);
 

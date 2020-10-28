@@ -10,7 +10,7 @@ import {
   Row,
   sessionContext,
   sessionService,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 export function ProfilePreferences() {
   const {user} = useContext(sessionContext);

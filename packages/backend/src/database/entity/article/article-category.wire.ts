@@ -1,4 +1,4 @@
-import {ArticleCategory} from '@instinct/interface';
+import {ArticleCategory} from '@instinct-prj/interface';
 import {ArticleCategoryEntity} from './article-category.entity';
 
 export function articleCategoryWire(

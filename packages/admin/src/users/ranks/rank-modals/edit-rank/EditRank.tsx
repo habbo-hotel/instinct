@@ -2,8 +2,8 @@ import React, {useContext} from 'react';
 import {EditRankModalProps} from './EditRank.types';
 import {RankEditor} from '../../rank-editor/RankEditor';
 import {DeleteRankModal} from '../delete-rank/DeleteRank';
-import {configContext, rankService} from '@instinct/frontend';
-import {RankDTO, rankWireToRankDTO} from '@instinct/interface';
+import {configContext, rankService} from '@instinct-prj/frontend';
+import {RankDTO, rankWireToRankDTO} from '@instinct-prj/interface';
 
 export function EditRankModal({rank, onChanges}: EditRankModalProps) {
   const {config} = useContext(configContext);

@@ -1,6 +1,6 @@
-import {Gang} from '@instinct/interface-rp';
+import {Gang} from '@instinct-prj/interface-rp';
 import {gangService} from '../../services/gang';
-import {createFetchHook} from '@instinct/frontend';
+import {createFetchHook} from '@instinct-prj/frontend';
 
 export const useFetchAllGangs = () =>
   createFetchHook<Gang[]>(gangService.getAll);

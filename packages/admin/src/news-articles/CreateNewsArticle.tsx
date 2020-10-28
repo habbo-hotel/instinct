@@ -1,7 +1,7 @@
 import React from 'react';
 import {useLocation} from 'wouter';
-import {Article} from '@instinct/interface';
-import {articleService, setURL} from '@instinct/frontend';
+import {Article} from '@instinct-prj/interface';
+import {articleService, setURL} from '@instinct-prj/frontend';
 import {NewsArticleEditor} from './editor/NewsArticleEditor';
 
 setURL('admin/news/create', <CreateNewsArticle />);

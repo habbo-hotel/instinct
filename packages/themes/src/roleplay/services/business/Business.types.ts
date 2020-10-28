@@ -1,4 +1,4 @@
-import {Business} from '@instinct/interface-rp';
+import {Business} from '@instinct-prj/interface-rp';
 
 export interface BusinessService {
   getAll(): Promise<Business[]>;

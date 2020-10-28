@@ -1,6 +1,6 @@
 import React from 'react';
 import {EmailPreferences} from './email';
-import {TabItem} from '@instinct/frontend';
+import {TabItem} from '@instinct-prj/frontend';
 import {ProfilePreferences} from './profile';
 import {SecurityPreferences} from './security';
 

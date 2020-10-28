@@ -1,6 +1,6 @@
 import {toast} from 'react-toastify';
 import React, {useState} from 'react';
-import {rankService} from '@instinct/frontend';
+import {rankService} from '@instinct-prj/frontend';
 import {DeleteRankModalProps} from './DeleteRank.types';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 

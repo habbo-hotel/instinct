@@ -1,4 +1,4 @@
-import {Room} from '@instinct/interface';
+import {Room} from '@instinct-prj/interface';
 import {roomService} from '../../services/room';
 import {createFetchHook} from '../fetch-hook.base';
 

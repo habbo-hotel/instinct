@@ -1,5 +1,5 @@
 import {GetSession} from '../session';
-import {UserBan, UserBanDTO} from '@instinct/interface';
+import {UserBan, UserBanDTO} from '@instinct-prj/interface';
 import {HasScope} from '../session/permission-scope.decorator';
 import {userBanWire} from '../database/entity/user/bans.wire';
 import {userBanDataTransferObjectToEntity, UserBanDTOClass} from './ban.dto';

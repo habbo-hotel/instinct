@@ -1,4 +1,4 @@
-import {User, UserProfile} from '@instinct/interface';
+import {User, UserProfile} from '@instinct-prj/interface';
 
 export interface UserTypes {
   create(

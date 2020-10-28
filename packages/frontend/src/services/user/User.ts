@@ -1,7 +1,7 @@
 import {UserTypes} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {User, UserProfile} from '@instinct/interface';
+import {User, UserProfile} from '@instinct-prj/interface';
 
 export class UserService implements UserTypes {
   async create(

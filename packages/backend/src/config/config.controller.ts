@@ -1,5 +1,5 @@
 import {UpdateConfigDTO} from './config.dto';
-import {Config, ConfigDTO} from '@instinct/interface';
+import {Config, ConfigDTO} from '@instinct-prj/interface';
 import {Body, Controller, Get, Post} from '@nestjs/common';
 import {HasScope} from '../session/permission-scope.decorator';
 import {ConfigRepository} from '../database/entity/config/config.repository';

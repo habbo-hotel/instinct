@@ -1,6 +1,6 @@
 import {GroupContainerProps} from './';
 import React, {useContext, useState} from 'react';
-import {configContext, ModalOverlay} from '@instinct/frontend';
+import {configContext, ModalOverlay} from '@instinct-prj/frontend';
 
 export function GroupContainer({group}: GroupContainerProps) {
   const {config} = useContext(configContext);

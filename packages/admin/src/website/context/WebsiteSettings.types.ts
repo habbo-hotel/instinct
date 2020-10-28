@@ -1,4 +1,4 @@
-import {ConfigDTO, exampleConfigDTO} from '@instinct/interface';
+import {ConfigDTO, exampleConfigDTO} from '@instinct-prj/interface';
 
 export interface WebsiteSettingsContextState {
   config: ConfigDTO;

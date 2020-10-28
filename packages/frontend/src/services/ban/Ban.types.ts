@@ -1,4 +1,4 @@
-import {UserBan, UserBanDTO} from '@instinct/interface';
+import {UserBan, UserBanDTO} from '@instinct-prj/interface';
 
 export interface BanService {
   create(banDTO: UserBanDTO): Promise<UserBan>;

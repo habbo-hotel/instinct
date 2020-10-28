@@ -8,7 +8,7 @@ import {
   Row,
   TabCard,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('preferences', <PreferencesPage />);
 

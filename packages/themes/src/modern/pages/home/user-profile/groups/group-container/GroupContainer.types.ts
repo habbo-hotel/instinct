@@ -1,4 +1,4 @@
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 
 export interface GroupContainerProps {
   group: Group;

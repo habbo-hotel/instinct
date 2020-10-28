@@ -1,6 +1,6 @@
 import {configContext} from './';
 import React, {useState} from 'react';
-import {Config, defaultConfig} from '@instinct/interface';
+import {Config, defaultConfig} from '@instinct-prj/interface';
 import {ContextProvidersProps} from '../ContextProviders.types';
 
 export function ConfigContextProvider({children}: ContextProvidersProps) {

@@ -1,7 +1,7 @@
 import {ConfigService} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Config, ConfigDTO, Health} from '@instinct/interface';
+import {Config, ConfigDTO, Health} from '@instinct-prj/interface';
 
 class ConfigServiceImplementation implements ConfigService {
   async getConfig(): Promise<Config> {

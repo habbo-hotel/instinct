@@ -1,5 +1,5 @@
-import {User} from '@instinct/interface';
-import {userService} from '@instinct/frontend';
+import {User} from '@instinct-prj/interface';
+import {userService} from '@instinct-prj/frontend';
 import {createFetchHook} from '../fetch-hook.base';
 
 export const useFetchUserOfTheWeek = () =>

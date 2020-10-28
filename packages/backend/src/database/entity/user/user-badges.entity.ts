@@ -1,5 +1,5 @@
 import {UserEntity} from './user.entity';
-import {Badge} from '@instinct/interface';
+import {Badge} from '@instinct-prj/interface';
 import {
   Column,
   Entity,

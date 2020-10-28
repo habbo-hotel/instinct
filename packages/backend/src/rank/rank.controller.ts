@@ -1,6 +1,6 @@
 import {RankPipe} from './rank.pipe';
 import {RankDTOClass} from './rank.dto';
-import {Rank} from '@instinct/interface';
+import {Rank} from '@instinct-prj/interface';
 import {RankRepository} from '../database/entity/rank';
 import {RankEntity, rankWire} from '../database/entity/rank';
 import {HasScope} from '../session/permission-scope.decorator';

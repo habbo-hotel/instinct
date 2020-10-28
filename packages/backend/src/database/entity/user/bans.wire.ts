@@ -1,5 +1,5 @@
 import {userWire} from './user.wire';
-import {UserBan} from '@instinct/interface';
+import {UserBan} from '@instinct-prj/interface';
 import {UserBanEntity} from './bans.entity';
 
 export function userBanWire(banEntity: UserBanEntity): UserBan {

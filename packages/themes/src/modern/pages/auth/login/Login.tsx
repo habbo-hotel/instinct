@@ -1,5 +1,5 @@
 import React from 'react';
-import {ArticleList, GuestLayout, setURL} from '@instinct/frontend';
+import {ArticleList, GuestLayout, setURL} from '@instinct-prj/frontend';
 
 setURL('login', <Login />);
 

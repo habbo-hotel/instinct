@@ -1,7 +1,7 @@
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
 import {BanService} from './Ban.types';
-import {UserBan, UserBanDTO} from '@instinct/interface';
+import {UserBan, UserBanDTO} from '@instinct-prj/interface';
 
 class BanServiceImplementation implements BanService {
   async create(banDTO: UserBanDTO) {

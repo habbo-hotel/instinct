@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import {User, UserBanDTO} from '@instinct/interface';
+import {User, UserBanDTO} from '@instinct-prj/interface';
 
 export interface BanEditorProps {
   children: ReactNode;

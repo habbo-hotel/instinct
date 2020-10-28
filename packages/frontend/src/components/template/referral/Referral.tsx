@@ -1,7 +1,7 @@
 import {toast} from 'react-toastify';
 import React, {useContext} from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import {Card, sessionContext} from '@instinct/frontend';
+import {Card, sessionContext} from '@instinct-prj/frontend';
 
 export function Referral() {
   const {user} = useContext(sessionContext);

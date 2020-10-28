@@ -1,4 +1,4 @@
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 
 export interface SessionService {
   // Fetches user bearer token if it exists

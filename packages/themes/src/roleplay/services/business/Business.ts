@@ -1,7 +1,7 @@
 import {AxiosResponse} from 'axios';
-import {backendAPI} from '@instinct/frontend';
+import {backendAPI} from '@instinct-prj/frontend';
 import {BusinessService} from './Business.types';
-import {Business} from '@instinct/interface-rp';
+import {Business} from '@instinct-prj/interface-rp';
 
 export class BusinessServiceImplementation implements BusinessService {
   async getAll() {

@@ -14,7 +14,7 @@ import {
   themeContext,
   UserContainer,
   useFetchRoomByID,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('rooms/:roomID', <RoomPage />);
 

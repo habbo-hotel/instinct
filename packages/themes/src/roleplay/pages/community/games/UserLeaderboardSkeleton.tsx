@@ -1,5 +1,5 @@
 import React from 'react';
-import {Skeleton} from '@instinct/frontend';
+import {Skeleton} from '@instinct-prj/frontend';
 
 export function UserLeaderboardSkeleton() {
   return (

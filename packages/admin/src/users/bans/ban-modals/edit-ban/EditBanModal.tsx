@@ -2,8 +2,8 @@ import Moment from 'moment';
 import React from 'react';
 import {toast} from 'react-toastify';
 import {BanEditor} from '../../ban-editor';
-import {UserBanDTO} from '@instinct/interface';
-import {Avatar, banService} from '@instinct/frontend';
+import {UserBanDTO} from '@instinct-prj/interface';
+import {Avatar, banService} from '@instinct-prj/frontend';
 import {DeleteBanModal} from '../delete-ban/DeleteBan';
 import {EditBanModalProps} from './EditBanModal.types';
 

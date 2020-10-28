@@ -4,7 +4,7 @@ import {
   WebSocketIncomingEvents,
   WebSocketOutgoingEvent,
   WebSocketOutgoingEvents,
-} from '@instinct/interface-rp';
+} from '@instinct-prj/interface-rp';
 
 export class WebSocketService implements WebSocketServiceBase {
   readonly connection: WebSocket;

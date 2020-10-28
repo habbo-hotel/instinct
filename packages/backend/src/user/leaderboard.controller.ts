@@ -1,4 +1,4 @@
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import {Controller, Get} from '@nestjs/common';
 import {UserLeaderBoardService} from './leaderboard.service';
 import {UserEntity, userWire} from '../database/entity/user';

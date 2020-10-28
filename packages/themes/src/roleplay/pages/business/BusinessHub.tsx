@@ -1,8 +1,8 @@
 import React from 'react';
 import {UserLayout} from '../../components/layout/user';
-import {Container, Row, setURL} from '@instinct/frontend';
+import {Container, Row, setURL} from '@instinct-prj/frontend';
 import {Col} from 'reactstrap';
-import {exampleBusiness} from '@instinct/interface-rp';
+import {exampleBusiness} from '@instinct-prj/interface-rp';
 import {BusinessCard} from '../../components/templates/business-card';
 
 setURL('business', <BusinessHub />);

@@ -3,7 +3,7 @@ import {Bans} from './views/Bans';
 import React, {useState} from 'react';
 import {Support} from './views/Support';
 import Draggable from 'react-draggable';
-import {ClientCard, Icon, PermissionGuard, TabItem} from '@instinct/frontend';
+import {ClientCard, Icon, PermissionGuard, TabItem} from '@instinct-prj/frontend';
 
 export function StaffWidget() {
   const [showModal, toggleModal] = useState(false);

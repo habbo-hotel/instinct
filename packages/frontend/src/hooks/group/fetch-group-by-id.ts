@@ -1,4 +1,4 @@
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 import {useEffect, useState} from 'react';
 import {groupService} from '../../services/group';
 

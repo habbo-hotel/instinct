@@ -7,7 +7,7 @@ import {
   Jumbotron,
   Row,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('business/:businessID/edit', <BusinessEdit />);
 

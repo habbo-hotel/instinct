@@ -1,4 +1,4 @@
-import {Rank} from '@instinct/interface';
+import {Rank} from '@instinct-prj/interface';
 import {useEffect, useState} from 'react';
 import {rankService} from '../../services/rank';
 

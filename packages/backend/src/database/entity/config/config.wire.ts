@@ -1,5 +1,5 @@
 import {ConfigEntity} from './config.entity';
-import {Config, ConfigDTO} from '@instinct/interface';
+import {Config, ConfigDTO} from '@instinct-prj/interface';
 
 export function configWire(configEntity: ConfigEntity): Config {
   return {

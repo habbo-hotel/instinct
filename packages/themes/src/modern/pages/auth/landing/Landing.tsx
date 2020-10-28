@@ -1,6 +1,6 @@
 import {Redirect} from 'wouter';
 import React, {useContext} from 'react';
-import {sessionContext, setURL} from '@instinct/frontend';
+import {sessionContext, setURL} from '@instinct-prj/frontend';
 
 setURL('', <Landing />);
 setURL('/', <Landing />);

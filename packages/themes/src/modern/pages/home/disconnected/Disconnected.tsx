@@ -1,8 +1,8 @@
 import React from 'react';
 import './Disconnected.scss';
 import {useLocation} from 'wouter';
-import {Button} from '@instinct/frontend';
-import {UserGuard, FrankBox, setURL} from '@instinct/frontend';
+import {Button} from '@instinct-prj/frontend';
+import {UserGuard, FrankBox, setURL} from '@instinct-prj/frontend';
 
 setURL('disconnected', <Disconnected />);
 

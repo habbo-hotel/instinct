@@ -1,6 +1,6 @@
 import {sessionContext} from './';
 import React, {useState} from 'react';
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import {ContextProvidersProps} from '../ContextProviders.types';
 
 export function SessionContextProvider({children}: ContextProvidersProps) {

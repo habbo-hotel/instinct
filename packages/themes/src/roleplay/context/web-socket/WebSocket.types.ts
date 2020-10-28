@@ -3,7 +3,7 @@ import {
   WebSocketIncomingEvents,
   WebSocketOutgoingEvent,
   WebSocketOutgoingEvents,
-} from '@instinct/interface-rp';
+} from '@instinct-prj/interface-rp';
 
 export interface WebSocketContext {
   onEvent<K extends WebSocketIncomingEvent>(

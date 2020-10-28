@@ -1,7 +1,7 @@
 import {RoomService} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Room} from '@instinct/interface';
+import {Room} from '@instinct-prj/interface';
 
 class RoomServiceImplementation implements RoomService {
   async getAll() {

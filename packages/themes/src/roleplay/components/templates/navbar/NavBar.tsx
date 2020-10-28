@@ -4,7 +4,7 @@ import {
   UserDropdown,
   NavBarDropdown,
   NavBarChildLink,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 export function NavBar() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from '@instinct/frontend';
+import {Icon} from '@instinct-prj/frontend';
 import {DetailsContainerProps} from './index';
 
 export function DetailsContainer({

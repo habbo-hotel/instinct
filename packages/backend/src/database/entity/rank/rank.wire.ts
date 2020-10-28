@@ -1,6 +1,6 @@
 import {userWire} from '../user';
 import {RankEntity} from './rank.entity';
-import {Rank, RankDTO} from '@instinct/interface';
+import {Rank, RankDTO} from '@instinct-prj/interface';
 import {
   booleanToPermissionStatus,
   permissionStatusToBoolean,

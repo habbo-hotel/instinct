@@ -11,7 +11,7 @@ import {
   setURL,
   Skeleton,
   useFetchStaffTeam,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('community/staff', <Staff />);
 

@@ -1,7 +1,7 @@
 import {Link} from 'wouter';
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import React, {useEffect, useState} from 'react';
-import {Avatar, userService} from '@instinct/frontend';
+import {Avatar, userService} from '@instinct-prj/frontend';
 import {UserLeaderboardSkeleton} from '../UserLeaderboardSkeleton';
 import {GamesCardState, defaultGamesCardState} from '../Games.types';
 

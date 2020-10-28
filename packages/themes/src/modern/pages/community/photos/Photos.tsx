@@ -1,5 +1,5 @@
-import {Photo} from '@instinct/interface';
-import {photoService} from '@instinct/frontend';
+import {Photo} from '@instinct-prj/interface';
+import {photoService} from '@instinct-prj/frontend';
 import React, {useEffect, useState} from 'react';
 import {defaultPhotosState, PhotosState} from './';
 import {
@@ -11,7 +11,7 @@ import {
   UserLayout,
   setURL,
   PhotoContainer,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('community/photos', <Photos />);
 

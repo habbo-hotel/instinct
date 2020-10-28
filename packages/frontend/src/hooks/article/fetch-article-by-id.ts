@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Article} from '@instinct/interface';
+import {Article} from '@instinct-prj/interface';
 import {articleService} from '../../services/article';
 
 export function useFetchArticleByID(articleID: string): Article | undefined {

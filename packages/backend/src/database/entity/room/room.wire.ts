@@ -1,6 +1,6 @@
 import {RoomEntity} from './';
 import {userWire} from '../user';
-import {Room} from '@instinct/interface';
+import {Room} from '@instinct-prj/interface';
 
 export function roomWire(roomEntity: RoomEntity): Room {
   return {

@@ -1,8 +1,8 @@
 import {EditBanModal} from './ban-modals';
 import {UsersLayout} from '../UsersLayout';
-import {UserBan} from '@instinct/interface';
+import {UserBan} from '@instinct-prj/interface';
 import React, {useEffect, useState} from 'react';
-import {banService, setURL} from '@instinct/frontend';
+import {banService, setURL} from '@instinct-prj/frontend';
 
 setURL('admin/users/bans', <ListBans />);
 

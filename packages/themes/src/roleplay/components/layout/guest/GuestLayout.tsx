@@ -8,7 +8,7 @@ import {
   Header,
   LoginModal,
   RegisterModal,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 export function GuestLayout({
   children,

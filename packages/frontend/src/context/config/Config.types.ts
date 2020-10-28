@@ -1,4 +1,4 @@
-import {Config, defaultConfig} from '@instinct/interface';
+import {Config, defaultConfig} from '@instinct-prj/interface';
 
 export interface ConfigContext {
   config: Config;

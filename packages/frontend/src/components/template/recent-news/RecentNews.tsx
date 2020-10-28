@@ -2,7 +2,7 @@ import './RecentNews.scss';
 import Moment from 'moment';
 import {Link} from 'wouter';
 import {Card} from '../../generic/card';
-import {Article} from '@instinct/interface';
+import {Article} from '@instinct-prj/interface';
 import {Loading} from '../../generic/loading';
 import React, {useEffect, useState} from 'react';
 import {articleService} from '../../../services/article';

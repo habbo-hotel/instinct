@@ -6,7 +6,7 @@ import {
   UserLayout,
   PopularRooms as PopularRoomsWidget,
   setURL,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('rooms', <PopularRooms />);
 

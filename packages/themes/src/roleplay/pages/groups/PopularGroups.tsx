@@ -1,5 +1,5 @@
 import React from 'react';
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 import {UserLayout} from '../../components/layout/user';
 import {
   Card,
@@ -8,7 +8,7 @@ import {
   Jumbotron,
   setURL,
   useFetchPopularGroups,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('groups', <PopularGroups />);
 

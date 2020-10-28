@@ -1,6 +1,6 @@
 import {RoomPipe} from './room.pipe';
 import {RoomService} from './room.service';
-import {Room} from '@instinct/interface';
+import {Room} from '@instinct-prj/interface';
 import {Controller, Get, Param} from '@nestjs/common';
 import {RoomEntity, roomWire} from '../database/entity/room';
 

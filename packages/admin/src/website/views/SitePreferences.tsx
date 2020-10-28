@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {FormGroup, InputGroup} from 'reactstrap';
-import {Form, Input, Row} from '@instinct/frontend';
+import {Form, Input, Row} from '@instinct-prj/frontend';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
 
 export function SitePreferences() {

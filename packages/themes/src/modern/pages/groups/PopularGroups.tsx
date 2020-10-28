@@ -1,5 +1,5 @@
 import React from 'react';
-import {Group} from '@instinct/interface';
+import {Group} from '@instinct-prj/interface';
 import {
   Card,
   Column,
@@ -8,7 +8,7 @@ import {
   setURL,
   useFetchPopularGroups,
   UserLayout,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 
 setURL('groups', <PopularGroups />);
 

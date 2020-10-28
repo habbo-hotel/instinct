@@ -1,5 +1,5 @@
 import {Children} from '../../';
-import {Permissions} from '@instinct/interface';
+import {Permissions} from '@instinct-prj/interface';
 
 export interface PermissionGuardProps {
   children: Children;

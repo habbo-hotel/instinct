@@ -1,6 +1,6 @@
 import {UserService} from '../user';
 import {HashService} from '../common';
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';

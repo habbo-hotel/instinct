@@ -1,4 +1,4 @@
-import {Class} from '@instinct/interface';
+import {Class} from '@instinct-prj/interface';
 import {UserExistsConstraint} from './user-exists';
 import {UniqueEmailConstraint} from './unique-email';
 import {UniqueUsernameConstraint} from './unique-username';

@@ -1,7 +1,7 @@
 import {AxiosResponse} from 'axios';
 import {GangService} from './Gang.types';
-import {Gang} from '@instinct/interface-rp';
-import {backendAPI} from '@instinct/frontend';
+import {Gang} from '@instinct-prj/interface-rp';
+import {backendAPI} from '@instinct-prj/frontend';
 
 export class GangServiceImplementation implements GangService {
   async getAll() {

@@ -1,7 +1,7 @@
 import './JobOffer.scss';
 import React, {useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
-import {WebSocketIncomingJobOfferEvent} from '@instinct/interface-rp';
+import {WebSocketIncomingJobOfferEvent} from '@instinct-prj/interface-rp';
 import {useWebSocketEventListener} from '../../hooks/web-socket';
 
 export function JobOfferWidget() {

@@ -1,4 +1,4 @@
-import {User} from '@instinct/interface';
+import {User} from '@instinct-prj/interface';
 import {useEffect, useState} from 'react';
 import {userService} from '../../services/user';
 

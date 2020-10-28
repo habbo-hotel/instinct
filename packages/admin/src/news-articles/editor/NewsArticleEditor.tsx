@@ -2,7 +2,7 @@ import {Link} from 'wouter';
 import {toast} from 'react-toastify';
 import React, {useState} from 'react';
 import MDEditor from '@uiw/react-md-editor';
-import {Article} from '@instinct/interface';
+import {Article} from '@instinct-prj/interface';
 import {
   AdminLayout,
   Card,
@@ -13,7 +13,7 @@ import {
   Jumbotron,
   Row,
   PreviewImage,
-} from '@instinct/frontend';
+} from '@instinct-prj/frontend';
 import {
   defaultNewsArticleEditorState,
   NewsArticleEditorProps,

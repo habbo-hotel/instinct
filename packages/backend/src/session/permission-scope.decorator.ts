@@ -1,4 +1,4 @@
-import {Permissions} from '@instinct/interface';
+import {Permissions} from '@instinct-prj/interface';
 import {HasSession} from './has-session.decorator';
 import {PermissionScopeGuard} from './permission-scope.guard';
 import {applyDecorators, SetMetadata, UseGuards} from '@nestjs/common';

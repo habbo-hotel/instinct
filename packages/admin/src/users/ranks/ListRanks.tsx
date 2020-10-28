@@ -1,8 +1,8 @@
-import {Rank} from '@instinct/interface';
+import {Rank} from '@instinct-prj/interface';
 import {UsersLayout} from '../UsersLayout';
 import {EditRankModal} from './rank-modals';
 import React, {useEffect, useState} from 'react';
-import {rankService, setURL} from '@instinct/frontend';
+import {rankService, setURL} from '@instinct-prj/frontend';
 
 setURL('admin/users/ranks', <ListRanks />);
 

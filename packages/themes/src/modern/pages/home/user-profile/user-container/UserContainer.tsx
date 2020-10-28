@@ -1,7 +1,7 @@
 import Moment from 'moment';
 import React from 'react';
 import {UserProfileWidgetProps} from '../';
-import {Avatar, Icon} from '@instinct/frontend';
+import {Avatar, Icon} from '@instinct-prj/frontend';
 import {DetailsContainer} from './details-container';
 
 export function UserContainer({profile}: UserProfileWidgetProps) {

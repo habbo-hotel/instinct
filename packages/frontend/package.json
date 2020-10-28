@@ -1,5 +1,5 @@
 {
-  "name": "@instinct/frontend",
+  "name": "@instinct-prj/frontend",
   "private": true,
   "scripts": {
     "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",

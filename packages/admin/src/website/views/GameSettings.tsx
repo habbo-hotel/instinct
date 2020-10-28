@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Form, Input, Row} from '@instinct/frontend';
+import {Form, Input, Row} from '@instinct-prj/frontend';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
 
 export function GameSettings() {
