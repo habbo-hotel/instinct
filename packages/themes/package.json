@@ -1,6 +1,7 @@
 {
   "name": "@instinct-prj/themes",
   "version": "0.2.0",
+  "main": "build",
   "scripts": {
     "build": "rollup -c && cp README.md build/README.md && cp package.json build/package.json && cp package-lock.json build/package-lock.json",
     "deploy:unsafe": "npm run build && npm publish build",
