@@ -27,15 +27,12 @@ export function WebsiteSettingsProvider({children}: {children: ReactElement}) {
     return <i className="fa fa-spinner fa-spin" />;
   }
 
-  function setConfig<K extends keyof ConfigDTO>(
-    key: K,
-    value: ConfigDTO[K]
-  ): void {
+  function setConfig(configDTO: ConfigDTO): void {
     setState(_ => ({
       ..._,
       config: {
         ..._.config,
-        [key]: value,
+        ...configDTO,
       },
     }));
   }

@@ -30,7 +30,7 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
     event: K,
     callback: WebSocketSubscriber<WebSocketIncomingEvents[K]>
   ) {
-    connection.addSubscriber(event, callback);
+    connection!.addSubscriber(event, callback);
   }
 
   function sendEvent<K extends WebSocketOutgoingEvent>(
