@@ -7,8 +7,7 @@
         "ignored-file",
         "*.md"
       ],
-      "message": "release %",
-      "registry": "https://registry.npmjs.org"
+      "message": "release %"
     },
     "bootstrap": {
       "ignore": "apps",
