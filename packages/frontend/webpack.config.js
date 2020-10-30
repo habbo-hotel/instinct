@@ -13,12 +13,16 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -27,7 +31,7 @@ module.exports = {
     libraryTarget: 'umd',
   },
   optimization: {
-    runtimeChunk: true,
+    runtimeChunk: true
   },
   externals: {
     lodash: {
@@ -41,6 +45,6 @@ module.exports = {
       commonjs2: 'react',
       amd: 'react',
       root: '_',
-    },
+    }
   },
-};
+}

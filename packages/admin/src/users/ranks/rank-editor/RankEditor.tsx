@@ -1,5 +1,4 @@
 import Toggle from 'react-toggle';
-import {toast} from 'react-toastify';
 import React, {useContext, useState} from 'react';
 import {Permissions, RankDTO} from '@instinct-prj/interface';
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
@@ -71,6 +70,7 @@ export function RankEditor({
     websiteManageRanks: 'Manage Ranks',
     websiteManageUsers: 'Manage Users',
     websiteManageBans: 'Manage Bans',
+    websiteManageConfig: 'Manage Config',
   };
 
   const permissionIndexes: Array<keyof Permissions> = Object.keys(

@@ -24,6 +24,7 @@ export const defaultRankDTO: RankDTO = {
   websiteManageUsers: false,
   websiteManageNews: false,
   websiteManageBans: false,
+  websiteManageConfig: false,
   users: [],
 };
 

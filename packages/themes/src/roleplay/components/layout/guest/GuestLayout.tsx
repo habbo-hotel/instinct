@@ -1,5 +1,4 @@
 import React from 'react';
-import './GuestLayout.scss';
 import {GuestLayoutProps} from './';
 import {NavBar} from '../../templates/navbar';
 import {

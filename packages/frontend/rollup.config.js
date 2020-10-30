@@ -1,3 +1,4 @@
+import babel from 'rollup-plugin-babel';
 import filesize from 'rollup-plugin-filesize';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -6,25 +7,35 @@ import bundleScss from 'rollup-plugin-bundle-scss';
 import localResolve from 'rollup-plugin-local-resolve';
 
 const INPUT_FILE_PATH = 'src/index.ts';
-const OUTPUT_NAME = 'Example';
 
 const GLOBALS = {
   react: 'React',
-  'react-dom': 'ReactDOM',
+  'react-dom': 'ReactDOM'
 };
 
 const PLUGINS = [
+  commonjs(),
   typescript(),
   bundleScss(),
+  babel({
+    exclude: 'node_modules/**',
+    extensions: [
+      '.ts',
+      '.tsx'
+    ]
+  }),
   localResolve(),
   resolve({
     browser: true,
   }),
-  commonjs({ sourceMap: false}),
+  commonjs(),
   filesize(),
 ];
 
-const EXTERNAL = ['react', 'react-dom', 'react-is', 'react-router-dom', '@instinct-prj/interface'];
+const EXTERNAL = [
+  'react',
+  'react-dom',
+];
 
 const OUTPUT_DATA = [
   {
@@ -38,7 +49,7 @@ const config = OUTPUT_DATA.map(({ file, format }) => ({
   output: {
     file,
     format,
-    name: OUTPUT_NAME,
+    name: 'InstinctFrontend',
     globals: GLOBALS,
   },
   external: EXTERNAL,

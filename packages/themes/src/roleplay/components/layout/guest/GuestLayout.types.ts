@@ -1,4 +1,4 @@
-import {Children} from '../../../';
+import {Children} from '@instinct-prj/frontend';
 
 export interface GuestLayoutProps {
   children: Children;

@@ -1,48 +1,97 @@
-import filesize from 'rollup-plugin-filesize';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import bundleScss from 'rollup-plugin-bundle-scss';
-import localResolve from 'rollup-plugin-local-resolve';
+import image from '@rollup/plugin-image';
+import adminPackage from './package.json';
+import postcss from 'rollup-plugin-postcss';
+import { terser } from 'rollup-plugin-terser';
+import commonJS from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import resolveDependencies from '@rollup/plugin-node-resolve';
+import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
-const INPUT_FILE_PATH = 'src/index.ts';
-const OUTPUT_NAME = 'Example';
+export default {
+  input: "src/index.ts",
+  output: [
+    {
+      file: adminPackage.main,
+      format: "cjs",
+      sourcemap: false,
+    },
+    {
+      file: adminPackage.module,
+      format: "esm",
+      sourcemap: false,
+    }
+  ],
+  plugins: [
+      // Prevents peer dependencies from being bundled
+      blockPeerDependencies(),
 
-const GLOBALS = {
-  react: 'React',
-  'react-dom': 'ReactDOM',
+      // Resolves node_module dependencies and bundles them
+      resolveDependencies(),
+
+      // Transpile and bundle Typescript
+      typescript({
+          sourceMap: false,
+          include: [
+              './src/*',
+              '../**/src/*',
+          ]
+      }),
+
+      // Bundle into CommonJS format
+      commonJS({
+        sourceMap: false,
+      }),
+
+      // Bundle CSS and SASS files
+      postcss(),
+
+      // Bundle image files
+      image(),
+
+      // Minify final bundle size
+      terser(),
+  ]
 };
-
-const PLUGINS = [
-  typescript(),
-  bundleScss(),
-  localResolve(),
-  resolve({
-    browser: true,
-  }),
-  commonjs({ sourceMap: false}),
-  filesize(),
-];
-
-const EXTERNAL = ['react', 'react-dom', 'react-is', 'react-router-dom', '@instinct-prj/interface'];
-
-const OUTPUT_DATA = [
-  {
-    file: './build/index.js',
-    format: 'cjs',
-  },
-];
-
-const config = OUTPUT_DATA.map(({ file, format }) => ({
-  input: INPUT_FILE_PATH,
-  output: {
-    file,
-    format,
-    name: OUTPUT_NAME,
-    globals: GLOBALS,
-  },
-  external: EXTERNAL,
-  plugins: PLUGINS,
-}));
-
-export default config;
+//
+// const config = OUTPUT_DATA.map(({ file, format }) => ({
+//   input: 'src/index.ts',
+//   output: {
+//     file,
+//     format,
+//     name: 'InstinctFrontend',
+//     globals: {
+//       'react': 'React',
+//       'react-dom': 'ReactDOM'
+//     },
+//   },
+//   external: [
+//     'react',
+//     'react-dom',
+//   ],
+//   plugins: [
+//     css({ output: 'bundle.css' }),
+//     bundleScss({ output: 'admin.css' }),
+//     typescript(),
+//     // babel({
+//     //   exclude: 'node_modules/**',
+//     //   extensions: [
+//     //     '.ts',
+//     //     '.tsx'
+//     //   ],
+//     //   include: [
+//     //     '../src/**/*.ts',
+//     //     '../src/**/*.tsx',
+//     //   ]
+//     // }),
+//     // commonjs({
+//     //   sourceMap: false,
+//     // }),
+//     // localResolve(),
+//     // resolve({
+//     //   browser: true,
+//     // }),
+//     // filesize(),
+//   ]
+// }));
+//
+// export default config;
