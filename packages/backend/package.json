@@ -2,6 +2,9 @@
   "name": "@instinct-prj/backend",
   "version": "0.2.1",
   "main": "build/backend/index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "tsc -p . --noEmit false --outDir build"
   },
