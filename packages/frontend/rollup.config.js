@@ -1,59 +1,63 @@
-import babel from 'rollup-plugin-babel';
-import filesize from 'rollup-plugin-filesize';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import bundleScss from 'rollup-plugin-bundle-scss';
-import localResolve from 'rollup-plugin-local-resolve';
+import jsx from 'acorn-jsx';
+import scss from 'rollup-plugin-scss';
+import image from '@rollup/plugin-image';
+import {terser} from 'rollup-plugin-terser';
+import frontendPackage from './package.json';
+import commonJS from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import resolveDependencies from '@rollup/plugin-node-resolve';
+import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
-const INPUT_FILE_PATH = 'src/index.ts';
+export default {
+  preserveModules: false,
+  input: "src/index.ts",
+  output: [
+    {
+      file: frontendPackage.main,
+      format: "cjs",
+      sourcemap: false,
+    },
+    {
+      file: frontendPackage.module,
+      format: "esm",
+      sourcemap: false,
+    }
+  ],
+  acornInjectPlugins: [jsx()],
+  plugins: [
+    // Prevents peer dependencies from being bundled
+    blockPeerDependencies(),
 
-const GLOBALS = {
-  react: 'React',
-  'react-dom': 'ReactDOM'
+    // Resolves node_module dependencies and bundles them
+    resolveDependencies({
+      browser: true,
+      preferBuiltins: true,
+    }),
+
+    // Bundle CSS and SASS files
+    scss({
+      output: 'frontend.css',
+      failOnError: true,
+    }),
+
+    // Bundle image files
+    image(),
+
+    // Bundle into CommonJS format
+    commonJS({
+      sourceMap: false,
+    }),
+
+    // Transpile and bundle Typescript
+    typescript({
+      sourceMap: false,
+      include: [
+          './src/**/*.(ts|tsx)',
+          '../interface/src/**/*.(ts|tsx)'
+      ],
+      jsx: 'preserve',
+      declaration: false,
+    }),
+  ],
+  external: id => Object.keys(frontendPackage.dependencies).includes(id)
 };
-
-const PLUGINS = [
-  commonjs(),
-  typescript(),
-  bundleScss(),
-  babel({
-    exclude: 'node_modules/**',
-    extensions: [
-      '.ts',
-      '.tsx'
-    ]
-  }),
-  localResolve(),
-  resolve({
-    browser: true,
-  }),
-  commonjs(),
-  filesize(),
-];
-
-const EXTERNAL = [
-  'react',
-  'react-dom',
-];
-
-const OUTPUT_DATA = [
-  {
-    file: './build/index.js',
-    format: 'cjs',
-  },
-];
-
-const config = OUTPUT_DATA.map(({ file, format }) => ({
-  input: INPUT_FILE_PATH,
-  output: {
-    file,
-    format,
-    name: 'InstinctFrontend',
-    globals: GLOBALS,
-  },
-  external: EXTERNAL,
-  plugins: PLUGINS,
-}));
-
-export default config;
