@@ -18,5 +18,8 @@
   },
   "packages": [
     "packages/*"
-  ]
+  ],
+  "publishConfig": {
+    "directory": "build"
+  }
 }
