@@ -5,16 +5,15 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "lib": [
-      "es2015"
-    ],
+    "lib": ["dom", "es5"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "sourceMap": false,
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "declaration": true
   },
   "exclude": [
     "node_modules",

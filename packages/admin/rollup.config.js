@@ -50,7 +50,7 @@ export default {
 
         // Transpile and bundle Typescript
         typescript({
-            tsConfigPath: './tsconfig.build.json',
+            tsconfig: './tsconfig.build.json',
         }),
     ],
     external: id => Object.keys(frontendPackage.dependencies).includes(id)
