@@ -1,11 +1,12 @@
 {
   "name": "@instinct-prj/backend",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "build/backend/index.js",
   "scripts": {
     "build": "tsc -p . --noEmit false --outDir build"
   },
   "dependencies": {
+    "@instinct-prj/interface": "^0.2.1",
     "@nestjs/jwt": "^7.1.0",
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.4",
@@ -26,8 +27,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.3",
     "typeorm": "^0.2.28",
-    "winston": "^3.3.3",
-    "@instinct-prj/interface": "0.2.0"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@nestjs/common": "^7.4.4",

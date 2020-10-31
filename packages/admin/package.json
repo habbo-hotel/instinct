@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/admin",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
   "files": [
@@ -12,8 +12,8 @@
     "deploy": "npm run test && npm run deploy:unsafe"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "0.2.0",
-    "@instinct-prj/interface": "0.2.0",
+    "@instinct-prj/frontend": "^0.2.1",
+    "@instinct-prj/interface": "^0.2.1",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "@uiw/react-md-editor": "^1.14.5",
@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "react": "^17.0.1",
-    "typescript": "^4.0.5",
-    "reactstrap": "^8.6.0"
+    "reactstrap": "^8.6.0",
+    "typescript": "^4.0.5"
   }
 }

@@ -1,12 +1,12 @@
 {
   "name": "@instinct-prj/interface-rp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "build/interface-rp/index.js",
   "scripts": {
     "build": "tsc -p . --noEmit false --outDir build"
   },
   "dependencies": {
-    "@instinct-prj/interface-rp": "0.2.0"
+    "@instinct-prj/interface-rp": "^0.2.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.6",
