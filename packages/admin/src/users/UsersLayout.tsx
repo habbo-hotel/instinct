@@ -1,6 +1,12 @@
 import React from 'react';
 import {Link, useLocation} from 'wouter';
-import {AdminLayout, Container, Icon, Jumbotron, Row} from '@instinct-prj/frontend';
+import {
+  AdminLayout,
+  Container,
+  Icon,
+  Jumbotron,
+  Row,
+} from '@instinct-prj/frontend';
 
 export function UsersLayout({children}: {children: any}) {
   const [location] = useLocation();
