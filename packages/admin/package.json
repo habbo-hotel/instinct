@@ -11,8 +11,8 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "file:../frontend",
-    "@instinct-prj/interface": "file:../interface",
+    "@instinct-prj/frontend": "*",
+    "@instinct-prj/interface": "*",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "@uiw/react-md-editor": "^1.14.5",

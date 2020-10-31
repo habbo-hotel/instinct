@@ -11,9 +11,9 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "file:../frontend",
-    "@instinct-prj/interface": "file:../interface",
-    "@instinct-prj/interface-rp": "file:../interface-rp"
+    "@instinct-prj/frontend": "*",
+    "@instinct-prj/interface": "*",
+    "@instinct-prj/interface-rp": "*"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
