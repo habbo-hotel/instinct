@@ -1,56 +1,64 @@
+import jsx from 'acorn-jsx';
+import scss from 'rollup-plugin-scss';
 import image from '@rollup/plugin-image';
-import adminPackage from './package.json';
-import postcss from 'rollup-plugin-postcss';
-import {terser} from 'rollup-plugin-terser';
+import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
+    inlineDynamicImports: true,
+    preserveModules: false,
     input: "src/index.ts",
     output: [
         {
-            file: adminPackage.main,
+            file: frontendPackage.main,
             format: "cjs",
             sourcemap: false,
         },
         {
-            file: adminPackage.module,
+            file: frontendPackage.module,
             format: "esm",
             sourcemap: false,
         }
     ],
+    acornInjectPlugins: [jsx()],
     plugins: [
         // Prevents peer dependencies from being bundled
         blockPeerDependencies(),
 
         // Resolves node_module dependencies and bundles them
-        resolveDependencies(),
-
-        // Transpile and bundle Typescript
-        typescript({
-            baseUrl: './src',
-            sourceMap: false,
-            include: [
-                '../**/src/*',
-            ],
-            jsx: 'preserve',
+        resolveDependencies({
+            browser: true,
+            preferBuiltins: true,
         }),
+
+        // Bundle CSS and SASS files
+        scss({
+            output: 'frontend.css',
+            failOnError: true,
+        }),
+
+        // Bundle image files
+        image(),
 
         // Bundle into CommonJS format
         commonJS({
             sourceMap: false,
         }),
 
-        // Bundle CSS and SASS files
-        postcss(),
-
-        // Bundle image files
-        image(),
-
-        // Minify final bundle size
-        terser(),
+        // Transpile and bundle Typescript
+        typescript({
+            sourceMap: false,
+            include: [
+                './src/**/*.(ts|tsx)',
+                '../frontend/src/**/*.(ts|tsx)',
+                '../interface/src/**/*.(ts|tsx)'
+            ],
+            jsx: 'preserve',
+            declaration: false,
+        }),
     ],
-    external: id => Object.keys(adminPackage.dependencies).includes(id)
+    external: id => Object.keys(frontendPackage.dependencies).includes(id)
 };

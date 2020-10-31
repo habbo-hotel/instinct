@@ -7,7 +7,7 @@
     "build"
   ],
   "scripts": {
-    "build": "rollup -c"
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
     "axios": "^0.21.0",
@@ -36,21 +36,18 @@
     "@types/react-datepicker": "^3.1.1",
     "@types/react-google-recaptcha": "^2.1.0",
     "@types/reactstrap": "^8.5.2",
-    "@types/styled-components": "^5.1.4",
     "acorn-jsx": "^5.3.1",
     "node-sass": "^4.14.1",
     "reactstrap": "^8.6.0",
     "rollup": "^2.32.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
-    "rollup-plugin-terser": "^7.0.2",
     "sass-loader": "^10.0.4",
     "thread-loader": "^3.0.1",
     "ts-loader": "^8.0.7",
     "typescript": "^4.0.5"
   },
   "peerDependencies": {
-    "npm": "^6.14.8",
     "react": "^17.0.1",
     "typescript": "^4.0.5"
   }

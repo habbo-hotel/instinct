@@ -1,7 +1,6 @@
 import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
 import image from '@rollup/plugin-image';
-import {terser} from 'rollup-plugin-terser';
 import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
