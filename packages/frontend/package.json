@@ -22,7 +22,8 @@
     "react-loading-skeleton": "^2.1.1",
     "react-toastify": "^6.0.9",
     "swfobject": "^2.2.1",
-    "wouter": "^2.5.3"
+    "wouter": "^2.5.3",
+    "@instinct-prj/interface": "0.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
