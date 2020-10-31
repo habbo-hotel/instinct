@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist && lerna link --force-local",
     "clean": "lerna exec -- rm -rf node_modules",
-    "deploy": "lerna version && lerna exec -- npm i && lerna exec -- npm run build && lerna exec -- npm publish build && lerna exec -- rm -rf node_modules",
+    "deploy": "lerna exec -- npm i && lerna run build && lerna publish && lerna exec -- rm -rf node_modules",
     "fix": "gts fix",
     "update": "lerna exec -- ncu -u"
   },

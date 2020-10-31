@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@instinct-prj/jealousy-web": ["./apps/jealousy/web/src"],
       "@instinct-prj/jealousy-api": ["./apps/jealousy/api/src"],

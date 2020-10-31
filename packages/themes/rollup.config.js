@@ -1,27 +1,21 @@
 import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
 import image from '@rollup/plugin-image';
-import themePackage from './package.json';
+import themesPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
-  inlineDynamicImports: true,
   preserveModules: false,
   input: "src/index.ts",
   output: [
     {
-      file: themePackage.main,
+      dir: './dist',
       format: "cjs",
       sourcemap: false,
     },
-    {
-      file: themePackage.module,
-      format: "esm",
-      sourcemap: false,
-    }
   ],
   acornInjectPlugins: [jsx()],
   plugins: [
@@ -36,7 +30,7 @@ export default {
 
     // Bundle CSS and SASS files
     scss({
-      output: './build/admin.css',
+      output: './dist/themes.css',
       failOnError: true,
     }),
 
@@ -50,16 +44,8 @@ export default {
 
     // Transpile and bundle Typescript
     typescript({
-      sourceMap: false,
-      include: [
-        './src/**/*.(ts|tsx)',
-        '../frontend/src/**/*.(ts|tsx)',
-        '../interface/src/**/*.ts',
-        '../interface-rp/src/**/*.ts'
-      ],
-      jsx: 'preserve',
-      declaration: false,
+      tsconfig: './tsconfig.build.json',
     }),
   ],
-  external: id => Object.keys(themePackage.dependencies).includes(id)
+  external: id => Object.keys(themesPackage.dependencies).includes(id)
 };

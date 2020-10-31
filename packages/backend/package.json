@@ -1,9 +1,12 @@
 {
   "name": "@instinct-prj/backend",
   "version": "0.3.2",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index",
+  "files": ["dist"],
   "scripts": {
-    "build": "rm -rf build && tsc -p . --noEmit false --outDir build && cp package.json build/package.json && rm -rf build/interface && mv build/backend/src/* build && rm -rf build/backend"
+    "build": "rm -rf dist &&  && rm -rf tsconfig.build.tsbuildinfo && tsc -b tsconfig.build.json",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@instinct-prj/interface": "file:../interface",

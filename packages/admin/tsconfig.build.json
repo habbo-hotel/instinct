@@ -1,9 +1,20 @@
 {
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "./build"
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmit": false
   },
+  "references": [
+    {
+      "path": "../interface/tsconfig.build.json"
+    },
+    {
+      "path": "../frontend/tsconfig.build.json"
+    }
+  ],
   "include": [
-    "./src/**/*"
+    "src/**/*"
   ]
 }

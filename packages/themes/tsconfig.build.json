@@ -9,6 +9,12 @@
   "references": [
     {
       "path": "../interface/tsconfig.build.json"
+    },
+    {
+      "path": "../interface-rp/tsconfig.build.json"
+    },
+    {
+      "path": "../frontend/tsconfig.build.json"
     }
   ],
   "include": [

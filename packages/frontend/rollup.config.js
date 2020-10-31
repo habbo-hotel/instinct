@@ -12,15 +12,10 @@ export default {
   input: "src/index.ts",
   output: [
     {
-      file: frontendPackage.main,
+      dir: './dist',
       format: "cjs",
       sourcemap: false,
     },
-    {
-      file: frontendPackage.module,
-      format: "esm",
-      sourcemap: false,
-    }
   ],
   acornInjectPlugins: [jsx()],
   plugins: [
@@ -35,7 +30,7 @@ export default {
 
     // Bundle CSS and SASS files
     scss({
-      output: './build/frontend.css',
+      output: './dist/frontend.css',
       failOnError: true,
     }),
 
