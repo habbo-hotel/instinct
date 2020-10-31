@@ -1,9 +1,9 @@
 {
   "name": "@instinct-prj/backend",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && tsc -p . --noEmit false --outDir build && cp package.json build/backend/package.json && rm -rf build/interface && mv build/backend/src/* build && rm -rf build/backend"
+    "build": "rm -rf build && tsc -p . --noEmit false --outDir build && cp package.json build/package.json && rm -rf build/interface && mv build/backend/src/* build && rm -rf build/backend"
   },
   "dependencies": {
     "@instinct-prj/interface": "^0.2.1",
