@@ -3,10 +3,12 @@
   "version": "0.3.2",
   "main": "dist/index",
   "types": "dist/index",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "yarn run clean && yarn run compile",
-    "clean": "rimraf -rf ./dist",
+    "build": "yarn run clean && npm i && yarn run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./node_modules",
     "compile": "tsc -p tsconfig.build.json",
     "prepublishOnly": "yarn run build"
   },

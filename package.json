@@ -5,10 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist && lerna link --force-local",
-    "clean": "lerna exec -- rm -rf node_modules",
-    "deploy": "lerna exec -- npm i && lerna run build && lerna publish && lerna exec -- rm -rf node_modules",
     "fix": "gts fix",
+    "clean": "lerna run clean",
+    "build": "lerna run build",
+    "deploy": "lerna publish",
+    "bootstrap": "lerna bootstrap",
     "update": "lerna exec -- ncu -u"
   },
   "devDependencies": {

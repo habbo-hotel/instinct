@@ -1,15 +1,15 @@
 import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
+import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
 import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
   preserveModules: false,
-  input: "src/index.ts",
+  input: "./build/index.js",
   output: [
     {
       dir: './dist',
@@ -25,7 +25,13 @@ export default {
     // Resolves node_module dependencies and bundles them
     resolveDependencies({
       browser: true,
-      preferBuiltins: true,
+      preferBuiltins: false,
+      dedupe: [ 'react', 'react-dom' ],
+    }),
+
+    // Convert JSON into ES Modules
+    json({
+      compact: true,
     }),
 
     // Bundle CSS and SASS files
@@ -41,11 +47,9 @@ export default {
     commonJS({
       sourceMap: false,
     }),
-
-    // Transpile and bundle Typescript
-    typescript({
-      tsconfig: './tsconfig.build.json',
-    }),
   ],
-  external: id => Object.keys(frontendPackage.dependencies).includes(id)
+  external: id => {
+    console.log(id);
+    return Object.keys(frontendPackage.dependencies).includes(id)
+  }
 };

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "sourceMap": true,
+    "sourceMap": false,
     "noEmitOnError": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -11,11 +11,13 @@
     "lib": ["dom", "es5"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "react",
-    "declaration": true
+    "jsx": "react"
   },
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "*.md",
+    "*.css",
+    "*.scss"
   ]
 }
