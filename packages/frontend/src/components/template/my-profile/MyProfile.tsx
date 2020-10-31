@@ -1,7 +1,8 @@
 import './MyProfile.scss';
 import {Link} from 'wouter';
 import React, {useContext} from 'react';
-import {Avatar, sessionContext} from '@instinct-prj/frontend';
+import {Avatar} from '../../generic/avatar';
+import {sessionContext} from '../../../context/session';
 
 export function MyProfile() {
   const {user} = useContext(sessionContext);

@@ -2,7 +2,8 @@
 import Flash from 'swfobject';
 import React, {useContext, useEffect} from 'react';
 import {configContext} from '../../../../context/config';
-import {sessionContext, useRenewSessionSSO} from '@instinct-prj/frontend';
+import {sessionContext} from '../../../../context/session';
+import {useRenewSessionSSO} from '../../../../hooks/session';
 
 export function ClientContainer() {
   useRenewSessionSSO();

@@ -1,7 +1,6 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": true,

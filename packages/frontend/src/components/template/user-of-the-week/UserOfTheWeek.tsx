@@ -1,10 +1,7 @@
 import React from 'react';
-import {
-  Card,
-  useFetchUserOfTheWeek,
-  UserContainer,
-  UserContainerSkeleton,
-} from '@instinct-prj/frontend';
+import {Card} from '../../generic/card';
+import {useFetchUserOfTheWeek} from '../../../hooks/user';
+import {UserContainer, UserContainerSkeleton} from '../user-container';
 
 export function UserOfTheWeek() {
   const users = useFetchUserOfTheWeek();

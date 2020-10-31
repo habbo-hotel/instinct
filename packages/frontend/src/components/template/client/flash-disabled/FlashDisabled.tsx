@@ -1,7 +1,7 @@
 import React from 'react';
 import './FlashDisabled.scss';
-import {Icon} from '@instinct-prj/frontend';
 import {FrankBox} from '../../frank-box';
+import {Icon} from '../../../generic/icon';
 
 export function FlashDisabled() {
   return (

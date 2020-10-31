@@ -1,7 +1,8 @@
 import './LoadingScreen.scss';
 import React, {useContext, useEffect} from 'react';
-import {clientContext, sessionContext} from '@instinct-prj/frontend';
-import {ClientEvent, clientService} from '@instinct-prj/frontend';
+import {clientContext} from '../../../../context/client';
+import {sessionContext} from '../../../../context/session';
+import {clientService, ClientEvent} from '../../../../services/client';
 
 export function LoadingScreen() {
   const {setOnline} = useContext(sessionContext);
