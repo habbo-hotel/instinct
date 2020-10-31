@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/interface",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -p . --noEmit false --outDir build"
