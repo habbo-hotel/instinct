@@ -50,14 +50,7 @@ export default {
 
         // Transpile and bundle Typescript
         typescript({
-            sourceMap: false,
-            include: [
-                './src/**/*.(ts|tsx)',
-                '../frontend/src/**/*.(ts|tsx)',
-                '../interface/src/**/*.ts'
-            ],
-            jsx: 'preserve',
-            declaration: false,
+            tsConfigPath: './tsconfig.build.json',
         }),
     ],
     external: id => Object.keys(frontendPackage.dependencies).includes(id)

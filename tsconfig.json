@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@instinct-prj/jealousy-web": ["./apps/jealousy/web/src"],
       "@instinct-prj/jealousy-api": ["./apps/jealousy/api/src"],
@@ -11,18 +10,7 @@
       "@instinct-prj/interface": ["./packages/interface/src"],
       "@instinct-prj/themes": ["./packages/themes/src"],
       "@instinct-prj/interface-rp": ["./packages/interface-rp/src"]
-    },
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "lib": [
-      "es2015"
-    ],
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "ES6",
-    "noEmit": true,
-    "sourceMap": false
+    }
   },
   "include": [
     "apps",

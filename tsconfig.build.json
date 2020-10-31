@@ -1,0 +1,23 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "lib": [
+      "es2015"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "sourceMap": false,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

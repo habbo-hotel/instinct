@@ -10,8 +10,8 @@
     "build": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^0.2.4",
-    "@instinct-prj/interface": "^0.2.4"
+    "@instinct-prj/frontend": "*",
+    "@instinct-prj/interface": "*"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",

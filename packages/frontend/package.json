@@ -10,7 +10,7 @@
     "build": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^0.2.4",
+    "@instinct-prj/interface": "*",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",

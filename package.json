@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "fix": "gts fix",
-    "bootstrap": "lerna bootstrap --hoist",
+    "bootstrap": "lerna bootstrap --hoist && lerna link --force-local",
     "update": "lerna exec -- ncu -u",
     "deploy": "lerna version && lerna exec -- npm i && lerna exec -- npm run build && lerna exec -- npm publish build && lerna exec -- rm -rf node_modules"
   },
