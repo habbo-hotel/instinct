@@ -54,7 +54,7 @@ export default {
             include: [
                 './src/**/*.(ts|tsx)',
                 '../frontend/src/**/*.(ts|tsx)',
-                '../interface/src/**/*.(ts|tsx)'
+                '../interface/src/**/*.ts'
             ],
             jsx: 'preserve',
             declaration: false,

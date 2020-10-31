@@ -52,7 +52,7 @@ export default {
       sourceMap: false,
       include: [
           './src/**/*.(ts|tsx)',
-          '../interface/src/**/*.(ts|tsx)'
+          '../interface/src/**/*.ts'
       ],
       jsx: 'preserve',
       declaration: false,
