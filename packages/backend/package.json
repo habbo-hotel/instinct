@@ -1,9 +1,9 @@
 {
   "name": "@instinct-prj/backend",
   "version": "0.2.0",
-  "main": "build",
+  "main": "build/backend",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p . --noEmit false --outDir build"
   },
   "dependencies": {
     "@nestjs/jwt": "^7.1.0",
