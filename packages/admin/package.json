@@ -1,14 +1,13 @@
 {
   "name": "@instinct-prj/admin",
   "version": "0.3.2",
-  "main": "./build/index.js",
-  "module": "./build/index.es.js",
-  "files": [
-    "build"
-  ],
+  "main": "dist/index",
+  "types": "dist/index",
   "scripts": {
-    "build": "rm -rf ./build && NODE_OPTIONS=--max_old_space_size=4096 rollup -c",
-    "prepublishOnly": "npm run build"
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c",
+    "prepublishOnly": "yarn run build"
   },
   "dependencies": {
     "@instinct-prj/frontend": "*",

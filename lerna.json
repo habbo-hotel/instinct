@@ -1,25 +1,8 @@
 {
-  "version": "0.3.2",
-  "npmClient": "npm",
-  "command": {
-    "publish": {
-      "ignoreChanges": [
-        "ignored-file",
-        "*.md"
-      ],
-      "message": "release %"
-    },
-    "bootstrap": {
-      "ignore": "apps",
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
-    }
-  },
   "packages": [
     "packages/*"
   ],
-  "publishConfig": {
-    "directory": "build"
-  }
+  "version": "independent",
+  "useWorkspaces": true,
+  "npmClient": "yarn"
 }

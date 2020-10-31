@@ -1,16 +1,16 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "noEmitOnError": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": true,
     "lib": ["dom", "es5"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "noEmit": true,
-    "sourceMap": false,
-    "module": "commonjs",
-    "target": "es5",
     "jsx": "react",
     "declaration": true
   },

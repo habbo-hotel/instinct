@@ -11,7 +11,8 @@
       "@instinct-prj/interface": ["./packages/interface/src"],
       "@instinct-prj/themes": ["./packages/themes/src"],
       "@instinct-prj/interface-rp": ["./packages/interface-rp/src"]
-    }
+    },
+    "noEmit": true
   },
   "include": [
     "apps",
