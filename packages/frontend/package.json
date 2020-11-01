@@ -40,7 +40,7 @@
     "@types/reactstrap": "^8.5.2",
     "acorn-jsx": "^5.3.1",
     "copyfiles": "^2.4.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "4.14.1",
     "react": "^17.0.1",
     "reactstrap": "^8.7.0",
     "rimraf": "^3.0.2",
