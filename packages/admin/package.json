@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/admin",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
@@ -10,8 +10,8 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "*",
-    "@instinct-prj/interface": "*",
+    "@instinct-prj/frontend": "^0.3.3",
+    "@instinct-prj/interface": "^0.3.3",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-typescript": "^6.1.0",
     "@uiw/react-md-editor": "^1.14.5",
