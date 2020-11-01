@@ -4,8 +4,8 @@
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
-    "build": "yarn run clean && yarn && yarn run compile",
-    "clean": "rimraf -rf ./dist && rimraf -rf ./node_modules",
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
     "compile": "NODE_OPTIONS=--max_old_space_size=4096 tsc -p tsconfig.build.json && copyfiles -u  1 ./src/**/*.scss dist",
     "prepublishOnly": "yarn run build"
   },
@@ -40,7 +40,7 @@
     "react-toastify": "^6.0.9",
     "reactstrap": "^8.7.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.32.1",
+    "rollup": "^2.33.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
     "sass-loader": "^10.0.4",
