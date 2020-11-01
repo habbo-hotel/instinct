@@ -24,14 +24,14 @@ export function MyProfile() {
           <div
             className="icons"
             style={{
-              background: 'url(/img/icons/credits.png) no-repeat center center',
+              background: 'url(https://i.imgur.com/SPiYsru.png) no-repeat center center',
             }}
           />
           <div style={{color: '#E2AE1D'}}>{user?.credits}</div>
           <div
             className="icons"
             style={{
-              background: 'url(/img/icons/duckets.png) no-repeat center center',
+              background: 'url(https://i.imgur.com/hoTMPxK.png) no-repeat center center',
             }}
           />
           <div style={{color: '#BA7CC2'}}>{user?.pixels}</div>
@@ -39,7 +39,7 @@ export function MyProfile() {
             className="icons"
             style={{
               background:
-                'url(/img/icons/diamonds.png) no-repeat center center',
+                'url(https://i.imgur.com/wTTa30p.png) no-repeat center center',
             }}
           />
           <div style={{color: '#BA7CC2'}}>{user?.points}</div>
