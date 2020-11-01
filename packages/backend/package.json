@@ -1,9 +1,11 @@
 {
   "name": "@instinct-prj/backend",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "main": "dist/index",
   "types": "dist/index",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
@@ -11,7 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^0.3.3",
+    "@instinct-prj/interface": "^0.4.0",
     "@nestjs/jwt": "^7.1.0",
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.4",

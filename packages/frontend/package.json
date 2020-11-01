@@ -1,9 +1,11 @@
 {
   "name": "@instinct-prj/frontend",
-  "version": "0.4.4",
+  "version": "0.5.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist",
@@ -11,7 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^0.3.3",
+    "@instinct-prj/interface": "^0.4.0",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
