@@ -8,7 +8,7 @@
     "fix": "gts fix",
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "deploy": "lerna publish",
+    "deploy": "yarn run build && lerna publish",
     "bootstrap": "lerna bootstrap",
     "update": "lerna exec -- ncu -u"
   },
