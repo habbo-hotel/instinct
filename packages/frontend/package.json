@@ -1,12 +1,12 @@
 {
   "name": "@instinct-prj/frontend",
   "version": "0.3.2",
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "yarn run clean && npm i && yarn run compile",
-    "clean": "rimraf -rf ./build && rimraf -rf ./dist && rimraf -rf ./node_modules",
-    "compile": "NODE_OPTIONS=--max_old_space_size=4096 tsc -p tsconfig.build.json && copyfiles -u  1 ./src/**/*.scss build",
+    "build": "yarn run clean && yarn && yarn run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./node_modules",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 tsc -p tsconfig.build.json && copyfiles -u  1 ./src/**/*.scss dist",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
@@ -41,7 +41,9 @@
     "acorn-jsx": "^5.3.1",
     "copyfiles": "^2.4.0",
     "node-sass": "^5.0.0",
+    "react": "^17.0.1",
     "reactstrap": "^8.7.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.32.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",

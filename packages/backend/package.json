@@ -4,7 +4,7 @@
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
-    "build": "yarn run clean && npm i && yarn run compile",
+    "build": "yarn run clean && yarn && yarn run compile",
     "clean": "rimraf -rf ./dist && rimraf -rf ./node_modules",
     "compile": "tsc -p tsconfig.build.json",
     "prepublishOnly": "yarn run build"
@@ -43,6 +43,7 @@
     "@types/passport-jwt": "^3.0.3",
     "@types/randomstring": "^1.1.6",
     "dotenv": "^8.2.0",
+    "rimraf": "^3.0.2",
     "sinon": "^9.2.1",
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",

@@ -4,9 +4,9 @@
   "main": "dist/index",
   "types": "dist/index",
   "scripts": {
-    "build": "yarn run clean && npm i && yarn run compile",
-    "clean": "rimraf -rf ./build && rimraf -rf ./dist && rimraf -rf ./node_modules",
-    "compile": "NODE_OPTIONS=--max_old_space_size=4096 tsc -p tsconfig.build.json && copyfiles -u  1 ./src/**/*.scss build",
+    "build": "yarn run clean && yarn && yarn run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./node_modules",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 tsc -p tsconfig.build.json && copyfiles -u  1 ./src/**/*.scss dist",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
@@ -32,12 +32,14 @@
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "query-string": "^6.13.6",
+    "react": "^17.0.1",
     "react-datepicker": "^3.3.0",
     "react-draggable": "^4.4.3",
     "react-google-recaptcha": "^2.1.0",
     "react-loading-skeleton": "^2.1.1",
     "react-toastify": "^6.0.9",
     "reactstrap": "^8.7.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.32.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
