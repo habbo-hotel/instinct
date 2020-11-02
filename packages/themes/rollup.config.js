@@ -37,7 +37,7 @@ export default {
 
     // Bundle CSS and SASS files
     scss({
-      output: './dist/frontend.css',
+      output: './dist/themes.css',
       failOnError: true,
     }),
 
