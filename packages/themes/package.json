@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/themes",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
