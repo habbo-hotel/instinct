@@ -2,7 +2,7 @@ import React from 'react';
 import './Disconnected.scss';
 import {useLocation} from 'wouter';
 import {Button} from '@instinct-prj/frontend';
-import {UserGuard, FrankBox, setURL} from '@instinct-prj/frontend';
+import {UserGuard, setURL} from '@instinct-prj/frontend';
 
 setURL('disconnected', <Disconnected />);
 
@@ -12,12 +12,10 @@ export function Disconnected() {
   return (
     <UserGuard>
       <div className="disconnected">
-        <FrankBox title="Disconnected">
-          <p>You been disconnected</p>
-          <Button color="info" onClick={() => setLocation('play')}>
-            Try Again
-          </Button>
-        </FrankBox>
+        <p>You been disconnected</p>
+        <Button color="info" onClick={() => setLocation('play')}>
+          Try Again
+        </Button>
       </div>
     </UserGuard>
   );

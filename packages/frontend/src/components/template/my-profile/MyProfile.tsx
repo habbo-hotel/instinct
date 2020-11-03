@@ -24,14 +24,16 @@ export function MyProfile() {
           <div
             className="icons"
             style={{
-              background: 'url(https://i.imgur.com/SPiYsru.png) no-repeat center center',
+              background:
+                'url(https://i.imgur.com/SPiYsru.png) no-repeat center center',
             }}
           />
           <div style={{color: '#E2AE1D'}}>{user?.credits}</div>
           <div
             className="icons"
             style={{
-              background: 'url(https://i.imgur.com/hoTMPxK.png) no-repeat center center',
+              background:
+                'url(https://i.imgur.com/hoTMPxK.png) no-repeat center center',
             }}
           />
           <div style={{color: '#BA7CC2'}}>{user?.pixels}</div>

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {sessionContext} from '../../../context/session';
 import {NavBarLink} from '../../generic/navbar/navbar-link';
 import {UserDropdown} from '../../generic/navbar/user-dropdown';
 import {NavBarDropdown} from '../../generic/navbar/navbar-dropdown';
 import {NavBarChildLink} from '../../generic/navbar/navbar-child-link';
 
 export function NavBar() {
+  const {user} = useContext(sessionContext);
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <nav className="navigation-container">
       <ul
