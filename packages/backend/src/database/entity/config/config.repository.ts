@@ -13,8 +13,8 @@ export class ConfigRepository {
   async getConfig(): Promise<ConfigEntity> {
     try {
       return await this.configRepo.findOneOrFail();
-    } catch {
-      throw new Error('Missing Configuration');
+    } catch (e) {
+      throw new Error(e);
     }
   }
 
