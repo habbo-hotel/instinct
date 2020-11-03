@@ -10,12 +10,8 @@ export class ConfigRepository {
     private readonly configRepo: Repository<ConfigEntity>
   ) {}
 
-  async getConfig(): Promise<ConfigEntity> {
-    try {
-      return await this.configRepo.findOneOrFail();
-    } catch (e) {
-      throw new Error(e);
-    }
+  getConfig(): Promise<ConfigEntity> {
+    return this.configRepo.findOneOrFail();
   }
 
   async updateConfig(
