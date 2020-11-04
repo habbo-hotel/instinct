@@ -16,7 +16,6 @@ export function NavBar() {
         <NavBarLink to="/home">Home</NavBarLink>
         <NavBarDropdown text="Community" to="/community/news">
           <NavBarChildLink to="/community/staff">Staff</NavBarChildLink>
-          <NavBarChildLink to="/community/online">Online Users</NavBarChildLink>
           <NavBarChildLink to="/community/games">High Scores</NavBarChildLink>
         </NavBarDropdown>
         <NavBarLink to="/business">Business</NavBarLink>

@@ -938,11 +938,6 @@ input:-webkit-autofill{
     margin-top: 33px;
 }
 
-.page-container .page-content .default-section b,
-.page-container .page-content .default-section strong{
-    font-weight: 500;
-}
-
 .page-container .page-content .default-section p{
     margin: 0 0 17px;
 }
@@ -1253,145 +1248,6 @@ input:-webkit-autofill{
 .page-container[data-page = "community_team"] .members-container .member-container .member-content .member-status .status-icon.online{
     background-color: #38b54a;
 }
-
-/* Page - Games ranking */
-.page-container[data-page = "games_ranking"] .page-header{
-    background-image: url(../img/header/games.png);
-    background-color: #2ea15e;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-container{
-    padding: 15px 0 0 !important;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header{
-    background-color: #2ea15e;
-    padding: 0 20px;
-    height: 80px;
-    position: relative;
-    margin: -15px 0 20px;
-    color: #fff;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header:before{
-    background-image: url(../images/web/pages/rounded-top-medium.png);
-    width: 692px;
-    height: 7px;
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: "";
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header .ranking-header-left-side{
-    float: left;
-    padding-top: 28px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header .ranking-header-left-side strong{
-    font-weight: 600;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header .ranking-header-right-side{
-    float: right;
-    padding-top: 27px;
-    font-size: 37px;
-    font-weight: 600;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-header .ranking-header-right-side span{
-    font-size: 16px;
-    font-weight: 300;
-    position: relative;
-    top: -16px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content th,
-.page-container[data-page = "games_ranking"] .ranking-content td{
-    text-align: center;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content th:first-child{
-    text-align: left;
-    padding-left: 25px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content th:nth-child(2){
-    width: 120px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content th:nth-child(3){
-    width: 115px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content th:nth-child(4){
-    width: 110px;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td{
-    font-size: 14px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(1){
-    width: 90px;
-    line-height: 0;
-    padding: 2px 0 5px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(2){
-    text-align: left;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(2) a{
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(3){
-    font-size: 12px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(3) span{
-    font-size: 17px;
-    font-weight: 500;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(4){
-    font-weight: 400;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(4) span:before{
-    font-family: "FontAwesome", sans-serif;
-    display: inline-block;
-    margin-right: 6px;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(4) span.up:before{
-    content: "\f0d8";
-    color: #05a615;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(4) span.down:before{
-    content: "\f0d7";
-    color: #c10d0d;
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(4) span.constant:before{
-    font-family: inherit;
-    font-weight: 600;
-    color: #2c85d2;
-    content: "=";
-}
-
-.page-container[data-page = "games_ranking"] .ranking-content td:nth-child(5){
-    font-size: 20px;
-    font-weight: 400;
-}
-
 /* Page - Settings */
 .page-container[data-page ^= "settings_"] .page-header{
     background-image: url(../img/header/preferences.png);
@@ -1684,4 +1540,24 @@ input:-webkit-autofill{
 
 .header-container .header-content .account-container .account-buttons .rounded-button.plain, .header-container .header-content .account-container .account-buttons .rounded-button:not(.plain):hover {
     text-decoration: none;
+}
+
+.nav-link {
+    background: #0F406B;
+    color: white;
+    text-decoration: none;
+    margin-right: 5px;
+    border: none !important;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background: #001726;
+    color: white;
+    border-top: 1px solid white !important;
+    border-left: 1px solid white !important;
+    border-right: 1px solid white !important;
 }

@@ -16,7 +16,7 @@ export function Referral() {
     <Card header="Referral">
       <p>
         Invite your friends to earn diamonds! For each invite, you'll earn{' '}
-        <b>10</b> diamonds
+        <b>5</b> diamonds
       </p>
       <div className="row">
         <div className="col-4 col-lg-2">

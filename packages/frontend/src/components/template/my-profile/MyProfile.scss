@@ -11,10 +11,16 @@
   }
 
   .enter-hotel {
-    color: #2d74a6 !important;
-    opacity: 0.85;
+    background: #001726 !important;
+    color: white !important;
     float: right;
     margin: 40px;
+    border-color: lighten(#0F416C, 20%) !important;;
+
+    &:hover {
+      border-color: lighten(#0F416C, 35%) !important;;
+    }
+
   }
 
   .enter-hotel:hover {

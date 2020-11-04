@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'wouter';
 import {UserLayout} from '../../../components/layout/user';
 import {
   Container,
@@ -7,9 +6,11 @@ import {
   setURL,
   RecentNews,
   MyProfile,
-  Card,
-  Icon,
+  UserOfTheWeek,
+  Referral,
 } from '@instinct-prj/frontend';
+import {OnlineFriendsCard} from './widgets/OnlineFriends';
+import {MyEmploymentCard} from './widgets/MyEmployment';
 
 setURL('home', <Home />);
 
@@ -19,9 +20,12 @@ export function Home() {
       <Container>
         <Column side="left">
           <MyProfile />
+          <MyEmploymentCard />
+          <Referral />
         </Column>
         <Column side="right">
-          <p />
+          <RecentNews />
+          <OnlineFriendsCard />
         </Column>
       </Container>
     </UserLayout>
