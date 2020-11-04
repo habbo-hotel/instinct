@@ -7,6 +7,7 @@ export * from './container';
 export * from './date-picker';
 export * from './form';
 export * from './logo';
+export * from './mini-jumbotron';
 export * from './modal';
 export * from './nav-tabs';
 export * from './navbar';

@@ -1,13 +1,13 @@
 import './Games.scss';
 import React from 'react';
-import {UserLayout} from '../../../components/layout/user';
-import {Container, Row, setURL} from '@instinct-prj/frontend';
 import {MostKillsCard} from './widgets/MostKills';
 import {MostDeathsCard} from './widgets/MostDeaths';
 import {MostDamageCard} from './widgets/MostDamage';
+import {MostActiveCard} from './widgets/MostActive';
 import {MostArrestsCard} from './widgets/MostArrests';
 import {MostJailTimeCard} from './widgets/MostJailTime';
-import {MostActiveCard} from './widgets/MostActive';
+import {UserLayout} from '../../../components/layout/user';
+import {Container, Row, setURL, MiniJumbotron} from '@instinct-prj/frontend';
 
 setURL('community/games', <Games />);
 
@@ -17,18 +17,10 @@ export function Games() {
       <Container>
         <Row>
           <div className="col-12">
-            <div
-              style={{
-                background: '#001726',
-                padding: 15,
-                borderRadius: 4,
-                width: '100%',
-                color: 'white',
-              }}
-            >
+            <MiniJumbotron>
               <h1>High Scores</h1>
               <p>Can you make it to the top?</p>
-            </div>
+            </MiniJumbotron>
           </div>
         </Row>
         <br />

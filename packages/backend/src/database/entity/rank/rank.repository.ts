@@ -29,6 +29,9 @@ export class RankRepository {
       where: {
         websiteShowStaff: PermissionStatus.Enabled,
       },
+      order: {
+        id: 'DESC',
+      },
       relations: this.eagerRelations,
     });
   }
