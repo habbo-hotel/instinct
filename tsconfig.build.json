@@ -12,7 +12,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "jsx": "react",
-    "declaration": true
+    "declaration": true,
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": [
     "node_modules",

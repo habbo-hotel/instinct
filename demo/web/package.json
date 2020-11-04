@@ -1,0 +1,49 @@
+{
+  "name": "instinct-demo-web",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "PORT=3001 react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "update": "yarn update:frontend && yarn update:interface",
+    "update:frontend": "yarn add @instinct-prj/admin@latest && yarn add @instinct-prj/frontend@latest && yarn add @instinct-prj/themes@latest",
+    "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
+  },
+  "dependencies": {
+    "@instinct-prj/admin": "^1.0.0",
+    "@instinct-prj/frontend": "^0.5.1",
+    "@instinct-prj/interface": "^0.4.0",
+    "@instinct-prj/interface-rp": "^0.4.0",
+    "@instinct-prj/themes": "^1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "reactstrap": "^8.7.1"
+  },
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "node-sass": "4.14.1",
+    "react-refresh": "^0.9.0",
+    "react-scripts": "^3.4.3",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^4.0.5",
+    "react-app-rewired": "^2.1.6"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:3000"
+}
