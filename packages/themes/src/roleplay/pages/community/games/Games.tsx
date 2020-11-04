@@ -23,7 +23,6 @@ export function Games() {
             </MiniJumbotron>
           </div>
         </Row>
-        <br />
         <Row>
           <div className="col-4">
             <MostKillsCard />

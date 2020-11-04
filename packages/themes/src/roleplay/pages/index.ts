@@ -6,5 +6,4 @@ import './error';
 import './gangs';
 import './groups';
 import './home';
-import './life';
 import './rooms';

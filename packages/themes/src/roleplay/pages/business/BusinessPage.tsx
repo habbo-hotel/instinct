@@ -1,4 +1,6 @@
 import React from 'react';
+import {sumBy} from 'lodash';
+import './BusinessPage.scss';
 import {Col} from 'reactstrap';
 import {useRoute} from 'wouter';
 import {UserLayout} from '../../components/layout/user';
@@ -7,7 +9,7 @@ import {
   Avatar,
   Card,
   Container,
-  Jumbotron,
+  MiniJumbotron,
   Row,
   setURL,
   Skeleton,
@@ -36,21 +38,30 @@ export function BusinessPage() {
     );
   }
 
+  const employeeCount = sumBy(business.positions, x => x.employees.length);
+
   return (
     <UserLayout>
-      <Jumbotron
-        style={{
-          backgroundColor: '#263238',
-          backgroundImage:
-            'url(https://game.peakrp.com/habbo-imaging/badge/police.gif)',
-          backgroundSize: 140,
-        }}
-        title={business.name}
-      >
-        <p>{business?.desc}</p>
-      </Jumbotron>
       <Container>
-        <Row className="mt-5">
+        <Row>
+          <div className="col-12">
+            <MiniJumbotron>
+              <div className="row">
+                <div className="col-8">
+                  <h1>{business.name}</h1>
+                  <p>{business.desc} </p>
+                </div>
+                <div className="col-4 text-right">
+                  <img
+                    src="https://game.peakrp.com/habbo-imaging/badge/police.gif"
+                    style={{marginTop: 10, height: 80}}
+                  />
+                </div>
+              </div>
+            </MiniJumbotron>
+          </div>
+        </Row>
+        <Row>
           <Col xs={3}>
             <Card className="text-center" header="Managed By">
               <h3 style={{background: '#0f406b', padding: 5, borderRadius: 2}}>
@@ -68,16 +79,30 @@ export function BusinessPage() {
                 />
               </div>
             </Card>
+            <Card>
+              <div className="row">
+                <div className="col-6">
+                  <h4>Bank</h4>
+                  <div className="more-info-stats">$50</div>
+                </div>
+                <div className="col-6">
+                  <h4>Stock</h4>
+                  <div className="more-info-stats">50</div>
+                </div>
+              </div>
+            </Card>
           </Col>
           <Col xs={9}>
-            <Card header="Employees">
-              {business.employees.length === 0 && (
-                <p>This business has no employees.</p>
-              )}
-              {business.employees.map(_ => (
-                <UserContainer key={_.id} user={_} />
-              ))}
-            </Card>
+            {business.positions.map(position => (
+              <Card key={position.id} header={position.name}>
+                {position.employees.length === 0 && (
+                  <p>There are no employees in this role yet!</p>
+                )}
+                {position.employees.map(user => (
+                  <UserContainer key={user.id} user={user} />
+                ))}
+              </Card>
+            ))}
           </Col>
         </Row>
       </Container>

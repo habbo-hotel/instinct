@@ -41,7 +41,6 @@ export function Staff() {
             </MiniJumbotron>
           </div>
         </Row>
-        <br />
         <Row>
           {staff !== undefined ? (
             staff!.map(rank => (
