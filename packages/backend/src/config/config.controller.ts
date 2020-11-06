@@ -25,10 +25,14 @@ export class ConfigController {
   @Post()
   @HasScope('websiteManageConfig')
   async updateConfig(@Body() configDTO: UpdateConfigDTO): Promise<Config> {
-    const config = await this.configRepo.updateConfig({
-      ...configDTO,
-      websocketEnabled: configDTO.websocketEnabled ? 1 : 0,
-    });
-    return configWire(config);
+    await this.configRepo.update(
+      {},
+      {
+        ...configDTO,
+        websocketEnabled: configDTO.websocketEnabled ? 1 : 0,
+      }
+    );
+    const updatedConfig = await this.configRepo.findOneOrFail();
+    return configWire(updatedConfig);
   }
 }

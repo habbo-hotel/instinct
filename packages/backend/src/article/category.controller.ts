@@ -1,6 +1,6 @@
-import {ArticleCategory} from '@instinct-prj/interface';
-import {ArticleCategoryDTO} from './category.dto';
 import {CategoryPipe} from './category.pipe';
+import {ArticleCategoryDTO} from './category.dto';
+import {ArticleCategory} from '@instinct-prj/interface';
 import {HasScope} from '../session/permission-scope.decorator';
 import {ArticleCategoryRepository} from '../database/article';
 import {
@@ -22,7 +22,7 @@ export class ArticleCategoryController {
 
   @Get()
   async getAllCategories(): Promise<ArticleCategory[]> {
-    const categories = await this.articleCategoryRepo.getAll();
+    const categories = await this.articleCategoryRepo.find();
     return categories.map(_ => articleCategoryWire(_));
   }
 
@@ -31,9 +31,9 @@ export class ArticleCategoryController {
   async createCategory(
     @Body() categoryDTO: ArticleCategoryDTO
   ): Promise<ArticleCategory> {
-    const category = await this.articleCategoryRepo.create(
-      categoryDTO.category
-    );
+    const category = await this.articleCategoryRepo.create({
+      category: categoryDTO.category,
+    });
     return articleCategoryWire(category);
   }
 
@@ -43,9 +43,9 @@ export class ArticleCategoryController {
     @Param('categoryID', CategoryPipe) category: ArticleCategoryEntity,
     @Body() categoryDTO: ArticleCategoryDTO
   ): Promise<string> {
-    await this.articleCategoryRepo.updateByID(
-      category.id!,
-      categoryDTO.category
+    await this.articleCategoryRepo.update(
+      {id: category.id!},
+      {category: categoryDTO.category}
     );
     return 'Your changes have been saved';
   }
@@ -55,7 +55,7 @@ export class ArticleCategoryController {
   async deleteCategory(
     @Param('categoryID', CategoryPipe) category: ArticleCategoryEntity
   ): Promise<string> {
-    await this.articleCategoryRepo.deleteByID(category.id!);
+    await this.articleCategoryRepo.delete({id: category.id!});
     return 'Article category has been deleted';
   }
 }

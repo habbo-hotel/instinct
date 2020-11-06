@@ -4,9 +4,9 @@ import randomString from 'crypto-random-string';
 import {EmailService} from '../../email/email.service';
 import {ConfigRepository} from '../../database/config';
 import {BadRequestException, Injectable} from '@nestjs/common';
-import {ForgotPasswordEmailTemplate} from './forgot-password.types';
 import {UserEntity, UserRepository} from '../../database/user';
 import {UserForgotPasswordRepository} from '../../database/user';
+import {ForgotPasswordEmailTemplate} from './forgot-password.types';
 
 @Injectable()
 export class ForgotPasswordService {
@@ -28,7 +28,12 @@ export class ForgotPasswordService {
 
     const token = randomString({length: 50, type: 'url-safe'});
     const expiration = Moment().add('4', 'hours').unix();
-    await this.forgotPasswordRepo.create(user!.id!, token, expiration);
+    await this.forgotPasswordRepo.create({
+      userID: user.id!,
+      token,
+      createdAt: Moment().unix(),
+      expiresAt: expiration,
+    });
 
     await this.emailService.sendEmail<ForgotPasswordEmailTemplate>(
       user.email,
@@ -41,9 +46,9 @@ export class ForgotPasswordService {
   }
 
   async redeemPasswordToken(token: string, newPassword: string): Promise<void> {
-    const forgotPasswordEntity = await this.forgotPasswordRepo.getByToken(
-      token
-    );
+    const forgotPasswordEntity = await this.forgotPasswordRepo.findOneOrFail({
+      token,
+    });
 
     const currentTimestamp = +new Date() / 1000;
 
@@ -55,6 +60,6 @@ export class ForgotPasswordService {
       password: this.hashService.generate(newPassword),
     });
 
-    await this.forgotPasswordRepo.deleteByToken(token);
+    await this.forgotPasswordRepo.delete({token});
   }
 }

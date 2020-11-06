@@ -52,8 +52,8 @@ export class RankController {
     @Body() rankDTO: RankDTOClass
   ): Promise<string> {
     // TODO: Implement syncing users in a rank DTO
-    await this.rankRepo.updateByID(
-      rank.id!,
+    await this.rankRepo.update(
+      {id: rank.id!},
       rankDataTransferObjectToEntity(rankDTO)
     );
     return 'Your changes have been saved';
@@ -64,7 +64,7 @@ export class RankController {
   async deleteByID(
     @Param('rankID', RankPipe) rank: RankEntity
   ): Promise<string> {
-    await this.rankRepo.deleteByID(rank.id!);
+    await this.rankRepo.delete({id: rank.id!});
     return 'Rank has been deleted';
   }
 }

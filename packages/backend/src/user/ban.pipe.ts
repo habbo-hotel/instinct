@@ -7,7 +7,7 @@ export class UserBanPipe implements PipeTransform {
 
   async transform(banID: number): Promise<UserBanEntity> {
     try {
-      return await this.userBanRepo.getOneByID(banID);
+      return await this.userBanRepo.findOneOrFail({id: banID});
     } catch {
       throw new NotFoundException('Ban does not exist');
     }

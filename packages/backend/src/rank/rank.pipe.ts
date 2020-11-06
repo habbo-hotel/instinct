@@ -7,7 +7,7 @@ export class RankPipe implements PipeTransform {
 
   async transform(rankID: number): Promise<RankEntity> {
     try {
-      return await this.rankRepo.getByID(rankID);
+      return await this.rankRepo.findOneOrFail({id: rankID});
     } catch (e) {
       throw new NotFoundException('Rank does not exist');
     }

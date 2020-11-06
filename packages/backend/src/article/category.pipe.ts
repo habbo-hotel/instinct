@@ -9,7 +9,7 @@ export class CategoryPipe implements PipeTransform {
 
   async transform(categoryID: number): Promise<ArticleCategoryEntity> {
     try {
-      return await this.articleCategoryRepo.getByID(categoryID);
+      return await this.articleCategoryRepo.findOneOrFail({id: categoryID});
     } catch {
       throw new NotFoundException('Article category does not exist');
     }
