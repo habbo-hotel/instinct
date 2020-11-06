@@ -10,19 +10,19 @@ export function BusinessEditor({onSubmit}: BusinessEditorProps) {
     <WizardCard
       steps={[
         {
-          text: <>1.Details</>,
+          text: 'Details',
           children: <DetailsStep />,
         },
         {
-          text: <>2. Employees</>,
+          text: 'Employees',
           children: <EmployeesStep />,
         },
         {
-          text: <>3. Investment</>,
+          text: 'Investment',
           children: <InvestmentStep />,
         },
         {
-          text: <>4. Review</>,
+          text: 'Review',
           children: <ReviewStep />,
         },
       ]}

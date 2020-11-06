@@ -1,14 +1,24 @@
 import {Card} from '../card';
 import {Form} from '../form';
 import {FormGroup} from 'reactstrap';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {WizardCardProps} from './WizardCard.types';
 
 export function WizardCard({steps, header, onSubmit}: WizardCardProps) {
   const [active, setActive] = useState(0);
+  const [completedSteps, setCompleted] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (active < 1) {
+      return;
+    }
+    if (!completedSteps.includes(active - 1)) {
+      setCompleted(_ => [..._, active - 1]);
+    }
+  }, [active, completedSteps]);
 
   const canGoBack = active > 0;
-  const canGoForward = active < steps.length;
+  const canGoForward = active < steps.length - 1;
 
   function goBack() {
     if (canGoBack) {
@@ -23,7 +33,7 @@ export function WizardCard({steps, header, onSubmit}: WizardCardProps) {
   }
 
   function goToStep(step: number) {
-    if (active > step) {
+    if (completedSteps.includes(step)) {
       setActive(step);
     }
   }
@@ -36,24 +46,25 @@ export function WizardCard({steps, header, onSubmit}: WizardCardProps) {
             <a
               className={`nav-link ${active === i ? 'active' : ''}`}
               style={{
-                background: active > i ? '#33691E' : '#0F406B',
-                cursor: active > i ? 'pointer' : 'not-allowed',
+                background: completedSteps.includes(i) ? '#33691E' : '',
+                cursor: completedSteps.includes(i) ? 'pointer' : 'not-allowed',
               }}
               onClick={() => goToStep(i)}
             >
+              <span className="mr-2">{i + 1}.</span>
               {step.text}
             </a>
           </li>
         ))}
       </ul>
-      <Form className="" onSubmit={onSubmit}>
+      <Form className="mt-4" onSubmit={onSubmit}>
         {steps[active].children}
         <div className="row">
           <div className="col-6">&nbsp;</div>
           <div className="col-6 text-right">
             <FormGroup>
               {canGoBack && (
-                <button className="btn btn-outline-dark mr-2" onClick={goBack}>
+                <button className="btn btn-dark mr-2" onClick={goBack}>
                   Last Step
                 </button>
               )}

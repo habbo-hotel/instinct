@@ -1,9 +1,13 @@
 import React from 'react';
+import {Icon} from '@instinct-prj/frontend';
 
 export function ReviewStep() {
   return (
     <>
-      <h1>Review</h1>
+      <h2>
+        <Icon type="search" />
+        Review
+      </h2>
     </>
   );
 }
