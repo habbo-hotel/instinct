@@ -1,5 +1,5 @@
-import {PhotoEntity} from './photo';
-import {GroupEntity} from './group';
+import {PhotoEntity, PhotoRepository} from './photo';
+import {GroupEntity, GroupRepository} from './group';
 import {Provider} from '@nestjs/common';
 import {RankEntity, RankRepository} from './rank';
 import {RoomEntity, RoomRepository} from './room';
@@ -43,4 +43,6 @@ export const databaseRepositories: Provider[] = [
   UserBanRepository,
   UserRepository,
   RoomRepository,
+  GroupRepository,
+  PhotoRepository,
 ];

@@ -1,4 +1,6 @@
+import {Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
 import {BusinessPositionEntity} from './business-position.entity';
 import {BaseRepository} from '@instinct-prj/backend/src/database/base.repository';
 
@@ -6,7 +8,10 @@ import {BaseRepository} from '@instinct-prj/backend/src/database/base.repository
 export class BusinessPositionRepository extends BaseRepository<
   BusinessPositionEntity
 > {
-  constructor() {
-    super(BusinessPositionEntity, []);
+  constructor(
+    @InjectRepository(BusinessPositionEntity)
+    businessPositionRepo: Repository<BusinessPositionEntity>
+  ) {
+    super(businessPositionRepo, []);
   }
 }

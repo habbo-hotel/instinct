@@ -1,12 +1,14 @@
-import {RankEntity} from './rank.entity';
+import {Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
+import {RankEntity} from './rank.entity';
 import {PermissionStatus} from './rank.types';
+import {InjectRepository} from '@nestjs/typeorm';
 import {BaseRepository} from '../base.repository';
 
 @Injectable()
 export class RankRepository extends BaseRepository<RankEntity> {
-  constructor() {
-    super(RankEntity, ['users']);
+  constructor(@InjectRepository(RankEntity) rankRepo: Repository<RankEntity>) {
+    super(rankRepo, ['users']);
   }
 
   async create(rank: RankEntity): Promise<RankEntity> {
