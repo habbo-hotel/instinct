@@ -6,7 +6,7 @@ import {BusinessCardProps} from './BusinessCard.types';
 
 export function BusinessCard({business}: BusinessCardProps) {
   return (
-    <Link to={`/business/${business.id}`}>
+    <Link to={`/businesses/${business.id}`}>
       <div>
         <Card className="business-card">
           <Row>

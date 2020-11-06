@@ -1,29 +1,26 @@
 import React from 'react';
+import {BusinessEditor} from './editor/BusinessEditor';
 import {UserLayout} from '../../components/layout/user';
-import {
-  Card,
-  Container,
-  Column,
-  Jumbotron,
-  Row,
-  setURL,
-} from '@instinct-prj/frontend';
+import {Container, Row, setURL, MiniJumbotron} from '@instinct-prj/frontend';
 
-setURL('business/create', <BusinessCreate />);
+setURL('business/creator', <BusinessCreate />);
 
 export function BusinessCreate() {
+  async function onSubmit() {}
+
   return (
     <UserLayout section="business">
-      <Jumbotron title="Business Creator">
-        <p>Test </p>
-      </Jumbotron>
       <Container>
         <Row>
-          <Column side="left">
-            <Card>
-              <p>Coming soon</p>
-            </Card>
-          </Column>
+          <MiniJumbotron>
+            <h2>Business Creator</h2>
+            <p>Kickstart your new business today!</p>
+          </MiniJumbotron>
+        </Row>
+        <Row>
+          <div style={{width: '100%'}}>
+            <BusinessEditor onSubmit={onSubmit} />
+          </div>
         </Row>
       </Container>
     </UserLayout>

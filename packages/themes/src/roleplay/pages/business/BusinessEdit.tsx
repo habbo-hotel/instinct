@@ -9,7 +9,7 @@ import {
   setURL,
 } from '@instinct-prj/frontend';
 
-setURL('business/:businessID/edit', <BusinessEdit />);
+setURL('businesses/:businessID/edit', <BusinessEdit />);
 
 export function BusinessEdit() {
   return (

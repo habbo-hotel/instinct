@@ -1,5 +1,4 @@
 import React from 'react';
-import {sumBy} from 'lodash';
 import './BusinessPage.scss';
 import {Col} from 'reactstrap';
 import {useRoute} from 'wouter';
@@ -16,12 +15,13 @@ import {
   UserContainer,
 } from '@instinct-prj/frontend';
 
-setURL('business/:businessID', <BusinessPage />);
+setURL('businesses/:businessID', <BusinessPage />);
 
 export function BusinessPage() {
   const [matched, params] = useRoute<{businessID: string}>(
     '/business/:businessID'
   );
+
   const business = useFetchBusinessByID(params!.businessID);
 
   if (!business) {
@@ -37,8 +37,6 @@ export function BusinessPage() {
       </UserLayout>
     );
   }
-
-  const employeeCount = sumBy(business.positions, x => x.employees.length);
 
   return (
     <UserLayout>
