@@ -1,6 +1,6 @@
 import React from 'react';
-import {NavTabs, UserContainer} from '@instinct-prj/frontend';
 import {exampleUser} from '@instinct-prj/interface';
+import {NavTabs, UserContainer} from '@instinct-prj/frontend';
 
 export function OnlineFriendsCard() {
   return (

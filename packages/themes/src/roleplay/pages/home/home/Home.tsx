@@ -6,11 +6,10 @@ import {
   setURL,
   RecentNews,
   MyProfile,
-  UserOfTheWeek,
   Referral,
 } from '@instinct-prj/frontend';
-import {OnlineFriendsCard} from './widgets/OnlineFriends';
-import {MyEmploymentCard} from './widgets/MyEmployment';
+import {MyEmploymentCard} from '../../../components/templates/my-employment-card';
+import {OnlineFriendsCard} from '../../../components/templates/online-friends-card';
 
 setURL('home', <Home />);
 

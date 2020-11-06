@@ -36,10 +36,18 @@ export function UserLayout({
       <span className="page-container">
         <Header>
           <EnterHotelButton />
-          <button className="rounded-button white">
+          <div
+            className="rounded-button"
+            style={{
+              background: '#001726',
+              border: 'none',
+              boxShadow: '2px 2px #0F416C',
+              color: 'white',
+            }}
+          >
             {health.usersOnline}
             <Icon className="ml-2" type="user" />
-          </button>
+          </div>
         </Header>
         <NavBar />
         <main>

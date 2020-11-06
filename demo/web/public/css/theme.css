@@ -260,9 +260,9 @@ input:-webkit-autofill{
 /* Buttons */
 .rounded-button{
     background-color: transparent;
-    -webkit-border-radius: 48px;
-    -moz-border-radius: 48px;
-    border-radius: 48px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
     padding: 11px 24px;
     display: inline-block;
     text-decoration: none;

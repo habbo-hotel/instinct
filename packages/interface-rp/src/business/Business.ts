@@ -14,6 +14,13 @@ export interface BusinessPosition {
   businessID: number;
   name: string;
   employees: User[];
+  permissions: {
+    manager: boolean;
+    canHire: boolean;
+    canFire: boolean;
+    canPromote: boolean;
+    canDemote: boolean;
+  };
 }
 
 export const exampleBusinessPosition: BusinessPosition = {
@@ -21,6 +28,13 @@ export const exampleBusinessPosition: BusinessPosition = {
   businessID: 1,
   name: 'Apprentice',
   employees: [exampleUser],
+  permissions: {
+    manager: false,
+    canHire: false,
+    canFire: false,
+    canPromote: false,
+    canDemote: false,
+  },
 };
 
 export const exampleBusiness: Business = {

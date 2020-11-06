@@ -60,9 +60,9 @@ class SessionServiceImplementation implements SessionService {
     }
   }
 
-  logout(): void {
+  logout = () => {
     localStorageService.delete(this.localStorageKey);
-  }
+  };
 
   async updateProfile(favoriteYoutubeVideo: string): Promise<void> {
     await backendAPI.post('session/settings/preferences', {

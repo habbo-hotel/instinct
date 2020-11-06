@@ -1,0 +1,60 @@
+{
+  "name": "@instinct-prj/backend-rp",
+  "version": "0.6.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "yarn run build"
+  },
+  "dependencies": {
+    "@instinct-prj/backend": "^0.4.0",
+    "@instinct-prj/interface": "^0.4.0",
+    "@nestjs/jwt": "^7.1.0",
+    "@nestjs/passport": "^7.1.0",
+    "@nestjs/platform-express": "^7.4.4",
+    "@nestjs/typeorm": "^7.1.4",
+    "@sendgrid/mail": "^7.3.0",
+    "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "crypto-random-string": "^3.3.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "randomstring": "^1.1.5",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.3",
+    "typeorm": "^0.2.28",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^7.4.4",
+    "@nestjs/core": "^7.4.4",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.14.6",
+    "@types/passport": "^1.0.4",
+    "@types/passport-jwt": "^3.0.3",
+    "@types/randomstring": "^1.1.6",
+    "dotenv": "^8.2.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "9.0.0",
+    "tsconfig-paths": "3.9.0",
+    "typescript": "~4.0.5"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^7.4.4",
+    "@nestjs/core": "^7.4.4",
+    "typescript": "~4.0.5"
+  }
+}
