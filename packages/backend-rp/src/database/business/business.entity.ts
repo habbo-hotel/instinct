@@ -1,5 +1,5 @@
 import {BusinessPositionEntity} from './business-position.entity';
-import {UserEntity} from '@instinct-prj/backend/database/user/user.entity';
+import {UserEntity} from '@instinct-prj/backend/src/database/user/user.entity';
 import {
   Column,
   Entity,
@@ -20,16 +20,16 @@ export class BusinessEntity {
   @Column({type: 'text'})
   desc!: string;
 
-  @Column({type: 'int', length: 11})
+  @Column({type: 'int'})
   balance!: number;
 
   @Column({type: 'varchar', length: 25})
   badge!: string;
 
-  @Column({name: 'work_room', type: 'int', length: 11})
+  @Column({name: 'work_room', type: 'int'})
   workRoom!: number;
 
-  @Column({name: 'user_id', type: 'int', length: 11})
+  @Column({name: 'user_id', type: 'int'})
   userID!: number;
 
   @ManyToOne(() => UserEntity)

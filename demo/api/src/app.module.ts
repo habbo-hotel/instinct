@@ -6,6 +6,7 @@ import {
   databaseName,
   databaseHost,
   databasePass,
+  databaseEntities,
   InstinctModule,
 } from '@instinct-prj/backend';
 import {rpDatabaseEntities} from '@instinct-prj/backend-rp/src/database/database.meta';
@@ -18,11 +19,10 @@ import {rpDatabaseEntities} from '@instinct-prj/backend-rp/src/database/database
       username: databaseUser,
       password: databasePass,
       database: databaseName,
-      entities: [...rpDatabaseEntities],
+      entities: [...databaseEntities, ...rpDatabaseEntities],
       synchronize: false,
     }),
     InstinctModule,
-    InstinctRPModule,
   ],
 })
 export class InstinctAppModule {}

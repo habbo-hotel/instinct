@@ -4,4 +4,5 @@ export * from './room';
 export * from './photo';
 export * from './group';
 export * from './article';
+export * from './database.meta';
 export * from './database.module';

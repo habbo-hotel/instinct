@@ -12,10 +12,10 @@ export class BusinessPositionEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({name: 'business_id', type: 'int', length: 11})
+  @Column({name: 'business_id', type: 'int'})
   businessID!: number;
 
-  @Column({name: 'index', type: 'int', length: 11})
+  @Column({name: 'index', type: 'int'})
   order!: number;
 
   @Column({type: 'varchar', length: 100})
@@ -27,25 +27,25 @@ export class BusinessPositionEntity {
   @Column({name: 'outfit_female', type: 'varchar', length: 100})
   femaleUniform!: string;
 
-  @Column({name: 'can_hire', type: 'tinyint', length: 4})
+  @Column({name: 'can_hire', type: 'tinyint'})
   canHire!: number;
 
-  @Column({name: 'can_fire', type: 'tinyint', length: 4})
+  @Column({name: 'can_fire', type: 'tinyint'})
   canFire!: number;
 
-  @Column({name: 'can_promote', type: 'tinyint', length: 4})
+  @Column({name: 'can_promote', type: 'tinyint'})
   canPromote!: number;
 
-  @Column({name: 'can_demote', type: 'tinyint', length: 4})
+  @Column({name: 'can_demote', type: 'tinyint'})
   canDemote!: number;
 
-  @Column({name: 'is_manager', type: 'tinyint', length: 4})
+  @Column({name: 'is_manager', type: 'tinyint'})
   isManager!: number;
 
-  @Column({name: 'shift_time', type: 'int', length: 11})
+  @Column({name: 'shift_time', type: 'int'})
   shiftTime!: number;
 
-  @Column({name: 'shift_wage', type: 'int', length: 11})
+  @Column({name: 'shift_wage', type: 'int'})
   shiftWage!: number;
 
   @ManyToOne(() => BusinessEntity)
