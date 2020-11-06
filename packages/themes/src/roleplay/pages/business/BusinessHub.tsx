@@ -1,13 +1,14 @@
 import React from 'react';
 import {Col} from 'reactstrap';
 import {UserLayout} from '../../components/layout/user';
-import {exampleBusiness} from '@instinct-prj/interface-rp';
+import {useFetchAllBusinesses} from '../../hooks/business';
 import {BusinessCard} from '../../components/templates/business-card';
 import {Container, MiniJumbotron, Row, setURL} from '@instinct-prj/frontend';
 
 setURL('business', <BusinessHub />);
 
 export function BusinessHub() {
+  const businesses = useFetchAllBusinesses();
   return (
     <UserLayout>
       <Container>
@@ -20,12 +21,11 @@ export function BusinessHub() {
           </div>
         </Row>
         <Row>
-          <Col xs={6}>
-            <BusinessCard business={exampleBusiness} />
-          </Col>
-          <Col xs={6}>
-            <BusinessCard business={exampleBusiness} />
-          </Col>
+          {businesses?.map(_ => (
+            <Col key={_.id} xs={6}>
+              <BusinessCard business={_} />
+            </Col>
+          ))}
         </Row>
       </Container>
     </UserLayout>

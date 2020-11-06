@@ -6,10 +6,11 @@ import {WebsiteSettingsProvider} from './context/WebsiteSettings.provider';
 import {
   AdminLayout,
   Container,
+  Icon,
   Jumbotron,
+  NavTabs,
   Row,
   setURL,
-  TabCard,
 } from '@instinct-prj/frontend';
 import {GoogleSettings} from './views/GoogleSettings';
 import {MailSettings} from './views/MailSettings';
@@ -29,37 +30,30 @@ export function WebsiteSettings() {
         <Row>
           <Container>
             <WebsiteSettingsProvider>
-              <article className="default-section" style={{paddingLeft: 60}}>
-                <TabCard
-                  tabs={[
-                    {
-                      name: 'Site Preferences',
-                      icon: 'wrench',
-                      children: <SitePreferences />,
-                    },
-                    {
-                      name: 'Server Settings',
-                      icon: 'server',
-                      children: <ServerSettings />,
-                    },
-                    {
-                      name: 'Game Settings',
-                      icon: 'gamepad',
-                      children: <GameSettings />,
-                    },
-                    {
-                      name: 'Captcha Settings',
-                      icon: 'robot',
-                      children: <GoogleSettings />,
-                    },
-                    {
-                      name: 'Email Settings',
-                      icon: 'envelope-open',
-                      children: <MailSettings />,
-                    },
-                  ]}
-                />
-              </article>
+              <NavTabs
+                tabs={[
+                  {
+                    text: <Icon type="wrench" />,
+                    children: <SitePreferences />,
+                  },
+                  {
+                    text: <Icon type="server" />,
+                    children: <ServerSettings />,
+                  },
+                  {
+                    text: <Icon type="gamepad" />,
+                    children: <GameSettings />,
+                  },
+                  {
+                    text: <Icon type="robot" />,
+                    children: <GoogleSettings />,
+                  },
+                  {
+                    text: <Icon type="envelope-open" />,
+                    children: <MailSettings />,
+                  },
+                ]}
+              />
             </WebsiteSettingsProvider>
           </Container>
         </Row>

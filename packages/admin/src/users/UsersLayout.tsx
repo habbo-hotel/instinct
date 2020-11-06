@@ -10,6 +10,44 @@ import {
 
 export function UsersLayout({children}: {children: any}) {
   const [location] = useLocation();
+
+  function getHeader() {
+    return (
+      <ul className="nav nav-tabs">
+        <Link to="/admin/users">
+          <li
+            className={
+              location === '/admin/users' ? 'nav-item active' : 'nav-item'
+            }
+            style={{cursor: 'pointer'}}
+          >
+            <Icon className="mr-0" type="users" />
+          </li>
+        </Link>
+        <Link to="/admin/users/ranks">
+          <li
+            className={
+              location === '/admin/users/ranks' ? 'nav-item active' : 'nav-item'
+            }
+            style={{cursor: 'pointer'}}
+          >
+            <Icon className="mr-0" type="users-class" />
+          </li>
+        </Link>
+        <Link to="/admin/users/bans">
+          <li
+            className={
+              location === '/admin/users/bans' ? 'nav-item active' : 'nav-item'
+            }
+            style={{cursor: 'pointer'}}
+          >
+            <Icon className="mr-0" type="ban" />
+          </li>
+        </Link>
+      </ul>
+    );
+  }
+
   return (
     <AdminLayout permission="websiteShowAdminPanel">
       <Jumbotron style={{background: '#263238'}} title="Website Settings">
@@ -22,36 +60,8 @@ export function UsersLayout({children}: {children: any}) {
         <Row>
           <Container>
             <article className="default-section" style={{paddingLeft: 60}}>
-              <article className="tab-card" style={{position: 'relative'}}>
-                <ul className="navigation">
-                  <Link to="/admin/users">
-                    <li
-                      className={location === '/admin/users' ? 'selected' : ''}
-                    >
-                      <Icon className="mr-0" type="users" />
-                    </li>
-                  </Link>
-                  <Link to="/admin/users/ranks">
-                    <li
-                      className={
-                        location === '/admin/users/ranks' ? 'selected' : ''
-                      }
-                    >
-                      <Icon className="mr-0" type="users-class" />
-                    </li>
-                  </Link>
-                  <Link to="/admin/users/bans">
-                    <li
-                      className={
-                        location === '/admin/users/bans' ? 'selected' : ''
-                      }
-                    >
-                      <Icon className="mr-0" type="ban" />
-                    </li>
-                  </Link>
-                </ul>
-                {children}
-              </article>
+              <div className="aside-title">{getHeader()}</div>
+              <div className="aside-content">{children}</div>
             </article>
           </Container>
         </Row>

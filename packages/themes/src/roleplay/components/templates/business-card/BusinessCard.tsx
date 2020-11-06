@@ -21,7 +21,10 @@ export function BusinessCard({business}: BusinessCardProps) {
               </div>
             </div>
             <div className="col-6 text-right">
-              <h2 className="text-uppercase" style={{overflow: 'ellipses'}}>
+              <h2
+                className="text-uppercase"
+                style={{overflow: 'hidden', textOverflow: 'ellipsis'}}
+              >
                 {business.name}
               </h2>
               <p style={{marginTop: -10}}>

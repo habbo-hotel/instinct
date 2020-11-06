@@ -1,15 +1,17 @@
 import React from 'react';
-import {preferenceTabs} from './tabs';
+import {EmailPreferences} from './tabs/email';
+import {SecurityPreferences} from './tabs/security';
+import {ProfilePreferences} from './tabs/profile';
 import {
   Container,
   Jumbotron,
   Loading,
   Row,
-  TabCard,
   UserLayout,
   setURL,
+  NavTabs,
+  Icon,
 } from '@instinct-prj/frontend';
-
 setURL('preferences', <PreferencesPage />);
 
 export function PreferencesPage() {
@@ -24,9 +26,22 @@ export function PreferencesPage() {
         </Jumbotron>
         <Container>
           <Row>
-            <article className="default-section">
-              <TabCard tabs={preferenceTabs} />
-            </article>
+            <NavTabs
+              tabs={[
+                {
+                  text: <Icon type="lock" />,
+                  children: <SecurityPreferences />,
+                },
+                {
+                  text: <Icon type="envelope" />,
+                  children: <EmailPreferences />,
+                },
+                {
+                  text: <Icon type="user" />,
+                  children: <ProfilePreferences />,
+                },
+              ]}
+            />
           </Row>
         </Container>
       </Loading>
