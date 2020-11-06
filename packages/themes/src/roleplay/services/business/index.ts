@@ -4,5 +4,5 @@ import {BusinessServiceImplementation} from './Business';
 
 export const businessService: BusinessService =
   process.env.NODE_ENV !== 'test'
-    ? new BusinessServiceMock()
+    ? new BusinessServiceImplementation()
     : new BusinessServiceMock();
