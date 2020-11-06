@@ -23,6 +23,7 @@ import {rpDatabaseEntities} from '@instinct-prj/backend-rp/src/database/database
       synchronize: false,
     }),
     InstinctModule,
+    InstinctRPModule,
   ],
 })
 export class InstinctAppModule {}
