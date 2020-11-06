@@ -1,4 +1,11 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
+import {BusinessEntity} from './business.entity';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+} from 'typeorm';
 
 @Entity('roleplay_businesses_ranks')
 export class BusinessPositionEntity {
@@ -40,4 +47,8 @@ export class BusinessPositionEntity {
 
   @Column({name: 'shift_wage', type: 'int', length: 11})
   shiftWage!: number;
+
+  @ManyToOne(() => BusinessEntity)
+  @JoinColumn({name: 'business_id'})
+  business?: BusinessEntity;
 }

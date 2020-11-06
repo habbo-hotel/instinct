@@ -1,8 +1,9 @@
 import {Module} from '@nestjs/common';
 import {DatabaseModule} from './database';
+import {BusinessModule} from './business/business.module';
 
 @Module({
-  imports: [DatabaseModule],
-  exports: [DatabaseModule],
+  imports: [DatabaseModule, BusinessModule],
+  exports: [DatabaseModule, BusinessModule],
 })
-export class InstinctModule {}
+export class InstinctRPModule {}

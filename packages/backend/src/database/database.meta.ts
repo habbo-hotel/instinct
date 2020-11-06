@@ -1,8 +1,8 @@
-import {RoomEntity} from './room';
 import {PhotoEntity} from './photo';
 import {GroupEntity} from './group';
 import {Provider} from '@nestjs/common';
 import {RankEntity, RankRepository} from './rank';
+import {RoomEntity, RoomRepository} from './room';
 import {ConfigEntity, ConfigRepository} from './config';
 import {
   ArticleCategoryRepository,
@@ -42,4 +42,5 @@ export const databaseRepositories: Provider[] = [
   RankRepository,
   UserBanRepository,
   UserRepository,
+  RoomRepository,
 ];
