@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/backend-rp",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -13,9 +13,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^0.6.0",
-    "@instinct-prj/interface": "^0.4.0",
-    "@instinct-prj/interface-rp": "^0.4.0",
+    "@instinct-prj/backend": "^1.0.0",
+    "@instinct-prj/interface": "^1.0.0",
+    "@instinct-prj/interface-rp": "^1.0.0",
     "@nestjs/jwt": "^7.1.0",
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.4",

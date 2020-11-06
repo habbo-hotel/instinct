@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/themes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -13,9 +13,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^0.5.1",
-    "@instinct-prj/interface": "^0.4.0",
-    "@instinct-prj/interface-rp": "^0.4.0"
+    "@instinct-prj/frontend": "^1.0.0",
+    "@instinct-prj/interface": "^1.0.0",
+    "@instinct-prj/interface-rp": "^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/frontend",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -13,7 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^0.4.0",
+    "@instinct-prj/interface": "^1.0.0",
     "axios": "^0.21.0",
     "events": "^3.2.0",
     "lodash": "^4.17.20",

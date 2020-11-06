@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/interface",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
