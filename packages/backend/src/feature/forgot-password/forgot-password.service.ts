@@ -2,11 +2,11 @@ import Moment from 'moment';
 import {HashService} from '../../common';
 import randomString from 'crypto-random-string';
 import {EmailService} from '../../email/email.service';
-import {ConfigRepository} from '../../database/entity/config';
+import {ConfigRepository} from '../../database/config';
 import {BadRequestException, Injectable} from '@nestjs/common';
 import {ForgotPasswordEmailTemplate} from './forgot-password.types';
-import {UserEntity, UserRepository} from '../../database/entity/user';
-import {UserForgotPasswordRepository} from '../../database/entity/user';
+import {UserEntity, UserRepository} from '../../database/user';
+import {UserForgotPasswordRepository} from '../../database/user';
 
 @Injectable()
 export class ForgotPasswordService {

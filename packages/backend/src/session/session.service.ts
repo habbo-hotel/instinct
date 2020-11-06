@@ -1,5 +1,5 @@
 import {HashService} from '../common';
-import {UserEntity, UserRepository} from '../database/entity/user';
+import {UserEntity, UserRepository} from '../database/user';
 import {BearerTokenService} from './bearer-token.service';
 import {BadRequestException, Injectable} from '@nestjs/common';
 

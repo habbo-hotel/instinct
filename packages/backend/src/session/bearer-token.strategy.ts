@@ -2,7 +2,7 @@ import {jwtSecret} from '../common';
 import {Injectable} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
 import {ExtractJwt, Strategy} from 'passport-jwt';
-import {UserEntity, UserRepository} from '../database/entity/user';
+import {UserEntity, UserRepository} from '../database/user';
 
 @Injectable()
 export class BearerTokenStrategy extends PassportStrategy(

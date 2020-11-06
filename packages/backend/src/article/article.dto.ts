@@ -1,11 +1,4 @@
-import {ArticleVisibility} from '../database/entity/article';
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import {IsNotEmpty, IsNumber, IsOptional, IsString} from 'class-validator';
 
 export class NewArticleDTO {
   @IsString()
@@ -26,9 +19,6 @@ export class NewArticleDTO {
   @IsString()
   @IsNotEmpty()
   fullStory!: string;
-
-  @IsEnum(ArticleVisibility)
-  hidden!: ArticleVisibility;
 
   @IsString()
   @IsNotEmpty()
@@ -59,10 +49,6 @@ export class UpdateArticleDTO {
   @IsNotEmpty()
   @IsOptional()
   fullStory!: string;
-
-  @IsEnum(ArticleVisibility)
-  @IsOptional()
-  hidden!: ArticleVisibility;
 
   @IsString()
   @IsNotEmpty()

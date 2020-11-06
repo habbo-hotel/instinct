@@ -1,5 +1,5 @@
 import {getRepository} from 'typeorm';
-import {UserEntity} from '../../entity/user';
+import {UserEntity} from './user.entity';
 
 export function userFactory(
   changes?: Partial<UserEntity>

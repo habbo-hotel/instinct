@@ -1,5 +1,5 @@
 import {getRepository} from 'typeorm';
-import {RankEntity} from '../../entity/rank';
+import {RankEntity} from './rank.entity';
 
 export function rankFactory(
   changes?: Partial<RankEntity>

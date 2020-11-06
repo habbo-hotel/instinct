@@ -1,4 +1,4 @@
-import {UserEntity, UserRepository} from '../database/entity';
+import {UserEntity, UserRepository} from '../database/user';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

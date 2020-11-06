@@ -4,7 +4,7 @@ import {User} from '@instinct-prj/interface';
 import {SessionService} from './session.service';
 import {HasSession} from './has-session.decorator';
 import {GetSession} from './get-session.decorator';
-import {UserEntity, UserRepository, userWire} from '../database/entity/user';
+import {UserEntity, UserRepository, userWire} from '../database/user';
 import {BadRequestException, Body, Controller, Get, Post} from '@nestjs/common';
 import {
   NewSessionDTO,

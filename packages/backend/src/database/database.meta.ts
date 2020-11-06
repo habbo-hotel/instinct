@@ -1,10 +1,3 @@
-export * from './rank';
-export * from './user';
-export * from './room';
-export * from './photo';
-export * from './group';
-export * from './article';
-
 import {RoomEntity} from './room';
 import {PhotoEntity} from './photo';
 import {GroupEntity} from './group';

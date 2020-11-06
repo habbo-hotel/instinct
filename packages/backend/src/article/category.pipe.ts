@@ -1,8 +1,5 @@
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
-import {
-  ArticleCategoryEntity,
-  ArticleCategoryRepository,
-} from '../database/entity';
+import {ArticleCategoryEntity, ArticleCategoryRepository} from '../database';
 
 @Injectable()
 export class CategoryPipe implements PipeTransform {

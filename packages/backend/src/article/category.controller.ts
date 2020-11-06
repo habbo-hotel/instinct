@@ -2,7 +2,7 @@ import {ArticleCategory} from '@instinct-prj/interface';
 import {ArticleCategoryDTO} from './category.dto';
 import {CategoryPipe} from './category.pipe';
 import {HasScope} from '../session/permission-scope.decorator';
-import {ArticleCategoryRepository} from '../database/entity/article';
+import {ArticleCategoryRepository} from '../database/article';
 import {
   Body,
   Controller,
@@ -12,10 +12,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import {
-  ArticleCategoryEntity,
-  articleCategoryWire,
-} from '../database/entity/article';
+import {ArticleCategoryEntity, articleCategoryWire} from '../database/article';
 
 @Controller('articles/categories')
 export class ArticleCategoryController {

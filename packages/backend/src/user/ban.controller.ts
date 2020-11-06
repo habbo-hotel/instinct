@@ -1,8 +1,13 @@
 import {GetSession} from '../session';
 import {UserBan, UserBanDTO} from '@instinct-prj/interface';
 import {HasScope} from '../session/permission-scope.decorator';
-import {userBanWire} from '../database/entity/user/bans.wire';
 import {userBanDataTransferObjectToEntity, UserBanDTOClass} from './ban.dto';
+import {
+  UserBanRepository,
+  UserEntity,
+  UserRepository,
+  userBanWire,
+} from '../database/user';
 import {
   Body,
   Controller,
@@ -12,11 +17,6 @@ import {
   Patch,
   Param,
 } from '@nestjs/common';
-import {
-  UserBanRepository,
-  UserEntity,
-  UserRepository,
-} from '../database/entity/user';
 
 @Controller('user/bans')
 export class UserBanController {

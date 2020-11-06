@@ -1,5 +1,5 @@
 import {Injectable} from '@nestjs/common';
-import {UserRepository} from '../../../database/entity/user';
+import {UserRepository} from '../../../database/user';
 import {
   registerDecorator,
   ValidationOptions,

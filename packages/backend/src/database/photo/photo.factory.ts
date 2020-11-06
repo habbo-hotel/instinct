@@ -1,8 +1,8 @@
 import Moment from 'moment';
-import {userFactory} from '../user';
 import {getRepository} from 'typeorm';
-import {UserEntity} from '../../entity/user';
-import {PhotoEntity} from '../../entity/photo';
+import {UserEntity} from '../user/user.entity';
+import {userFactory} from '../user/user.factory';
+import {PhotoEntity} from '../photo/photo.entity';
 
 export async function photoFactory(
   changes?: Partial<PhotoEntity>

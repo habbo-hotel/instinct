@@ -1,7 +1,7 @@
 import {Repository} from 'typeorm';
+import {HashService} from '../../common';
 import {UserEntity} from './user.entity';
 import {Injectable} from '@nestjs/common';
-import {HashService} from '../../../common';
 import {InjectRepository} from '@nestjs/typeorm';
 
 @Injectable()

@@ -9,11 +9,6 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-export enum ArticleVisibility {
-  Show = '1',
-  Hidden = '0',
-}
-
 @Entity('website_news')
 export class ArticleEntity {
   @PrimaryGeneratedColumn()

@@ -10,7 +10,7 @@ import {
   UserEntity,
   UserRepository,
   userWire,
-} from '../database/entity';
+} from '../database';
 import {
   Body,
   Controller,

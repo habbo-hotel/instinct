@@ -1,6 +1,6 @@
 import Sendgrid from '@sendgrid/mail';
 import {Injectable} from '@nestjs/common';
-import {ConfigRepository} from '../database/entity/config';
+import {ConfigRepository} from '../database/config';
 
 @Injectable()
 export class EmailService {

@@ -1,6 +1,6 @@
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {databaseEntities, databaseRepositories} from './';
+import {databaseEntities, databaseRepositories} from './database.meta';
 import {
   CommonModule,
   databaseHost,

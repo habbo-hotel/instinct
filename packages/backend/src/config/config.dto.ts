@@ -8,7 +8,7 @@ import {
   IsPort,
   IsString,
 } from 'class-validator';
-import {ConfigEntity} from '../database/entity/config';
+import {ConfigEntity} from '../database/config';
 
 export class UpdateConfigDTO implements ConfigDTO {
   @IsString()

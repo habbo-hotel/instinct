@@ -1,4 +1,4 @@
-import {ArticleEntity, ArticleRepository} from '../database/entity';
+import {ArticleEntity, ArticleRepository} from '../database';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

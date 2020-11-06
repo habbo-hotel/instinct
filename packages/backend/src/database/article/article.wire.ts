@@ -1,6 +1,6 @@
 import {userWire} from '../user';
-import {Article} from '@instinct-prj/interface';
 import {ArticleEntity} from './article.entity';
+import {Article} from '@instinct-prj/interface';
 import {articleCategoryWire} from './article-category.wire';
 
 export function articleWire(articleEntity: ArticleEntity): Article {

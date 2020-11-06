@@ -1,10 +1,10 @@
 import {RankPipe} from './rank.pipe';
 import {RankDTOClass} from './rank.dto';
 import {Rank} from '@instinct-prj/interface';
-import {RankRepository} from '../database/entity/rank';
-import {RankEntity, rankWire} from '../database/entity/rank';
+import {RankRepository} from '../database/rank';
+import {RankEntity, rankWire} from '../database/rank';
 import {HasScope} from '../session/permission-scope.decorator';
-import {rankDataTransferObjectToEntity} from '../database/entity/rank';
+import {rankDataTransferObjectToEntity} from '../database/rank';
 import {
   Body,
   Controller,

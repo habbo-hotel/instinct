@@ -1,4 +1,4 @@
-import {RankEntity, RankRepository} from '../database/entity/rank';
+import {RankEntity, RankRepository} from '../database/rank';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

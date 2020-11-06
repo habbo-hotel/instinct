@@ -1,5 +1,5 @@
 import {RoomService} from './room.service';
-import {RoomEntity} from '../database/entity/room';
+import {RoomEntity} from '../database/room';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

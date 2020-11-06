@@ -1,5 +1,5 @@
 import {PhotoService} from './photo.service';
-import {PhotoEntity} from '../database/entity';
+import {PhotoEntity} from '../database';
 import {PipeTransform, Injectable, NotFoundException} from '@nestjs/common';
 
 @Injectable()

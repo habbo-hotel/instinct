@@ -2,7 +2,7 @@ import {GroupPipe} from './group.pipe';
 import {Group} from '@instinct-prj/interface';
 import {GroupService} from './group.service';
 import {Controller, Get, Param} from '@nestjs/common';
-import {GroupEntity, groupWire} from '../database/entity/group';
+import {GroupEntity, groupWire} from '../database/group';
 
 @Controller('groups')
 export class GroupController {

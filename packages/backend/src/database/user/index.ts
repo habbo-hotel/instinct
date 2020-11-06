@@ -1,5 +1,6 @@
 export * from './bans.entity';
 export * from './bans.repository';
+export * from './bans.wire';
 export * from './forgot-password.entity';
 export * from './forgot-password.repository';
 export * from './user.entity';

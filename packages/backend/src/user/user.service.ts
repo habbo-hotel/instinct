@@ -1,7 +1,7 @@
 import Random from 'randomstring';
 import {UserEntity} from '../database';
 import {Injectable} from '@nestjs/common';
-import {UserRepository} from '../database/entity/user';
+import {UserRepository} from '../database/user';
 
 @Injectable()
 export class UserService {
