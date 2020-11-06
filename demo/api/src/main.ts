@@ -1,15 +1,17 @@
 import {NestFactory} from '@nestjs/core';
 import {useContainer} from 'class-validator';
 import {ValidationPipe} from '@nestjs/common';
-import {InstinctModule} from '@instinct-prj/backend';
+import {InstinctAppModule} from './app.module';
 import {NestExpressApplication} from '@nestjs/platform-express';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestExpressApplication>(InstinctModule);
+  const app = await NestFactory.create<NestExpressApplication>(
+    InstinctAppModule
+  );
 
   app.set('trust proxy', true);
 
-  useContainer(app.select(InstinctModule), {fallbackOnErrors: true});
+  useContainer(app.select(InstinctAppModule), {fallbackOnErrors: true});
 
   app.useGlobalPipes(new ValidationPipe({transform: true}));
 

@@ -35,6 +35,12 @@ export function rankWire(rankEntity: RankEntity): Rank {
       websiteShowAdminPanel: permissionStatusToBoolean(
         rankEntity.websiteShowAdminPanel
       ),
+      websiteCreateBusiness: permissionStatusToBoolean(
+        rankEntity.websiteCreateBusiness
+      ),
+      websiteManageBusiness: permissionStatusToBoolean(
+        rankEntity.websiteManageBusiness
+      ),
     },
   };
 }
@@ -52,6 +58,12 @@ export function rankDataTransferObjectToEntity(rankDTO: RankDTO): RankEntity {
     websiteShowStaff: booleanToPermissionStatus(rankDTO.websiteShowStaff),
     websiteShowAdminPanel: booleanToPermissionStatus(
       rankDTO.websiteShowAdminPanel
+    ),
+    websiteManageBusiness: booleanToPermissionStatus(
+      rankDTO.websiteManageBusiness
+    ),
+    websiteCreateBusiness: booleanToPermissionStatus(
+      rankDTO.websiteCreateBusiness
     ),
   };
 }

@@ -39,4 +39,10 @@ export class RankEntity {
 
   @Column({name: 'website_manage_config', type: 'enum', default: '0'})
   websiteManageConfig!: PermissionStatus;
+
+  @Column({name: 'website_create_business', type: 'enum', default: '0'})
+  websiteCreateBusiness!: PermissionStatus;
+
+  @Column({name: 'website_manage_business', type: 'enum', default: '0'})
+  websiteManageBusiness!: PermissionStatus;
 }

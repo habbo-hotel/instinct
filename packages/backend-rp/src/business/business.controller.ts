@@ -1,10 +1,11 @@
-import {BusinessPipe} from './business.pipe';
 import {BusinessDTO} from './business.dto';
+import {BusinessPipe} from './business.pipe';
 import {Business} from '@instinct-prj/interface-rp';
 import {businessWire} from '../database/business/business.wire';
 import {HasScope} from '@instinct-prj/backend/src/session/permission-scope.decorator';
 import {
   GetSession,
+  PermissionStatus,
   RoomEntity,
   RoomRepository,
   UserEntity,
@@ -20,8 +21,8 @@ import {
   Delete,
   ForbiddenException,
   Get,
-  Patch,
   Param,
+  Patch,
   Post,
 } from '@nestjs/common';
 
@@ -90,16 +91,54 @@ export class BusinessController {
   }
 
   @Patch(':businessID')
+  @HasScope('websiteCreateBusiness')
   async updateBusinessByID(
-    @Param('businessID', BusinessPipe) business: BusinessEntity
+    @Param('businessID', BusinessPipe) business: BusinessEntity,
+    @GetSession() user: UserEntity,
+    @Body() businessDTO: BusinessDTO
   ) {
-    throw new ForbiddenException('Not implemented yet');
+    if (
+      business.userID !== user.id! ||
+      user.rank!.websiteManageBusiness !== PermissionStatus.Enabled
+    ) {
+      throw new ForbiddenException('You do not own this business');
+    }
+
+    const room = await this.roomRepo.findOneOrFail({id: business.workRoom});
+
+    if (
+      room?.ownerID !== user.id! ||
+      user.rank!.websiteManageBusiness !== PermissionStatus.Enabled
+    ) {
+      throw new ForbiddenException('You do not own this room');
+    }
+
+    await this.businessRepo.update(
+      {
+        id: business.id!,
+      },
+      {
+        name: businessDTO.name,
+        desc: businessDTO.desc,
+        badge: businessDTO.badge,
+        workRoom: businessDTO.homeRoom,
+      }
+    );
   }
 
   @Delete(':businessID')
+  @HasScope('websiteCreateBusiness')
   async deleteBusinessByID(
-    @Param('businessID', BusinessPipe) business: BusinessEntity
+    @Param('businessID', BusinessPipe) business: BusinessEntity,
+    @GetSession() user: UserEntity
   ) {
-    throw new ForbiddenException('Not implemented yet');
+    if (
+      business.userID !== user.id! &&
+      user.rank!.websiteManageBusiness !== PermissionStatus.Enabled
+    ) {
+      throw new ForbiddenException('That is not your business');
+    }
+
+    await this.businessRepo.delete({id: business.id!});
   }
 }

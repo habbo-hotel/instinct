@@ -1,28 +1,10 @@
 import {Module} from '@nestjs/common';
+import {CommonModule} from '../common';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {databaseEntities, databaseRepositories} from './database.meta';
-import {
-  CommonModule,
-  databaseHost,
-  databaseName,
-  databasePass,
-  databaseUser,
-} from '../common';
 
 @Module({
-  imports: [
-    CommonModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: databaseHost,
-      username: databaseUser,
-      password: databasePass,
-      database: databaseName,
-      entities: databaseEntities,
-      synchronize: false,
-    }),
-    TypeOrmModule.forFeature(databaseEntities),
-  ],
+  imports: [CommonModule, TypeOrmModule.forFeature(databaseEntities)],
   providers: [...databaseRepositories],
   exports: [TypeOrmModule, ...databaseRepositories],
 })

@@ -6,7 +6,10 @@ export interface BusinessDTO {
   positions: BusinessPositionDTO[];
 }
 
+export type UpdateBusinessDTO = Partial<Omit<BusinessDTO, 'positions'>>;
+
 export interface BusinessPositionDTO {
+  id?: number;
   order: number;
   name: string;
   maleUniform: string;
@@ -27,6 +30,7 @@ export const exampleBusinessDTO: BusinessDTO = {
   homeRoom: 1,
   positions: [
     {
+      id: undefined,
       order: 1,
       name: 'Cadet',
       maleUniform: '-',

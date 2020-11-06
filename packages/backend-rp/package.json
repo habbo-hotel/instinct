@@ -15,6 +15,7 @@
   "dependencies": {
     "@instinct-prj/backend": "^0.4.0",
     "@instinct-prj/interface": "^0.4.0",
+    "@instinct-prj/interface-rp": "^0.4.0",
     "@nestjs/jwt": "^7.1.0",
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.4",

@@ -7,8 +7,8 @@ export interface Permissions {
   websiteManageBans: boolean;
   websiteManageConfig: boolean;
   // RP Permissions
-  websiteCreateBusiness: boolean;
-  websiteDeleteBusiness: boolean;
+  websiteCreateBusiness: boolean; // Create own business
+  websiteManageBusiness: boolean; // Manage businesses on admin
 }
 
 export const examplePermissions: Permissions = {
@@ -20,6 +20,6 @@ export const examplePermissions: Permissions = {
   websiteManageBans: true,
   websiteManageConfig: true,
   // RP Permissions
-  websiteCreateBusiness: true,
-  websiteDeleteBusiness: true,
+  websiteCreateBusiness: true, // Create own business
+  websiteManageBusiness: true, // Manage businesses on admin
 };
