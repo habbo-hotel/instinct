@@ -13,7 +13,7 @@ export function businessWire(entity: BusinessEntity): Business {
       id: _.id!,
       businessID: _.businessID,
       name: _.name,
-      employees: [],
+      employees: _.employees!.map(emp => userWire(emp.user!)),
       permissions: {
         manager: _.isManager === 1,
         canHire: _.canHire === 1,

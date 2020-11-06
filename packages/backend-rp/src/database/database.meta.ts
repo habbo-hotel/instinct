@@ -1,4 +1,5 @@
 import {Provider} from '@nestjs/common';
+import {UserRPStatEntity, UserRPStatRepository} from './user';
 import {
   BusinessEntity,
   BusinessPositionEntity,
@@ -8,10 +9,12 @@ import {
 
 export const rpDatabaseEntities: Function[] = [
   BusinessEntity,
+  UserRPStatEntity,
   BusinessPositionEntity,
 ];
 
 export const rpDatabaseProviders: Provider[] = [
   BusinessRepository,
+  UserRPStatRepository,
   BusinessPositionRepository,
 ];

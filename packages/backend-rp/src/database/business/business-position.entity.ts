@@ -1,10 +1,12 @@
 import {BusinessEntity} from './business.entity';
+import {UserRPStatEntity} from '../user/rp-stats.entity';
 import {
   Column,
   Entity,
   JoinColumn,
   PrimaryGeneratedColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 
 @Entity('roleplay_business_ranks')
@@ -51,4 +53,7 @@ export class BusinessPositionEntity {
   @ManyToOne(() => BusinessEntity, business => business.positions)
   @JoinColumn({name: 'business_id'})
   business?: BusinessEntity;
+
+  @OneToMany(() => UserRPStatEntity, userRP => userRP.businessPosition)
+  employees?: UserRPStatEntity[];
 }

@@ -9,6 +9,11 @@ export class BusinessRepository extends BaseRepository<BusinessEntity> {
   constructor(
     @InjectRepository(BusinessEntity) businessRepo: Repository<BusinessEntity>
   ) {
-    super(businessRepo, ['user', 'positions']);
+    super(businessRepo, [
+      'user',
+      'positions',
+      'positions.employees',
+      'positions.employees.user',
+    ]);
   }
 }
