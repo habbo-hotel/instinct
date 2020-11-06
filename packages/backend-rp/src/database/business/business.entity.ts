@@ -38,7 +38,7 @@ export class BusinessEntity {
 
   @OneToMany(
     () => BusinessPositionEntity,
-    businessPosition => businessPosition.businessID
+    businessPosition => businessPosition.business
   )
   positions?: BusinessPositionEntity[];
 }

@@ -7,7 +7,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 
-@Entity('roleplay_businesses_ranks')
+@Entity('roleplay_business_ranks')
 export class BusinessPositionEntity {
   @PrimaryGeneratedColumn()
   id?: number;
@@ -48,7 +48,7 @@ export class BusinessPositionEntity {
   @Column({name: 'shift_wage', type: 'int'})
   shiftWage!: number;
 
-  @ManyToOne(() => BusinessEntity)
+  @ManyToOne(() => BusinessEntity, business => business.positions)
   @JoinColumn({name: 'business_id'})
   business?: BusinessEntity;
 }
