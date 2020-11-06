@@ -1,4 +1,5 @@
-import {UserEntity, userWire} from '../user';
+import {userWire} from '../user/user.wire';
+import {UserEntity} from '../user/user.entity';
 import {
   Column,
   Entity,

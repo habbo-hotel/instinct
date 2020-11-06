@@ -1,4 +1,4 @@
-import {UserEntity} from '../user';
+import {UserEntity} from '../user/user.entity';
 import {
   Column,
   JoinColumn,

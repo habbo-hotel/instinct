@@ -13,7 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^0.4.0",
+    "@instinct-prj/backend": "^0.6.0",
     "@instinct-prj/interface": "^0.4.0",
     "@instinct-prj/interface-rp": "^0.4.0",
     "@nestjs/jwt": "^7.1.0",

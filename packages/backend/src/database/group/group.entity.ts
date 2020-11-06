@@ -1,5 +1,5 @@
-import {UserEntity} from '../user';
-import {RoomEntity} from '../room';
+import {UserEntity} from '../user/user.entity';
+import {RoomEntity} from '../room/room.entity';
 import {
   Column,
   Entity,

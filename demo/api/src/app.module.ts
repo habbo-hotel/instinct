@@ -8,6 +8,7 @@ import {
   databasePass,
   InstinctModule,
 } from '@instinct-prj/backend';
+import {rpDatabaseEntities} from '@instinct-prj/backend-rp/src/database/database.meta';
 
 @Module({
   imports: [
@@ -17,8 +18,7 @@ import {
       username: databaseUser,
       password: databasePass,
       database: databaseName,
-      entities: ['*.entity.ts'],
-      autoLoadEntities: true,
+      entities: [...rpDatabaseEntities],
       synchronize: false,
     }),
     InstinctModule,

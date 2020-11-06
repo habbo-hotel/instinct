@@ -1,10 +1,12 @@
-import {EntityTarget, getRepository, FindConditions, Repository} from 'typeorm';
+import {Inject} from '@nestjs/common';
+import {getRepositoryToken} from '@nestjs/typeorm';
+import {EntityTarget, FindConditions, Repository} from 'typeorm';
 
 export abstract class BaseRepository<Entity> {
   readonly repo: Repository<Entity>;
 
   constructor(entity: EntityTarget<Entity>, readonly eagerRelations: string[]) {
-    this.repo = getRepository(entity);
+    this.repo = Inject(getRepositoryToken(entity as any, 'default')) as any;
   }
 
   async create(newEntity: Entity): Promise<Entity> {

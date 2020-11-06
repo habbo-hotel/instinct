@@ -1,5 +1,5 @@
-import {UserEntity} from '../user';
 import {PermissionStatus} from './rank.types';
+import {UserEntity} from '../user/user.entity';
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('permissions')

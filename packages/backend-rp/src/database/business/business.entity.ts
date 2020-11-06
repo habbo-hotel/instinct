@@ -1,5 +1,5 @@
-import {UserEntity} from '@instinct-prj/backend';
 import {BusinessPositionEntity} from './business-position.entity';
+import {UserEntity} from '@instinct-prj/backend/database/user/user.entity';
 import {
   Column,
   Entity,
