@@ -30,12 +30,12 @@ export class UserRepository {
     });
   }
 
-  getByID(userID: number): Promise<UserEntity> {
+  getByID(userID: number, relations: string[] = []): Promise<UserEntity> {
     return this.userRepository.findOneOrFail({
       where: {
         id: userID,
       },
-      relations: this.eagerRelations,
+      relations: [...this.eagerRelations, ...relations],
     });
   }
 
