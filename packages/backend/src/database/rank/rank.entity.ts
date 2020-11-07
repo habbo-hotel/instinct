@@ -48,4 +48,7 @@ export class RankEntity {
 
   @Column({name: 'website_manage_business', type: 'enum', default: '0'})
   websiteManageBusiness!: PermissionStatus;
+
+  @Column({name: 'website_manage_beta_codes', type: 'enum', default: '0'})
+  websiteManageBetaCodes!: PermissionStatus;
 }

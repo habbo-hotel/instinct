@@ -44,6 +44,16 @@ export function UsersLayout({children}: {children: any}) {
             <Icon className="mr-0" type="ban" />
           </li>
         </Link>
+        <Link to="/admin/users/beta-codes">
+          <li
+            className={
+              location === '/admin/users/beta-codes' ? 'nav-link active' : 'nav-link'
+            }
+            style={{cursor: 'pointer'}}
+          >
+            <Icon className="mr-0" type="vial" />
+          </li>
+        </Link>
       </ul>
     );
   }

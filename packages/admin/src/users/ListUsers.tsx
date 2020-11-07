@@ -7,7 +7,7 @@ setURL('admin/users', <ListUsers />);
 export function ListUsers() {
   return (
     <UsersLayout>
-      <h3 className="aside-title">Users</h3>
+      <h2>Users</h2>
       <p>Coming soon</p>
     </UsersLayout>
   );

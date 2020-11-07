@@ -9,6 +9,7 @@ export function MailSettings() {
   );
   return (
     <Form className="" onSubmit={saveChanges}>
+      <h2>Email Settings</h2>
       <FormGroup>
         <div className="mt-3" style={{padding: 2}}>
           <h4>SendGrid API Key</h4>

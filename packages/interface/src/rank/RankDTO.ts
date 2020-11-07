@@ -15,6 +15,7 @@ export interface RankDTO {
   websiteManageConfig: boolean;
   websiteCreateBusiness: boolean;
   websiteManageBusiness: boolean;
+  websiteManageBetaCodes: boolean;
 }
 
 export function rankWireToRankDTO(rankWire: Rank): RankDTO {
@@ -33,5 +34,6 @@ export function rankWireToRankDTO(rankWire: Rank): RankDTO {
     websiteManageConfig: rankWire.permissions.websiteManageConfig,
     websiteCreateBusiness: rankWire.permissions.websiteCreateBusiness,
     websiteManageBusiness: rankWire.permissions.websiteManageBusiness,
+    websiteManageBetaCodes: rankWire.permissions.websiteManageBetaCodes,
   };
 }

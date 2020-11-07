@@ -1,5 +1,5 @@
+import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
-import {FormGroup, InputGroup} from 'reactstrap';
 import {Form, Input, Row} from '@instinct-prj/frontend';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
 
@@ -10,6 +10,7 @@ export function SitePreferences() {
 
   return (
     <Form className="" onSubmit={saveChanges}>
+      <h2>Site Preferences</h2>
       <FormGroup>
         <h4>Site Name</h4>
         <Input

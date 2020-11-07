@@ -24,6 +24,7 @@ export function ListRanks() {
 
   return (
     <UsersLayout>
+      <h2>Ranks</h2>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>
           <input

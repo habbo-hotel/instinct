@@ -1,5 +1,6 @@
 export * from './article';
 export * from './badge';
+export * from './beta-code';
 export * from './config';
 export * from './group';
 export * from './photo';

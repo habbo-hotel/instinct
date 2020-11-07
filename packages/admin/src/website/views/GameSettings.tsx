@@ -9,6 +9,7 @@ export function GameSettings() {
   );
   return (
     <Form className="" onSubmit={saveChanges}>
+      <h2>Game Settings</h2>
       <FormGroup>
         <h4>Admin Habbo SWF</h4>
         <Input

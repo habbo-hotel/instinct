@@ -11,6 +11,7 @@ import {ArticleModule} from './article';
 import {SessionModule} from './session';
 import {FeatureModule} from './feature';
 import {DatabaseModule} from './database';
+import {BetaCodeModule} from './beta-code';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import {DatabaseModule} from './database';
     SessionModule,
     FeatureModule,
     DatabaseModule,
+    BetaCodeModule,
   ],
   exports: [
     UserModule,
@@ -40,6 +42,7 @@ import {DatabaseModule} from './database';
     HealthModule,
     SessionModule,
     DatabaseModule,
+    BetaCodeModule,
   ],
 })
 export class InstinctModule {}

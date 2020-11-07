@@ -23,6 +23,7 @@ export function ListBans() {
 
   return (
     <UsersLayout>
+      <h2>Bans</h2>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>
           <input

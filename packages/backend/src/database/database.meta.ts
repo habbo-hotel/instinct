@@ -1,9 +1,10 @@
+import {Provider} from '@nestjs/common';
 import {PhotoEntity, PhotoRepository} from './photo';
 import {GroupEntity, GroupRepository} from './group';
-import {Provider} from '@nestjs/common';
 import {RankEntity, RankRepository} from './rank';
 import {RoomEntity, RoomRepository} from './room';
 import {ConfigEntity, ConfigRepository} from './config';
+import {BetaCodeEntity, BetaCodeRepository} from './beta-code';
 import {
   ArticleCategoryRepository,
   ArticleEntity,
@@ -20,6 +21,7 @@ import {
   UserRepository,
 } from './user';
 
+
 export const databaseEntities: Function[] = [
   ArticleEntity,
   ArticleCategoryEntity,
@@ -32,6 +34,7 @@ export const databaseEntities: Function[] = [
   RoomEntity,
   ConfigEntity,
   UserBanEntity,
+  BetaCodeEntity,
 ];
 
 export const databaseRepositories: Provider[] = [
@@ -45,4 +48,5 @@ export const databaseRepositories: Provider[] = [
   RoomRepository,
   GroupRepository,
   PhotoRepository,
+  BetaCodeRepository,
 ];

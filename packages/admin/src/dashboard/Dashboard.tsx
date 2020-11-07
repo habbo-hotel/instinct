@@ -1,10 +1,11 @@
 import React from 'react';
+import {Col} from 'reactstrap';
 import {
   AdminLayout,
   Card,
-  Column,
   Container,
   Jumbotron,
+  Row,
   setURL,
 } from '@instinct-prj/frontend';
 
@@ -17,21 +18,37 @@ export function Dashboard() {
         <p>Welcome to the admin panel</p>
       </Jumbotron>
       <Container>
-        <Column side="left">
-          <Card header="Hotel Statistics">
-            <p>Coming soon</p>
-          </Card>
-          <Card header="Instinct">
-            <iframe
-              width={560}
-              height={315}
-              src="https://www.youtube-nocookie.com/embed/_5lUSTmkM_0?controls=0&amp;autoplay=true"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </Card>
-        </Column>
+        <Row>
+          <Col xs={6}>
+            <Card header="Hotel Statistics">
+              <p>Coming soon</p>
+            </Card>
+            <Card header="Quick Links">
+              <ul>
+                <li>
+                  <a href="https://github.com/chrismpettyjohn/Instinct-Example" target="_blank">
+                    Instinct Quick Launch Repo <div className="badge badge-danger ml-2">License Required</div>
+                  </a>
+                </li>
+              </ul>
+            </Card>
+            <Card header="Inspirational Video">
+              <iframe
+                width="100%"
+                height={315}
+                src="https://www.youtube-nocookie.com/embed/_5lUSTmkM_0?controls=0&amp;autoplay=true"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </Card>
+          </Col>
+          <Col xs={6}>
+            <Card header="Diagnostics">
+              <p>Coming soon</p>
+            </Card>
+          </Col>
+        </Row>
       </Container>
     </AdminLayout>
   );

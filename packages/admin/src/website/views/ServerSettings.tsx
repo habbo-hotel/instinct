@@ -10,6 +10,7 @@ export function ServerSettings() {
   );
   return (
     <Form className="" onSubmit={saveChanges}>
+      <h2>Server Settings</h2>
       <FormGroup>
         <div className="mt-3" style={{padding: 2}}>
           <h4>Emulator IP</h4>

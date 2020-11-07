@@ -1545,7 +1545,7 @@ input:-webkit-autofill{
 .nav-link {
     background: transparent;
     color: white;
-    font-size: 18px;
+    font-size: 2rem;
     text-transform: uppercase;
     text-decoration: none;
     margin-right: 5px;
