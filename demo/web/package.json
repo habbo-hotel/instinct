@@ -1,6 +1,6 @@
 {
   "name": "instinct-demo-web",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "start": "PORT=3001 react-app-rewired start",
     "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
@@ -9,11 +9,11 @@
     "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
   },
   "dependencies": {
-    "@instinct-prj/admin": "^1.0.1",
-    "@instinct-prj/frontend": "^1.0.0",
-    "@instinct-prj/interface": "^1.0.0",
-    "@instinct-prj/interface-rp": "^1.0.0",
-    "@instinct-prj/themes": "^1.0.1",
+    "@instinct-prj/admin": "^1.0.2",
+    "@instinct-prj/frontend": "^1.0.1",
+    "@instinct-prj/interface": "^1.0.1",
+    "@instinct-prj/interface-rp": "^1.0.1",
+    "@instinct-prj/themes": "^1.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "reactstrap": "^8.7.1"
