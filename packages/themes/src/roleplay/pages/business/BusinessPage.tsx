@@ -19,7 +19,7 @@ setURL('businesses/:businessID', <BusinessPage />);
 
 export function BusinessPage() {
   const [matched, params] = useRoute<{businessID: string}>(
-    '/business/:businessID'
+    '/businesses/:businessID'
   );
 
   const business = useFetchBusinessByID(params!.businessID);

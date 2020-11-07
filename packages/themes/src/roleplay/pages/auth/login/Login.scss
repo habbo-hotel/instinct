@@ -1,0 +1,15 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .forgot-password {
+    color: lighten(#10426E, 30%);
+    font-size: 14px;
+    text-decoration: none;
+
+    &:hover {
+      color: lighten(#0F416D, 20%);
+    }
+  }
+}

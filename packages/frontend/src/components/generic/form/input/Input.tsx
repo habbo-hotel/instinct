@@ -13,7 +13,7 @@ export function Input(props: InputProps) {
   return (
     <input
       {...props}
-      className={`rounded-input ${props.className ?? ''}`}
+      className={props.className ?? 'form-control'}
       onChange={onChange}
     />
   );

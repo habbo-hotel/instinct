@@ -1,8 +1,8 @@
-import {SessionService} from './';
 import {AxiosResponse} from 'axios';
 import {User} from '@instinct-prj/interface';
+import {SessionService} from './Session.types';
 import {backendAPI, setAPIToken} from '../../api';
-import {localStorageService} from '../../services';
+import {localStorageService} from '../../services/local-storage';
 
 class SessionServiceImplementation implements SessionService {
   readonly localStorageKey = 'session';

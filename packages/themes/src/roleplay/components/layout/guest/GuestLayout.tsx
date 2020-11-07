@@ -1,30 +1,19 @@
 import React from 'react';
 import {GuestLayoutProps} from './';
-import {NavBar} from '../../templates/navbar';
-import {
-  Footer,
-  GuestGuard,
-  Header,
-  LoginModal,
-  RegisterModal,
-} from '@instinct-prj/frontend';
+import {Card, Footer, GuestGuard} from '@instinct-prj/frontend';
 
-export function GuestLayout({
-  children,
-  section = 'home',
-  style,
-}: GuestLayoutProps) {
+export function GuestLayout({children, style}: GuestLayoutProps) {
   return (
     <GuestGuard>
       <span className="page-container">
-        <Header>
-          <RegisterModal />
-          <LoginModal />
-        </Header>
-        <NavBar />
         <main>
-          <section className="page-container" data-page={section} style={style}>
-            {children}
+          <section className="page-content" style={style}>
+            <div className="login-page">
+              <div>
+                <img className="header-logo" src="/img/logo/regular.png" />
+                <Card>{children}</Card>
+              </div>
+            </div>
           </section>
         </main>
       </span>
