@@ -42,7 +42,7 @@ export const exampleBusinessPositionDTO: BusinessPositionDTO = {
 export const exampleBusinessDTO: BusinessDTO = {
   name: '',
   desc: '',
-  badge: '',
+  badge: 'builders',
   homeRoom: 0,
   investment: 100,
   positions: [],

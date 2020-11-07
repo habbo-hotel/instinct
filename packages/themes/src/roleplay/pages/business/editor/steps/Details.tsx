@@ -2,6 +2,7 @@ import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
 import {businessEditorContext} from '../context';
 import {Icon, Input} from '@instinct-prj/frontend';
+import {BadgeEditorModal} from './badge-editor-modal';
 
 export function DetailsStep() {
   const {business, setBusiness} = useContext(businessEditorContext);
@@ -23,16 +24,7 @@ export function DetailsStep() {
             />
           </div>
           <div className="col-4">
-            <img
-              src="https://game.peakrp.com/habbo-imaging/badge/police.gif"
-              style={{
-                background: '#0F406B',
-                border: '2px solid white',
-                borderRadius: '100%',
-                marginTop: 15,
-                padding: 5,
-              }}
-            />
+            <BadgeEditorModal />
           </div>
         </div>
       </FormGroup>

@@ -2,6 +2,7 @@ import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
 import {Icon} from '@instinct-prj/frontend';
 import {businessEditorContext} from '../context';
+import {BadgeEditorModal} from './badge-editor-modal';
 import {AddPositionModal} from './add-position-modal';
 import {JobPositionsTable} from './job-positions-table';
 import {InvestmentSlider} from './investment-slider/InvestmentSlider';
@@ -34,16 +35,7 @@ export function ReviewStep() {
               />
             </div>
             <div className="col-4">
-              <img
-                src="https://game.peakrp.com/habbo-imaging/badge/police.gif"
-                style={{
-                  background: '#0F406B',
-                  border: '2px solid white',
-                  borderRadius: '100%',
-                  marginTop: 15,
-                  padding: 5,
-                }}
-              />
+              <BadgeEditorModal />
             </div>
           </div>
         </FormGroup>
