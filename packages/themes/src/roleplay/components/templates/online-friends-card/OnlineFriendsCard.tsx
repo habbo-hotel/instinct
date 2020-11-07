@@ -10,7 +10,7 @@ export function OnlineFriendsCard() {
           text: (
             <>
               <small style={{fontSize: 12}}>online</small>
-              <div style={{marginTop: -10}}>Friends</div>
+              <div style={{fontSize: 18, marginTop: -10}}>Friends</div>
             </>
           ),
           children: (
@@ -31,7 +31,7 @@ export function OnlineFriendsCard() {
           text: (
             <>
               <small style={{fontSize: 12}}>online</small>
-              <div style={{marginTop: -10}}>Gangs</div>
+              <div style={{fontSize: 18, marginTop: -10}}>Gangs</div>
             </>
           ),
           children: (
