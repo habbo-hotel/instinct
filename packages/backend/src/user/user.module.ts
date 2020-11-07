@@ -2,6 +2,7 @@ import {UserPipe} from './user.pipe';
 import {Module} from '@nestjs/common';
 import {CommonModule} from '../common';
 import {UserBanPipe} from './ban.pipe';
+import {BetaCodeModule} from '../beta-code';
 import {UserService} from './user.service';
 import {DatabaseModule} from '../database';
 import {userConstraints} from './constraint';
@@ -12,7 +13,7 @@ import {UserLeaderBoardService} from './leaderboard.service';
 import {UserLeaderBoardController} from './leaderboard.controller';
 
 @Module({
-  imports: [CommonModule, DatabaseModule, GoogleModule],
+  imports: [CommonModule, DatabaseModule, GoogleModule, BetaCodeModule],
   controllers: [UserController, UserLeaderBoardController, UserBanController],
   providers: [
     UserPipe,

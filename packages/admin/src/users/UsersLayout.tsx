@@ -2,58 +2,74 @@ import React from 'react';
 import {Link, useLocation} from 'wouter';
 import {
   AdminLayout,
+  AdminLayoutProps,
+  Card,
   Container,
   Icon,
   Jumbotron,
-  Row,
+  PermissionGuard,
 } from '@instinct-prj/frontend';
 
-export function UsersLayout({children}: {children: any}) {
+export function UsersLayout({children, permission}: AdminLayoutProps) {
   const [location] = useLocation();
 
   function getHeader() {
     return (
       <ul className="nav nav-tabs">
-        <Link to="/admin/users">
-          <li
-            className={
-              location === '/admin/users' ? 'nav-link active' : 'nav-link'
-            }
-            style={{cursor: 'pointer'}}
-          >
-            <Icon className="mr-0" type="users" />
-          </li>
-        </Link>
-        <Link to="/admin/users/ranks">
-          <li
-            className={
-              location === '/admin/users/ranks' ? 'nav-link active' : 'nav-link'
-            }
-            style={{cursor: 'pointer'}}
-          >
-            <Icon className="mr-0" type="users-class" />
-          </li>
-        </Link>
-        <Link to="/admin/users/bans">
-          <li
-            className={
-              location === '/admin/users/bans' ? 'nav-link active' : 'nav-link'
-            }
-            style={{cursor: 'pointer'}}
-          >
-            <Icon className="mr-0" type="ban" />
-          </li>
-        </Link>
-        <Link to="/admin/users/beta-codes">
-          <li
-            className={
-              location === '/admin/users/beta-codes' ? 'nav-link active' : 'nav-link'
-            }
-            style={{cursor: 'pointer'}}
-          >
-            <Icon className="mr-0" type="vial" />
-          </li>
-        </Link>
+        <PermissionGuard permission={permission} redirect={false}>
+          <Link to="/admin/users">
+            <li
+              className={
+                location === '/admin/users' ? 'nav-link active' : 'nav-link'
+              }
+              style={{cursor: 'pointer'}}
+            >
+              <Icon className="mr-0" type="users" />
+            </li>
+          </Link>
+        </PermissionGuard>
+        <PermissionGuard permission="websiteManageRanks" redirect={false}>
+          <Link to="/admin/users/ranks">
+            <li
+              className={
+                location === '/admin/users/ranks'
+                  ? 'nav-link active'
+                  : 'nav-link'
+              }
+              style={{cursor: 'pointer'}}
+            >
+              <Icon className="mr-0" type="users-class" />
+            </li>
+          </Link>
+        </PermissionGuard>
+        <PermissionGuard permission="websiteManageBans" redirect={false}>
+          <Link to="/admin/users/bans">
+            <li
+              className={
+                location === '/admin/users/bans'
+                  ? 'nav-link active'
+                  : 'nav-link'
+              }
+              style={{cursor: 'pointer'}}
+            >
+              <Icon className="mr-0" type="ban" />
+            </li>
+          </Link>
+        </PermissionGuard>
+        <PermissionGuard permission="websiteManageBetaCodes" redirect={false}>
+          <Link to="/admin/users/beta-codes">
+            <li
+              className={
+                location === '/admin/users/beta-codes'
+                  ? 'nav-link active'
+                  : 'nav-link'
+              }
+              style={{cursor: 'pointer'}}
+            >
+              <Icon className="mr-0" type="vial" />
+            </li>
+          </Link>
+        </PermissionGuard>
       </ul>
     );
   }
@@ -67,14 +83,7 @@ export function UsersLayout({children}: {children: any}) {
         </p>
       </Jumbotron>
       <Container>
-        <Row>
-          <Container>
-            <article className="default-section" style={{paddingLeft: 60}}>
-              <div className="aside-title">{getHeader()}</div>
-              <div className="aside-content">{children}</div>
-            </article>
-          </Container>
-        </Row>
+        <Card header={getHeader()}>{children}</Card>
       </Container>
     </AdminLayout>
   );

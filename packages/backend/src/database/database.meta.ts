@@ -21,7 +21,6 @@ import {
   UserRepository,
 } from './user';
 
-
 export const databaseEntities: Function[] = [
   ArticleEntity,
   ArticleCategoryEntity,

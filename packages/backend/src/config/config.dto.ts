@@ -20,6 +20,9 @@ export class UpdateConfigDTO implements ConfigDTO {
   @IsOptional()
   siteLink!: string;
 
+  @IsBoolean()
+  siteBeta!: boolean;
+
   @IsIP()
   @IsOptional()
   emulatorIP!: string;

@@ -1,6 +1,7 @@
 export interface Config {
   siteName: string;
   siteLink: string;
+  siteBeta: boolean;
   emulatorIP: string;
   emulatorPort: string;
   swfAdminHabbo: string;
@@ -24,6 +25,7 @@ export interface Config {
 
 export const defaultConfig: Config = {
   siteName: 'Habbo',
+  siteBeta: false,
   emulatorIP: '127.0.0.1',
   emulatorPort: '3002',
   siteLink: 'http://localhost:3000',

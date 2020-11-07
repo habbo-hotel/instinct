@@ -1,22 +1,35 @@
-import React from 'react';
+import {toast} from 'react-toastify';
+import React, {useState} from 'react';
 import {UsersLayout} from '../UsersLayout';
-import {Icon, setURL} from '@instinct-prj/frontend';
+import {
+  betaCodeService,
+  Icon,
+  setURL,
+  useFetchBetaCodes,
+} from '@instinct-prj/frontend';
 
 setURL('admin/users/beta-codes', <BetaCodes />);
 
 export function BetaCodes() {
+  const [refresh, setRefresh] = useState(0);
+
+  const betaCodes = useFetchBetaCodes(refresh);
 
   async function createBetaCode() {
-
+    await betaCodeService.create();
+    setRefresh(_ => _ + 1);
+    toast.success('A new beta code has been generated');
   }
 
-  async function deletaBetaCode(id: number) {
-
+  async function deletaBetaCode(code: string) {
+    await betaCodeService.delete(code);
+    setRefresh(_ => _ + 1);
+    toast.success('Beta code has been deleted');
   }
 
   return (
-    <UsersLayout>
-      <div style={{ padding: 5 }}>
+    <UsersLayout permission="websiteManageBetaCodes">
+      <div style={{padding: 5}}>
         <h2 className="aside-title">
           <div className="row">
             <div className="col-6">
@@ -30,24 +43,36 @@ export function BetaCodes() {
             </div>
           </div>
         </h2>
+        <div className="alert-warning p-3">
+          <b>Warning:</b>
+          <p>
+            Deleting a beta code will revoke access for the redeeming user, if
+            any..
+          </p>
+        </div>
         <table className="table">
           <thead>
-          <tr>
-            <th scope="col">Beta Code</th>
-            <th scope="col">Redeemed By</th>
-            <th scope="col">&nbsp;</th>
-          </tr>
+            <tr>
+              <th scope="col">Beta Code</th>
+              <th scope="col">Redeemed By</th>
+              <th scope="col">&nbsp;</th>
+            </tr>
           </thead>
           <tbody>
-          <tr>
-            <th>1</th>
-            <td>Mark</td>
-            <td>
-              <div>
-                <Icon className="text-danger" type="trash-alt" />
-              </div>
-            </td>
-          </tr>
+            {betaCodes?.map(_ => (
+              <tr key={_.code}>
+                <th>{_.code}</th>
+                <td>{_.user?.username}</td>
+                <td>
+                  <div
+                    style={{cursor: 'pointer'}}
+                    onClick={() => deletaBetaCode(_.code)}
+                  >
+                    <Icon className="text-danger" type="trash-alt" />
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

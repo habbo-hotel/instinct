@@ -29,6 +29,7 @@ export class ConfigController {
       {},
       {
         ...configDTO,
+        siteBeta: configDTO.siteBeta ? 1 : 0,
         websocketEnabled: configDTO.websocketEnabled ? 1 : 0,
       }
     );

@@ -12,6 +12,7 @@ export class UserRepository {
     'badges',
     'rooms',
     'friends',
+    'betaCode',
     'bans',
   ];
 

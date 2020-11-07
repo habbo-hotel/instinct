@@ -1,12 +1,11 @@
-import {Link} from 'wouter';
 import {AdminLayoutProps} from './';
 import React, {useContext} from 'react';
 import {Icon} from '../../generic/icon';
 import {Footer} from '../../template/footer';
-import {Header} from '../../template/header';
 import {healthContext} from '../../../context/health';
 import {PermissionGuard} from '../../guard/permission';
 import {AdminNavBar} from '../../template/admin-navbar';
+import {EnterHotelButton, Header} from '../../template/header';
 
 export function AdminLayout({children, permission}: AdminLayoutProps) {
   const {health} = useContext(healthContext);
@@ -15,13 +14,19 @@ export function AdminLayout({children, permission}: AdminLayoutProps) {
     <PermissionGuard permission={permission}>
       <span className="page-container">
         <Header>
-          <Link className="rounded-button white plain mr-4" to="/play">
-            Enter Hotel
-          </Link>
-          <button className="rounded-button white">
+          <EnterHotelButton />
+          <div
+            className="rounded-button"
+            style={{
+              background: '#001726',
+              border: 'none',
+              boxShadow: '2px 2px #0F416C',
+              color: 'white',
+            }}
+          >
             {health.usersOnline}
             <Icon className="ml-2" type="user" />
-          </button>
+          </div>
         </Header>
         <AdminNavBar />
         <main>

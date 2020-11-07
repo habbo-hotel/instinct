@@ -6,7 +6,9 @@ import {InjectRepository} from '@nestjs/typeorm';
 
 @Injectable()
 export class BetaCodeRepository extends BaseRepository<BetaCodeEntity> {
-  constructor(@InjectRepository(BetaCodeEntity) betaCodeEntity: Repository<BetaCodeEntity>) {
+  constructor(
+    @InjectRepository(BetaCodeEntity) betaCodeEntity: Repository<BetaCodeEntity>
+  ) {
     super(betaCodeEntity, ['user']);
   }
 }

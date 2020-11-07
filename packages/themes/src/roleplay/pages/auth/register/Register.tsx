@@ -29,6 +29,7 @@ export function Register() {
     state.password === '' ||
     state.password !== state.passwordAgain ||
     state.captcha === '' ||
+    (config.siteBeta && state.betaCode === '') ||
     state.showSpinner;
 
   function onChange<K extends keyof RegisterState>(
@@ -49,7 +50,8 @@ export function Register() {
         state.username,
         state.password,
         state.email,
-        state.captcha!
+        state.captcha!,
+        state.betaCode
       );
       const bearer = await sessionService.attemptCredentials(
         state.username,
@@ -104,6 +106,17 @@ export function Register() {
             onChange={onChange}
           />
         </FormGroup>
+        {config.siteBeta && (
+          <FormGroup>
+            <h3>Beta Code</h3>
+            <Input
+              type="text"
+              name="betaCode"
+              value={state.betaCode}
+              onChange={onChange}
+            />
+          </FormGroup>
+        )}
         <FormGroup>
           <ReCAPTCHA
             sitekey={config.googleRecaptchaClientKey}

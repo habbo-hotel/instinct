@@ -8,4 +8,4 @@ export interface BetaCode {
 export const exampleBetaCode: BetaCode = {
   code: '123-123-123',
   user: exampleUser,
-}
+};

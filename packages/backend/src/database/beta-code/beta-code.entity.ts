@@ -1,5 +1,12 @@
 import {UserEntity} from '../user/user.entity';
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, Unique} from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  Unique,
+} from 'typeorm';
 
 @Entity('instinct_beta_codes')
 @Unique(['betaCode'])

@@ -22,7 +22,7 @@ export function ListBans() {
   }, []);
 
   return (
-    <UsersLayout>
+    <UsersLayout permission="websiteManageBans">
       <h2>Bans</h2>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>

@@ -1,5 +1,6 @@
 export * from './article';
 export * from './ban';
+export * from './beta-codes';
 export * from './config';
 export * from './group';
 export * from './rank';

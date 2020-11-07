@@ -2,6 +2,7 @@ import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
 import {Form, Input, Row} from '@instinct-prj/frontend';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
+import Toggle from 'react-toggle';
 
 export function SitePreferences() {
   const {config, showSpinner, setConfig, saveChanges} = useContext(
@@ -27,6 +28,13 @@ export function SitePreferences() {
           name="siteLink"
           onChange={setConfig}
           value={config.siteLink}
+        />
+      </FormGroup>
+      <FormGroup>
+        <h4>Beta Mode</h4>
+        <Toggle
+          checked={config.siteBeta}
+          onChange={e => setConfig('siteBeta', e.target.checked)}
         />
       </FormGroup>
       <FormGroup>

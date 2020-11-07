@@ -11,6 +11,9 @@ export class ConfigEntity {
   @Column({name: 'site_link'})
   siteLink!: string;
 
+  @Column({name: 'site_beta', type: 'tinyint'})
+  siteBeta!: number;
+
   @Column({name: 'emulator_ip'})
   emulatorIP!: string;
 

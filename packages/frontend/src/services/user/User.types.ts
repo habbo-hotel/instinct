@@ -5,7 +5,8 @@ export interface UserTypes {
     username: string,
     password: string,
     email: string,
-    recaptcha: string
+    recaptcha: string,
+    betaCode?: string
   ): Promise<User>;
 
   getByUsername(username: string): Promise<UserProfile>;

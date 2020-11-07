@@ -26,8 +26,14 @@ export function Dashboard() {
             <Card header="Quick Links">
               <ul>
                 <li>
-                  <a href="https://github.com/chrismpettyjohn/Instinct-Example" target="_blank">
-                    Instinct Quick Launch Repo <div className="badge badge-danger ml-2">License Required</div>
+                  <a
+                    href="https://github.com/chrismpettyjohn/Instinct-Example"
+                    target="_blank"
+                  >
+                    Instinct Quick Launch Repo{' '}
+                    <div className="badge badge-danger ml-2">
+                      License Required
+                    </div>
                   </a>
                 </li>
               </ul>

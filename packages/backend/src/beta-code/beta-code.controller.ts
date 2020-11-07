@@ -7,8 +7,7 @@ import {BetaCodeRepository, betaCodeWire} from '../database/beta-code';
 
 @Controller('beta-codes')
 export class BetaCodeController {
-
-  constructor(private readonly betaCodeRepo: BetaCodeRepository) { }
+  constructor(private readonly betaCodeRepo: BetaCodeRepository) {}
 
   @Post()
   @HasScope('websiteManageBetaCodes')
@@ -26,8 +25,8 @@ export class BetaCodeController {
 
   @Delete(':betaCode')
   @HasScope('websiteManageBetaCodes')
-  async deleteBetaCode(@Param('betaCode') betaCodeID: number) {
-    await this.betaCodeRepo.delete({id: betaCodeID});
+  async deleteBetaCode(@Param('betaCode') betaCode: string) {
+    await this.betaCodeRepo.delete({betaCode});
     return 'Beta code deleted';
   }
 }

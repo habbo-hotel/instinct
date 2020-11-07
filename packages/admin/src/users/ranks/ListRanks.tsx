@@ -1,6 +1,6 @@
-import {Rank} from '@instinct-prj/interface';
 import {UsersLayout} from '../UsersLayout';
 import {EditRankModal} from './rank-modals';
+import {Rank} from '@instinct-prj/interface';
 import React, {useEffect, useState} from 'react';
 import {rankService, setURL} from '@instinct-prj/frontend';
 
@@ -23,7 +23,7 @@ export function ListRanks() {
   }, [counter]);
 
   return (
-    <UsersLayout>
+    <UsersLayout permission="websiteManageRanks">
       <h2>Ranks</h2>
       <div className="row mb-2">
         <div className="container" style={{width: '98%'}}>

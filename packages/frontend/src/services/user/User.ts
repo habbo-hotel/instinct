@@ -8,13 +8,15 @@ export class UserService implements UserTypes {
     username: string,
     password: string,
     email: string,
-    recaptcha: string
+    recaptcha: string,
+    betaCode?: string
   ): Promise<User> {
     const user: AxiosResponse<User> = await backendAPI.post('users', {
       username,
       password,
       email,
       recaptcha,
+      betaCode,
     });
     return user.data;
   }

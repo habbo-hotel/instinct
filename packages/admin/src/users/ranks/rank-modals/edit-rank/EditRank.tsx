@@ -19,14 +19,14 @@ export function EditRankModal({rank, onChanges}: EditRankModalProps) {
       key={rank.id}
       style={{height: 100, width: '100%'}}
     >
-      <div className="col-2">
+      <div className="col-4">
         <img
           alt="rank badge"
           src={`${config.swfBadgeURL}/${rank.badge}.gif`}
           style={{marginTop: '20%'}}
         />
       </div>
-      <div className="col-10 text-right">
+      <div className="col-8 text-right">
         <h3>{rank.name}</h3>
         <div className="row mr-2" style={{float: 'right'}}>
           <DeleteRankModal

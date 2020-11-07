@@ -1,7 +1,9 @@
 import Moment from 'moment';
 import {UserPipe} from './user.pipe';
 import {UserDTOClass} from './user.dto';
+import {ConfigRepository} from '../database/config';
 import {maxAccountsPerIP} from '../config/environment';
+import {BetaCodeRepository} from '../database/beta-code';
 import {Room, User, UserProfile} from '@instinct-prj/interface';
 import {
   badgeWire,
@@ -33,7 +35,11 @@ import {
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly userRepo: UserRepository) {}
+  constructor(
+    private readonly configRepo: ConfigRepository,
+    private readonly userRepo: UserRepository,
+    private readonly betaCodeRepo: BetaCodeRepository
+  ) {}
 
   @Get('online')
   async getOnlineUsers(): Promise<User[]> {
@@ -64,7 +70,7 @@ export class UserController {
       motto: defaultUserMotto,
       password: newUser.password,
       rankID: defaultUserRank,
-      email: newUser.email,
+      email: newUser.email.toLowerCase(),
       mailVerified: 0,
       accountCreated: currentTimestamp,
       accountDayOfBirth: 0,
@@ -82,6 +88,16 @@ export class UserController {
       favoriteYoutubeVideo: 'GfxcnX7XWfg',
       userOfTheWeek: 0,
     });
+
+    const config = await this.configRepo.getConfig();
+
+    if (config.siteBeta) {
+      await this.betaCodeRepo.update(
+        {betaCode: newUser.betaCode},
+        {userID: user.id!}
+      );
+    }
+
     return userWire(user);
   }
 

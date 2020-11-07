@@ -3,6 +3,7 @@ export interface RegisterState {
   email: string;
   password: string;
   passwordAgain: string;
+  betaCode: string;
   captcha?: string;
   showError: boolean;
   showSpinner: boolean;
@@ -13,6 +14,7 @@ export const defaultRegisterState: RegisterState = {
   email: '',
   password: '',
   passwordAgain: '',
+  betaCode: '',
   captcha: undefined,
   showError: false,
   showSpinner: false,

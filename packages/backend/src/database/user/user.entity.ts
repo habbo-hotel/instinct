@@ -4,6 +4,7 @@ import {RoomEntity} from '../room/room.entity';
 import {PhotoEntity} from '../photo/photo.entity';
 import {GroupEntity} from '../group/group.entity';
 import {UserBadgesEntity} from './user-badges.entity';
+import {BetaCodeEntity} from '../beta-code/beta-code.entity';
 import {
   Column,
   Entity,
@@ -12,6 +13,7 @@ import {
   ManyToMany,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -130,4 +132,7 @@ export class UserEntity {
 
   @OneToMany(() => UserBanEntity, ban => ban.user)
   bans?: UserBanEntity[];
+
+  @OneToOne(() => BetaCodeEntity, betaCode => betaCode.user)
+  betaCode?: BetaCodeEntity;
 }

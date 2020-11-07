@@ -13,6 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
+    "node-cache": "^5.1.2",
     "uuid": "^8.3.1",
     "@instinct-prj/interface": "^1.0.0",
     "@nestjs/jwt": "^7.1.0",

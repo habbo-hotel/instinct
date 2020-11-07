@@ -5,6 +5,7 @@ export function configWire(configEntity: ConfigEntity): Config {
   return {
     siteName: configEntity.siteName,
     siteLink: configEntity.siteLink,
+    siteBeta: configEntity.siteBeta === 1,
     emulatorIP: configEntity.emulatorIP,
     emulatorPort: configEntity.emulatorPort,
     swfAdminHabbo: configEntity.swfAdminHabbo,
@@ -30,6 +31,7 @@ export function configWire(configEntity: ConfigEntity): Config {
 export function configDTOWire(configEntity: ConfigEntity): ConfigDTO {
   return {
     ...configWire(configEntity),
+    siteBeta: configEntity.siteBeta === 1,
     sendGridAPIKey: configEntity.sendGridAPIKey,
     sendGridAPISender: configEntity.sendGridAPISender,
     sendGridForgotPasswordTemplate: configEntity.sendGridForgotPasswordTemplate,

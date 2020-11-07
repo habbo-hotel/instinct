@@ -2,6 +2,7 @@ import {UserModule} from '../user';
 import {JwtModule} from '@nestjs/jwt';
 import {Module} from '@nestjs/common';
 import {DatabaseModule} from '../database';
+import {BetaCodeModule} from '../beta-code';
 import {PassportModule} from '@nestjs/passport';
 import {SessionService} from './session.service';
 import {SessionController} from './session.controller';
@@ -15,6 +16,7 @@ import {CommonModule, jwtExpires, jwtSecret} from '../common';
     UserModule,
     CommonModule,
     DatabaseModule,
+    BetaCodeModule,
     PassportModule,
     JwtModule.register({
       secret: jwtSecret,
