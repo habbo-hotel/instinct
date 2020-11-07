@@ -8,12 +8,12 @@ import {
   Avatar,
   Card,
   Container,
-  MiniJumbotron,
   Row,
   setURL,
   Skeleton,
   UserContainer,
 } from '@instinct-prj/frontend';
+import {BusinessHeader} from './widgets/business-header';
 
 setURL('businesses/:businessID', <BusinessPage />);
 
@@ -43,20 +43,7 @@ export function BusinessPage() {
       <Container>
         <Row>
           <div className="col-12">
-            <MiniJumbotron>
-              <div className="row">
-                <div className="col-8">
-                  <h1>{business.name}</h1>
-                  <p>{business.desc} </p>
-                </div>
-                <div className="col-4 text-right">
-                  <img
-                    src="https://game.peakrp.com/habbo-imaging/badge/police.gif"
-                    style={{marginTop: 10, height: 80}}
-                  />
-                </div>
-              </div>
-            </MiniJumbotron>
+            <BusinessHeader business={business} />
           </div>
         </Row>
         <Row>

@@ -9,6 +9,7 @@ import {
   RoomEntity,
   RoomRepository,
   UserEntity,
+  UserRepository,
 } from '@instinct-prj/backend';
 import {
   BusinessEntity,
@@ -19,6 +20,7 @@ import {
   Body,
   Controller,
   Delete,
+  BadRequestException,
   ForbiddenException,
   Get,
   Param,
@@ -29,6 +31,7 @@ import {
 @Controller('businesses')
 export class BusinessController {
   constructor(
+    private readonly userRepo: UserRepository,
     private readonly roomRepo: RoomRepository,
     private readonly businessRepo: BusinessRepository,
     private readonly businessPositionRepo: BusinessPositionRepository
@@ -40,12 +43,18 @@ export class BusinessController {
     @Body() businessDTO: BusinessDTO,
     @GetSession() user: UserEntity
   ): Promise<Business> {
+    if (user.credits < businessDTO.investment + 100) {
+      throw new BadRequestException(
+        "You don't have enough money to create a business"
+      );
+    }
+
     const room: RoomEntity = await this.roomRepo.findOneOrFail({
       id: businessDTO.homeRoom,
     });
 
     if (room.ownerID !== user.id!) {
-      throw new ForbiddenException('You do not own this room');
+      throw new BadRequestException("You don't own this room");
     }
 
     const newBusiness: BusinessEntity = await this.businessRepo.create({
@@ -53,7 +62,7 @@ export class BusinessController {
       desc: businessDTO.desc,
       badge: businessDTO.badge,
       userID: user.id!,
-      balance: 0,
+      balance: businessDTO.investment,
       workRoom: businessDTO.homeRoom,
     });
 
@@ -70,6 +79,10 @@ export class BusinessController {
         });
       })
     );
+
+    await this.userRepo.updateByID(user.id!, {
+      credits: user.credits - (businessDTO.investment + 100),
+    });
 
     const businessObject: BusinessEntity = await this.businessRepo.findOneOrFail(
       {id: newBusiness.id!}

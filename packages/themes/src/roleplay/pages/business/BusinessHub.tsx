@@ -1,6 +1,6 @@
-import React from 'react';
 import {Link} from 'wouter';
 import {Col} from 'reactstrap';
+import React, {useContext} from 'react';
 import {UserLayout} from '../../components/layout/user';
 import {useFetchAllBusinesses} from '../../hooks/business';
 import {BusinessCard} from '../../components/templates/business-card';
@@ -10,13 +10,18 @@ import {
   MiniJumbotron,
   PermissionGuard,
   Row,
+  sessionContext,
   setURL,
 } from '@instinct-prj/frontend';
 
 setURL('business', <BusinessHub />);
 
 export function BusinessHub() {
+  const {user} = useContext(sessionContext);
   const businesses = useFetchAllBusinesses();
+  const ownedBusinesses =
+    businesses?.filter(_ => _.owner.id === user!.id) ?? [];
+
   return (
     <UserLayout>
       <Container>
@@ -45,6 +50,28 @@ export function BusinessHub() {
             </MiniJumbotron>
           </div>
         </Row>
+        {ownedBusinesses.length > 0 && (
+          <Row>
+            <div className="col-12">
+              <MiniJumbotron>
+                <h3>My Businesses</h3>
+                <div className="row p-2" style={{marginTop: -15}}>
+                  {ownedBusinesses.map(_ => (
+                    <Link key={_.id} to={`/businesses/${_.id}`}>
+                      <div className="d-inline">
+                        <img
+                          className="business-badge mr-3"
+                          src={`/img/corps/${_.badge}.gif`}
+                          style={{height: 60, width: 60}}
+                        />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </MiniJumbotron>
+            </div>
+          </Row>
+        )}
         <Row>
           {businesses?.map(_ => (
             <Col key={_.id} xs={6}>

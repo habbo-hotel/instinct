@@ -17,7 +17,7 @@ export class RankRepository extends BaseRepository<RankEntity> {
   }
 
   getAll(): Promise<RankEntity[]> {
-    return this.find({});
+    return this.find({}, {id: 'DESC'});
   }
 
   getStaff(): Promise<RankEntity[]> {
