@@ -9,6 +9,8 @@ export interface Room {
   maxUsers: number;
 }
 
+export type RoomKeys = keyof Room;
+
 export const exampleRoom: Room = {
   id: 1,
   user: exampleUser,

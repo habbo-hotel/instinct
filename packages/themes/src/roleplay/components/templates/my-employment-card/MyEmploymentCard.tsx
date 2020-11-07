@@ -9,7 +9,7 @@ export function MyEmploymentCard() {
       <div className="row">
         <div className="col-6" style={{borderRight: '1px solid white'}}>
           <h3>My Job</h3>
-          <Link to="/business">
+          <Link to={'/businesses/1'}>
             <div className="row employment-block">
               <img
                 src="https://game.peakrp.com/habbo-imaging/badge/armoury.gif"

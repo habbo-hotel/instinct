@@ -26,6 +26,9 @@ export class BusinessDTO implements BusinessDTOI {
   @IsNumber()
   homeRoom!: number;
 
+  @IsNumber()
+  investment!: number;
+
   @IsObject({each: true})
   positions!: BusinessPositionDTO[];
 }

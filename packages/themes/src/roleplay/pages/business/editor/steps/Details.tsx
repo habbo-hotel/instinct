@@ -3,6 +3,7 @@ import React, {useContext} from 'react';
 import {businessEditorContext} from '../context';
 import {Icon, Input} from '@instinct-prj/frontend';
 import {BadgeEditorModal} from './badge-editor-modal';
+import {HomeRoomSelector} from './home-room-selector';
 
 export function DetailsStep() {
   const {business, setBusiness} = useContext(businessEditorContext);
@@ -27,6 +28,10 @@ export function DetailsStep() {
             <BadgeEditorModal />
           </div>
         </div>
+      </FormGroup>
+      <FormGroup className="mt-3" style={{padding: 2}}>
+        <h4>Home Room</h4>
+        <HomeRoomSelector />
       </FormGroup>
       <FormGroup className="mt-3" style={{padding: 2}}>
         <h4>Business Description</h4>

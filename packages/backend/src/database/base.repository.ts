@@ -1,3 +1,4 @@
+import {OrderBy} from './database.types';
 import {FindConditions, Repository} from 'typeorm';
 
 export abstract class BaseRepository<Entity> {
@@ -14,26 +15,38 @@ export abstract class BaseRepository<Entity> {
       throw new Error('Entity missing `id`');
     }
     // @ts-ignore It's expected for entities to have an `id`
-    return this.findOneOrFail(newObject.id!);
+    return this.findOneOrFail({id: newObject.id!});
   }
 
-  find(conditions?: FindConditions<Entity>): Promise<Entity[]> {
+  find(
+    where?: FindConditions<Entity>,
+    order?: OrderBy<Entity>
+  ): Promise<Entity[]> {
     return this.repo.find({
-      where: conditions,
+      where,
+      ...order,
       relations: this.eagerRelations,
     });
   }
 
-  findOne(conditions?: FindConditions<Entity>): Promise<Entity | undefined> {
+  findOne(
+    where?: FindConditions<Entity>,
+    order?: OrderBy<Entity>
+  ): Promise<Entity | undefined> {
     return this.repo.findOne({
-      where: conditions,
+      where,
+      ...order,
       relations: this.eagerRelations,
     });
   }
 
-  findOneOrFail(conditions?: FindConditions<Entity>): Promise<Entity> {
+  findOneOrFail(
+    where?: FindConditions<Entity>,
+    order?: OrderBy<Entity>
+  ): Promise<Entity> {
     return this.repo.findOneOrFail({
-      where: conditions,
+      where,
+      ...order,
       relations: this.eagerRelations,
     });
   }

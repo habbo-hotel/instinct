@@ -1,7 +1,7 @@
-import {Room} from '@instinct-prj/interface';
+import {Room, RoomFilter} from '@instinct-prj/interface';
 
 export interface RoomService {
-  getAll(): Promise<Room[]>;
+  getAll(filter?: RoomFilter): Promise<Room[]>;
 
   getMostPopular(): Promise<Room[]>;
 

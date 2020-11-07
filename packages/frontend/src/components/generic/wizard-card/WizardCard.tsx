@@ -1,5 +1,4 @@
 import {Card} from '../card';
-import {Form} from '../form';
 import {FormGroup} from 'reactstrap';
 import React, {useEffect, useState} from 'react';
 import {WizardCardProps} from './WizardCard.types';
@@ -57,30 +56,42 @@ export function WizardCard({steps, header, onSubmit}: WizardCardProps) {
           </li>
         ))}
       </ul>
-      <Form className="mt-4" onSubmit={onSubmit}>
+      <div className="mt-3">
         {steps[active].children}
         <div className="row">
           <div className="col-6">&nbsp;</div>
           <div className="col-6 text-right">
             <FormGroup>
               {canGoBack && (
-                <button className="btn btn-dark mr-2" onClick={goBack}>
+                <button
+                  className="btn btn-dark mr-2"
+                  onClick={goBack}
+                  type="button"
+                >
                   Last Step
                 </button>
               )}
               {canGoForward ? (
-                <button className="btn btn-success mr-2" onClick={goForward}>
+                <button
+                  className="btn btn-success mr-2"
+                  onClick={goForward}
+                  type="button"
+                >
                   Next Step
                 </button>
               ) : (
-                <button className="btn btn-success mr-2" onClick={onSubmit}>
+                <button
+                  className="btn btn-success mr-2"
+                  onClick={onSubmit}
+                  type="button"
+                >
                   Submit
                 </button>
               )}
             </FormGroup>
           </div>
         </div>
-      </Form>
+      </div>
     </Card>
   );
 }

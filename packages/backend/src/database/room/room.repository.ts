@@ -7,6 +7,6 @@ import {InjectRepository} from '@nestjs/typeorm';
 @Injectable()
 export class RoomRepository extends BaseRepository<RoomEntity> {
   constructor(@InjectRepository(RoomEntity) roomRepo: Repository<RoomEntity>) {
-    super(roomRepo, ['users']);
+    super(roomRepo, ['owner']);
   }
 }

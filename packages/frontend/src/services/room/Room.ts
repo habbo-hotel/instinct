@@ -1,11 +1,14 @@
 import {RoomService} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {Room} from '@instinct-prj/interface';
+import {stringify} from 'querystring';
+import {Room, RoomFilter} from '@instinct-prj/interface';
 
 class RoomServiceImplementation implements RoomService {
-  async getAll() {
-    const rooms: AxiosResponse<Room[]> = await backendAPI.get('rooms');
+  async getAll(filter?: RoomFilter) {
+    const rooms: AxiosResponse<Room[]> = await backendAPI.get(
+      `rooms?${stringify(filter ?? ({} as any))}`
+    );
     return rooms.data;
   }
 

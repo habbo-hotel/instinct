@@ -12,14 +12,14 @@ export class RoomEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({default: 0, name: 'owner_id', type: 'int'})
+  @Column({name: 'owner_id', type: 'int'})
   ownerID!: number;
 
   @ManyToOne(() => UserEntity, user => user.rooms)
   @JoinColumn({name: 'owner_id'})
   owner?: UserEntity;
 
-  @Column({default: 0, name: 'owner_name', type: 'varchar', length: 25})
+  @Column({name: 'owner_name', type: 'varchar', length: 25})
   ownerName!: string;
 
   @Column({default: '', type: 'varchar', length: 50})

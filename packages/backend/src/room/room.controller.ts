@@ -1,22 +1,35 @@
 import {RoomPipe} from './room.pipe';
-import {RoomService} from './room.service';
+import {FindConditions} from 'typeorm';
 import {Room} from '@instinct-prj/interface';
-import {Controller, Get, Param} from '@nestjs/common';
-import {RoomEntity, roomWire} from '../database/room';
+import {RoomFilterDTO} from './room-filter.dto';
+import {OrderBy} from '../database/database.types';
+import {Controller, Get, Param, Query} from '@nestjs/common';
+import {RoomEntity, RoomRepository, roomWire} from '../database/room';
 
 @Controller('rooms')
 export class RoomController {
-  constructor(private readonly roomService: RoomService) {}
+  constructor(private readonly roomRepo: RoomRepository) {}
 
   @Get()
-  async getAll(): Promise<Room[]> {
-    const rooms: RoomEntity[] = await this.roomService.getAll();
+  async getAll(@Query() roomFilterDTO: RoomFilterDTO): Promise<Room[]> {
+    const [where, sort]: [FindConditions<RoomEntity>, OrderBy<RoomEntity>] = [
+      {},
+      {},
+    ];
+
+    if (roomFilterDTO.owner) {
+      where.ownerName = roomFilterDTO.owner;
+    }
+
+    const rooms: RoomEntity[] = await this.roomRepo.find(where, sort);
     return rooms.map(room => roomWire(room));
   }
 
   @Get('most_popular')
   async getMostPopular(): Promise<Room[]> {
-    const mostPopularRooms: RoomEntity[] = await this.roomService.getMostPopular();
+    const mostPopularRooms: RoomEntity[] = await this.roomRepo.find(undefined, {
+      usersMax: 'DESC',
+    });
     return mostPopularRooms.map(room => roomWire(room));
   }
 

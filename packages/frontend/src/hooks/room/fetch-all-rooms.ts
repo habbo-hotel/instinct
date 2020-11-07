@@ -1,6 +1,6 @@
-import {Room} from '@instinct-prj/interface';
 import {roomService} from '../../services/room';
 import {createFetchHook} from '../fetch-hook.base';
+import {Room, RoomFilter} from '@instinct-prj/interface';
 
-export const useFetchAllRooms = () =>
-  createFetchHook<Room[]>(roomService.getAll);
+export const useFetchAllRooms = (filter?: RoomFilter) =>
+  createFetchHook<Room[]>(() => roomService.getAll(filter));

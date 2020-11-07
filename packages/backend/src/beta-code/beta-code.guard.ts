@@ -1,9 +1,8 @@
 import {ConfigRepository} from '../database/config';
 import {BetaCodeRepository} from '../database/beta-code';
 import {RequestWithSession} from '../session/session.type';
-
+import {PermissionStatus} from '../database/rank/rank.types';
 import {CanActivate, ExecutionContext, Injectable} from '@nestjs/common';
-import {PermissionStatus} from '@instinct-prj/backend';
 
 @Injectable()
 export class BetaModeGuard implements CanActivate {

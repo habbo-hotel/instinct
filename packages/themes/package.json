@@ -15,9 +15,12 @@
   "dependencies": {
     "@instinct-prj/frontend": "^1.0.0",
     "@instinct-prj/interface": "^1.0.0",
-    "@instinct-prj/interface-rp": "^1.0.0"
+    "@instinct-prj/interface-rp": "^1.0.0",
+    "react-select": "^3.1.0",
+    "react-toggle": "^4.1.1"
   },
   "devDependencies": {
+    "@types/react-select": "3.0.23",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^10.0.0",

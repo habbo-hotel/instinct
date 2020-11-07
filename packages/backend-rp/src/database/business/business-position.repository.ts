@@ -12,6 +12,6 @@ export class BusinessPositionRepository extends BaseRepository<
     @InjectRepository(BusinessPositionEntity)
     businessPositionRepo: Repository<BusinessPositionEntity>
   ) {
-    super(businessPositionRepo, []);
+    super(businessPositionRepo, ['employees', 'employees.user']);
   }
 }
