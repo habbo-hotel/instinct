@@ -45,7 +45,6 @@ export function Login() {
       setUser(user);
       setLocation('/home');
     } catch (e) {
-      console.log(e);
       onChange('showError', true);
     } finally {
       onChange('showSpinner', false);
