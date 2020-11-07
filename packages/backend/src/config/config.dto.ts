@@ -8,7 +8,6 @@ import {
   IsPort,
   IsString,
 } from 'class-validator';
-import {ConfigEntity} from '../database/config';
 
 export class UpdateConfigDTO implements ConfigDTO {
   @IsString()
@@ -28,6 +27,11 @@ export class UpdateConfigDTO implements ConfigDTO {
   @IsPort()
   @IsOptional()
   emulatorPort!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  swfAdminHabbo!: string;
 
   @IsString()
   @IsNotEmpty()
@@ -102,11 +106,6 @@ export class UpdateConfigDTO implements ConfigDTO {
   @IsNotEmpty()
   @IsOptional()
   sendGridForgotPasswordTemplate!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @IsOptional()
-  googleRecaptchaSiteKey!: string;
 
   @IsString()
   @IsNotEmpty()

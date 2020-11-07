@@ -11,44 +11,40 @@ export function SitePreferences() {
   return (
     <Form className="" onSubmit={saveChanges}>
       <FormGroup>
-        <InputGroup>
-          <h4>Site Name</h4>
-          <Input
-            type="text"
-            name="siteName"
-            onChange={setConfig}
-            value={config.siteName}
-          />
-        </InputGroup>
-        <InputGroup className="mt-4">
-          <h4>Site URL</h4>
-          <Input
-            type="text"
-            name="siteLink"
-            onChange={setConfig}
-            value={config.siteLink}
-          />
-        </InputGroup>
+        <h4>Site Name</h4>
+        <Input
+          type="text"
+          name="siteName"
+          onChange={setConfig}
+          value={config.siteName}
+        />
       </FormGroup>
-      <FormGroup className="mt-5">
-        <InputGroup>
-          <h4>Badge Folder</h4>
-          <Input
-            type="text"
-            name="swfBadgeURL"
-            onChange={setConfig}
-            value={config.swfBadgeURL}
-          />
-        </InputGroup>
-        <InputGroup className="mt-4">
-          <h4>Group Badge Folder</h4>
-          <Input
-            type="text"
-            name="groupBadgeURL"
-            onChange={setConfig}
-            value={config.groupBadgeURL}
-          />
-        </InputGroup>
+      <FormGroup>
+        <h4>Site URL</h4>
+        <Input
+          type="text"
+          name="siteLink"
+          onChange={setConfig}
+          value={config.siteLink}
+        />
+      </FormGroup>
+      <FormGroup>
+        <h4>Badge Folder</h4>
+        <Input
+          type="text"
+          name="swfBadgeURL"
+          onChange={setConfig}
+          value={config.swfBadgeURL}
+        />
+      </FormGroup>
+      <FormGroup>
+        <h4>Group Badge Folder</h4>
+        <Input
+          type="text"
+          name="groupBadgeURL"
+          onChange={setConfig}
+          value={config.groupBadgeURL}
+        />
       </FormGroup>
       <Row className="mt-3">
         <div className="col-6">&nbsp;</div>

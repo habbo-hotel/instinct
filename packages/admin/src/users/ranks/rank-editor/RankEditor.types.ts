@@ -18,6 +18,7 @@ export const defaultRankDTO: RankDTO = {
   name: '',
   badge: 'ADM',
   level: 1,
+  websiteAdminClient: false,
   websiteShowStaff: false,
   websiteShowAdminPanel: false,
   websiteManageRanks: false,

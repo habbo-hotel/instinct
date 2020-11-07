@@ -13,13 +13,13 @@ export const defaultWebsiteSettingsContextState: WebsiteSettingsContextState = {
 };
 
 export interface WebsiteSettingsContext extends WebsiteSettingsContextState {
-  setConfig(changes: Partial<ConfigDTO>): void;
+  setConfig<K extends keyof ConfigDTO>(key: K, value: ConfigDTO[K]): void;
   saveChanges(): Promise<void>;
 }
 
 export const defaultWebsiteSettingsContext: WebsiteSettingsContext = {
   ...defaultWebsiteSettingsContextState,
-  setConfig(changes: Partial<ConfigDTO>) {},
+  setConfig<K extends keyof ConfigDTO>(key: K, value: ConfigDTO[K]) {},
   saveChanges() {
     return Promise.resolve();
   },

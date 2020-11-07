@@ -64,6 +64,7 @@ export function RankEditor({
   }
 
   const permissionKeyToWord: Record<keyof Permissions, string> = {
+    websiteAdminClient: 'Admin Client',
     websiteCreateBusiness: 'Personal Business',
     websiteShowStaff: 'Show as Staff',
     websiteShowAdminPanel: 'Use Admin Panel',

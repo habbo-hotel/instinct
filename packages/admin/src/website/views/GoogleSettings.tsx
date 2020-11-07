@@ -20,17 +20,6 @@ export function GoogleSettings() {
           />
         </div>
       </FormGroup>
-      <FormGroup>
-        <div className="mt-3" style={{padding: 2}}>
-          <h4>Captcha Private Key</h4>
-          <Input
-            type="text"
-            name="googleRecaptchaSiteKey"
-            onChange={setConfig}
-            value={config.googleRecaptchaSiteKey}
-          />
-        </div>
-      </FormGroup>
       <Row className="mt-3">
         <div className="col-6">&nbsp;</div>
         <div className="col-6 text-right">

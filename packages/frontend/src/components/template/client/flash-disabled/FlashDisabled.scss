@@ -1,9 +1,16 @@
 .flash-disabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-size: 24px;
+}
 
-  .frank-box {
-    position: absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
-    margin: auto;
+.enable-flash {
+  &:hover {
+    background: darken(#0C83BF, 10%) !important;
+    text-decoration: none;
   }
-
 }

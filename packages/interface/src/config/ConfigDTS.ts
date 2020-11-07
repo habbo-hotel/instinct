@@ -3,6 +3,7 @@ export interface ConfigDTO {
   siteLink: string;
   emulatorIP: string;
   emulatorPort: string;
+  swfAdminHabbo: string;
   swfHabbo: string;
   swfExternalVariables: string;
   swfExternalTexts: string;
@@ -18,7 +19,6 @@ export interface ConfigDTO {
   sendGridAPIKey: string;
   sendGridAPISender: string;
   sendGridForgotPasswordTemplate: string;
-  googleRecaptchaSiteKey: string;
   googleRecaptchaClientKey: string;
   websocketEnabled: boolean;
   websocketIP: string;
@@ -30,6 +30,7 @@ export const exampleConfigDTO: ConfigDTO = {
   emulatorIP: '127.0.0.1',
   emulatorPort: '3002',
   siteLink: 'http://localhost:3000',
+  swfAdminHabbo: 'http://localhost:3000/swfs/gamedata/habbo.swf',
   swfHabbo: 'http://localhost:3000/swfs/gamedata/habbo.swf',
   swfExternalVariables: 'http://localhost:3000/swfs/gamedata/variables.txt',
   swfExternalTexts: 'http://localhost:3000/swfs/gamedata/texts.txt',
@@ -46,7 +47,6 @@ export const exampleConfigDTO: ConfigDTO = {
   sendGridAPIKey: '',
   sendGridAPISender: '',
   sendGridForgotPasswordTemplate: '',
-  googleRecaptchaSiteKey: '',
   googleRecaptchaClientKey: '',
   websocketEnabled: false,
   websocketIP: '',

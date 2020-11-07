@@ -35,7 +35,7 @@ export function ServerSettings() {
           <h4>Enable Web Sockets</h4>
           <Toggle
             checked={config.websocketEnabled}
-            onChange={e => setConfig({websocketEnabled: e.target.checked})}
+            onChange={e => setConfig('websocketEnabled', e.target.checked)}
           />
         </div>
         <div className="mt-3" style={{padding: 2}}>

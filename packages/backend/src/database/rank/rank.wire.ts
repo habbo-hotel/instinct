@@ -41,6 +41,9 @@ export function rankWire(rankEntity: RankEntity): Rank {
       websiteManageBusiness: permissionStatusToBoolean(
         rankEntity.websiteManageBusiness
       ),
+      websiteAdminClient: permissionStatusToBoolean(
+        rankEntity.websiteAdminClient
+      ),
     },
   };
 }
@@ -65,5 +68,6 @@ export function rankDataTransferObjectToEntity(rankDTO: RankDTO): RankEntity {
     websiteCreateBusiness: booleanToPermissionStatus(
       rankDTO.websiteCreateBusiness
     ),
+    websiteAdminClient: booleanToPermissionStatus(rankDTO.websiteAdminClient),
   };
 }

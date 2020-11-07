@@ -17,6 +17,9 @@ export class ConfigEntity {
   @Column({name: 'emulator_port'})
   emulatorPort!: string;
 
+  @Column({name: 'swf_admin_habbo'})
+  swfAdminHabbo!: string;
+
   @Column({name: 'swf_habbo'})
   swfHabbo!: string;
 
@@ -64,7 +67,6 @@ export class ConfigEntity {
 
   @Column({name: 'google_recaptcha_site_key'})
   googleRecaptchaClientKey!: string;
-
   @Column({name: 'google_recaptcha_secret_key'})
   googleRecaptchaSecretKey!: string;
 

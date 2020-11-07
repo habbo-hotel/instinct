@@ -17,7 +17,7 @@ export function UsersLayout({children}: {children: any}) {
         <Link to="/admin/users">
           <li
             className={
-              location === '/admin/users' ? 'nav-item active' : 'nav-item'
+              location === '/admin/users' ? 'nav-link active' : 'nav-link'
             }
             style={{cursor: 'pointer'}}
           >
@@ -27,7 +27,7 @@ export function UsersLayout({children}: {children: any}) {
         <Link to="/admin/users/ranks">
           <li
             className={
-              location === '/admin/users/ranks' ? 'nav-item active' : 'nav-item'
+              location === '/admin/users/ranks' ? 'nav-link active' : 'nav-link'
             }
             style={{cursor: 'pointer'}}
           >
@@ -37,7 +37,7 @@ export function UsersLayout({children}: {children: any}) {
         <Link to="/admin/users/bans">
           <li
             className={
-              location === '/admin/users/bans' ? 'nav-item active' : 'nav-item'
+              location === '/admin/users/bans' ? 'nav-link active' : 'nav-link'
             }
             style={{cursor: 'pointer'}}
           >

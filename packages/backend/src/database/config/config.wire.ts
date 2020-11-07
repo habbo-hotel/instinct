@@ -7,6 +7,7 @@ export function configWire(configEntity: ConfigEntity): Config {
     siteLink: configEntity.siteLink,
     emulatorIP: configEntity.emulatorIP,
     emulatorPort: configEntity.emulatorPort,
+    swfAdminHabbo: configEntity.swfAdminHabbo,
     swfHabbo: configEntity.swfHabbo,
     swfExternalVariables: configEntity.swfExternalVariables,
     swfExternalTexts: configEntity.swfExternalTexts,
@@ -32,6 +33,6 @@ export function configDTOWire(configEntity: ConfigEntity): ConfigDTO {
     sendGridAPIKey: configEntity.sendGridAPIKey,
     sendGridAPISender: configEntity.sendGridAPISender,
     sendGridForgotPasswordTemplate: configEntity.sendGridForgotPasswordTemplate,
-    googleRecaptchaSiteKey: configEntity.googleRecaptchaClientKey,
+    googleRecaptchaClientKey: configEntity.googleRecaptchaClientKey,
   };
 }

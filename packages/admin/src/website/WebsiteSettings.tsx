@@ -9,7 +9,6 @@ import {
   Icon,
   Jumbotron,
   NavTabs,
-  Row,
   setURL,
 } from '@instinct-prj/frontend';
 import {GoogleSettings} from './views/GoogleSettings';
@@ -27,36 +26,32 @@ export function WebsiteSettings() {
         </p>
       </Jumbotron>
       <Container>
-        <Row>
-          <Container>
-            <WebsiteSettingsProvider>
-              <NavTabs
-                tabs={[
-                  {
-                    text: <Icon type="wrench" />,
-                    children: <SitePreferences />,
-                  },
-                  {
-                    text: <Icon type="server" />,
-                    children: <ServerSettings />,
-                  },
-                  {
-                    text: <Icon type="gamepad" />,
-                    children: <GameSettings />,
-                  },
-                  {
-                    text: <Icon type="robot" />,
-                    children: <GoogleSettings />,
-                  },
-                  {
-                    text: <Icon type="envelope-open" />,
-                    children: <MailSettings />,
-                  },
-                ]}
-              />
-            </WebsiteSettingsProvider>
-          </Container>
-        </Row>
+        <WebsiteSettingsProvider>
+          <NavTabs
+            tabs={[
+              {
+                text: <Icon type="wrench" />,
+                children: <SitePreferences />,
+              },
+              {
+                text: <Icon type="server" />,
+                children: <ServerSettings />,
+              },
+              {
+                text: <Icon type="gamepad" />,
+                children: <GameSettings />,
+              },
+              {
+                text: <Icon type="robot" />,
+                children: <GoogleSettings />,
+              },
+              {
+                text: <Icon type="envelope-open" />,
+                children: <MailSettings />,
+              },
+            ]}
+          />
+        </WebsiteSettingsProvider>
       </Container>
     </AdminLayout>
   );

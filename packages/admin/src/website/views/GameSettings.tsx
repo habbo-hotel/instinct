@@ -1,3 +1,4 @@
+import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
 import {Form, Input, Row} from '@instinct-prj/frontend';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
@@ -8,7 +9,16 @@ export function GameSettings() {
   );
   return (
     <Form className="" onSubmit={saveChanges}>
-      <div style={{padding: 2}}>
+      <FormGroup>
+        <h4>Admin Habbo SWF</h4>
+        <Input
+          type="text"
+          name="swfAdminHabbo"
+          onChange={setConfig}
+          value={config.swfAdminHabbo}
+        />
+      </FormGroup>
+      <FormGroup>
         <h4>Habbo SWF</h4>
         <Input
           type="text"
@@ -16,8 +26,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfHabbo}
         />
-      </div>
-      <div style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>SWF Folder</h4>
         <Input
           type="text"
@@ -25,8 +35,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfBaseURL}
         />
-      </div>
-      <div className="mt-4" style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>External Variables</h4>
         <Input
           type="text"
@@ -34,8 +44,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfExternalVariables}
         />
-      </div>
-      <div className="mt-4" style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>External Flash Texts</h4>
         <Input
           type="text"
@@ -43,8 +53,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfExternalTexts}
         />
-      </div>
-      <div className="mt-4" style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>Product Data</h4>
         <Input
           type="text"
@@ -52,8 +62,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfProductData}
         />
-      </div>
-      <div className="mt-4" style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>Furnidata</h4>
         <Input
           type="text"
@@ -61,8 +71,8 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfFurniData}
         />
-      </div>
-      <div className="mt-4" style={{padding: 2}}>
+      </FormGroup>
+      <FormGroup>
         <h4>Figuredata</h4>
         <Input
           type="text"
@@ -70,7 +80,7 @@ export function GameSettings() {
           onChange={setConfig}
           value={config.swfFigureData}
         />
-      </div>
+      </FormGroup>
       <Row className="mt-3">
         <div className="col-6">&nbsp;</div>
         <div className="col-6 text-right">

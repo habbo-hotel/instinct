@@ -7,7 +7,7 @@ import {useRenewSessionSSO} from '../../../../hooks/session';
 
 export function ClientContainer() {
   useRenewSessionSSO();
-  const {sso} = useContext(sessionContext);
+  const {user, sso} = useContext(sessionContext);
   const {config} = useContext(configContext);
 
   useEffect(() => {
@@ -43,7 +43,9 @@ export function ClientContainer() {
       };
 
       Flash.embedSWF(
-        config.swfHabbo,
+        user!.rank!.permissions.websiteAdminClient
+          ? config.swfAdminHabbo
+          : config.swfHabbo,
         'client-area',
         '100%',
         '100%',
