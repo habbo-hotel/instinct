@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {WizardCard} from '@instinct-prj/frontend';
 import {BusinessEditorProps} from './BusinessEditor.types';
+import {businessEditorContext, BusinessEditorProvider} from './context';
 import {DetailsStep, EmployeesStep, InvestmentStep, ReviewStep} from './steps';
 
-export function BusinessEditor({onSubmit}: BusinessEditorProps) {
-  function onSubmitForm() {}
+export function BusinessEditorComponent({onSubmit}: BusinessEditorProps) {
+  const {business} = useContext(businessEditorContext);
+
+  function onSubmitForm() {
+    onSubmit(business);
+  }
 
   return (
     <WizardCard
@@ -28,5 +33,13 @@ export function BusinessEditor({onSubmit}: BusinessEditorProps) {
       ]}
       onSubmit={onSubmitForm}
     />
+  );
+}
+
+export function BusinessEditor(props: BusinessEditorProps) {
+  return (
+    <BusinessEditorProvider>
+      <BusinessEditorComponent {...props} />
+    </BusinessEditorProvider>
   );
 }

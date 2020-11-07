@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormGroup} from 'reactstrap';
 import {Icon} from '@instinct-prj/frontend';
+import {InvestmentSlider} from './investment-slider/InvestmentSlider';
 
 export function InvestmentStep() {
   return (
@@ -22,14 +23,7 @@ export function InvestmentStep() {
             care of.
           </p>
         </div>
-        <div className="row" style={{fontSize: 20}}>
-          <div className="col-4">$</div>
-          <div className="col-4 text-center " style={{fontWeight: 500}}>
-            $100
-          </div>
-          <div className="col-4 text-right">$$</div>
-        </div>
-        <input type="range" className="form-control-range" />
+        <InvestmentSlider />
       </FormGroup>
     </>
   );

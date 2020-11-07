@@ -3,6 +3,7 @@ export interface BusinessDTO {
   desc: string;
   badge: string;
   homeRoom: number;
+  investment: number;
   positions: BusinessPositionDTO[];
 }
 
@@ -23,25 +24,26 @@ export interface BusinessPositionDTO {
   shiftTime: number;
 }
 
+export const exampleBusinessPositionDTO: BusinessPositionDTO = {
+  id: undefined,
+  order: 1,
+  name: '',
+  maleUniform: '',
+  femaleUniform: '',
+  canHire: false,
+  canFire: false,
+  canPromote: false,
+  canDemote: false,
+  isManager: false,
+  shiftTime: 600,
+  shiftWage: 25,
+};
+
 export const exampleBusinessDTO: BusinessDTO = {
-  name: 'Police Department',
-  desc: 'Protect and Serve',
-  badge: 'police',
-  homeRoom: 1,
-  positions: [
-    {
-      id: undefined,
-      order: 1,
-      name: 'Cadet',
-      maleUniform: '-',
-      femaleUniform: '-',
-      canHire: true,
-      canFire: true,
-      canPromote: true,
-      canDemote: true,
-      isManager: true,
-      shiftWage: 100,
-      shiftTime: 300,
-    },
-  ],
+  name: '',
+  desc: '',
+  badge: '',
+  homeRoom: 0,
+  investment: 100,
+  positions: [],
 };

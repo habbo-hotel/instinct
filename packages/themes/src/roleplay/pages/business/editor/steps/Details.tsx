@@ -1,8 +1,10 @@
-import React from 'react';
 import {FormGroup} from 'reactstrap';
+import React, {useContext} from 'react';
+import {businessEditorContext} from '../context';
 import {Icon, Input} from '@instinct-prj/frontend';
 
 export function DetailsStep() {
+  const {business, setBusiness} = useContext(businessEditorContext);
   return (
     <>
       <h2>
@@ -13,7 +15,12 @@ export function DetailsStep() {
         <div className="row">
           <div className="col-8">
             <h4>Business Name</h4>
-            <Input type="text" name="name" onChange={() => {}} value="" />
+            <Input
+              type="text"
+              name="name"
+              onChange={setBusiness}
+              value={business.name}
+            />
           </div>
           <div className="col-4">
             <img
@@ -22,7 +29,7 @@ export function DetailsStep() {
                 background: '#0F406B',
                 border: '2px solid white',
                 borderRadius: '100%',
-                marginTop: 20,
+                marginTop: 15,
                 padding: 5,
               }}
             />
@@ -31,7 +38,12 @@ export function DetailsStep() {
       </FormGroup>
       <FormGroup className="mt-3" style={{padding: 2}}>
         <h4>Business Description</h4>
-        <textarea className="form-control" rows={5} />
+        <textarea
+          className="form-control"
+          rows={5}
+          onChange={e => setBusiness('desc', e.target.value)}
+          value={business.desc}
+        />
       </FormGroup>
     </>
   );

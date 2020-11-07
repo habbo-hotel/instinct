@@ -1,17 +1,18 @@
 import React from 'react';
 import {EmailPreferences} from './tabs/email';
-import {SecurityPreferences} from './tabs/security';
 import {ProfilePreferences} from './tabs/profile';
+import {SecurityPreferences} from './tabs/security';
+import {UserLayout} from '../../../components/layout/user';
 import {
   Container,
   Jumbotron,
   Loading,
   Row,
-  UserLayout,
   setURL,
   NavTabs,
   Icon,
 } from '@instinct-prj/frontend';
+
 setURL('preferences', <PreferencesPage />);
 
 export function PreferencesPage() {
