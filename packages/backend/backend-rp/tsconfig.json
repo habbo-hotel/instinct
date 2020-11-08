@@ -1,13 +1,12 @@
 {
   "extends":  "../../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "lib": ["es5", "es6", "esnext"],
-    "target": "es2019",
-    "module": "commonjs",
+    "lib": ["es2015", "esnext"],
+    "target": "es2015",
+    "module": "esnext",
     "moduleResolution": "node"
   },
   "include": [
-    "src"
+    "./src"
   ]
 }

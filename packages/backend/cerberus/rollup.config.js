@@ -10,7 +10,7 @@ export default {
   input: "./src/index.ts",
   output: [
     {
-      dir: './dist',
+      file: './dist/index.ts',
       format: "es",
       sourcemap: false,
     },
@@ -20,7 +20,9 @@ export default {
     blockPeerDependencies(),
 
     // Resolves node_module dependencies and bundles them
-    resolveDependencies(),
+    resolveDependencies({
+      preferBuiltins: true,
+    }),
 
     // Convert JSON into ES Modules
     json({
@@ -45,6 +47,10 @@ export default {
       output: {
         comments: false,
       },
+      mangle: true,
+      ecma: '2015',
+      keep_classnames: false,
+      keep_fnames: false,
     }),
   ],
   external: id => {

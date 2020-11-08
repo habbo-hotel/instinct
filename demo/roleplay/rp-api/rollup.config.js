@@ -1,6 +1,6 @@
 import json from '@rollup/plugin-json';
+import rpAPIPackage from './package.json';
 import {terser} from 'rollup-plugin-terser';
-import backendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
@@ -20,7 +20,9 @@ export default {
         blockPeerDependencies(),
 
         // Resolves node_module dependencies and bundles them
-        resolveDependencies(),
+        resolveDependencies({
+            preferBuiltins: true,
+        }),
 
         // Convert JSON into ES Modules
         json({
@@ -45,10 +47,13 @@ export default {
             output: {
                 comments: false,
             },
+            mangle: true,
+            ecma: '2015',
+            keep_classnames: false,
+            keep_fnames: false,
         }),
     ],
     external: id => {
-        console.log(id);
-        return Object.keys(backendPackage.dependencies).includes(id)
+        return Object.keys(rpAPIPackage.dependencies).includes(id)
     }
 };

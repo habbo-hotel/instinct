@@ -1,14 +1,13 @@
 {
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
-    "declarationDir": "./dist",
-    "lib": ["es5", "es6", "esnext"],
-    "target": "es2019",
+    "lib": ["es2015", "esnext"],
+    "target": "es2015",
     "module": "esnext",
-    "declaration": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "declaration": false
   },
   "include": [
-    "src/**/*"
+    "./src/**/*"
   ]
 }
