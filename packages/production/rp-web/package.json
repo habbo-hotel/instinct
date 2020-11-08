@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "dist/index.js",
   "types": "dist/index",
   "files": [
@@ -12,9 +12,9 @@
     "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
-    "@instinct-prj/admin": "^1.2.0",
-    "@instinct-prj/frontend": "^1.2.0",
-    "@instinct-prj/themes": "^1.2.0"
+    "@instinct-prj/admin": "^1.2.1",
+    "@instinct-prj/frontend": "^1.2.1",
+    "@instinct-prj/themes": "^1.2.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
