@@ -53,7 +53,7 @@ export default {
             keep_fnames: false,
         }),
     ],
-    external: id => {
-        return Object.keys(rpAPIPackage.dependencies).includes(id)
-    }
+    external: [
+        ...Object.keys(rpAPIPackage.dependencies || {}),
+    ],
 };

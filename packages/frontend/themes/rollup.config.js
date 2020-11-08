@@ -2,8 +2,8 @@ import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
+import themesPackage from './package.json';
 import {terser} from 'rollup-plugin-terser';
-import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
@@ -57,9 +57,18 @@ export default {
     }),
 
     // Minimize final bundle
-    terser(),
+    terser({
+      compress: true,
+      output: {
+        comments: false,
+      },
+      mangle: true,
+      keep_classnames: false,
+      keep_fnames: false,
+    }),
   ],
-  external: id => {
-    return Object.keys(frontendPackage.dependencies).includes(id)
-  }
+  external: [
+    ...Object.keys(themesPackage.dependencies || {}),
+    ...Object.keys(themesPackage.peerDependencies || {})
+  ],
 };

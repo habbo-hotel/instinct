@@ -53,7 +53,8 @@ export default {
             keep_fnames: false,
         }),
     ],
-    external: id => {
-        return Object.keys(backendPackage.dependencies).includes(id)
-    }
+    external: [
+        ...Object.keys(backendPackage.dependencies || {}),
+        ...Object.keys(backendPackage.peerDependencies || {})
+    ],
 };

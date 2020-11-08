@@ -1,8 +1,8 @@
 import json from '@rollup/plugin-json';
 import {terser} from 'rollup-plugin-terser';
+import backendRPPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import backendRoleplayPackage from './package.json';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
@@ -53,7 +53,8 @@ export default {
       keep_fnames: false,
     }),
   ],
-  external: id => {
-    return Object.keys(backendRoleplayPackage.dependencies).includes(id)
-  }
+  external: [
+    ...Object.keys(backendRPPackage.dependencies || {}),
+    ...Object.keys(backendRPPackage.peerDependencies || {})
+  ],
 };

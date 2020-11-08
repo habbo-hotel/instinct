@@ -53,7 +53,8 @@ export default {
       keep_fnames: false,
     }),
   ],
-  external: id => {
-    return Object.keys(cerberusPackage.dependencies).includes(id)
-  }
+  external: [
+    ...Object.keys(cerberusPackage.dependencies || {}),
+    ...Object.keys(cerberusPackage.peerDependencies || {})
+  ],
 };

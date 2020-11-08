@@ -57,9 +57,18 @@ export default {
     }),
 
     // Minimize final bundle
-    terser(),
+    terser({
+      compress: true,
+      output: {
+        comments: false,
+      },
+      mangle: true,
+      keep_classnames: false,
+      keep_fnames: false,
+    }),
   ],
-  external: id => {
-    return Object.keys(frontendPackage.dependencies).includes(id)
-  }
+  external: [
+    ...Object.keys(frontendPackage.dependencies || {}),
+    ...Object.keys(frontendPackage.peerDependencies || {})
+  ],
 };
