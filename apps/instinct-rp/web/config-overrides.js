@@ -9,5 +9,8 @@ module.exports = config => {
     tsRule.include = undefined;
     tsRule.exclude = /node_modules/;
 
-    return config;
+    return {
+        ...config,
+        devtool: undefined,
+    }
 };

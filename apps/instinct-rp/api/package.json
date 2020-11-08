@@ -5,7 +5,11 @@
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:prod": " forever --sourceDir . -c \"yarn start\" /",
     "update": "yarn add @instinct-prj/backend@latest && yarn update:interface",
-    "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
+    "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest",
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "yarn run build"
   },
   "dependencies": {
     "@instinct-prj/backend": "^1.0.1",
