@@ -2232,7 +2232,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@nestjs/common@^7.4.4", "@nestjs/common@^7.5.1":
+"@nestjs/common@^7.5.1":
   version "7.5.1"
   resolved "https://registry.npmjs.org/@nestjs/common/-/common-7.5.1.tgz#a4bbe1f69f48d0f46839f5e26d9cb244bb4db3bf"
   integrity sha512-UKTWa/MFTryRm4L9b+lsKFg+m/B4zDCsx/pQAMZVCYMW4FRg6QH4BIaq5fMz5G2hL5IFlFVoOC/eXJwhGDOrYA==
@@ -2242,7 +2242,7 @@
     tslib "2.0.3"
     uuid "8.3.1"
 
-"@nestjs/core@^7.4.4", "@nestjs/core@^7.5.1":
+"@nestjs/core@^7.5.1":
   version "7.5.1"
   resolved "https://registry.npmjs.org/@nestjs/core/-/core-7.5.1.tgz#5de809d85fb5d3bbb008fffeb4297c3bb5591aa9"
   integrity sha512-aJ1w5tQPkVEmH5QRe1echV5NFWAcHAVQJX/jvfCSK4M5VSkIBN9zreZg8UnYf8sbW5YEaizPts07veeTPsG3FQ==
@@ -2255,7 +2255,7 @@
     tslib "2.0.3"
     uuid "8.3.1"
 
-"@nestjs/jwt@^7.1.0":
+"@nestjs/jwt@^7.2.0":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@nestjs/jwt/-/jwt-7.2.0.tgz#d55d15c861b3e0d67a852cbe6131b14c85246852"
   integrity sha512-uOTqYmWNpu+oS/MrdYjrWXtKGV4HkCYmAEVEFPP/KfiP/7K6fNy+boLllE6cnqESAXh9u0CLa1noAAavs+LHEQ==
@@ -2268,7 +2268,7 @@
   resolved "https://registry.npmjs.org/@nestjs/passport/-/passport-7.1.0.tgz#04cbb6dec4b6fd92b943e131a2ad89da42c2a9f0"
   integrity sha512-TdXqEwQ9PWWdpZsWp6jnora+zN+jg7h9Om9CAxXDMCqnmB+IJknkY0OyyplxbMjRyep1zvsc3IptuPHIXb27tA==
 
-"@nestjs/platform-express@^7.4.4", "@nestjs/platform-express@^7.5.1":
+"@nestjs/platform-express@^7.5.1":
   version "7.5.1"
   resolved "https://registry.npmjs.org/@nestjs/platform-express/-/platform-express-7.5.1.tgz#aa03c221bb7b0d02e104b00df1c3936653329a39"
   integrity sha512-sJG9KSIsnPCsfk4uvEBDu8vE78Yjm1kT1b4HLjawH34DJoV16FAlIJQcXwKn0Lq4QWPafQvWr7e1KP5jzOdNEQ==
@@ -2514,7 +2514,7 @@
   dependencies:
     deepmerge "^4.2.2"
 
-"@sendgrid/mail@^7.3.0":
+"@sendgrid/mail@^7.4.0":
   version "7.4.0"
   resolved "https://registry.npmjs.org/@sendgrid/mail/-/mail-7.4.0.tgz#126de0f0fc7c62d5d609140261fd598b6291fee3"
   integrity sha512-SAARsfbl50OEJ99LYGKfgrYiV5O6+23aeGJuEBTHHSwRZ6KhD3n1BjPeIejbqgbqYLZJfNLxyU3o5xRdJPp3zg==
@@ -16223,7 +16223,7 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typeorm@^0.2.28, typeorm@^0.2.29:
+typeorm@^0.2.29:
   version "0.2.29"
   resolved "https://registry.npmjs.org/typeorm/-/typeorm-0.2.29.tgz#401289dc91900d72eccb26e31cdb7f0591a2272e"
   integrity sha512-ih1vrTe3gEAGKRcWlcsTRxTL7gNjacQE498wVGuJ3ZRujtMqPZlbAWuC7xDzWCRjQnkZYNwZQeG9UgKfxSHB5g==
