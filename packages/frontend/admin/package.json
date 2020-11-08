@@ -15,8 +15,6 @@
   "dependencies": {
     "@instinct-prj/frontend": "^1.0.2",
     "@instinct-prj/interface": "^1.0.2",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-typescript": "^6.1.0",
     "@uiw/react-md-editor": "^1.14.5",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
@@ -32,8 +30,6 @@
     "wouter": "^2.5.3"
   },
   "devDependencies": {
-    "@rollup/plugin-image": "^2.0.5",
-    "@rollup/plugin-node-resolve": "^10.0.0",
     "@types/lodash": "^4.14.164",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
@@ -49,6 +45,10 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-typescript": "^6.1.0",
+    "@rollup/plugin-image": "^2.0.5",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "sass-loader": "^10.0.4",
     "thread-loader": "^3.0.1",
     "ts-loader": "^8.0.7",
