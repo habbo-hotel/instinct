@@ -10,7 +10,9 @@
       "@instinct-prj/interface": ["packages/shared/interface/src"],
       "@instinct-prj/frontend": ["packages/frontend/frontend/src"],
       "@instinct-prj/backend-rp":  ["packages/backend/backend-rp/src"],
-      "@instinct-prj/interface-rp": ["packages/shared/interface-rp/src"]
+      "@instinct-prj/interface-rp": ["packages/shared/interface-rp/src"],
+      "@instinct-prj/rp-api": ["packages/production/rp-api/src"],
+      "@instinct-prj/rp-web": ["packages/production/rp-web/src"]
     },
     "noEmit": true
   },

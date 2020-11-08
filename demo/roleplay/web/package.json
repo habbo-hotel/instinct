@@ -1,5 +1,5 @@
 {
-  "name": "@instinct-prj/rp-web",
+  "name": "@instinct-prj/rp-web-demo",
   "version": "1.1.0",
   "files": [
     "dist"
@@ -18,8 +18,7 @@
     "@instinct-prj/interface-rp": "^1.1.0",
     "@instinct-prj/themes": "^1.1.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "reactstrap": "^8.7.1"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",

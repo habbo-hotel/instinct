@@ -1,8 +1,7 @@
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {InstinctRPModule} from '@instinct-prj/backend-rp';
-import {CerberusModule} from '@instinct-prj/cerberus/src/cerberus.module';
-import {rpDatabaseEntities} from '@instinct-prj/backend-rp/src/database/database.meta';
+import {CerberusModule} from '@instinct-prj/cerberus';
+import {InstinctRPModule, rpDatabaseEntities} from '@instinct-prj/backend-rp';
 import {
   databaseUser,
   databaseName,

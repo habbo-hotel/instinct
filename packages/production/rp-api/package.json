@@ -1,0 +1,37 @@
+{
+  "name": "@instinct-prj/rp-api",
+  "version": "1.1.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./build",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c",
+    "prepublishOnly": "yarn run build"
+  },
+  "dependencies": {
+    "@instinct-prj/backend": "^1.1.0",
+    "@instinct-prj/backend-rp": "^1.1.0",
+    "@instinct-prj/cerberus": "^1.1.0",
+    "@nestjs/common": "^7.5.1",
+    "@nestjs/core": "^7.5.1",
+    "@nestjs/platform-express": "^7.5.1",
+    "@nestjs/typeorm": "^7.1.4",
+    "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
+    "mysql2": "^2.2.5",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "typeorm": "^0.2.29",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "ts-loader": "^8.0.9",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0"
+  }
+}

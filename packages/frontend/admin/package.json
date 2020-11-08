@@ -2,7 +2,7 @@
   "name": "@instinct-prj/admin",
   "version": "1.1.0",
   "main": "dist/index.js",
-  "types": "dist/index",
+  "types": "dist/types",
   "files": [
     "dist"
   ],

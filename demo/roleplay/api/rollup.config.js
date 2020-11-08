@@ -9,7 +9,7 @@ export default {
     input: "./src/index.ts",
     output: [
         {
-            file: './dist/index.js',
+            dir: './dist',
             format: "es",
             sourcemap: false,
         },
@@ -32,7 +32,6 @@ export default {
         // Bundle into CommonJS format
         commonJS({
             sourceMap: false,
-            exclude: ['node_modules']
         }),
 
         // Minimize final bundle
