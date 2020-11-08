@@ -18,8 +18,6 @@ export function ViewGroup() {
   const [matched, params] = useRoute<{groupID: string}>('/groups/:groupID');
   const group: Group | undefined = useFetchGroupByID(params!.groupID);
 
-  console.log(group);
-
   return (
     <UserLayout>
       <Jumbotron title={group?.name} />

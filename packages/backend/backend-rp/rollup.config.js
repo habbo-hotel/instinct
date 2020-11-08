@@ -48,7 +48,6 @@ export default {
     }),
   ],
   external: id => {
-    console.log(id);
     return Object.keys(backendRoleplayPackage.dependencies).includes(id)
   }
 };

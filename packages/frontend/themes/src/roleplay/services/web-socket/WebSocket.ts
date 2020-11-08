@@ -31,9 +31,6 @@ export class WebSocketService implements WebSocketServiceBase {
   onMessage = (event: MessageEvent) => {
     const {event_name, event_data} = JSON.parse(event.data);
     const subscribers = this.subscribers[event_name] ?? [];
-    console.log(
-      `Found ${subscribers.length} subscribers for event ${event_name}`
-    );
 
     for (const subscriber of subscribers) {
       subscriber(event_data);
@@ -55,7 +52,6 @@ export class WebSocketService implements WebSocketServiceBase {
     event: K,
     payload: Exclude<WebSocketOutgoingEvents[K], 'event_name'>
   ) => {
-    console.log(`Sent event ${event} with payload ${payload}`);
     this.connection.send(
       JSON.stringify({
         event_name: event,

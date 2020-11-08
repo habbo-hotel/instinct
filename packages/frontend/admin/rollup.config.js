@@ -60,7 +60,6 @@ export default {
     terser(),
   ],
   external: id => {
-    console.log(id);
     return Object.keys(frontendPackage.dependencies).includes(id)
   }
 };
