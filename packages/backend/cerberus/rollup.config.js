@@ -9,7 +9,7 @@ import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
   preserveModules: false,
-  input: "./src/main.ts",
+  input: "./src/index.ts",
   output: [
     {
       dir: './dist',
