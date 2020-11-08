@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/cerberus",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -20,16 +20,16 @@
   "devDependencies": {
     "@nestjs/common": "^7.4.4",
     "@nestjs/core": "^7.4.4",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-typescript": "^6.1.0",
     "@types/node": "^14.14.6",
     "rimraf": "^3.0.2",
-    "ts-node": "9.0.0",
-    "tsconfig-paths": "3.9.0",
-    "typescript": "~4.0.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-typescript": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^10.0.0"
+    "ts-node": "9.0.0",
+    "tsconfig-paths": "3.9.0",
+    "typescript": "~4.0.5"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.4.4",

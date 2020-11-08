@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -17,9 +17,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^1.0.2",
-    "@instinct-prj/backend-rp": "^1.0.2",
-    "@instinct-prj/cerberus": "^1.0.2",
+    "@instinct-prj/backend": "^1.0.3",
+    "@instinct-prj/backend-rp": "^1.0.3",
+    "@instinct-prj/cerberus": "^1.0.3",
     "@instinct-prj/interface": "^1.0.2",
     "@instinct-prj/interface-rp": "^1.0.2",
     "@nestjs/common": "^7.5.1",
