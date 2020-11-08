@@ -1,6 +1,6 @@
 {
   "name": "instinct-demo-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:prod": " forever --sourceDir . -c \"yarn start\" /",
