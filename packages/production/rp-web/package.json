@@ -9,8 +9,7 @@
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist && rimraf -rf ./build",
-    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c",
-    "prepublishOnly": "yarn run build"
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
     "@instinct-prj/admin": "^1.2.0",

@@ -6,6 +6,7 @@ import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
+  preserveModules: true,
   input: "./src/index.ts",
   output: [
     {
