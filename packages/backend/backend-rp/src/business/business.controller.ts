@@ -1,8 +1,8 @@
 import {BusinessDTO} from './business.dto';
 import {BusinessPipe} from './business.pipe';
+import {HasScope} from '@instinct-prj/backend';
 import {Business} from '@instinct-prj/interface-rp';
 import {businessWire} from '../database/business/business.wire';
-import {HasScope} from '@instinct-prj/backend/src/session/permission-scope.decorator';
 import {
   GetSession,
   PermissionStatus,

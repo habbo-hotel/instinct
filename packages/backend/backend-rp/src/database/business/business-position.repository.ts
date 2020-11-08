@@ -1,8 +1,8 @@
 import {Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
+import {BaseRepository} from '@instinct-prj/backend';
 import {BusinessPositionEntity} from './business-position.entity';
-import {BaseRepository} from '@instinct-prj/backend/src/database/base.repository';
 
 @Injectable()
 export class BusinessPositionRepository extends BaseRepository<

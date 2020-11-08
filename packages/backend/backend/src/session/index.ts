@@ -2,6 +2,8 @@ export * from './bearer-token.service';
 export * from './bearer-token.strategy';
 export * from './get-session.decorator';
 export * from './has-session.decorator';
+export * from './permission-scope.decorator';
+export * from './permission-scope.guard';
 export * from './session.controller';
 export * from './session.dto';
 export * from './session.module';

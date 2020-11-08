@@ -1,7 +1,7 @@
 {
   "name": "@instinct-prj/themes",
   "version": "1.1.0",
-  "main": "dist/index",
+  "main": "dist/index.js",
   "types": "dist/types",
   "files": [
     "dist"

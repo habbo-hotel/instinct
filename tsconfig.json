@@ -3,14 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@instinct-prj/admin": ["./packages/frontend/admin/src"],
-      "@instinct-prj/themes": ["./packages/frontend/themes/src"],
-      "@instinct-prj/backend":  ["./packages/backend/backend/src"],
-      "@instinct-prj/cerberus": ["./packages/backend/cerberus/src"],
-      "@instinct-prj/interface": ["./packages/shared/interface/src"],
-      "@instinct-prj/frontend": ["./packages/frontend/frontend/src"],
-      "@instinct-prj/backend-rp":  ["./packages/backend/backend-rp/src"],
-      "@instinct-prj/interface-rp": ["./packages/shared/interface-rp/src"]
+      "@instinct-prj/admin": ["packages/frontend/admin/src"],
+      "@instinct-prj/themes": ["packages/frontend/themes/src"],
+      "@instinct-prj/backend":  ["packages/backend/backend/src"],
+      "@instinct-prj/cerberus": ["packages/backend/cerberus/src"],
+      "@instinct-prj/interface": ["packages/shared/interface/src"],
+      "@instinct-prj/frontend": ["packages/frontend/frontend/src"],
+      "@instinct-prj/backend-rp":  ["packages/backend/backend-rp/src"],
+      "@instinct-prj/interface-rp": ["packages/shared/interface-rp/src"]
     },
     "noEmit": true
   },
