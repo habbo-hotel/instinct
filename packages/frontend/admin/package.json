@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/admin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -14,8 +14,8 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.1.0",
-    "@instinct-prj/interface": "^1.1.0",
+    "@instinct-prj/frontend": "^1.2.0",
+    "@instinct-prj/interface": "^1.2.0",
     "@uiw/react-md-editor": "^1.14.5",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
