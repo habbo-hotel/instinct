@@ -2,6 +2,7 @@ import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
 import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
+import {terser} from 'rollup-plugin-terser';
 import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
@@ -54,6 +55,9 @@ export default {
     commonJS({
       sourceMap: false,
     }),
+
+    // Minimize final bundle
+    terser(),
   ],
   external: id => {
     console.log(id);

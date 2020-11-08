@@ -1,8 +1,8 @@
 {
   "private": true,
   "workspaces": [
-    "demo/*",
-    "packages/*"
+    "demo/**/*",
+    "packages/**/*"
   ],
   "scripts": {
     "fix": "gts fix",
