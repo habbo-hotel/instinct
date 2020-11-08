@@ -54,6 +54,8 @@ export default {
         }),
     ],
     external: [
+        'fs',
+        'path',
         ...Object.keys(backendPackage.dependencies || {}),
         ...Object.keys(backendPackage.peerDependencies || {})
     ],
