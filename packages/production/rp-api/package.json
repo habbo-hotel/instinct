@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-api",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -12,9 +12,9 @@
     "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^1.2.1",
-    "@instinct-prj/backend-rp": "^1.2.1",
-    "@instinct-prj/cerberus": "^1.2.1",
+    "@instinct-prj/backend": "^1.2.2",
+    "@instinct-prj/backend-rp": "^1.2.2",
+    "@instinct-prj/cerberus": "^1.2.2",
     "@nestjs/common": "^7.5.1",
     "@nestjs/core": "^7.5.1",
     "@nestjs/platform-express": "^7.5.1",
