@@ -8,12 +8,9 @@
   ],
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:prod": " forever --sourceDir . -c \"yarn start\" /",
-    "update": "yarn add @instinct-prj/backend@latest && yarn update:interface",
-    "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest",
     "build": "yarn run clean && yarn run compile",
-    "clean": "rimraf -rf ./dist",
-    "compile": "tsc -p tsconfig.build.json",
+    "clean": "rimraf -rf ./dist && rimraf -rf ./build",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c && copyfiles -u 1 ./build/**/*.d.ts dist",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
