@@ -1,0 +1,12 @@
+{
+  "extends":  "../../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es5", "es6", "esnext"],
+    "target": "es2019",
+    "module": "commonjs",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src"
+  ]
+}
