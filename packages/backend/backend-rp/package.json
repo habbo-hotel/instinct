@@ -2,14 +2,15 @@
   "name": "@instinct-prj/backend-rp",
   "version": "1.1.0",
   "main": "dist/index",
-  "types": "dist/index",
+  "types": "dist/types",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist && rimraf -rf ./build",
-    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c && copyfiles -u 1 ./build/**/*.d.ts dist",
+    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c && yarn run compile:types",
+    "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {

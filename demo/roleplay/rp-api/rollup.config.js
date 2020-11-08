@@ -1,4 +1,3 @@
-import json from '@rollup/plugin-json';
 import rpAPIPackage from './package.json';
 import {terser} from 'rollup-plugin-terser';
 import commonJS from '@rollup/plugin-commonjs';
@@ -10,7 +9,7 @@ export default {
     input: "./src/index.ts",
     output: [
         {
-            dir: './dist',
+            file: './dist/index.js',
             format: "es",
             sourcemap: false,
         },
@@ -22,11 +21,6 @@ export default {
         // Resolves node_module dependencies and bundles them
         resolveDependencies({
             preferBuiltins: true,
-        }),
-
-        // Convert JSON into ES Modules
-        json({
-            compact: true,
         }),
 
         // Typescript compilation

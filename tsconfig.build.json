@@ -12,7 +12,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "jsx": "react",
-    "declaration": true,
+    "declaration": false,
     "noFallthroughCasesInSwitch": true
   },
   "exclude": [

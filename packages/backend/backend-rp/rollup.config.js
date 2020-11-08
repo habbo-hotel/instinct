@@ -1,4 +1,3 @@
-import json from '@rollup/plugin-json';
 import {terser} from 'rollup-plugin-terser';
 import backendRPPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
@@ -24,11 +23,6 @@ export default {
       preferBuiltins: true,
     }),
 
-    // Convert JSON into ES Modules
-    json({
-      compact: true,
-    }),
-
     // Typescript compilation
     typescript({
       rootDir: './src',
@@ -38,7 +32,6 @@ export default {
     // Bundle into CommonJS format
     commonJS({
       sourceMap: false,
-      exclude: ['node_modules']
     }),
 
     // Minimize final bundle
