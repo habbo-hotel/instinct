@@ -1,54 +1,54 @@
-import jsx from 'acorn-jsx';
 import json from '@rollup/plugin-json';
 import {terser} from 'rollup-plugin-terser';
-import frontendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import backendRoleplayPackage from './package.json';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
-  preserveModules: false,
   input: "./src/index.ts",
   output: [
     {
-      dir: './dist',
-      format: "cjs",
+      file: './dist/index.js',
+      format: "es",
       sourcemap: false,
     },
   ],
-  acornInjectPlugins: [jsx()],
   plugins: [
     // Prevents peer dependencies from being bundled
     blockPeerDependencies(),
 
     // Resolves node_module dependencies and bundles them
-    resolveDependencies({
-      browser: true,
-      preferBuiltins: false,
-    }),
+    resolveDependencies(),
 
     // Convert JSON into ES Modules
     json({
       compact: true,
     }),
 
-   // Typescript compilation
-   typescript({
-     rootDir: './src',
-     tsconfig: './tsconfig.build.json',
-   }),
+    // Typescript compilation
+    typescript({
+      rootDir: './src',
+      tsconfig: './tsconfig.build.json',
+    }),
 
     // Bundle into CommonJS format
     commonJS({
       sourceMap: false,
+      exclude: ['node_modules']
     }),
 
     // Minimize final bundle
-    terser(),
+    terser({
+      compress: true,
+      output: {
+        comments: false,
+      },
+    }),
   ],
   external: id => {
     console.log(id);
-    return Object.keys(frontendPackage.dependencies).includes(id)
+    return Object.keys(backendRoleplayPackage.dependencies).includes(id)
   }
 };

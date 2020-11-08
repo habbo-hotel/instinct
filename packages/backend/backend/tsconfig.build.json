@@ -1,10 +1,10 @@
 {
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "./dist",
     "lib": ["es5", "es6", "esnext"],
     "target": "es2019",
-    "module": "commonjs",
+    "module": "esnext",
+    "declaration": false,
     "moduleResolution": "node"
   },
   "include": [
