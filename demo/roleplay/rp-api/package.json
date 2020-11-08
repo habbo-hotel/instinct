@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-api",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -17,11 +17,11 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^1.0.1",
-    "@instinct-prj/backend-rp": "^1.0.1",
-    "@instinct-prj/cerberus": "^1.0.0",
-    "@instinct-prj/interface": "^1.0.1",
-    "@instinct-prj/interface-rp": "^1.0.1",
+    "@instinct-prj/backend": "^1.0.2",
+    "@instinct-prj/backend-rp": "^1.0.2",
+    "@instinct-prj/cerberus": "^1.0.2",
+    "@instinct-prj/interface": "^1.0.2",
+    "@instinct-prj/interface-rp": "^1.0.2",
     "@nestjs/common": "^7.5.1",
     "@nestjs/core": "^7.5.1",
     "@nestjs/platform-express": "^7.5.1",
@@ -35,9 +35,9 @@
     "typescript": "^4.0.5"
   },
   "devDependencies": {
+    "@types/node": "^14.14.6",
     "ts-loader": "^8.0.9",
     "ts-node": "^9.0.0",
-    "tsconfig-paths": "^3.9.0",
-    "@types/node": "^14.14.6"
+    "tsconfig-paths": "^3.9.0"
   }
 }

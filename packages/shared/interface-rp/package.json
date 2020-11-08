@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/interface-rp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -13,7 +13,7 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^1.0.1"
+    "@instinct-prj/interface": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.6",

@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "files": [
     "dist"
   ],
@@ -12,11 +12,11 @@
     "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
   },
   "dependencies": {
-    "@instinct-prj/admin": "^1.0.2",
-    "@instinct-prj/frontend": "^1.0.1",
-    "@instinct-prj/interface": "^1.0.1",
-    "@instinct-prj/interface-rp": "^1.0.1",
-    "@instinct-prj/themes": "^1.0.2",
+    "@instinct-prj/admin": "^1.0.3",
+    "@instinct-prj/frontend": "^1.0.2",
+    "@instinct-prj/interface": "^1.0.2",
+    "@instinct-prj/interface-rp": "^1.0.2",
+    "@instinct-prj/themes": "^1.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "reactstrap": "^8.7.1"
