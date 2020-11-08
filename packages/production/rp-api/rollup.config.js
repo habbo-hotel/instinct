@@ -9,8 +9,8 @@ export default {
     input: "./src/index.ts",
     output: [
         {
-            dir: './dist',
-            format: "es",
+            file: './dist/index.js',
+            format: 'cjs',
             sourcemap: false,
         },
     ],
@@ -41,7 +41,6 @@ export default {
                 comments: false,
             },
             mangle: true,
-            ecma: '2015',
             keep_classnames: false,
             keep_fnames: false,
         }),
