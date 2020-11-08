@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/themes",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "main": "dist/index",
   "types": "dist/index",
   "files": [
@@ -13,9 +13,9 @@
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.0.3",
-    "@instinct-prj/interface": "^1.0.2",
-    "@instinct-prj/interface-rp": "^1.0.2",
+    "@instinct-prj/frontend": "^1.1.0",
+    "@instinct-prj/interface": "^1.1.0",
+    "@instinct-prj/interface-rp": "^1.1.0",
     "react-select": "^3.1.0",
     "react-toggle": "^4.1.1"
   },
