@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/interface",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "main": "dist/index.js",
   "types": "dist/index",
   "files": [
@@ -17,5 +17,6 @@
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
     "typescript": "~4.0.5"
-  }
+  },
+  "gitHead": "66b61bc221ace5230cd659bc3631eb6331da51e6"
 }

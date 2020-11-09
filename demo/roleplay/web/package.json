@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web-demo",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "files": [
     "dist"
   ],
@@ -12,7 +12,7 @@
     "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
   },
   "dependencies": {
-    "@instinct-prj/rp-web": "^1.4.0",
+    "@instinct-prj/rp-web": "^1.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -42,5 +42,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "gitHead": "66b61bc221ace5230cd659bc3631eb6331da51e6"
 }
