@@ -14547,6 +14547,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rollup-plugin-es-module-interop@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/rollup-plugin-es-module-interop/-/rollup-plugin-es-module-interop-2.1.0.tgz#e053b1df2324b1a3cb50df61fbc8648c394c8c7a"
+  integrity sha512-MfJVrFus2a9oa99lNshzRJJZ3ejPcna0Eznxx0gHmUYtx3ZVPTLOXgp1Bh/jICfAJmnpgUe9Aw3jGy2fi9iX2A==
+  dependencies:
+    magic-string "^0.25.7"
+
 rollup-plugin-peer-deps-external@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npmjs.org/rollup-plugin-peer-deps-external/-/rollup-plugin-peer-deps-external-2.2.4.tgz#8a420bbfd6dccc30aeb68c9bf57011f2f109570d"

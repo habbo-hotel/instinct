@@ -40,6 +40,7 @@ export default {
       output: {
         comments: false,
       },
+      ecma: 'ES6',
       mangle: true,
       keep_classnames: false,
       keep_fnames: false,
