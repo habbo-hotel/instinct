@@ -1,5 +1,5 @@
-import {exampleRoom} from '../room';
-import {exampleUser, User} from '../user';
+import {exampleRoom} from '../room/Room';
+import {exampleUser, User} from '../user/User';
 
 export interface Group {
   id: number;

@@ -1,4 +1,4 @@
-import {Article} from './';
+import {Article} from './Article';
 
 export interface ArticleCategory {
   id: number;

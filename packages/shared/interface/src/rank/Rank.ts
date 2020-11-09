@@ -1,4 +1,5 @@
-import {examplePermissions, User, Permissions} from '../';
+import {User} from '../user/User';
+import {examplePermissions, Permissions} from '../rank/Permissions';
 
 export interface Rank {
   id: number;

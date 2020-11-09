@@ -1,5 +1,5 @@
-import {exampleUser, User} from '../';
-import {ArticleCategory, exampleArticleCategory} from './';
+import {exampleUser, User} from '../user/User';
+import {ArticleCategory, exampleArticleCategory} from '../article/ArticleCategory';
 
 export interface Article {
   id: number;

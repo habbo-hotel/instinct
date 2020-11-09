@@ -1,4 +1,4 @@
-import {exampleUser, User} from '../user';
+import {exampleUser, User} from '../user/User';
 
 export interface Photo {
   id: number;

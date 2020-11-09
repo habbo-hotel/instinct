@@ -1,4 +1,4 @@
-import {Rank} from '../';
+import {Rank} from '../rank/Rank';
 
 export interface User {
   id: number;
