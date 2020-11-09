@@ -2,7 +2,7 @@
   "name": "@instinct-prj/rp-web",
   "version": "1.5.1",
   "main": "dist/index.js",
-  "types": "dist/index",
+  "types": "dist/types",
   "files": [
     "dist"
   ],
