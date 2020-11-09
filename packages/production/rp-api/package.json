@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-api",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "main": "dist/index.js",
   "types": "dist/types",
   "scripts": {
