@@ -43,13 +43,13 @@ export class UserController {
 
   @Get('online')
   async getOnlineUsers(): Promise<User[]> {
-    const onlineUsers = await this.userRepo.getOnline();
+    const onlineUsers = await this.userRepo.find({online: '1'});
     return onlineUsers.map(_ => userWire(_));
   }
 
   @Get('user-of-the-week')
   async getUserOfTheWeek(): Promise<User[]> {
-    const usersOfTheWeek = await this.userRepo.getUserOfTheWeek();
+    const usersOfTheWeek = await this.userRepo.find({userOfTheWeek: 1});
     return usersOfTheWeek.map(_ => userWire(_));
   }
 
@@ -58,7 +58,7 @@ export class UserController {
     @Body() newUser: UserDTOClass,
     @Ip() ipAddress: string
   ): Promise<User> {
-    const alreadyRegistered = await this.userRepo.getByIPAddress(ipAddress);
+    const alreadyRegistered = await this.userRepo.find({ipCurrent: ipAddress});
 
     if (alreadyRegistered.length >= maxAccountsPerIP) {
       throw new ForbiddenException('Too many accounts');
@@ -81,7 +81,7 @@ export class UserController {
       credits: defaultUserCredits,
       pixels: defaultUserPixels,
       points: defaultUserPoints,
-      online: 0,
+      online: '0',
       ipRegister: ipAddress,
       ipCurrent: ipAddress,
       homeRoom: defaultUserHomeRoom,
@@ -117,9 +117,9 @@ export class UserController {
   async getUserByUsername(
     @Param('username') username: string
   ): Promise<UserProfile> {
-    const user: UserEntity | undefined = await this.userRepo.getByUsername(
-      username
-    );
+    const user: UserEntity | undefined = await this.userRepo.findOne({
+      username,
+    });
 
     if (!user) {
       throw new NotFoundException('User does not exist');

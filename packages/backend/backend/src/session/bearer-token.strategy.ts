@@ -18,6 +18,6 @@ export class BearerTokenStrategy extends PassportStrategy(
   }
 
   async validate({userID}: Record<'userID', number>): Promise<UserEntity> {
-    return this.userRepo.getByID(userID);
+    return this.userRepo.findOneOrFail({id: userID});
   }
 }

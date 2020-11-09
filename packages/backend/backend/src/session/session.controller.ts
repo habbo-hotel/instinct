@@ -1,4 +1,3 @@
-import {UserService} from '../user';
 import {HashService} from '../common';
 import {User} from '@instinct-prj/interface';
 import {SessionService} from './session.service';
@@ -17,7 +16,6 @@ import {
 export class SessionController {
   constructor(
     private readonly userRepo: UserRepository,
-    private readonly userService: UserService,
     private readonly sessionService: SessionService,
     private readonly hashService: HashService
   ) {}
@@ -33,7 +31,7 @@ export class SessionController {
   @Post('sso')
   @HasSession()
   async createSSO(@GetSession() session: UserEntity): Promise<string> {
-    return this.userService.createSSO(session.id!);
+    return this.userRepo.createSSO(session.id!);
   }
 
   @Post('settings/preferences')
@@ -42,9 +40,12 @@ export class SessionController {
     @GetSession() session: UserEntity,
     @Body() preferencesDTO: UpdatePreferencesDTO
   ): Promise<string> {
-    await this.userRepo.updateByID(session.id!, {
-      favoriteYoutubeVideo: preferencesDTO.favoriteYoutubeVideo,
-    });
+    await this.userRepo.update(
+      {id: session.id!},
+      {
+        favoriteYoutubeVideo: preferencesDTO.favoriteYoutubeVideo,
+      }
+    );
     return 'Your preferences have been updated';
   }
 
@@ -63,9 +64,7 @@ export class SessionController {
       throw new BadRequestException('That is not the right password');
     }
 
-    await this.userRepo.updateByID(session.id!, {
-      email: emailDTO.email,
-    });
+    await this.userRepo.update({id: session.id!}, {email: emailDTO.email});
 
     return 'Your email has been updated';
   }
@@ -89,9 +88,12 @@ export class SessionController {
       throw new BadRequestException('Your passwords must match');
     }
 
-    await this.userRepo.updateByID(session.id!, {
-      password: this.hashService.generate(passwordDTO.newPassword),
-    });
+    await this.userRepo.update(
+      {id: session.id!},
+      {
+        password: this.hashService.generate(passwordDTO.newPassword),
+      }
+    );
 
     return 'Your password has been updated';
   }

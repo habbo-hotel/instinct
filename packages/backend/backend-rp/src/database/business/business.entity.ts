@@ -29,6 +29,9 @@ export class BusinessEntity {
   @Column({name: 'work_room', type: 'int'})
   workRoom!: number;
 
+  @Column({name: 'is_listed', type: 'tinyint'})
+  isListed!: number;
+
   @Column({name: 'user_id', type: 'int'})
   userID!: number;
 

@@ -13,7 +13,12 @@
   },
   "devDependencies": {
     "ts-node": "^9.0.0",
-    "tsconfig-paths": "^3.9.0"
+    "tsconfig-paths": "^3.9.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@rollup/plugin-typescript": "^6.1.0"
   },
   "gitHead": "66b61bc221ace5230cd659bc3631eb6331da51e6"
 }

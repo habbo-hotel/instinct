@@ -64,6 +64,7 @@ export class BusinessController {
       userID: user.id!,
       balance: businessDTO.investment,
       workRoom: businessDTO.homeRoom,
+      isListed: 1,
     });
 
     await Promise.all(
@@ -80,9 +81,12 @@ export class BusinessController {
       })
     );
 
-    await this.userRepo.updateByID(user.id!, {
-      credits: user.credits - (businessDTO.investment + 100),
-    });
+    await this.userRepo.update(
+      {id: user.id!},
+      {
+        credits: user.credits - (businessDTO.investment + 100),
+      }
+    );
 
     const businessObject: BusinessEntity = await this.businessRepo.findOneOrFail(
       {id: newBusiness.id!}
@@ -92,7 +96,9 @@ export class BusinessController {
 
   @Get()
   async getAllBusinesses(): Promise<Business[]> {
-    const businesses: BusinessEntity[] = await this.businessRepo.find();
+    const businesses: BusinessEntity[] = await this.businessRepo.find({
+      isListed: 1,
+    });
     return businesses.map(_ => businessWire(_));
   }
 

@@ -11,7 +11,7 @@ export function userWire(userEntity: UserEntity): User {
     credits: userEntity.credits,
     pixels: userEntity.pixels,
     points: userEntity.points,
-    online: userEntity.online === 1,
+    online: userEntity.online === '1',
     figure: userEntity.figure,
     joinDate: Moment.unix(userEntity.accountCreated).toISOString(),
     lastLoginDate: Moment.unix(userEntity.lastLogin).toISOString(),

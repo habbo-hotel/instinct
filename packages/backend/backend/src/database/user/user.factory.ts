@@ -13,7 +13,7 @@ export function userFactory(
     figure: '-',
     credits: 10,
     pixels: 10,
-    online: 0,
+    online: '1',
     ...changes,
   });
 }

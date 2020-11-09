@@ -1,5 +1,5 @@
 import {Injectable} from '@nestjs/common';
-import {UserEntity, UserRepository} from '../../../database/user';
+import {UserRepository} from '../../../database/user';
 import {
   registerDecorator,
   ValidationOptions,
@@ -13,10 +13,8 @@ export class UniqueUsernameConstraint implements ValidatorConstraintInterface {
   constructor(private readonly userRepo: UserRepository) {}
 
   async validate(username: string): Promise<boolean> {
-    const user: UserEntity | undefined = await this.userRepo.getByUsername(
-      username
-    );
-    return user === undefined;
+    const user = await this.userRepo.findOne({username});
+    return !user;
   }
 
   defaultMessage() {

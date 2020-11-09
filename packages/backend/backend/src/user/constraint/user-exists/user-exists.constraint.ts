@@ -13,12 +13,8 @@ export class UserExistsConstraint implements ValidatorConstraintInterface {
   constructor(private readonly userRepo: UserRepository) {}
 
   async validate(username: string) {
-    try {
-      await this.userRepo.getByUsername(username);
-      return true;
-    } catch (e) {
-      return false;
-    }
+    const user = await this.userRepo.findOne({username});
+    return !user;
   }
 
   defaultMessage() {

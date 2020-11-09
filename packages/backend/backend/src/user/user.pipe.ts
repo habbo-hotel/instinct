@@ -6,10 +6,12 @@ export class UserPipe implements PipeTransform {
   constructor(private readonly userRepo: UserRepository) {}
 
   async transform(userID: number): Promise<UserEntity> {
-    try {
-      return await this.userRepo.getByID(userID);
-    } catch {
+    const user = await this.userRepo.findOne({id: userID});
+
+    if (!user) {
       throw new NotFoundException('User does not exist');
     }
+
+    return user;
   }
 }

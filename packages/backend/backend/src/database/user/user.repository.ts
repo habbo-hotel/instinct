@@ -1,11 +1,13 @@
+import Random from 'randomstring';
 import {Repository} from 'typeorm';
 import {HashService} from '../../common';
 import {UserEntity} from './user.entity';
 import {Injectable} from '@nestjs/common';
 import {InjectRepository} from '@nestjs/typeorm';
+import {BaseRepository} from '../base.repository';
 
 @Injectable()
-export class UserRepository {
+export class UserRepository extends BaseRepository<UserEntity> {
   readonly eagerRelations: Array<keyof UserEntity> = [
     'rank',
     'joinedGroups',
@@ -17,75 +19,30 @@ export class UserRepository {
   ];
 
   constructor(
-    private readonly hashService: HashService,
+    @InjectRepository(UserEntity) userRepository: Repository<UserEntity>,
+    private readonly hashService: HashService
+  ) {
+    super(userRepository, [
+      'rank',
+      'joinedGroups',
+      'badges',
+      'rooms',
+      'friends',
+      'betaCode',
+      'bans',
+    ]);
+  }
 
-    @InjectRepository(UserEntity)
-    private readonly userRepository: Repository<UserEntity>
-  ) {}
-
-  create(user: UserEntity): Promise<UserEntity> {
-    return this.userRepository.save({
+  async create(user: UserEntity): Promise<UserEntity> {
+    return super.create({
       ...user,
       password: this.hashService.generate(user.password),
     });
   }
 
-  getByID(userID: number, relations: string[] = []): Promise<UserEntity> {
-    return this.userRepository.findOneOrFail({
-      where: {
-        id: userID,
-      },
-      relations: [...this.eagerRelations, ...relations],
-    });
-  }
-
-  async updateByID(
-    userID: number,
-    changes: Partial<UserEntity>
-  ): Promise<void> {
-    await this.userRepository.update(userID, changes);
-  }
-
-  getByUsername(username: string): Promise<UserEntity | undefined> {
-    return this.userRepository.findOne({
-      where: {
-        username,
-      },
-      relations: this.eagerRelations,
-    });
-  }
-
-  getByEmail(email: string): Promise<UserEntity | undefined> {
-    return this.userRepository.findOne({
-      where: {
-        email,
-      },
-      relations: this.eagerRelations,
-    });
-  }
-
-  getByIPAddress(ipAddress: string): Promise<UserEntity[]> {
-    return this.userRepository.find({
-      where: {
-        ipRegister: ipAddress,
-      },
-    });
-  }
-
-  getOnline(): Promise<UserEntity[]> {
-    return this.userRepository.find({
-      where: {
-        online: 1,
-      },
-      relations: this.eagerRelations,
-    });
-  }
-
-  getUserOfTheWeek(): Promise<UserEntity[]> {
-    return this.userRepository.find({
-      where: {
-        userOfTheWeek: 1,
-      },
-    });
+  async createSSO(userID: number): Promise<string> {
+    const authTicket: string = 'instinct_' + Random.generate(50) + '_' + userID;
+    await this.update({id: userID}, {authTicket});
+    return authTicket;
   }
 }

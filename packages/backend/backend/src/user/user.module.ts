@@ -3,7 +3,6 @@ import {Module} from '@nestjs/common';
 import {CommonModule} from '../common';
 import {UserBanPipe} from './ban.pipe';
 import {BetaCodeModule} from '../beta-code';
-import {UserService} from './user.service';
 import {DatabaseModule} from '../database';
 import {userConstraints} from './constraint';
 import {UserController} from './user.controller';
@@ -17,17 +16,10 @@ import {UserLeaderBoardController} from './leaderboard.controller';
   controllers: [UserController, UserLeaderBoardController, UserBanController],
   providers: [
     UserPipe,
-    UserService,
     UserLeaderBoardService,
     UserBanPipe,
     ...userConstraints,
   ],
-  exports: [
-    UserPipe,
-    UserService,
-    UserLeaderBoardService,
-    UserBanPipe,
-    ...userConstraints,
-  ],
+  exports: [UserPipe, UserLeaderBoardService, UserBanPipe, ...userConstraints],
 })
 export class UserModule {}

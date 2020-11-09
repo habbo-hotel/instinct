@@ -1,5 +1,8 @@
 import {exampleUser, User} from '../user/User';
-import {ArticleCategory, exampleArticleCategory} from '../article/ArticleCategory';
+import {
+  ArticleCategory,
+  exampleArticleCategory,
+} from '../article/ArticleCategory';
 
 export interface Article {
   id: number;

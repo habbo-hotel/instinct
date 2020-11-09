@@ -56,7 +56,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
-    "typescript": "~4.0.5"
+    "typescript": "~4.0.5",
+    "eventemitter3": "^4.0.7"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.5.1",

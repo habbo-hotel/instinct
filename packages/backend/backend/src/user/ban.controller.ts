@@ -31,7 +31,7 @@ export class UserBanController {
     @Body() ban: UserBanDTOClass,
     @GetSession() session: UserEntity
   ): Promise<UserBan> {
-    const user = await this.userRepo.getByID(ban.userID);
+    const user = await this.userRepo.findOneOrFail({id: ban.userID});
     const newBan = await this.userBanRepo.create({
       userID: user.id!,
       ipAddress: user.ipCurrent,

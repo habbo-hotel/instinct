@@ -1,7 +1,13 @@
 import {OrderBy} from './database.types';
+import EventEmitter from 'eventemitter3';
 import {FindConditions, Repository} from 'typeorm';
+import {BaseRepositoryEvents} from './base.repository.types';
 
 export abstract class BaseRepository<Entity> {
+  readonly eventEmitter: EventEmitter<
+    BaseRepositoryEvents<Entity>
+  > = new EventEmitter();
+
   constructor(
     readonly repo: Repository<Entity>,
     readonly eagerRelations: string[]
@@ -14,6 +20,8 @@ export abstract class BaseRepository<Entity> {
     if (!newObject.id) {
       throw new Error('Entity missing `id`');
     }
+
+    this.eventEmitter.emit('OBJECT_CREATED', newObject);
     // @ts-ignore It's expected for entities to have an `id`
     return this.findOneOrFail({id: newObject.id!});
   }
@@ -56,9 +64,11 @@ export abstract class BaseRepository<Entity> {
     changes: Partial<Entity>
   ): Promise<void> {
     await this.repo.update(conditions, changes as any);
+    this.eventEmitter.emit('OBJECT_UPDATED', conditions, changes);
   }
 
   async delete(conditions: FindConditions<Entity>): Promise<void> {
     await this.repo.delete(conditions);
+    this.eventEmitter.emit('OBJECT_DELETED', conditions);
   }
 }

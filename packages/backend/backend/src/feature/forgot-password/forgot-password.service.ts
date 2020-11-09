@@ -20,7 +20,9 @@ export class ForgotPasswordService {
 
   async generatePasswordKey(email: string): Promise<void> {
     const config = await this.configRepo.getConfig();
-    const user: UserEntity | undefined = await this.userRepo.getByEmail(email);
+    const user: UserEntity | undefined = await this.userRepo.findOneOrFail({
+      email,
+    });
 
     if (user === undefined) {
       throw new BadRequestException('User does not exist');
@@ -56,9 +58,12 @@ export class ForgotPasswordService {
       throw new BadRequestException('Reset link has expired');
     }
 
-    await this.userRepo.updateByID(forgotPasswordEntity.userID, {
-      password: this.hashService.generate(newPassword),
-    });
+    await this.userRepo.update(
+      {id: forgotPasswordEntity.userID},
+      {
+        password: this.hashService.generate(newPassword),
+      }
+    );
 
     await this.forgotPasswordRepo.delete({token});
   }
