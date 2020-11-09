@@ -27,4 +27,4 @@ import {
     InstinctRPModule,
   ],
 })
-export class InstinctAppModule {}
+export class InstinctRoleplayAPIModule {}
