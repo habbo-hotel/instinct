@@ -1,37 +1,14 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": false,
-    "noEmitOnError": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "lib": ["dom", "es5"],
+    "rootDir": ".",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "jsx": "react",
-    "declaration": false,
-    "noFallthroughCasesInSwitch": true
+    "module": "commonjs",
+    "target": "es2019",
+    "baseUrl": "./",
+    "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "*.md",
-    "*.css",
-    "*.scss"
-  ],
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "include": [
+    "src/**/*.ts"
+  ]
 }
