@@ -1,8 +1,8 @@
+import babel from '@rollup/plugin-babel';
 import rpAPIPackage from './package.json';
 import {terser} from 'rollup-plugin-terser';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import esModuleInterop from 'rollup-plugin-es-module-interop';
 import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
@@ -35,19 +35,21 @@ export default {
       sourceMap: false,
     }),
 
+    babel({
+      exclude: 'node_modules/**',
+      include: 'src/**/*',
+      minified: true,
+      comments: false,
+      presets: ['@babel/preset-env', '@babel/plugin-transform-runtime'],
+    }),
+
     // Minimize final bundle
     terser({
       compress: true,
       output: {
         comments: false,
       },
-      ecma: 'ES6',
-      mangle: true,
-      keep_classnames: false,
-      keep_fnames: false,
     }),
-
-      esModuleInterop(),
   ],
   external: [...Object.keys(rpAPIPackage.dependencies || {})],
 };

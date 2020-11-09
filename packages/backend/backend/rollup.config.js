@@ -1,3 +1,4 @@
+import babel from '@rollup/plugin-babel';
 import {terser} from 'rollup-plugin-terser';
 import backendPackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
@@ -34,16 +35,20 @@ export default {
       sourceMap: false,
     }),
 
+    babel({
+      exclude: 'node_modules/**',
+      include: 'src/**/*',
+      minified: true,
+      comments: false,
+      presets: ['@babel/preset-env', '@babel/plugin-transform-runtime'],
+    }),
+
     // Minimize final bundle
     terser({
       compress: true,
       output: {
         comments: false,
       },
-      ecma: 'ES6',
-      mangle: true,
-      keep_classnames: false,
-      keep_fnames: false,
     }),
   ],
   external: [
