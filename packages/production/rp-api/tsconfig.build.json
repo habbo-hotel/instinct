@@ -2,9 +2,7 @@
   "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": "src",
-    "baseUrl": "src",
-    "lib": ["es2015", "esnext"],
-    "target": "es2015"
+    "baseUrl": "src"
   },
   "include": [
     "./src"
