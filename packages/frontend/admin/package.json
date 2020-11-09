@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/admin",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,8 +13,8 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.5.0",
-    "@instinct-prj/interface": "^1.5.0",
+    "@instinct-prj/frontend": "^1.5.1",
+    "@instinct-prj/interface": "^1.5.1",
     "@uiw/react-md-editor": "^1.14.5",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",

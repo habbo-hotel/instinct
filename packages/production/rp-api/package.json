@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-api",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "dist/index.js",
   "types": "dist/types",
   "scripts": {
@@ -11,9 +11,9 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^1.5.0",
-    "@instinct-prj/backend-rp": "^1.5.0",
-    "@instinct-prj/cerberus": "^1.5.0",
+    "@instinct-prj/backend": "^1.5.1",
+    "@instinct-prj/backend-rp": "^1.5.1",
+    "@instinct-prj/cerberus": "^1.5.1",
     "@nestjs/common": "^7.5.1",
     "@nestjs/core": "^7.5.1",
     "@nestjs/platform-express": "^7.5.1",
