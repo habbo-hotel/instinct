@@ -11,11 +11,11 @@ import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
   preserveModules: false,
-  input: "./src/index.ts",
+  input: './src/index.ts',
   output: [
     {
       dir: './dist',
-      format: "cjs",
+      format: 'cjs',
       sourcemap: false,
     },
   ],
@@ -28,7 +28,7 @@ export default {
     resolveDependencies({
       browser: true,
       preferBuiltins: false,
-      dedupe: [ 'react', 'react-dom' ],
+      dedupe: ['react', 'react-dom'],
     }),
 
     // Convert JSON into ES Modules
@@ -45,11 +45,11 @@ export default {
     // Bundle image files
     image(),
 
-   // Typescript compilation
-   typescript({
-     rootDir: './src',
-     tsconfig: './tsconfig.build.json',
-   }),
+    // Typescript compilation
+    typescript({
+      rootDir: './src',
+      tsconfig: './tsconfig.build.json',
+    }),
 
     // Bundle into CommonJS format
     commonJS({
@@ -69,6 +69,6 @@ export default {
   ],
   external: [
     ...Object.keys(frontendPackage.dependencies || {}),
-    ...Object.keys(frontendPackage.peerDependencies || {})
+    ...Object.keys(frontendPackage.peerDependencies || {}),
   ],
 };

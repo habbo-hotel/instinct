@@ -1,10 +1,11 @@
+import 'dotenv/config';
 import {NestFactory} from '@nestjs/core';
 import {useContainer} from 'class-validator';
 import {ValidationPipe} from '@nestjs/common';
 import {InstinctAppModule} from './app.module';
 import {NestExpressApplication} from '@nestjs/platform-express';
 
-async function bootstrap() {
+export async function bootstrapInstinctRoleplayAPI() {
   const app = await NestFactory.create<NestExpressApplication>(
     InstinctAppModule
   );
@@ -19,4 +20,3 @@ async function bootstrap() {
 
   await app.listen(process.env.PORT!);
 }
-bootstrap();

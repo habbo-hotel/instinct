@@ -8,11 +8,11 @@ import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
   preserveModules: false,
-  input: "./src/index.tsx",
+  input: './src/index.tsx',
   output: [
     {
       dir: './dist',
-      format: "cjs",
+      format: 'cjs',
       sourcemap: false,
     },
   ],
@@ -25,14 +25,14 @@ export default {
     resolveDependencies({
       browser: true,
       preferBuiltins: false,
-      dedupe: [ 'react', 'react-dom' ],
+      dedupe: ['react', 'react-dom'],
     }),
 
-   // Typescript compilation
-   typescript({
-     rootDir: './src',
-     tsconfig: './tsconfig.build.json',
-   }),
+    // Typescript compilation
+    typescript({
+      rootDir: './src',
+      tsconfig: './tsconfig.build.json',
+    }),
 
     // Bundle into CommonJS format
     commonJS({
@@ -52,6 +52,6 @@ export default {
   ],
   external: [
     ...Object.keys(rpWebPackages.dependencies || {}),
-    ...Object.keys(rpWebPackages.peerDependencies || {})
+    ...Object.keys(rpWebPackages.peerDependencies || {}),
   ],
 };

@@ -6,10 +6,15 @@
     "@typescript-eslint/ban-ts-comment": 0,
     "node/no-unpublished-import": 0,
     "@typescript-eslint/no-unused-vars": 0,
-    "@typescript-eslint/no-empty-interface": 0
+    "@typescript-eslint/no-empty-interface": 0,
+    "node/no-unsupported-features/es-syntax": 0
   },
   "plugins": [
     "react",
     "react-hooks"
-  ]
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  }
 }

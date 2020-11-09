@@ -6,7 +6,7 @@ import resolveDependencies from '@rollup/plugin-node-resolve';
 import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
-  input: "./src/index.ts",
+  input: './src/index.ts',
   output: [
     {
       file: './dist/index.js',
@@ -47,6 +47,6 @@ export default {
   ],
   external: [
     ...Object.keys(cerberusPackage.dependencies || {}),
-    ...Object.keys(cerberusPackage.peerDependencies || {})
+    ...Object.keys(cerberusPackage.peerDependencies || {}),
   ],
 };

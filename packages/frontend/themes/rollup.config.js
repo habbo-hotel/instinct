@@ -1,6 +1,5 @@
 import jsx from 'acorn-jsx';
 import scss from 'rollup-plugin-scss';
-import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
 import themesPackage from './package.json';
 import {terser} from 'rollup-plugin-terser';
@@ -11,11 +10,11 @@ import blockPeerDependencies from 'rollup-plugin-peer-deps-external';
 
 export default {
   preserveModules: false,
-  input: "./src/index.ts",
+  input: './src/index.ts',
   output: [
     {
       dir: './dist',
-      format: "cjs",
+      format: 'cjs',
       sourcemap: false,
     },
   ],
@@ -28,12 +27,7 @@ export default {
     resolveDependencies({
       browser: true,
       preferBuiltins: false,
-      dedupe: [ 'react', 'react-dom' ],
-    }),
-
-    // Convert JSON into ES Modules
-    json({
-      compact: true,
+      dedupe: ['react', 'react-dom'],
     }),
 
     // Bundle CSS and SASS files
@@ -45,11 +39,11 @@ export default {
     // Bundle image files
     image(),
 
-   // Typescript compilation
-   typescript({
-     rootDir: './src',
-     tsconfig: './tsconfig.build.json',
-   }),
+    // Typescript compilation
+    typescript({
+      rootDir: './src',
+      tsconfig: './tsconfig.build.json',
+    }),
 
     // Bundle into CommonJS format
     commonJS({
@@ -69,6 +63,6 @@ export default {
   ],
   external: [
     ...Object.keys(themesPackage.dependencies || {}),
-    ...Object.keys(themesPackage.peerDependencies || {})
+    ...Object.keys(themesPackage.peerDependencies || {}),
   ],
 };
