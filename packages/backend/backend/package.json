@@ -9,8 +9,7 @@
   "scripts": {
     "build": "yarn run clean && yarn run compile",
     "clean": "rimraf -rf ./dist && rimraf -rf ./build",
-    "compile": "NODE_OPTIONS=--max_old_space_size=4096 rollup -c && yarn run compile:types",
-    "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
+    "compile": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@instinct-prj/interface": "^1.5.1",
@@ -39,14 +38,8 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
     "@nestjs/common": "^7.5.1",
     "@nestjs/core": "^7.5.1",
-    "@rollup/plugin-babel": "^5.2.1",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
-    "@rollup/plugin-typescript": "^6.1.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.8",
     "@types/node": "^14.14.6",
@@ -56,8 +49,6 @@
     "dotenv": "^8.2.0",
     "eventemitter3": "^4.0.7",
     "rimraf": "^3.0.2",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-terser": "^7.0.2",
     "ts-node": "9.0.0",
     "tsconfig-paths": "3.9.0",
     "typescript": "~4.0.5"
