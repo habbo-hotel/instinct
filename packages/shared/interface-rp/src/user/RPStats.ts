@@ -34,6 +34,20 @@ export const exampleUserJob: UserJob = {
   },
 };
 
+export interface UserGang {
+  gangID: number;
+  rankID: number;
+  gangName: string;
+  rankName: string;
+  gangBadge: string;
+  permissions: {
+    canHire: boolean;
+    canFire: boolean;
+    canPromote: boolean;
+    canDemote: boolean;
+  };
+}
+
 export interface UserRPStats {
   health: {
     current: number;
@@ -43,7 +57,8 @@ export interface UserRPStats {
     current: number;
     maximum: number;
   };
-  job: UserJob;
+  job?: UserJob;
+  gang?: UserGang;
 }
 
 export const exampleUserRPStats: UserRPStats = {

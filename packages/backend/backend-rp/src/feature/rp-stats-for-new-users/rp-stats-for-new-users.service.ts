@@ -27,8 +27,10 @@ export class CreateRPStatsForNewUsersService {
       isWorking: 0,
       deathTime: 0,
       shiftTime: 0,
-      businessID: 1,
-      businessPositionID: 1,
+      businessID: 0,
+      businessPositionID: 0,
+      gangID: 0,
+      gangRankID: 0,
     });
   };
 }

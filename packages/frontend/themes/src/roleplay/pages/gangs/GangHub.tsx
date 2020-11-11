@@ -1,4 +1,5 @@
 import React from 'react';
+import {useFetchAllGangs} from '../../hooks/gang';
 import {UserLayout} from '../../components/layout/user';
 import {
   Card,
@@ -12,6 +13,7 @@ import {
 setURL('gangs', <GangHub />);
 
 export function GangHub() {
+  const gangs = useFetchAllGangs();
   return (
     <UserLayout section="community_team">
       <Container>

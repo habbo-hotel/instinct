@@ -1,4 +1,6 @@
+import {GangEntity} from '../gang/gang.entity';
 import {UserEntity} from '@instinct-prj/backend';
+import {GangRankEntity} from '../gang/gang-rank.entity';
 import {BusinessEntity} from '../business/business.entity';
 import {BusinessPositionEntity} from '../business/business-position.entity';
 import {
@@ -70,4 +72,18 @@ export class UserRPStatEntity {
   @ManyToOne(() => BusinessPositionEntity)
   @JoinColumn({name: 'business_rank'})
   businessPosition?: BusinessPositionEntity;
+
+  @Column({name: 'gang_id', type: 'int'})
+  gangID!: number;
+
+  @ManyToOne(() => GangEntity)
+  @JoinColumn({name: 'gang_id'})
+  gang?: GangEntity;
+
+  @Column({name: 'gang_rank', type: 'int'})
+  gangRankID!: number;
+
+  @ManyToOne(() => GangRankEntity)
+  @JoinColumn({name: 'gang_rank'})
+  gangRank?: GangRankEntity;
 }

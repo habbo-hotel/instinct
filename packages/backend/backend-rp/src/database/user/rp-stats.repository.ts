@@ -10,6 +10,12 @@ export class UserRPStatRepository extends BaseRepository<UserRPStatEntity> {
     @InjectRepository(UserRPStatEntity)
     userRPStatRepo: Repository<UserRPStatEntity>
   ) {
-    super(userRPStatRepo, ['user', 'business', 'businessPosition']);
+    super(userRPStatRepo, [
+      'user',
+      'business',
+      'businessPosition',
+      'gang',
+      'gangRank',
+    ]);
   }
 }
