@@ -4,6 +4,7 @@ export * from './beta-code';
 export * from './client';
 export * from './config';
 export * from './group';
+export * from './guestbook';
 export * from './local-storage';
 export * from './photo';
 export * from './rank';

@@ -15,6 +15,7 @@ export function MyEmploymentCard({rpStats}: MyEmploymentCardProps) {
               badge={`/img/corps/${rpStats.job!.businessBadge}.gif`}
               position={rpStats!.job!.positionName}
               name={rpStats!.job!.businessName}
+              link={`/businesses/${rpStats.job!.businessID}`}
             />
           )}
           {rpStats && !rpStats.job && (
@@ -33,6 +34,7 @@ export function MyEmploymentCard({rpStats}: MyEmploymentCardProps) {
               badge={`/img/corps/${rpStats.gang!.gangBadge}.gif`}
               position={rpStats!.gang!.rankName}
               name={rpStats!.gang!.gangName}
+              link={`/gangs/${rpStats.gang!.gangID}`}
             />
           )}
           {rpStats && !rpStats.gang && (

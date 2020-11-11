@@ -34,7 +34,7 @@ export function UserProfile() {
           </Column>
           <Column side="left">
             <MyEmploymentCard rpStats={rpStats} />
-            <Guestbook profile={profile} />
+            {profile && <Guestbook profile={profile} />}
           </Column>
         </Container>
       </Loading>

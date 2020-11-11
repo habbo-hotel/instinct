@@ -52,6 +52,7 @@ export class UserGuestbookController {
   }
 
   @Patch(':guestbookID')
+  @HasSession()
   async updatePost(
     @Param('guestbookID', UserGuestbookPipe) post: UserGuestbookEntity,
     @GetSession() user: UserEntity,
@@ -68,10 +69,12 @@ export class UserGuestbookController {
   }
 
   @Delete(':guestbookID')
+  @HasSession()
   async deletePost(
     @Param('guestbookID', UserGuestbookPipe) post: UserGuestbookEntity,
     @GetSession() user: UserEntity
   ): Promise<string> {
+    console.log(post.authorID, user.id!);
     if (
       post.authorID !== user.id! &&
       user.rank!.websiteManageGuestbook !== PermissionStatus.Enabled
