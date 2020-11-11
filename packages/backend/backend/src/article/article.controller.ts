@@ -4,7 +4,7 @@ import {ArticlePipe} from './article.pipe';
 import {Article} from '@instinct-prj/interface';
 import {UserEntity} from '../database/user';
 import {ArticleRepository} from '../database/article';
-import {NewArticleDTO, UpdateArticleDTO} from './article.dto';
+import {CreateArticleDTO, UpdateArticleDTO} from './article.dto';
 import {HasScope} from '../session/permission-scope.decorator';
 import {ArticleEntity, articleWire} from '../database/article';
 import {
@@ -25,7 +25,7 @@ export class ArticleController {
   @HasScope('websiteManageNews')
   async create(
     @GetSession() session: UserEntity,
-    @Body() newArticle: NewArticleDTO
+    @Body() newArticle: CreateArticleDTO
   ): Promise<Article> {
     const article: ArticleEntity = await this.articleRepo.create({
       ...newArticle,

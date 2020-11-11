@@ -14,7 +14,7 @@ import {
 } from '@nestjs/common';
 import {ArticleCategoryEntity, articleCategoryWire} from '../database/article';
 
-@Controller('articles/categories')
+@Controller('categories')
 export class ArticleCategoryController {
   constructor(
     private readonly articleCategoryRepo: ArticleCategoryRepository
@@ -31,9 +31,7 @@ export class ArticleCategoryController {
   async createCategory(
     @Body() categoryDTO: ArticleCategoryDTO
   ): Promise<ArticleCategory> {
-    const category = await this.articleCategoryRepo.create({
-      category: categoryDTO.category,
-    });
+    const category = await this.articleCategoryRepo.create(categoryDTO);
     return articleCategoryWire(category);
   }
 
@@ -43,10 +41,7 @@ export class ArticleCategoryController {
     @Param('categoryID', CategoryPipe) category: ArticleCategoryEntity,
     @Body() categoryDTO: ArticleCategoryDTO
   ): Promise<string> {
-    await this.articleCategoryRepo.update(
-      {id: category.id!},
-      {category: categoryDTO.category}
-    );
+    await this.articleCategoryRepo.update({id: category.id!}, categoryDTO);
     return 'Your changes have been saved';
   }
 

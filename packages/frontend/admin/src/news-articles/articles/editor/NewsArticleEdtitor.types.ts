@@ -1,8 +1,8 @@
-import {Article, exampleArticle} from '@instinct-prj/interface';
+import {Article, ArticleDTO, exampleArticle} from '@instinct-prj/interface';
 
 export interface NewsArticleEditorProps {
   defaultArticle?: Article;
-  onSave: (article: Article) => Promise<void>;
+  onSave: (article: ArticleDTO) => Promise<void>;
 }
 
 export interface NewsArticleEditorState {

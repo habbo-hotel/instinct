@@ -1,4 +1,5 @@
 import {Link} from 'wouter';
+import Select from 'react-select';
 import {toast} from 'react-toastify';
 import React, {useState} from 'react';
 import MDEditor from '@uiw/react-md-editor';
@@ -13,6 +14,8 @@ import {
   Jumbotron,
   Row,
   PreviewImage,
+  useFetchAllNewsCategories,
+  Skeleton,
 } from '@instinct-prj/frontend';
 import {
   defaultNewsArticleEditorState,
@@ -24,6 +27,7 @@ export function NewsArticleEditor({
   defaultArticle,
   onSave,
 }: NewsArticleEditorProps) {
+  const categories = useFetchAllNewsCategories();
   const [state, setState] = useState<NewsArticleEditorState>({
     ...defaultNewsArticleEditorState,
     article: defaultArticle ?? defaultNewsArticleEditorState.article,
@@ -62,7 +66,14 @@ export function NewsArticleEditor({
     setValue('showSpinner', true);
 
     try {
-      await onSave(state.article);
+      await onSave({
+        title: state.article.title,
+        content: state.article.content,
+        description: state.article.description,
+        categoryID: state.article.category.id,
+        headerImage: state.article.headerImage,
+        thumbnailImage: state.article.thumbnailImage,
+      });
       toast.success('Your changes have been saved');
       setValue('showSpinner', false);
     } catch {
@@ -76,15 +87,31 @@ export function NewsArticleEditor({
 
   return (
     <AdminLayout permission="websiteManageNews">
-      <Jumbotron style={{background: '#263238'}} title={state.article.title}>
+      <Jumbotron
+        style={{
+          background: '#263238',
+          backgroundImage: `url(${state.article.headerImage})`,
+          backgroundSize: '100%',
+        }}
+        title={state.article.title}
+      >
         <p>{state.article.description}</p>
       </Jumbotron>
       <Container>
-        <Link to="/admin/news">
+        <Link to="/admin/news/articles">
           <Icon className="text-white fa-2x" type="arrow-left" />
         </Link>
         <Card header="Editor">
           <Form className="" onSubmit={onSubmit}>
+            <div className="mt-3" style={{padding: 2}}>
+              <h4>Title</h4>
+              <Input
+                type="text"
+                name="title"
+                onChange={setArticleValue}
+                value={state.article.title}
+              />
+            </div>
             <div className="mt-3" style={{padding: 2}}>
               <h4>Description</h4>
               <Input
@@ -93,6 +120,39 @@ export function NewsArticleEditor({
                 onChange={setArticleValue}
                 value={state.article.description}
               />
+            </div>
+            <div className="mt-3" style={{padding: 2}}>
+              <h4>Category</h4>
+              <Skeleton isLoading={categories === undefined}>
+                <Select
+                  options={categories}
+                  value={
+                    categories?.find(_ => _.id === state.article.category.id) ??
+                    null
+                  }
+                  getOptionLabel={x => x.name}
+                  getOptionValue={x => `${x.id}`}
+                  onChange={(_: any) => setArticleValue('category', _)}
+                  styles={{
+                    control: provided => ({
+                      ...provided,
+                      color: 'black',
+                    }),
+                    input: provided => ({
+                      ...provided,
+                      color: 'black',
+                    }),
+                    singleValue: provided => ({
+                      ...provided,
+                      color: 'black',
+                    }),
+                    option: provided => ({
+                      ...provided,
+                      color: 'black',
+                    }),
+                  }}
+                />
+              </Skeleton>
             </div>
             <div className="mt-3" style={{padding: 2}}>
               <h4>

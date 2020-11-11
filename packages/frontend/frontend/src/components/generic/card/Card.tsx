@@ -5,7 +5,10 @@ import {CardProps} from './index';
 export function Card(props: CardProps) {
   const {className = '', children, header, icon} = props;
   return (
-    <article className={`default-section ${className} img-overflow`}>
+    <article
+      className={`default-section ${className} img-overflow`}
+      style={props.style}
+    >
       {header && (
         <div className="aside-title">
           {icon && <Icon type={icon} />}

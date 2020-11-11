@@ -1,3 +1,4 @@
-import './CreateNewsArticle';
-import './EditNewsArticle';
-import './ListNewsArticles';
+import './articles/CreateNewsArticle';
+import './articles/EditNewsArticle';
+import './articles/ListNewsArticles';
+import './categories/ListCategories';

@@ -1,57 +1,58 @@
+import {ArticleDTO} from '@instinct-prj/interface';
 import {IsNotEmpty, IsNumber, IsOptional, IsString} from 'class-validator';
 
-export class NewArticleDTO {
+export class CreateArticleDTO implements ArticleDTO {
   @IsString()
   @IsNotEmpty()
   title!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  header!: string;
 
   @IsNumber()
   categoryID!: number;
 
   @IsString()
   @IsNotEmpty()
-  shortStory!: string;
+  description!: string;
 
   @IsString()
   @IsNotEmpty()
-  fullStory!: string;
+  content!: string;
 
   @IsString()
   @IsNotEmpty()
-  image!: string;
+  headerImage!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  thumbnailImage!: string;
 }
 
-export class UpdateArticleDTO {
+export class UpdateArticleDTO implements Partial<ArticleDTO> {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  title!: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @IsOptional()
-  header!: string;
+  title?: string;
 
   @IsNumber()
   @IsOptional()
-  categoryID!: number;
+  categoryID?: number;
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  shortStory!: string;
+  description?: string;
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  fullStory!: string;
+  content?: string;
 
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  image!: string;
+  headerImage?: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  thumbnailImage?: string;
 }

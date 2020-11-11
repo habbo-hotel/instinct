@@ -25,7 +25,7 @@ export function MyEmploymentCard() {
                   <Skeleton circle width={60} height={60} />
                 )}
               </div>
-              <div className="d-inline">
+              <div className="d-inline ml-3">
                 <h3 style={{textTransform: 'uppercase', marginTop: 10}}>
                   {rpUser?.rpStats?.job?.positionName ?? (
                     <Skeleton width={200} />

@@ -1,13 +1,16 @@
 import {ArticleEntity} from './article.entity';
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
-@Entity('website_news_categories')
+@Entity('instinct_categories')
 export class ArticleCategoryEntity {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column({type: 'varchar'})
-  category!: string;
+  @Column()
+  name!: string;
+
+  @Column()
+  color!: string;
 
   @OneToMany(() => ArticleEntity, article => article.categoryID)
   articles?: ArticleEntity[];

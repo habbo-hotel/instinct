@@ -5,6 +5,7 @@ import {UserLayout} from '../../components/layout/user';
 import {useFetchAllBusinesses} from '../../hooks/business';
 import {BusinessCard} from '../../components/templates/business-card';
 import {
+  Card,
   Container,
   Icon,
   MiniJumbotron,
@@ -79,6 +80,16 @@ export function BusinessHub() {
             </Col>
           ))}
         </Row>
+        {businesses?.length === 0 && (
+          <Row>
+            <div className="col-12">
+              <Card className="text-center">
+                <i className="fa fa-exclamation-circle fa-5x" />
+                <h3>There aren't any businesses to show at this time.</h3>
+              </Card>
+            </div>
+          </Row>
+        )}
       </Container>
     </UserLayout>
   );

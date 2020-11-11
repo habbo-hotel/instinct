@@ -7,4 +7,5 @@ export interface CardProps {
   header?: Children;
   children: Children;
   icon?: string;
+  style?: object;
 }

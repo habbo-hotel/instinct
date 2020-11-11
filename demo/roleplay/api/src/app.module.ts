@@ -1,14 +1,13 @@
 import {Module} from '@nestjs/common';
 import {TypeOrmModule} from '@nestjs/typeorm';
-import {CerberusModule} from '@instinct-prj/cerberus';
+import {InstinctModule} from '@instinct-prj/backend';
 import {InstinctRPModule, rpDatabaseEntities} from '@instinct-prj/backend-rp';
 import {
-  databaseUser,
-  databaseName,
-  databaseHost,
-  databasePass,
   databaseEntities,
-  InstinctModule,
+  databaseHost,
+  databaseName,
+  databasePass,
+  databaseUser,
 } from '@instinct-prj/backend';
 
 @Module({
@@ -22,9 +21,8 @@ import {
       entities: [...databaseEntities, ...rpDatabaseEntities],
       synchronize: false,
     }),
-    CerberusModule,
     InstinctModule,
     InstinctRPModule,
   ],
 })
-export class InstinctRoleplayAPIModule {}
+export class InstinctRoleplayAppModule {}

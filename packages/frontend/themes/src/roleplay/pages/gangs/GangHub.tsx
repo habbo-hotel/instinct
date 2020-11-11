@@ -18,7 +18,7 @@ export function GangHub() {
         <Row>
           <MiniJumbotron>
             <h1>Gangs</h1>
-            <p>Can you stop the Turner family?</p>
+            <p>Can you make the cut?</p>
           </MiniJumbotron>
         </Row>
         <Row>

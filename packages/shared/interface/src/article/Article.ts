@@ -16,14 +16,6 @@ export interface Article {
   category: ArticleCategory;
 }
 
-export interface CreateNewsArticleRequest {
-  title: string;
-  header: string;
-  categoryID: number;
-  shortStory: string;
-  image: string;
-}
-
 export const exampleArticle: Article = {
   id: 1,
   title: 'Test Article',

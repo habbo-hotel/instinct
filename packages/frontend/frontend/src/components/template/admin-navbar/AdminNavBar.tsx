@@ -15,7 +15,7 @@ export function AdminNavBar() {
           <NavBarLink to="/admin/website">Website</NavBarLink>
         </PermissionGuard>
         <PermissionGuard permission="websiteManageNews" redirect={false}>
-          <NavBarLink to="/admin/news">News</NavBarLink>
+          <NavBarLink to="/admin/news/articles">News</NavBarLink>
         </PermissionGuard>
         <PermissionGuard permission="websiteManageUsers" redirect={false}>
           <NavBarLink to="/admin/users">Users</NavBarLink>

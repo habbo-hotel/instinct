@@ -1,11 +1,7 @@
 import {ArticleTypes} from './';
 import {AxiosResponse} from 'axios';
 import {backendAPI} from '../../api';
-import {
-  Article,
-  ArticleCategory,
-  CreateNewsArticleRequest,
-} from '@instinct-prj/interface';
+import {Article, ArticleCategory, ArticleDTO} from '@instinct-prj/interface';
 
 class ArticleService implements ArticleTypes {
   async getAll() {
@@ -20,14 +16,14 @@ class ArticleService implements ArticleTypes {
     return article.data;
   }
 
-  async create(articleDTO: CreateNewsArticleRequest) {
+  async create(articleDTO: ArticleDTO) {
     const article: AxiosResponse<Article> = await backendAPI.post('articles', {
       ...articleDTO,
     });
     return article.data;
   }
 
-  async updateByID(articleID: number, articleDTO: CreateNewsArticleRequest) {
+  async updateByID(articleID: string, articleDTO: Partial<ArticleDTO>) {
     await backendAPI.patch(`articles/${articleID}`, {...articleDTO});
   }
 
@@ -37,21 +33,21 @@ class ArticleService implements ArticleTypes {
 
   async getAllCategories() {
     const categories: AxiosResponse<ArticleCategory[]> = await backendAPI.get(
-      'article/categories'
+      'categories'
     );
     return categories.data;
   }
 
-  async createCategory(title: string) {
+  async createCategory(name: string, color: string) {
     const newCategory: AxiosResponse<ArticleCategory> = await backendAPI.post(
-      'article/categories',
-      {title}
+      'categories',
+      {name, color}
     );
     return newCategory.data;
   }
 
   async deleteCategoryByID(categoryID: number) {
-    await backendAPI.delete(`articles/categories/${categoryID}`);
+    await backendAPI.delete(`categories/${categoryID}`);
   }
 }
 

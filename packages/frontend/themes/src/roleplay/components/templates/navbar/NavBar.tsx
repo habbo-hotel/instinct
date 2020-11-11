@@ -20,6 +20,7 @@ export function NavBar() {
           <>
             <NavBarLink to="/home">Home</NavBarLink>
             <NavBarDropdown text="Community" to="/community/news">
+              <NavBarChildLink to="/community/news">News</NavBarChildLink>
               <NavBarChildLink to="/community/staff">Staff</NavBarChildLink>
               <NavBarChildLink to="/community/games">
                 High Scores

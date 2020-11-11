@@ -1,26 +1,19 @@
-import {
-  Article,
-  ArticleCategory,
-  CreateNewsArticleRequest,
-} from '@instinct-prj/interface';
+import {Article, ArticleCategory, ArticleDTO} from '@instinct-prj/interface';
 
 export interface ArticleTypes {
   getAll(): Promise<Article[]>;
 
   getByID(articleID: string): Promise<Article>;
 
-  create(articleDTO: CreateNewsArticleRequest): Promise<Article>;
+  create(articleDTO: ArticleDTO): Promise<Article>;
 
-  updateByID(
-    articleID: number,
-    articleDTO: CreateNewsArticleRequest
-  ): Promise<void>;
+  updateByID(articleID: string, articleDTO: Partial<ArticleDTO>): Promise<void>;
 
   deleteByID(articleID: number): Promise<void>;
 
   getAllCategories(): Promise<ArticleCategory[]>;
 
-  createCategory(title: string): Promise<ArticleCategory>;
+  createCategory(name: string, color: string): Promise<ArticleCategory>;
 
   deleteCategoryByID(categoryID: number): Promise<void>;
 }

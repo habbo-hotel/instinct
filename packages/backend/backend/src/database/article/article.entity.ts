@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-@Entity('website_news')
+@Entity('instinct_articles')
 export class ArticleEntity {
   @PrimaryGeneratedColumn()
   id?: number;
@@ -17,32 +17,32 @@ export class ArticleEntity {
   @Column()
   title!: string;
 
-  @Column({name: 'short_story'})
-  shortStory!: string;
-
-  @Column({name: 'full_story'})
-  fullStory!: string;
-
   @Column()
-  header!: string;
+  description!: string;
 
-  @Column({name: 'category'})
+  @Column({type: 'text'})
+  content!: string;
+
+  @Column({name: 'category_id'})
   categoryID!: number;
 
   @ManyToOne(() => ArticleCategoryEntity, category => category.articles)
-  @JoinColumn({name: 'category'})
+  @JoinColumn({name: 'category_id'})
   category?: ArticleCategoryEntity;
 
-  @Column({name: 'images'})
-  image!: string;
+  @Column({name: 'header_image'})
+  headerImage!: string;
+
+  @Column({name: 'thumbnail_image'})
+  thumbnailImage!: string;
 
   @CreateDateColumn({name: 'timestamp', type: 'int'})
   timestamp!: number;
 
-  @Column({name: 'author'})
+  @Column({name: 'user_id'})
   userID!: number;
 
   @ManyToOne(() => UserEntity)
-  @JoinColumn({name: 'author'})
+  @JoinColumn({name: 'user_id'})
   author?: UserEntity;
 }

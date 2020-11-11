@@ -6,6 +6,7 @@ export function articleCategoryWire(
 ): ArticleCategory {
   return {
     id: articleCategoryEntity.id!,
-    name: articleCategoryEntity.category,
+    name: articleCategoryEntity.name,
+    color: articleCategoryEntity.color,
   };
 }
