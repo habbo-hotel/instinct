@@ -1,13 +1,12 @@
 import React from 'react';
 import './UserProfile.scss';
-import {Rooms} from './rooms';
 import {Badges} from './badges';
-import {Groups} from './groups';
 import {useRoute} from 'wouter';
-import {Friends} from './friends';
+import {Guestbook} from './guestbook';
 import {UserContainer} from './user-container';
 import {UserLayout} from '../../../components/layout/user';
-import {FavoriteVideo} from './favorite-video/FavoriteVideo';
+import {useFetchRPStatsByUsername} from '../../../hooks/user';
+import {MyEmploymentCard} from '../../../components/templates/my-employment-card';
 import {
   Container,
   Column,
@@ -22,6 +21,7 @@ setURL('profile/:username', <UserProfile />);
 export function UserProfile() {
   const [match, params] = useRoute<{username: string}>('/profile/:username');
   const profile = useFetchUserByUsername(params!.username);
+  const rpStats = useFetchRPStatsByUsername(params!.username);
 
   return (
     <UserLayout section="profile">
@@ -30,13 +30,11 @@ export function UserProfile() {
         <Container>
           <Column side="right">
             <UserContainer profile={profile} />
-            <FavoriteVideo profile={profile} />
+            <Badges profile={profile} />
           </Column>
           <Column side="left">
-            <Badges profile={profile} />
-            <Friends profile={profile} />
-            <Groups profile={profile} />
-            <Rooms profile={profile} />
+            <MyEmploymentCard rpStats={rpStats} />
+            <Guestbook profile={profile} />
           </Column>
         </Container>
       </Loading>

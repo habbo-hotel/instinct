@@ -1,4 +1,4 @@
-import {userWire} from '../user/user.wire';
+import {userWire} from '../user/user/user.wire';
 import {BetaCodeEntity} from './beta-code.entity';
 import {BetaCode} from '@instinct-prj/interface';
 

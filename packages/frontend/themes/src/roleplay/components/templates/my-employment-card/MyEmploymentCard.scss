@@ -6,6 +6,11 @@
   border-radius: 4px;
   margin-left: -5px;
   width: 100%;
+  img {
+    height: 60px;
+    width: 60px;
+    margin-top: 5px;
+  }
   &:hover {
     border: 1px solid #0F406C;
   }

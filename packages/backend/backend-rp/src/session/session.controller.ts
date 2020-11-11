@@ -1,12 +1,7 @@
 import {Controller, Get} from '@nestjs/common';
-import {RPUser} from '@instinct-prj/interface-rp';
+import {UserRPStats} from '@instinct-prj/interface-rp';
 import {rpStatsWire, UserRPStatRepository} from '../database/user';
-import {
-  GetSession,
-  HasSession,
-  UserEntity,
-  userWire,
-} from '@instinct-prj/backend';
+import {GetSession, HasSession, UserEntity} from '@instinct-prj/backend';
 
 @Controller('session')
 export class SessionController {
@@ -14,13 +9,10 @@ export class SessionController {
 
   @Get('rp')
   @HasSession()
-  async getSession(@GetSession() session: UserEntity): Promise<RPUser> {
+  async getSession(@GetSession() session: UserEntity): Promise<UserRPStats> {
     const userRPStats = await this.rpStatsRepo.findOneOrFail({
       userID: session.id!,
     });
-    return {
-      ...userWire(session),
-      rpStats: rpStatsWire(userRPStats),
-    };
+    return rpStatsWire(userRPStats);
   }
 }

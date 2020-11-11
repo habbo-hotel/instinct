@@ -9,7 +9,7 @@ import {
   setURL,
 } from '@instinct-prj/frontend';
 
-setURL('gangs/create', <GangCreate />);
+setURL('gangs/creator', <GangCreate />);
 
 export function GangCreate() {
   return (

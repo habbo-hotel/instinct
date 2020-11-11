@@ -1,5 +1,5 @@
-import {userWire} from '../user/user.wire';
-import {UserEntity} from '../user/user.entity';
+import {userWire} from '../user/user/user.wire';
+import {UserEntity} from '../user/user/user.entity';
 import {
   Column,
   Entity,

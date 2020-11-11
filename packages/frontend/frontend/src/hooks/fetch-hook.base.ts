@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 
 export function createFetchHook<T>(
   promise: () => Promise<T>,
-  refresh = 0
+  refresh: number | string = 0
 ): T | undefined {
   const [state, setState] = useState<T>();
 

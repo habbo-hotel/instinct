@@ -1,5 +1,5 @@
-import {RPUser} from '@instinct-prj/interface-rp';
+import {RPUser, UserRPStats} from '@instinct-prj/interface-rp';
 
 export interface RPSessionService {
-  getRPUser(): Promise<RPUser>;
+  getRPStats(): Promise<UserRPStats>;
 }

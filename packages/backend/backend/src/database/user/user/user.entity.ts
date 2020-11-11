@@ -1,10 +1,10 @@
-import {UserBanEntity} from './bans.entity';
-import {RankEntity} from '../rank/rank.entity';
-import {RoomEntity} from '../room/room.entity';
-import {PhotoEntity} from '../photo/photo.entity';
-import {GroupEntity} from '../group/group.entity';
+import {UserBanEntity} from '../bans/bans.entity';
+import {RankEntity} from '../../rank/rank.entity';
+import {RoomEntity} from '../../room/room.entity';
+import {PhotoEntity} from '../../photo/photo.entity';
+import {GroupEntity} from '../../group/group.entity';
 import {UserBadgesEntity} from './user-badges.entity';
-import {BetaCodeEntity} from '../beta-code/beta-code.entity';
+import {BetaCodeEntity} from '../../beta-code/beta-code.entity';
 import {
   Column,
   Entity,

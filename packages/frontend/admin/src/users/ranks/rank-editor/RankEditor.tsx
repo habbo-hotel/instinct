@@ -75,6 +75,7 @@ export function RankEditor({
     websiteManageConfig: 'Manage Config',
     websiteManageBusiness: 'Manage Businesses',
     websiteManageBetaCodes: 'Manage Beta Codes',
+    websiteManageGuestbook: 'Manage Guestbook',
   };
 
   const permissionIndexes: Array<keyof Permissions> = Object.keys(

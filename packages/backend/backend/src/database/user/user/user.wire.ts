@@ -1,5 +1,5 @@
 import Moment from 'moment';
-import {rankWire} from '../rank';
+import {rankWire} from '../../rank';
 import {UserEntity} from './user.entity';
 import {User} from '@instinct-prj/interface';
 

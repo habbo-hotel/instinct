@@ -1,4 +1,4 @@
-import {userWire} from './user.wire';
+import {userWire} from '../user/user.wire';
 import {UserBan} from '@instinct-prj/interface';
 import {UserBanEntity} from './bans.entity';
 

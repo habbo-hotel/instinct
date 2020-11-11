@@ -5,47 +5,47 @@ import {RankEntity, RankRepository} from './rank';
 import {RoomEntity, RoomRepository} from './room';
 import {ConfigEntity, ConfigRepository} from './config';
 import {BetaCodeEntity, BetaCodeRepository} from './beta-code';
+import {UserBanEntity, UserBanRepository} from './user/bans';
+import {UserEntity, UserBadgesEntity, UserRepository} from './user/user';
+import {UserGuestbookEntity, UserGuestbookRepository} from './user/guestbook';
+import {
+  UserForgotPasswordEntity,
+  UserForgotPasswordRepository,
+} from './user/forgot-password';
 import {
   ArticleCategoryRepository,
   ArticleEntity,
   ArticleCategoryEntity,
   ArticleRepository,
 } from './article';
-import {
-  UserBadgesEntity,
-  UserForgotPasswordEntity,
-  UserForgotPasswordRepository,
-  UserBanEntity,
-  UserBanRepository,
-  UserEntity,
-  UserRepository,
-} from './user';
 
 export const databaseEntities: Function[] = [
-  ArticleEntity,
-  ArticleCategoryEntity,
-  PhotoEntity,
-  UserForgotPasswordEntity,
-  GroupEntity,
   RankEntity,
   UserEntity,
-  UserBadgesEntity,
   RoomEntity,
+  PhotoEntity,
+  GroupEntity,
   ConfigEntity,
   UserBanEntity,
+  ArticleEntity,
   BetaCodeEntity,
+  UserBadgesEntity,
+  UserGuestbookEntity,
+  ArticleCategoryEntity,
+  UserForgotPasswordEntity,
 ];
 
 export const databaseRepositories: Provider[] = [
-  ConfigRepository,
-  UserForgotPasswordRepository,
-  ArticleRepository,
-  ArticleCategoryRepository,
   RankRepository,
-  UserBanRepository,
   UserRepository,
   RoomRepository,
   GroupRepository,
   PhotoRepository,
+  ConfigRepository,
+  ArticleRepository,
+  UserBanRepository,
   BetaCodeRepository,
+  UserGuestbookRepository,
+  ArticleCategoryRepository,
+  UserForgotPasswordRepository,
 ];

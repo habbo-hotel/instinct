@@ -1,5 +1,5 @@
 import {PermissionStatus} from './rank.types';
-import {UserEntity} from '../user/user.entity';
+import {UserEntity} from '../user/user/user.entity';
 import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity('permissions')
@@ -51,4 +51,7 @@ export class RankEntity {
 
   @Column({name: 'website_manage_beta_codes', type: 'enum', default: '0'})
   websiteManageBetaCodes!: PermissionStatus;
+
+  @Column({name: 'website_manage_guestbook', type: 'enum', default: '0'})
+  websiteManageGuestbook!: PermissionStatus;
 }
