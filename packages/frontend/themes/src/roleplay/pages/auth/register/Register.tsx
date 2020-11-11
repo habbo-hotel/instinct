@@ -59,7 +59,7 @@ export function Register() {
       );
       const user = await sessionService.attemptBearerToken(bearer);
       await setUser(user);
-      setLocation('/home');
+      setLocation('/welcome');
     } catch (e) {
       onChange('showError', true);
     } finally {
