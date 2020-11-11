@@ -12,7 +12,9 @@ export class BetaCodeController {
   @Post()
   @HasScope('websiteManageBetaCodes')
   async createBetaCode(): Promise<BetaCode> {
-    const newBetaCode = await this.betaCodeRepo.create({betaCode: uuid()});
+    const newBetaCode = await this.betaCodeRepo.create({
+      betaCode: `INSTINCT-${uuid()}`.toUpperCase().slice(0, 32),
+    });
     return betaCodeWire(newBetaCode);
   }
 

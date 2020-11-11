@@ -1,12 +1,12 @@
 import {UserLayoutProps} from './';
 import {useLocation} from 'wouter';
 import {NavBar} from '../../templates/navbar';
+import {Footer} from '../../templates/footer';
 import React, {useContext, useEffect} from 'react';
 import {
   Icon,
   UserGuard,
   Header,
-  Footer,
   healthContext,
   sessionContext,
   EnterHotelButton,

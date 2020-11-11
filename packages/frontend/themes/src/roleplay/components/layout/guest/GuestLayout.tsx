@@ -1,6 +1,7 @@
 import React from 'react';
 import {GuestLayoutProps} from './';
-import {Card, Footer, GuestGuard} from '@instinct-prj/frontend';
+import {Footer} from '../../templates/footer';
+import {Card, GuestGuard} from '@instinct-prj/frontend';
 
 export function GuestLayout({children, style}: GuestLayoutProps) {
   return (

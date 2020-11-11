@@ -43,26 +43,28 @@ export function ListNewsArticles() {
         </div>
       </div>
       {articles === undefined && <i className="fa fa-spinner fa-spin" />}
-      {articles?.map(_ => (
-        <div className="admin-article row mb-2" key={_.id}>
-          <div className="col-6">
-            <Link to={`/admin/news/articles/${_.id}`}>
-              <img alt="article header" src={_.thumbnailImage} height={100} />
-            </Link>
-          </div>
-          <div className="col-6 text-right">
-            <Link to={`/admin/news/articles/${_.id}`}>
-              <h3>{_.title}</h3>
-            </Link>
-            <div
-              onClick={() => deleteArticle(_.id)}
-              style={{cursor: 'pointer'}}
-            >
-              <Icon className="text-danger" type="trash" />
+      <div style={{maxHeight: 600, overflowY: 'scroll', padding: 10}}>
+        {articles?.map(_ => (
+          <div className="admin-article row mb-2" key={_.id}>
+            <div className="col-6">
+              <Link to={`/admin/news/articles/${_.id}`}>
+                <img alt="article header" src={_.thumbnailImage} height={100} />
+              </Link>
+            </div>
+            <div className="col-6 text-right">
+              <Link to={`/admin/news/articles/${_.id}`}>
+                <h3>{_.title}</h3>
+              </Link>
+              <div
+                onClick={() => deleteArticle(_.id)}
+                style={{cursor: 'pointer'}}
+              >
+                <Icon className="text-danger" type="trash" />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </NewsArticleLayout>
   );
 }

@@ -34,7 +34,7 @@ export function ListCategories() {
           <CreateCategoryModal onCreation={onCreation} />
         </div>
       </div>
-      <div className="row" style={{padding: 15}}>
+      <div className="row" style={{maxHeight: 500, padding: 15}}>
         {categories?.map(category => (
           <div
             className="col-12"

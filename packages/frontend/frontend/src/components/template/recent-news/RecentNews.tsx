@@ -27,7 +27,10 @@ export function RecentNews() {
   return (
     <Card header="Recent News">
       <Loading isLoading={state.isLoading}>
-        <div className="related-articles-container">
+        <div
+          className="related-articles-container"
+          style={{maxHeight: 200, overflowY: 'scroll'}}
+        >
           {state.articles.map(article => (
             <Link
               className="related-article-container"

@@ -1,6 +1,6 @@
-import {uniq} from 'lodash';
 import Moment from 'moment';
 import {Link} from 'wouter';
+import {uniqBy} from 'lodash';
 import {Article} from '@instinct-prj/interface';
 import React, {useContext, useState} from 'react';
 import {UserLayout} from '../../../components/layout/user';
@@ -30,13 +30,21 @@ export function News() {
   const filteredArticles = articles?.filter(filter.callback);
 
   const categories =
-    articles === undefined ? [] : uniq(articles.map(_ => _.category));
+    articles === undefined
+      ? []
+      : uniqBy(
+          articles.map(_ => _.category),
+          'id'
+        );
 
   function filterByCategory(categoryID: number) {
     setFilter({
-      callback: (_: Article) => _?.category?.id === categoryID,
+      callback:
+        category === categoryID
+          ? (_: Article) => true
+          : (_: Article) => _?.category?.id === categoryID,
     });
-    setCategory(categoryID);
+    setCategory(category === categoryID ? undefined : categoryID);
     setName('');
   }
 
@@ -75,6 +83,7 @@ export function News() {
                   {categories.map(_ => (
                     <button
                       className="btn ml-2"
+                      key={_.id}
                       style={{
                         borderColor: category === _.id ? _.color : '#0F416C',
                         color: _.color,
@@ -89,32 +98,37 @@ export function News() {
             </MiniJumbotron>
           </div>
         </Row>
-        <Row>
+        <div className="row" style={{maxHeight: 500, overflowY: 'scroll'}}>
           {filteredArticles?.map(_ => (
-            <div className="col-6" key={_.id}>
-              <Card style={{borderBottom: `2px solid ${_.category.color}`}}>
-                <div className="row p-2">
-                  <Link to={`/community/news/${_.id}`}>
-                    <img
-                      src={_.thumbnailImage}
-                      height={120}
-                      width={120}
-                      style={{borderRadius: 5, cursor: 'pointer'}}
-                    />
-                  </Link>
-                  <div className="ml-4">
-                    <Link to={`/community/news/${_.id}`}>
-                      <h2 style={{cursor: 'pointer', marginBottom: 0}}>
-                        {_.title}
-                      </h2>
-                    </Link>
-                    <p style={{fontSize: 14, marginBottom: 0}}>
-                      Posted {Moment(_.datePosted).format('MMMM DD, YYYY')}
-                    </p>
-                    <p>{_.description}</p>
-                  </div>
+            <div className="col-6 mb-4" key={_.id}>
+              <Link to={`/community/news/${_.id}`}>
+                <div>
+                  <Card
+                    style={{
+                      borderBottom: `2px solid ${_.category.color}`,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <div className="row p-2">
+                      <img
+                        src={_.thumbnailImage}
+                        height={120}
+                        width={120}
+                        style={{borderRadius: 5, cursor: 'pointer'}}
+                      />
+                      <div className="ml-4">
+                        <h2 style={{cursor: 'pointer', marginBottom: 0}}>
+                          {_.title}
+                        </h2>
+                        <p style={{fontSize: 14, marginBottom: 0}}>
+                          Posted {Moment(_.datePosted).format('MMMM DD, YYYY')}
+                        </p>
+                        <p>{_.description}</p>
+                      </div>
+                    </div>
+                  </Card>
                 </div>
-              </Card>
+              </Link>
             </div>
           ))}
           {articles && articles?.length === 0 && (
@@ -133,7 +147,7 @@ export function News() {
               </Card>
             </div>
           )}
-        </Row>
+        </div>
       </Container>
     </UserLayout>
   );
