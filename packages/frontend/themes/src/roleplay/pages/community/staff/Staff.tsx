@@ -47,7 +47,7 @@ export function Staff() {
               <div className="col-6" key={rank.id} style={{marginBottom: 20}}>
                 <Card key={rank.id} header={rank.name}>
                   {rank.users!.map(user => (
-                    <div key={user.id} className="mt-2">
+                    <div key={user.id} className="mt-4">
                       <UserContainer user={user} />
                     </div>
                   ))}
