@@ -14,6 +14,7 @@ import {
   setURL,
   useFetchArticleByID,
   Skeleton,
+  MiniJumbotron,
 } from '@instinct-prj/frontend';
 
 setURL('community/news/:articleID', <NewsArticle />);
@@ -22,32 +23,32 @@ export function NewsArticle() {
   const [match, params] = useRoute<{articleID: string}>(
     '/community/news/:articleID'
   );
-  const article: any = useFetchArticleByID(params!.articleID);
+  const article = useFetchArticleByID(params!.articleID);
 
   return (
     <UserLayout section="article">
       <Loading isLoading={false}>
-        <Jumbotron
-          className="text-center"
-          title={<Skeleton width={400} children={article?.title} />}
-          style={{
-            backgroundImage: `url('${
-              article?.headerImage ??
-              'https://images.habbo.com/web_images/habbo-web-articles/lpromo_hween20.png'
-            }')`,
-            backgroundSize: '100%',
-          }}
-        >
-          {article?.category ? (
-            <p>
-              {article?.category.name} -{' '}
-              {Moment.unix(article?.datePosted || 0).format('MMMM DD, YYYY')}
-            </p>
-          ) : (
-            <Skeleton width={350} isLoading />
-          )}
-        </Jumbotron>
         <Container>
+          <MiniJumbotron
+            className="text-center"
+            style={{
+              backgroundImage: `url('${
+                article?.headerImage ??
+                'https://images.habbo.com/web_images/habbo-web-articles/lpromo_hween20.png'
+              }')`,
+              backgroundSize: '100%',
+            }}
+          >
+            <h1>{article?.title ?? <Skeleton width={350} isLoading />}</h1>
+            {article?.category ? (
+              <p>
+                {article?.category.name} -{' '}
+                {Moment.unix(article?.datePosted || 0).format('MMMM DD, YYYY')}
+              </p>
+            ) : (
+              <Skeleton width={350} isLoading />
+            )}
+          </MiniJumbotron>
           <Column side="left">
             <Card>
               {article?.content ? (

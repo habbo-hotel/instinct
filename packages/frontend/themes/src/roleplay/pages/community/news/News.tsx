@@ -117,16 +117,14 @@ export function News() {
               </Card>
             </div>
           ))}
-          {articles &&
-            articles?.length ===
-              0(
-                <div className="col-12">
-                  <Card className="text-center">
-                    <Icon className="fa-4x" type="exclamation-triangle" />
-                    <p>No articles have been posted yet.</p>
-                  </Card>
-                </div>
-              )}
+          {articles && articles?.length === 0 && (
+            <div className="col-12">
+              <Card className="text-center">
+                <Icon className="fa-4x" type="exclamation-triangle" />
+                <p>No articles have been posted yet.</p>
+              </Card>
+            </div>
+          )}
           {articles && articles?.length > 0 && filteredArticles?.length === 0 && (
             <div className="col-12">
               <Card className="text-center">
