@@ -43,27 +43,29 @@ export function Guestbook({profile}: UserProfileWidgetProps) {
 
   return (
     <Card header={getHeader()}>
-      {!comments && <Icon className="fa-spin" type="spinner" />}
-      {comments?.length === 0 && <p>There aren't any comments to display.</p>}
-      {comments?.map(_ => (
-        <div className="row" key={_.id}>
-          <Avatar look={_.author.figure} headOnly />
-          <div style={{marginTop: 20}}>
-            <h5>{_.content}</h5>
-            <div className="d-inline">
-              Posted by{' '}
-              <Link to={`/profile/${_.author.username}`}>
-                <b style={{cursor: 'pointer'}}>{_.author.username}</b>
-              </Link>
-              , {Moment.unix(_.timestamp).fromNow()}
-              <DeletePostModal
-                post={_}
-                onDeletion={() => onPostDeleted(_.id)}
-              />
+      <div style={{maxHeight: 500, overflowY: 'scroll', overflowX: 'hidden'}}>
+        {!comments && <Icon className="fa-spin" type="spinner" />}
+        {comments?.length === 0 && <p>There aren't any comments to display.</p>}
+        {comments?.map(_ => (
+          <div className="row" key={_.id}>
+            <Avatar look={_.author.figure} headOnly />
+            <div style={{marginTop: 20}}>
+              <h5>{_.content}</h5>
+              <div className="d-inline">
+                Posted by{' '}
+                <Link to={`/profile/${_.author.username}`}>
+                  <b style={{cursor: 'pointer'}}>{_.author.username}</b>
+                </Link>
+                , {Moment.unix(_.timestamp).fromNow()}
+                <DeletePostModal
+                  post={_}
+                  onDeletion={() => onPostDeleted(_.id)}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </Card>
   );
 }
