@@ -29,6 +29,7 @@ export const defaultRankDTO: RankDTO = {
   websiteManageBusiness: false,
   websiteCreateBusiness: false,
   websiteManageBetaCodes: false,
+  websiteManageGuestbook: false,
   users: [],
 };
 
