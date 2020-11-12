@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/backend-rp",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -14,7 +14,7 @@
   "dependencies": {
     "@instinct-prj/backend": "^1.8.0",
     "@instinct-prj/interface": "^1.8.0",
-    "@instinct-prj/interface-rp": "^1.8.0",
+    "@instinct-prj/interface-rp": "^1.9.0",
     "@nestjs/typeorm": "^7.1.4",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
