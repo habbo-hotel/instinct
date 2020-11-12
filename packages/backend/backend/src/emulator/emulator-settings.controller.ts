@@ -1,5 +1,5 @@
 import {Controller, Get} from '@nestjs/common';
-import {HasSession} from '../session/has-session.decorator';
+import {HasScope} from '../session/permission-scope.decorator';
 import {emulatorSettingsWire} from '../database/emulator/emulator-settings.wire';
 import {EmulatorSettingsRepository} from '../database/emulator/emulator-settings.repository';
 
@@ -10,7 +10,7 @@ export class EmulatorSettingsController {
   ) {}
 
   @Get()
-  @HasSession()
+  @HasScope('websiteManageEmulator')
   async getSettings() {
     const settings = await this.emulatorSettingsRepo.find();
     return emulatorSettingsWire(settings);
