@@ -16,7 +16,7 @@ import {
   EmulatorSettingsEntity,
   EmulatorSettingsRepository,
   EmulatorTextsEntity,
-  EmulatorTextsRepository
+  EmulatorTextsRepository,
 } from './emulator';
 import {
   ArticleCategoryRepository,

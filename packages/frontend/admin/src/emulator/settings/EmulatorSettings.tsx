@@ -77,7 +77,6 @@ export function EmulatorSettings() {
                 />
               </FormGroup>
             ))}
-          <FormGroup></FormGroup>
         </div>
         <div className="mt-5 text-right">
           <button className="btn btn-success" disabled={spinner} type="submit">

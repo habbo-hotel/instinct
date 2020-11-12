@@ -1,7 +1,12 @@
 import {backendAPI} from '../../api';
 import {AxiosResponse} from 'axios';
 import {EmulatorService} from './Emulator.types';
-import {EmulatorSettings, EmulatorSettingsDTO, EmulatorTexts, EmulatorTextsDTO} from '@instinct-prj/interface';
+import {
+  EmulatorSettings,
+  EmulatorSettingsDTO,
+  EmulatorTexts,
+  EmulatorTextsDTO,
+} from '@instinct-prj/interface';
 
 export class EmulatorServiceImplementation implements EmulatorService {
   async getSettings() {
@@ -27,8 +32,10 @@ export class EmulatorServiceImplementation implements EmulatorService {
   }
 
   async updateTexts(changes: EmulatorTextsDTO) {
-    const updatedTexts: AxiosResponse<EmulatorTexts> = await backendAPI.patch('emulator/texts', changes);
+    const updatedTexts: AxiosResponse<EmulatorTexts> = await backendAPI.patch(
+      'emulator/texts',
+      changes
+    );
     return updatedTexts.data;
   }
-
 }

@@ -6,8 +6,7 @@ import {EmulatorTextsRepository} from '../database/emulator/emulator-texts.repos
 
 @Controller('emulator/texts')
 export class EmulatorTextsController {
-  constructor(
-    private readonly emulatorTextsRepo: EmulatorTextsRepository) {}
+  constructor(private readonly emulatorTextsRepo: EmulatorTextsRepository) {}
 
   @Get()
   @HasScope('websiteManageEmulator')

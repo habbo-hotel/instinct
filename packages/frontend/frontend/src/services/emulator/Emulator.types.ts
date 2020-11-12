@@ -1,4 +1,9 @@
-import {EmulatorSettings, EmulatorSettingsDTO, EmulatorTexts, EmulatorTextsDTO} from '@instinct-prj/interface';
+import {
+  EmulatorSettings,
+  EmulatorSettingsDTO,
+  EmulatorTexts,
+  EmulatorTextsDTO,
+} from '@instinct-prj/interface';
 
 export interface EmulatorService {
   getSettings(): Promise<EmulatorSettings>;
@@ -6,7 +11,5 @@ export interface EmulatorService {
     changes: Partial<EmulatorSettingsDTO>
   ): Promise<EmulatorSettings>;
   getTexts(): Promise<EmulatorTexts>;
-  updateTexts(
-    changes: Partial<EmulatorTextsDTO>
-  ): Promise<EmulatorTexts>;
+  updateTexts(changes: Partial<EmulatorTextsDTO>): Promise<EmulatorTexts>;
 }
