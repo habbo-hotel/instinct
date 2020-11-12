@@ -1,5 +1,4 @@
 import {Link} from 'wouter';
-import Select from 'react-select';
 import {toast} from 'react-toastify';
 import React, {useState} from 'react';
 import MDEditor from '@uiw/react-md-editor';
@@ -13,6 +12,7 @@ import {
   Input,
   Jumbotron,
   Row,
+  Select,
   PreviewImage,
   useFetchAllNewsCategories,
   Skeleton,
@@ -133,24 +133,6 @@ export function NewsArticleEditor({
                   getOptionLabel={x => x.name}
                   getOptionValue={x => `${x.id}`}
                   onChange={(_: any) => setArticleValue('category', _)}
-                  styles={{
-                    control: provided => ({
-                      ...provided,
-                      color: 'black',
-                    }),
-                    input: provided => ({
-                      ...provided,
-                      color: 'black',
-                    }),
-                    singleValue: provided => ({
-                      ...provided,
-                      color: 'black',
-                    }),
-                    option: provided => ({
-                      ...provided,
-                      color: 'black',
-                    }),
-                  }}
                 />
               </Skeleton>
             </div>

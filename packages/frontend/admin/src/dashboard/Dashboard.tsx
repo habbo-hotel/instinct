@@ -23,26 +23,11 @@ export function Dashboard() {
             <Card header="Hotel Statistics">
               <p>Coming soon</p>
             </Card>
-            <Card header="Quick Links">
-              <ul>
-                <li>
-                  <a
-                    href="https://github.com/chrismpettyjohn/Instinct-Example"
-                    target="_blank"
-                  >
-                    Instinct Quick Launch Repo{' '}
-                    <div className="badge badge-danger ml-2">
-                      License Required
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </Card>
             <Card header="Inspirational Video">
               <iframe
                 width="100%"
                 height={315}
-                src="https://www.youtube-nocookie.com/embed/_5lUSTmkM_0?controls=0&amp;autoplay=true"
+                src="https://www.youtube-nocookie.com/embed/_5lUSTmkM_0?controls=0&amp;"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

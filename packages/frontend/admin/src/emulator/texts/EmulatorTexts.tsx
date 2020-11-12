@@ -16,7 +16,7 @@ setURL('admin/emulator/texts', <EmulatorTexts />);
 export function EmulatorTexts() {
   const [spinner, setSpinner] = useState(false);
   const [filter, setFilter] = useState('');
-  const [Texts, setTexts] = useState<EmulatorTextsI>();
+  const [texts, setTexts] = useState<EmulatorTextsI>();
 
   useEffect(() => {
     async function fetchTexts() {
@@ -37,7 +37,7 @@ export function EmulatorTexts() {
   async function onSubmit() {
     setSpinner(true);
     await emulatorService.updateTexts(
-      Texts!.map(_ => ({id: _.id, value: _.value}))
+      texts!.map(_ => ({id: _.id, value: _.value}))
     );
     toast.info('Emulator Texts have been updated');
     setSpinner(false);
@@ -63,19 +63,23 @@ export function EmulatorTexts() {
       </div>
       <Form className="mt-2" onSubmit={onSubmit}>
         <h3>Server Options</h3>
+        {!texts && <Icon className="fa-spin" type="spinner" />}
         <div className="row" style={{maxHeight: 500, overflowY: 'scroll'}}>
-          {Texts?.filter(_ => _.label.toLowerCase().includes(filter)).map(_ => (
-            <FormGroup className="col-6" key={_.id}>
-              <h4>{_.label}</h4>
-              <Input
-                type="text"
-                name={_.id}
-                value={_.value}
-                onChange={onChange}
-              />
-            </FormGroup>
-          ))}
+          {texts
+            ?.filter(_ => _.label.toLowerCase().includes(filter))
+            .map(_ => (
+              <FormGroup className="col-6" key={_.id}>
+                <h4>{_.label}</h4>
+                <Input
+                  type="text"
+                  name={_.id}
+                  value={_.value}
+                  onChange={onChange}
+                />
+              </FormGroup>
+            ))}
         </div>
+
         <div className="mt-5 text-right">
           <button className="btn btn-success" disabled={spinner} type="submit">
             {spinner ? <Icon className="fa-spin" type="spinner" /> : <>Save</>}

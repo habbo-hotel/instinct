@@ -6,14 +6,14 @@ import {InternalUser, InternalUserDTO} from '@instinct-prj/interface';
 export class ManageUsersServiceImplementation implements ManageUsersService {
   async getAll() {
     const users: AxiosResponse<InternalUser[]> = await backendAPI.get(
-      'users/manage'
+      'admin/users'
     );
     return users.data;
   }
 
   async create(internalUserDTO: InternalUserDTO) {
     const newUser: AxiosResponse<InternalUser> = await backendAPI.post(
-      'users/manage',
+      'admin/users',
       internalUserDTO
     );
     return newUser.data;
@@ -21,13 +21,13 @@ export class ManageUsersServiceImplementation implements ManageUsersService {
 
   async update(userID: number, internalUserDTO: Partial<InternalUserDTO>) {
     const updatedUser: AxiosResponse<InternalUser> = await backendAPI.patch(
-      `users/manage/${userID}`,
+      `admin/users/${userID}`,
       internalUserDTO
     );
     return updatedUser.data;
   }
 
   async delete(userID: number) {
-    await backendAPI.delete(`users/manage/${userID}`);
+    await backendAPI.delete(`admin/users/${userID}`);
   }
 }

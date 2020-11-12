@@ -63,6 +63,7 @@ export function EmulatorSettings() {
       </div>
       <Form className="mt-2" onSubmit={onSubmit}>
         <h3>Server Options</h3>
+        {!settings && <Icon className="fa-spin" type="spinner" />}
         <div className="row" style={{maxHeight: 500, overflowY: 'scroll'}}>
           {settings
             ?.filter(_ => _.label.toLowerCase().includes(filter))

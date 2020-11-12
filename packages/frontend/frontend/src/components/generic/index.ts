@@ -15,5 +15,6 @@ export * from './icon';
 export * from './jumbotron';
 export * from './loading';
 export * from './row';
+export * from './select';
 export * from './skeleton';
 export * from './wizard-card';

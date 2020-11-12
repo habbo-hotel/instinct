@@ -1,7 +1,11 @@
-import Select from 'react-select';
 import React, {useContext} from 'react';
 import {businessEditorContext} from '../../context';
-import {Icon, sessionContext, useFetchAllRooms} from '@instinct-prj/frontend';
+import {
+  Icon,
+  sessionContext,
+  useFetchAllRooms,
+  Select,
+} from '@instinct-prj/frontend';
 
 export function HomeRoomSelector() {
   const {user} = useContext(sessionContext);
@@ -19,24 +23,6 @@ export function HomeRoomSelector() {
       getOptionLabel={_ => _.name}
       getOptionValue={_ => _.id as any}
       onChange={(e: any) => setBusiness('homeRoom', e.id)}
-      styles={{
-        control: provided => ({
-          ...provided,
-          color: 'black',
-        }),
-        input: provided => ({
-          ...provided,
-          color: 'black',
-        }),
-        singleValue: provided => ({
-          ...provided,
-          color: 'black',
-        }),
-        option: provided => ({
-          ...provided,
-          color: 'black',
-        }),
-      }}
     />
   );
 }

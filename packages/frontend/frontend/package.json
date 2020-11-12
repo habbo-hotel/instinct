@@ -13,6 +13,7 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
+    "react-select": "^3.1.0",
     "@instinct-prj/interface": "^1.7.0",
     "axios": "^0.21.0",
     "events": "^3.2.0",

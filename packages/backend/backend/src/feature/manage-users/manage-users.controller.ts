@@ -16,7 +16,7 @@ import {
   Post,
 } from '@nestjs/common';
 
-@Controller('users/manage')
+@Controller('admin/users')
 export class ManageUsersController {
   constructor(private readonly userRepo: UserRepository) {}
 
@@ -50,7 +50,7 @@ export class ManageUsersController {
   @HasScope('websiteManageUsers')
   async updateUser(
     @Param('userID', UserPipe) user: UserEntity,
-    @Body() userDTO: InternalUserDTO
+    @Body() userDTO: Partial<InternalUserDTO>
   ): Promise<InternalUser> {
     await this.userRepo.update({id: user.id!}, userDTO);
     const updatedUser = await this.userRepo.findOneOrFail({id: user.id!});
