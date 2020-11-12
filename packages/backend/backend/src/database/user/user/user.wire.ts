@@ -1,7 +1,8 @@
+import {omit} from 'lodash';
 import Moment from 'moment';
 import {rankWire} from '../../rank';
 import {UserEntity} from './user.entity';
-import {User} from '@instinct-prj/interface';
+import {InternalUser, User} from '@instinct-prj/interface';
 
 export function userWire(userEntity: UserEntity): User {
   return {
@@ -19,5 +20,13 @@ export function userWire(userEntity: UserEntity): User {
       userEntity.rank !== undefined ? rankWire(userEntity.rank!) : undefined,
     favoriteYoutubeVideo: userEntity.favoriteYoutubeVideo,
     userOfTheWeek: userEntity.userOfTheWeek === 1,
+  };
+}
+
+export function internalUserWire(userEntity: UserEntity): InternalUser {
+  return {
+    ...omit(userWire(userEntity), 'rank'),
+    email: userEntity.email,
+    rankID: userEntity.rankID,
   };
 }

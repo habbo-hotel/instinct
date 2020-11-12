@@ -30,3 +30,15 @@ export const exampleUser: User = {
   lastLoginDate: new Date().toISOString(),
   userOfTheWeek: false,
 };
+
+export interface InternalUser
+  extends Omit<User, 'joinDate' | 'lastLoginDate' | 'rank'> {
+  email: string;
+  rankID: number;
+}
+
+export interface InternalUserDTO
+  extends Partial<Omit<InternalUser, 'userOfTheWeek'>> {
+  userOfTheWeek: number;
+  password: string;
+}

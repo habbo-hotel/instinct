@@ -7,6 +7,7 @@ export * from './emulator';
 export * from './group';
 export * from './guestbook';
 export * from './local-storage';
+export * from './manage-users';
 export * from './photo';
 export * from './rank';
 export * from './room';
