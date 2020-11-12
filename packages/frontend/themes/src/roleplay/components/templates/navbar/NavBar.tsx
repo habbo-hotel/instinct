@@ -28,6 +28,7 @@ export function NavBar() {
             </NavBarDropdown>
             <NavBarLink to="/business">Business</NavBarLink>
             <NavBarLink to="/gangs">Gangs</NavBarLink>
+            <NavBarLink to="/properties">Properties</NavBarLink>
             <li className="navigation-item navigation-right-side-item has-items">
               <UserDropdown />
             </li>
