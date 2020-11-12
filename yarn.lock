@@ -16121,7 +16121,7 @@ trough@^1.0.0:
   dependencies:
     glob "^7.1.2"
 
-ts-loader@^8.0.10, ts-loader@^8.0.7:
+ts-loader@^8.0.7:
   version "8.0.10"
   resolved "https://registry.npmjs.org/ts-loader/-/ts-loader-8.0.10.tgz#4af4afb8d26847290cd010df93a4c172df92278f"
   integrity sha512-5fVbbZldz6LQi6RQ0v1P7lZ98CZGlQyM8b4xGZXw3G/XUqL8GIH+Ib6H01nImPhkHZ9+PVXZgTb+v3fRsaIHlg==
