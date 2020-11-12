@@ -50,6 +50,9 @@ export function rankWire(rankEntity: RankEntity): Rank {
       websiteManageGuestbook: permissionStatusToBoolean(
         rankEntity.websiteManageGuestbook
       ),
+      websiteManageEmulator: permissionStatusToBoolean(
+        rankEntity.websiteManageEmulator
+      ),
     },
   };
 }
@@ -80,6 +83,9 @@ export function rankDataTransferObjectToEntity(rankDTO: RankDTO): RankEntity {
     ),
     websiteManageGuestbook: booleanToPermissionStatus(
       rankDTO.websiteManageGuestbook
+    ),
+    websiteManageEmulator: booleanToPermissionStatus(
+      rankDTO.websiteManageEmulator
     ),
   };
 }

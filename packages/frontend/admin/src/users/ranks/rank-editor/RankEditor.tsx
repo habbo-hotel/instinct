@@ -68,6 +68,7 @@ export function RankEditor({
     websiteCreateBusiness: 'Personal Business',
     websiteShowStaff: 'Show as Staff',
     websiteShowAdminPanel: 'Use Admin Panel',
+    websiteManageEmulator: 'Manage Emulator',
     websiteManageNews: 'Manage News',
     websiteManageRanks: 'Manage Ranks',
     websiteManageUsers: 'Manage Users',

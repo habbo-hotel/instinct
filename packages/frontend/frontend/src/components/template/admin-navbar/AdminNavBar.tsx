@@ -11,6 +11,9 @@ export function AdminNavBar() {
         style={{width: '100%', maxWidth: 1055, margin: '0 auto'}}
       >
         <NavBarLink to="/admin">Dashboard</NavBarLink>
+        <PermissionGuard permission="websiteManageEmulator" redirect={false}>
+          <NavBarLink to="/admin/emulator/settings">Emulator</NavBarLink>
+        </PermissionGuard>
         <PermissionGuard permission="websiteManageConfig" redirect={false}>
           <NavBarLink to="/admin/website">Website</NavBarLink>
         </PermissionGuard>

@@ -54,4 +54,7 @@ export class RankEntity {
 
   @Column({name: 'website_manage_guestbook', type: 'enum', default: '0'})
   websiteManageGuestbook!: PermissionStatus;
+
+  @Column({name: 'website_manage_emulator', type: 'enum', default: '0'})
+  websiteManageEmulator!: PermissionStatus;
 }
