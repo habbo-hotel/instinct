@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/backend-rp",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -12,9 +12,9 @@
     "compile": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@instinct-prj/backend": "^1.6.0",
-    "@instinct-prj/interface": "^1.6.0",
-    "@instinct-prj/interface-rp": "^1.6.0",
+    "@instinct-prj/backend": "^1.7.0",
+    "@instinct-prj/interface": "^1.7.0",
+    "@instinct-prj/interface-rp": "^1.7.0",
     "@nestjs/typeorm": "^7.1.4",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",

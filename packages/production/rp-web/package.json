@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,9 +13,9 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/admin": "^1.6.0",
-    "@instinct-prj/frontend": "^1.6.0",
-    "@instinct-prj/themes": "^1.6.0"
+    "@instinct-prj/admin": "^1.7.0",
+    "@instinct-prj/frontend": "^1.7.0",
+    "@instinct-prj/themes": "^1.7.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
