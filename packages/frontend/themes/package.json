@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/themes",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,9 +13,9 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.7.0",
-    "@instinct-prj/interface": "^1.7.0",
-    "@instinct-prj/interface-rp": "^1.7.0",
+    "@instinct-prj/frontend": "^1.8.0",
+    "@instinct-prj/interface": "^1.8.0",
+    "@instinct-prj/interface-rp": "^1.8.0",
     "react-select": "^3.1.0",
     "react-toggle": "^4.1.1"
   },

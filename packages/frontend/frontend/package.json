@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/frontend",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,8 +13,7 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "react-select": "^3.1.0",
-    "@instinct-prj/interface": "^1.7.0",
+    "@instinct-prj/interface": "^1.8.0",
     "axios": "^0.21.0",
     "events": "^3.2.0",
     "lodash": "^4.17.20",
@@ -26,6 +25,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-loading-overlay": "^1.0.1",
     "react-loading-skeleton": "^2.1.1",
+    "react-select": "^3.1.0",
     "react-toastify": "^6.0.9",
     "swfobject": "^2.2.1",
     "wouter": "^2.5.3"
