@@ -4,7 +4,7 @@ import {
   Card,
   Container,
   Column,
-  Jumbotron,
+  MiniJumbotron,
   Row,
   setURL,
 } from '@instinct-prj/frontend';
@@ -14,10 +14,13 @@ setURL('gangs/creator', <GangCreate />);
 export function GangCreate() {
   return (
     <UserLayout section="community_team">
-      <Jumbotron title="Gang Creator">
-        <p>Gang</p>
-      </Jumbotron>
       <Container>
+        <Row>
+          <MiniJumbotron>
+            <h2>Gang Creator</h2>
+            <p>Kickstart your criminal empire today</p>
+          </MiniJumbotron>
+        </Row>
         <Row>
           <Column side="left">
             <Card>

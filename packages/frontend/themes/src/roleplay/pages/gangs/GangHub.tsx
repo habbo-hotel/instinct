@@ -11,6 +11,7 @@ import {
   PermissionGuard,
   Icon,
 } from '@instinct-prj/frontend';
+import {GangCard} from '../../components/templates/gang-card';
 
 setURL('gangs', <GangHub />);
 
@@ -44,16 +45,21 @@ export function GangHub() {
             </MiniJumbotron>
           </div>
         </Row>
-        {gangs?.length === 0 && (
-          <Row>
+        <Row>
+          {gangs?.length === 0 && (
             <div className="col-12">
               <Card className="text-center">
                 <i className="fa fa-exclamation-circle fa-5x" />
                 <h3>There aren't any gangs to show at this time.</h3>
               </Card>
             </div>
-          </Row>
-        )}
+          )}
+          {gangs?.map(_ => (
+            <div className="col-6" key={_.id}>
+              <GangCard gang={_} />
+            </div>
+          ))}
+        </Row>
       </Container>
     </UserLayout>
   );
