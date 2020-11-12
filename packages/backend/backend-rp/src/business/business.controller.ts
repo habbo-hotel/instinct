@@ -60,6 +60,7 @@ export class BusinessController {
     const newBusiness: BusinessEntity = await this.businessRepo.create({
       name: businessDTO.name,
       desc: businessDTO.desc,
+      type: businessDTO.type,
       badge: businessDTO.badge,
       userID: user.id!,
       balance: businessDTO.investment,

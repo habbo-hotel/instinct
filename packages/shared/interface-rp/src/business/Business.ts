@@ -1,9 +1,15 @@
 import {exampleUser, User} from '@instinct-prj/interface';
 
+export enum BusinessType {
+  NORMAL = 'NORMAL',
+  HOSPITAL = 'HOSPITAL',
+}
+
 export interface Business {
   id: number;
   owner: User;
   name: string;
+  type: BusinessType;
   desc: string;
   badge: string;
   positions: BusinessPosition[];
@@ -42,6 +48,7 @@ export const exampleBusiness: Business = {
   owner: exampleUser,
   name: 'Armory',
   desc: 'We sell guns, bombs and freedom.',
+  type: BusinessType.NORMAL,
   badge: 'ADM',
   positions: [
     {

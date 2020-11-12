@@ -1,6 +1,9 @@
+import {BusinessType} from './Business';
+
 export interface BusinessDTO {
   name: string;
   desc: string;
+  type: BusinessType;
   badge: string;
   homeRoom: number;
   investment: number;
@@ -42,6 +45,7 @@ export const exampleBusinessPositionDTO: BusinessPositionDTO = {
 export const exampleBusinessDTO: BusinessDTO = {
   name: '',
   desc: '',
+  type: BusinessType.NORMAL,
   badge: 'builders',
   homeRoom: 0,
   investment: 100,

@@ -23,10 +23,10 @@ export class BusinessPositionEntity {
   @Column({type: 'varchar', length: 100})
   name!: string;
 
-  @Column({name: 'outfit_male', type: 'varchar', length: 100})
+  @Column({name: 'uniform_male', type: 'varchar', length: 100})
   maleUniform!: string;
 
-  @Column({name: 'outfit_female', type: 'varchar', length: 100})
+  @Column({name: 'uniform_female', type: 'varchar', length: 100})
   femaleUniform!: string;
 
   @Column({name: 'can_hire', type: 'tinyint'})

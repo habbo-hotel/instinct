@@ -7,6 +7,7 @@ export function businessWire(entity: BusinessEntity): Business {
     id: entity.id!,
     owner: userWire(entity.user!),
     name: entity.name,
+    type: entity.type,
     desc: entity.desc,
     badge: entity.badge,
     positions: entity.positions!.map(_ => ({

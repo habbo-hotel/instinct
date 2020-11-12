@@ -4,8 +4,10 @@ import {
   IsNumber,
   IsNotEmpty,
   IsObject,
+  IsEnum,
 } from 'class-validator';
 import {
+  BusinessType,
   BusinessDTO as BusinessDTOI,
   BusinessPositionDTO as BusinessPositionDTOI,
 } from '@instinct-prj/interface-rp';
@@ -18,6 +20,9 @@ export class BusinessDTO implements BusinessDTOI {
   @IsString()
   @IsNotEmpty()
   desc!: string;
+
+  @IsEnum(BusinessType)
+  type!: BusinessType;
 
   @IsString()
   @IsNotEmpty()

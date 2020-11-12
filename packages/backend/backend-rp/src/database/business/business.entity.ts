@@ -8,6 +8,7 @@ import {
   OneToMany,
   ManyToOne,
 } from 'typeorm';
+import {BusinessType} from '@instinct-prj/interface-rp';
 
 @Entity('roleplay_businesses')
 export class BusinessEntity {
@@ -19,6 +20,9 @@ export class BusinessEntity {
 
   @Column({type: 'text'})
   desc!: string;
+
+  @Column({type: 'varchar'})
+  type!: BusinessType;
 
   @Column({type: 'int'})
   balance!: number;

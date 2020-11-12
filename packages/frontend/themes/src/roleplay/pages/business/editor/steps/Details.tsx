@@ -1,9 +1,15 @@
 import {FormGroup} from 'reactstrap';
 import React, {useContext} from 'react';
 import {businessEditorContext} from '../context';
-import {Icon, Input} from '@instinct-prj/frontend';
 import {BadgeEditorModal} from './badge-editor-modal';
 import {HomeRoomSelector} from './home-room-selector';
+import {BusinessType} from '@instinct-prj/interface-rp';
+import {Icon, Input, Select} from '@instinct-prj/frontend';
+
+export const BUSINESS_TYPES = Object.keys(BusinessType).map(_ => ({
+  label: _,
+  value: _,
+}));
 
 export function DetailsStep() {
   const {business, setBusiness} = useContext(businessEditorContext);
@@ -40,6 +46,14 @@ export function DetailsStep() {
           rows={5}
           onChange={e => setBusiness('desc', e.target.value)}
           value={business.desc}
+        />
+      </FormGroup>
+      <FormGroup className="mt-3" style={{padding: 2}}>
+        <h4>Business Type</h4>
+        <Select
+          options={BUSINESS_TYPES}
+          value={BUSINESS_TYPES.find(_ => _.value === business.type) ?? null}
+          onChange={(_: any) => setBusiness('type', _.value)}
         />
       </FormGroup>
     </>

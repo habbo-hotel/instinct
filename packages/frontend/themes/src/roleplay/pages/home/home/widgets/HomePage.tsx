@@ -17,7 +17,6 @@ export function HomePage() {
       <Column side="left">
         <MyProfile />
         <MyEmploymentCard rpStats={rpStats} />
-        <Referral />
       </Column>
       <Column side="right">
         <RecentNews />

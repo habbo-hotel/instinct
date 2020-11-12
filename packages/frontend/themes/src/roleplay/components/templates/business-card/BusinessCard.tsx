@@ -30,7 +30,7 @@ export function BusinessCard({business}: BusinessCardProps) {
               <p style={{marginTop: -10}}>
                 Managed by: <b>{business.owner.username}</b>
               </p>
-              <img src="https://game.peakrp.com/habbo-imaging/badge/police.gif" />
+              <img src={`/img/corps/${business.badge}.gif`} />
             </div>
           </Row>
         </Card>
