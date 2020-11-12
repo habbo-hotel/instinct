@@ -10,8 +10,8 @@ export class EmulatorSettingsRepository extends BaseRepository<
 > {
   constructor(
     @InjectRepository(EmulatorSettingsEntity)
-    configRepo: Repository<EmulatorSettingsEntity>
+    emulatorSettingsRepo: Repository<EmulatorSettingsEntity>
   ) {
-    super(configRepo, []);
+    super(emulatorSettingsRepo, []);
   }
 }

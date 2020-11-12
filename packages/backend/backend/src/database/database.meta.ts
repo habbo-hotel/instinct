@@ -1,18 +1,23 @@
 import {Provider} from '@nestjs/common';
-import {PhotoEntity, PhotoRepository} from './photo';
-import {GroupEntity, GroupRepository} from './group';
 import {RankEntity, RankRepository} from './rank';
 import {RoomEntity, RoomRepository} from './room';
+import {PhotoEntity, PhotoRepository} from './photo';
+import {GroupEntity, GroupRepository} from './group';
 import {ConfigEntity, ConfigRepository} from './config';
 import {BetaCodeEntity, BetaCodeRepository} from './beta-code';
 import {UserBanEntity, UserBanRepository} from './user/bans';
 import {UserEntity, UserBadgesEntity, UserRepository} from './user/user';
-import {EmulatorSettingsEntity, EmulatorSettingsRepository} from './emulator';
 import {UserGuestbookEntity, UserGuestbookRepository} from './user/guestbook';
 import {
   UserForgotPasswordEntity,
   UserForgotPasswordRepository,
 } from './user/forgot-password';
+import {
+  EmulatorSettingsEntity,
+  EmulatorSettingsRepository,
+  EmulatorTextsEntity,
+  EmulatorTextsRepository
+} from './emulator';
 import {
   ArticleCategoryRepository,
   ArticleEntity,
@@ -31,6 +36,7 @@ export const databaseEntities: Function[] = [
   ArticleEntity,
   BetaCodeEntity,
   UserBadgesEntity,
+  EmulatorTextsEntity,
   UserGuestbookEntity,
   ArticleCategoryEntity,
   EmulatorSettingsEntity,
@@ -47,6 +53,7 @@ export const databaseRepositories: Provider[] = [
   ArticleRepository,
   UserBanRepository,
   BetaCodeRepository,
+  EmulatorTextsRepository,
   UserGuestbookRepository,
   ArticleCategoryRepository,
   EmulatorSettingsRepository,
