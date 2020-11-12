@@ -120,7 +120,7 @@ export function EditUserModal({user, onUpdated}: EditUserModalProps) {
                 <Select
                   options={ranks}
                   value={ranks.find(_ => _.id === updatedUser.rankID) ?? null}
-                  getOptionLabel={_ => _.name}
+                  getOptionLabel={(_: any) => _.name}
                   getOptionValue={_ => _.id.toString()}
                   onChange={(_: any) => onChange('rankID', _.id)}
                 />

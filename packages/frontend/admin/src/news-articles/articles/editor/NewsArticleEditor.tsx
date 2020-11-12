@@ -130,8 +130,8 @@ export function NewsArticleEditor({
                     categories?.find(_ => _.id === state.article.category.id) ??
                     null
                   }
-                  getOptionLabel={x => x.name}
-                  getOptionValue={x => `${x.id}`}
+                  getOptionLabel={(x: any) => x.name}
+                  getOptionValue={(x: any) => `${x.id}`}
                   onChange={(_: any) => setArticleValue('category', _)}
                 />
               </Skeleton>

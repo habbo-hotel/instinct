@@ -20,8 +20,8 @@ export function HomeRoomSelector() {
     <Select
       options={rooms}
       value={rooms.find(_ => _.id === business.homeRoom) ?? null}
-      getOptionLabel={_ => _.name}
-      getOptionValue={_ => _.id as any}
+      getOptionLabel={(_: any) => _.name}
+      getOptionValue={(_: any) => _.id as any}
       onChange={(e: any) => setBusiness('homeRoom', e.id)}
     />
   );
