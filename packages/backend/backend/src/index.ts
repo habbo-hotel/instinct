@@ -4,6 +4,8 @@ export * from './article';
 export * from './common';
 export * from './config';
 export * from './database';
+export * from './email';
+export * from './emulator';
 export * from './feature';
 export * from './group';
 export * from './health';

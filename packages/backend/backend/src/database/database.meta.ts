@@ -7,6 +7,7 @@ import {ConfigEntity, ConfigRepository} from './config';
 import {BetaCodeEntity, BetaCodeRepository} from './beta-code';
 import {UserBanEntity, UserBanRepository} from './user/bans';
 import {UserEntity, UserBadgesEntity, UserRepository} from './user/user';
+import {EmulatorSettingsEntity, EmulatorSettingsRepository} from './emulator';
 import {UserGuestbookEntity, UserGuestbookRepository} from './user/guestbook';
 import {
   UserForgotPasswordEntity,
@@ -32,6 +33,7 @@ export const databaseEntities: Function[] = [
   UserBadgesEntity,
   UserGuestbookEntity,
   ArticleCategoryEntity,
+  EmulatorSettingsEntity,
   UserForgotPasswordEntity,
 ];
 
@@ -47,5 +49,6 @@ export const databaseRepositories: Provider[] = [
   BetaCodeRepository,
   UserGuestbookRepository,
   ArticleCategoryRepository,
+  EmulatorSettingsRepository,
   UserForgotPasswordRepository,
 ];
