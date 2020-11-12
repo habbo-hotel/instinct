@@ -1,9 +1,9 @@
 import NodeCache from 'node-cache';
-import {Repository} from 'typeorm';
 import {Injectable} from '@nestjs/common';
 import {ConfigEntity} from './config.entity';
 import {InjectRepository} from '@nestjs/typeorm';
 import {BaseRepository} from '../base.repository';
+import {FindConditions, Repository} from 'typeorm';
 
 @Injectable()
 export class ConfigRepository extends BaseRepository<ConfigEntity> {
@@ -14,6 +14,14 @@ export class ConfigRepository extends BaseRepository<ConfigEntity> {
   ) {
     super(configRepo, []);
     this.cache = new NodeCache();
+  }
+
+  async update(
+    conditions: FindConditions<ConfigEntity>,
+    changes: Partial<ConfigEntity>
+  ): Promise<void> {
+    await super.update({}, changes);
+    this.cache.del('config');
   }
 
   async getConfig(noCache?: boolean): Promise<ConfigEntity> {
