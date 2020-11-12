@@ -2,6 +2,7 @@ export * from './article';
 export * from './ban';
 export * from './beta-codes';
 export * from './config';
+export * from './emulator';
 export * from './group';
 export * from './guestbook';
 export * from './rank';
