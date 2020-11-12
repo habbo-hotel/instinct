@@ -10,6 +10,7 @@ export function AdminNavBar() {
         className="navigation-menu flex-container"
         style={{width: '100%', maxWidth: 1055, margin: '0 auto'}}
       >
+        <NavBarLink to="/me">Back to Site</NavBarLink>
         <NavBarLink to="/admin">Dashboard</NavBarLink>
         <PermissionGuard permission="websiteManageEmulator" redirect={false}>
           <NavBarLink to="/admin/emulator/settings">Emulator</NavBarLink>

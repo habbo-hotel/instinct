@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
+import {UserDropdown} from './UserDropdown';
 import {
   NavBarLink,
-  UserDropdown,
   NavBarDropdown,
   NavBarChildLink,
   sessionContext,
