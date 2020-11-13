@@ -16,11 +16,14 @@ export function GangInviteWidget() {
   }
 
   async function onDecision(decision: boolean) {
-    sendEvent('gang_invite_decision', {
-      decision,
-      gang_id: gangInvite!.gang_id,
-      sender_id: gangInvite!.sender_id,
-    });
+    if (decision) {
+      sendEvent('gang_invite_decision', {
+        decision,
+        gang_id: gangInvite!.gang_id,
+        gang_rank: gangInvite!.gang_rank,
+        sender_id: gangInvite!.sender_id,
+      });
+    }
     setGangInvite(undefined);
   }
 

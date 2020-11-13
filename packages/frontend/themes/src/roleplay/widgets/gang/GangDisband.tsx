@@ -19,7 +19,7 @@ export function GangDisbandWidget() {
 
   async function onDecision(disband: boolean) {
     if (disband) {
-      sendEvent('gang_disband_decision', {disband});
+      sendEvent('gang_disband_confirm', {});
     }
 
     setGang(undefined);

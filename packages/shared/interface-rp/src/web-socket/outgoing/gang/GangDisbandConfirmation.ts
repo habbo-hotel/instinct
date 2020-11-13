@@ -1,3 +1,1 @@
-export interface WebSocketOutgoingGangDisbandDecisionEvent {
-  disband: boolean;
-}
+export interface WebSocketOutgoingGangDisbandConfirmationEvent {}
