@@ -50,7 +50,7 @@ export class WebSocketService implements WebSocketServiceBase {
 
   sendEvent = <K extends WebSocketOutgoingEvent>(
     event: K,
-    payload: Exclude<WebSocketOutgoingEvents[K], 'event_name'>
+    payload: WebSocketOutgoingEvents[K]
   ) => {
     this.connection.send(
       JSON.stringify({

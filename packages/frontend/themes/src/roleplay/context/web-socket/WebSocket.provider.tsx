@@ -40,6 +40,7 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
     if (!connection) {
       throw new Error('Web Socket connection has not been started');
     }
+    connection.sendEvent(event, data);
   }
 
   return (
