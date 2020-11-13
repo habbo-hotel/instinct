@@ -21,7 +21,9 @@ class ClientServiceImplementation implements ClientService {
         'client.init.auth.ok': 50,
         'client.init.localization.loaded': 60,
         'client.init.core.running': 75,
-        'client.init.config.loaded': 100,
+        'client.init.config.loaded': 80,
+        'client.init.room.ready': 90,
+        'client.init.room.enter': 100,
       };
 
       if (stepToProgress[step]) {

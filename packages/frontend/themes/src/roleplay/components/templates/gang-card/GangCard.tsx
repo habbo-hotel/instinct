@@ -30,7 +30,7 @@ export function GangCard({gang}: GangCardProps) {
               <p style={{marginTop: -10}}>
                 {sum(gang.ranks.map(_ => _.users.length)) + 1} Members
               </p>
-              <img src="https://game.peakrp.com/habbo-imaging/badge/police.gif" />
+              <img src={`/img/corps/${gang.badge}.gif`} />
             </div>
           </Row>
         </Card>

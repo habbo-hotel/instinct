@@ -32,6 +32,8 @@ export class WebSocketService implements WebSocketServiceBase {
     const {event_name, event_data} = JSON.parse(event.data);
     const subscribers = this.subscribers[event_name] ?? [];
 
+    console.log(event_name, event_data);
+
     for (const subscriber of subscribers) {
       subscriber(event_data);
     }
