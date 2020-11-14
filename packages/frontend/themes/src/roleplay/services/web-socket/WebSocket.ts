@@ -12,7 +12,7 @@ export class WebSocketService implements WebSocketServiceBase {
   subscribers: Record<string, WebSocketSubscriber<any>[]> = {};
 
   constructor(ip: string, port: string, readonly sso: string) {
-    this.connection = new WebSocket(`ws://${ip}:${port}`);
+    this.connection = new WebSocket(`${ip}:${port}`);
     this.connection.onopen = this.onConnectionStarted;
     this.connection.onclose = this.onConnectionClosed;
     this.connection.onmessage = this.onMessage;
