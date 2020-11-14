@@ -32,7 +32,7 @@ export function GangDisbandWidget() {
 
   return (
     <Draggable>
-      <Modal backdrop={false} fade={false} id="gang-disband-widget" isOpen>
+      <Modal backdrop={false} fade={false} isOpen>
         <ModalHeader>Are you sure?</ModalHeader>
         <ModalBody className="job-offer-widget">
           <div className="text-center">

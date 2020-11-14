@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Draggable from 'react-draggable';
 import {gangService} from '../../services/gang';
-import {Avatar, UserContainer} from '@instinct-prj/frontend';
+import {Avatar, UserContainer, UserModal} from '@instinct-prj/frontend';
 import {useWebSocketEventListener} from '../../hooks/web-socket';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import {Gang, WebSocketIncomingGangInfoEvent} from '@instinct-prj/interface-rp';
@@ -21,36 +21,50 @@ export function GangInfoWidget() {
 
   return (
     <Draggable>
-      <Modal backdrop={false} fade={false} id="gang-disband-widget" isOpen>
+      <Modal backdrop={false} fade={false} isOpen>
         <ModalHeader>Gang Information</ModalHeader>
         <ModalBody className="job-offer-widget">
           <div className="row">
-            <div className="col-12">
-              <div className="text-center">
-                <h2>{gang.name}</h2>
-                <img
-                  className="business-logo"
-                  src={`/img/corps/${gang.badge}.gif`}
-                />
-              </div>
+            <div className="col-2">
+              <img
+                className="business-logo"
+                src={`/img/corps/${gang.badge}.gif`}
+              />
+            </div>
+            <div className="col-10">
+              <h2 className="mt-1">{gang.name}</h2>
+              <h5 style={{marginTop: -10}}>
+                Founded by <b>{gang.owner.username}</b>
+              </h5>
             </div>
           </div>
           <div className="row">
-            <div className="col-6">
-              <h3>Founder</h3>
-              <Avatar look={gang.owner.figure} />
-            </div>
-            <div className="col-6">
+            <div className="col-12">
               <h3>Members</h3>
-              <div style={{maxHeight: 200, overflowY: 'scroll'}}>
-                {gang.ranks.map(rank => (
-                  <div key={rank.id}>
-                    {rank.users.map(_ => (
-                      <UserContainer key={_.id} user={_} />
-                    ))}
-                  </div>
-                ))}
-              </div>
+            </div>
+            <div style={{maxHeight: 300, overflowY: 'scroll', width: '100%'}}>
+              {gang.ranks.map(rank => (
+                <div className="col-6" key={rank.id}>
+                  {rank.users.map(_ => (
+                    <div className="member-container" key={_.id}>
+                      <div className="member-content flex-container flex-vertical-center">
+                        <div
+                          className="member-avatar flex-container flex-vertical-center flex-horizontal-center"
+                          style={{overflow: 'hidden'}}
+                        >
+                          <Avatar look={_.figure} />
+                        </div>
+                        <div className="member-details">
+                          <div className="details-username">{_.username}</div>
+                          <div className="badge badge-danger text-white p-1">
+                            {rank.name}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </ModalBody>

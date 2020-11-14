@@ -151,3 +151,7 @@ input {
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
+.modal {
+  pointer-events: none;
+}
