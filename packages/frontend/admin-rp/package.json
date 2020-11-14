@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/admin-rp",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,7 +13,7 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.9.0",
+    "@instinct-prj/frontend": "^1.10.0",
     "@instinct-prj/interface": "^1.8.0",
     "@uiw/react-md-editor": "^1.14.5",
     "axios": "^0.21.0",
