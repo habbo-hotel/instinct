@@ -18,10 +18,16 @@ export function DeleteRankModal({
   }
 
   async function deleteRank() {
-    setSpinner(true);
-    await rankService.deleteByID(rankID.toString());
-    toast.success(`Rank ${rankName} has been deleted`);
-    onDeletion();
+    try {
+      setSpinner(true);
+      await rankService.deleteByID(rankID.toString());
+      toast.success(`Rank ${rankName} has been deleted`);
+      onDeletion();
+    } catch {
+      toast.error(`Rank ${rankName} could not be deleted at this time`);
+    } finally {
+      setSpinner(false);
+    }
   }
 
   return (

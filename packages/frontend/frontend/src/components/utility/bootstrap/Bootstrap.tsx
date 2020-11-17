@@ -10,6 +10,7 @@ import {healthContext} from '../../../context/health';
 import {configService} from '../../../services/config';
 import {sessionContext} from '../../../context/session';
 import {sessionService} from '../../../services/session';
+import {RenderError} from '../../generic/error/RenderError';
 import React, {useContext, useEffect, useState} from 'react';
 
 export function Bootstrap() {
@@ -40,14 +41,18 @@ export function Bootstrap() {
     return <i className="fa fa-spin fa-spinner" />;
   }
 
-  return (
-    <SkeletonTheme color="#0f416d" highlightColor="#1a4d6e">
-      <ToastContainer />
-      <BannedGuard>
-        <Router />
-        <Client />
-        <DataPolling />
-      </BannedGuard>
-    </SkeletonTheme>
-  );
+  try {
+    return (
+      <SkeletonTheme color="#0f416d" highlightColor="#1a4d6e">
+        <ToastContainer />
+        <BannedGuard>
+          <Router />
+          <Client />
+          <DataPolling />
+        </BannedGuard>
+      </SkeletonTheme>
+    );
+  } catch {
+    return <RenderError />;
+  }
 }

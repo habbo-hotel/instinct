@@ -16,15 +16,23 @@ export function BetaCodes() {
   const betaCodes = useFetchBetaCodes(refresh);
 
   async function createBetaCode() {
-    await betaCodeService.create();
-    setRefresh(_ => _ + 1);
-    toast.success('A new beta code has been generated');
+    try {
+      await betaCodeService.create();
+      setRefresh(_ => _ + 1);
+      toast.success('A new beta code has been generated');
+    } catch {
+      toast.error('A beta code could not be generated at this time');
+    }
   }
 
   async function deletaBetaCode(code: string) {
-    await betaCodeService.delete(code);
-    setRefresh(_ => _ + 1);
-    toast.success('Beta code has been deleted');
+    try {
+      await betaCodeService.delete(code);
+      setRefresh(_ => _ + 1);
+      toast.success('Beta code has been deleted');
+    } catch {
+      toast.error(`Beta code ${code} could not be deleted at this time`);
+    }
   }
 
   return (

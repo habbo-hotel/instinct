@@ -16,9 +16,15 @@ export function EditBanModal({ban, onChange}: EditBanModalProps) {
   };
 
   async function onSave(banDTO: UserBanDTO) {
-    await banService.updateByID(ban.id.toString(), banDTO);
-    toast.success(`You have updated the ban on ${ban.user.username}`);
-    onChange();
+    try {
+      await banService.updateByID(ban.id.toString(), banDTO);
+      toast.success(`You have updated the ban on ${ban.user.username}`);
+      onChange();
+    } catch {
+      toast.error(
+        `User ${banDTO.userID}'s ban could not be updated at this time`
+      );
+    }
   }
 
   return (

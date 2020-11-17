@@ -17,10 +17,14 @@ export function DeleteBanModal({
   }
 
   async function deleteBan() {
-    setSpinner(true);
-    await banService.deleteByID(ban.id.toString());
-    toast.success(`${ban.user.username} has been unbanned`);
-    onDeletion();
+    try {
+      setSpinner(true);
+      await banService.deleteByID(ban.id.toString());
+      toast.success(`${ban.user.username} has been unbanned`);
+      onDeletion();
+    } catch {
+      toast.error(`${ban.user.username} could not be unbanned at this time`);
+    }
   }
 
   return (

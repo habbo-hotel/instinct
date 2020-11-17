@@ -50,7 +50,7 @@ export class ManageUsersController {
   @HasScope('websiteManageUsers')
   async updateUser(
     @Param('userID', UserPipe) user: UserEntity,
-    @Body() userDTO: Partial<InternalUserDTO>
+    @Body() userDTO: InternalUserDTO
   ): Promise<InternalUser> {
     await this.userRepo.update({id: user.id!}, userDTO);
     const updatedUser = await this.userRepo.findOneOrFail({id: user.id!});

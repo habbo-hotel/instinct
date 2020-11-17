@@ -152,6 +152,8 @@ input {
   background-color: transparent;
 }
 
-.modal {
-  pointer-events: none;
+.client-modals {
+  .modal {
+    pointer-events: none !important;
+  }
 }

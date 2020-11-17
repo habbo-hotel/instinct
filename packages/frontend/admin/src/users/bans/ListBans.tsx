@@ -1,25 +1,17 @@
+import React, {useState} from 'react';
 import {EditBanModal} from './ban-modals';
 import {UsersLayout} from '../UsersLayout';
-import {UserBan} from '@instinct-prj/interface';
-import React, {useEffect, useState} from 'react';
-import {banService, setURL} from '@instinct-prj/frontend';
+import {APIWrapper, banService, setURL} from '@instinct-prj/frontend';
 
 setURL('admin/users/bans', <ListBans />);
 
 export function ListBans() {
-  const [bans, setBans] = useState<UserBan[]>();
   const [filter, setFilter] = useState('');
-  const filteredBans = bans?.filter(_ => _.user.username.includes(filter));
+  const [reload, setReload] = useState(0);
 
-  async function fetchBans() {
-    setBans(undefined);
-    const banData = await banService.getAll();
-    setBans(banData);
+  function refreshBans() {
+    setReload(_ => _ + 1);
   }
-
-  useEffect(() => {
-    fetchBans();
-  }, []);
 
   return (
     <UsersLayout permission="websiteManageBans">
@@ -32,22 +24,29 @@ export function ListBans() {
             onChange={e => setFilter(e.target.value)}
             value={filter}
           />
-          <p>
-            <b>{filteredBans?.length}</b> results
-          </p>
         </div>
       </div>
-      <div
-        className="row"
-        style={{overflowY: 'scroll', maxHeight: 600, padding: 10}}
-      >
-        {bans === undefined && <i className="fa fa-spin fa-spinner" />}
-        {filteredBans?.map(_ => (
-          <div className="col-lg-6" key={_.id}>
-            <EditBanModal ban={_} onChange={fetchBans} />
-          </div>
-        ))}
-      </div>
+      <APIWrapper promise={banService.getAll} params={reload}>
+        {bans => {
+          const filteredBans = bans.filter(_ =>
+            _.user.username.includes(filter)
+          );
+          return (
+            <>
+              <div
+                className="row"
+                style={{overflowY: 'scroll', maxHeight: 600, padding: 10}}
+              >
+                {filteredBans.map(_ => (
+                  <div className="col-lg-6" key={_.id}>
+                    <EditBanModal ban={_} onChange={refreshBans} />
+                  </div>
+                ))}
+              </div>
+            </>
+          );
+        }}
+      </APIWrapper>
     </UsersLayout>
   );
 }

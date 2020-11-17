@@ -13,6 +13,7 @@ export interface Permissions {
   // RP Permissions
   websiteCreateBusiness: boolean; // Create own business
   websiteManageBusiness: boolean; // Manage businesses on admin
+  accRoomCreator: boolean;
 }
 
 export const examplePermissions: Permissions = {
@@ -30,4 +31,5 @@ export const examplePermissions: Permissions = {
   // RP Permissions
   websiteCreateBusiness: true, // Create own business
   websiteManageBusiness: true, // Manage businesses on admin
+  accRoomCreator: true,
 };

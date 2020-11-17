@@ -1,27 +1,13 @@
+import React, {useState} from 'react';
 import {UsersLayout} from '../UsersLayout';
 import {EditRankModal} from './rank-modals';
-import {Rank} from '@instinct-prj/interface';
-import React, {useEffect, useState} from 'react';
-import {rankService, setURL} from '@instinct-prj/frontend';
+import {APIWrapper, rankService, setURL} from '@instinct-prj/frontend';
 
 setURL('admin/users/ranks', <ListRanks />);
 
 export function ListRanks() {
-  const [ranks, setRanks] = useState<Rank[]>();
   const [filter, setFilter] = useState('');
   const [counter, setCounter] = useState(1);
-  const filteredRanks = ranks?.filter(_ => _.name.includes(filter));
-
-  useEffect(() => {
-    setRanks(undefined);
-    async function fetchRanks() {
-      const rankData = await rankService.getAll();
-      setRanks(rankData);
-    }
-
-    fetchRanks();
-  }, [counter]);
-
   return (
     <UsersLayout permission="websiteManageRanks">
       <h2>Ranks</h2>
@@ -33,21 +19,31 @@ export function ListRanks() {
             onChange={e => setFilter(e.target.value)}
             value={filter}
           />
-          <p>
-            <b>{filteredRanks?.length}</b> results
-          </p>
         </div>
       </div>
       <div
         className="row"
         style={{overflowY: 'scroll', maxHeight: 600, padding: 10}}
       >
-        {ranks === undefined && <i className="fa fa-spin fa-spinner" />}
-        {filteredRanks?.map(_ => (
-          <div className="col-lg-4" key={_.id}>
-            <EditRankModal rank={_} onChanges={() => setCounter(counter + 1)} />
-          </div>
-        ))}
+        <APIWrapper promise={rankService.getAll} params={counter}>
+          {ranks => (
+            <div
+              className="row"
+              style={{overflowY: 'scroll', maxHeight: 600, padding: 10}}
+            >
+              {ranks
+                .filter(_ => _.name.includes(filter))
+                .map(_ => (
+                  <div className="col-lg-4" key={_.id}>
+                    <EditRankModal
+                      rank={_}
+                      onChanges={() => setCounter(counter + 1)}
+                    />
+                  </div>
+                ))}
+            </div>
+          )}
+        </APIWrapper>
       </div>
     </UsersLayout>
   );

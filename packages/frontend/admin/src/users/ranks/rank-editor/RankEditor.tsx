@@ -77,6 +77,7 @@ export function RankEditor({
     websiteManageBusiness: 'Manage Businesses',
     websiteManageBetaCodes: 'Manage Beta Codes',
     websiteManageGuestbook: 'Manage Guestbook',
+    accRoomCreator: 'Create Rooms',
   };
 
   const permissionIndexes: Array<keyof Permissions> = Object.keys(
@@ -130,23 +131,25 @@ export function RankEditor({
             </div>
             <div className="mt-3" style={{padding: 2}}>
               <h4>Permissions</h4>
-              {permissionIndexes.map(permission => (
-                <div className="col-lg-6" key={permission}>
-                  <div className="row">
-                    <div className="col-2">
-                      <Toggle
-                        checked={state.rank[permission]}
-                        onChange={() =>
-                          setRank(permission, !state.rank[permission])
-                        }
-                      />
-                    </div>
-                    <div className="col-10 text-right">
-                      {permissionKeyToWord[permission]}
+              <div className="row">
+                {permissionIndexes.map(permission => (
+                  <div className="col-lg-6" key={permission}>
+                    <div className="row">
+                      <div className="col-2">
+                        <Toggle
+                          checked={state.rank[permission]}
+                          onChange={() =>
+                            setRank(permission, !state.rank[permission])
+                          }
+                        />
+                      </div>
+                      <div className="col-10 text-right">
+                        {permissionKeyToWord[permission]}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             <Row className="mt-3">
               <div className="col-6">&nbsp; </div>

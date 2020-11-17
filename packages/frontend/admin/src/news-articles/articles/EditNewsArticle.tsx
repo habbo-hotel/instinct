@@ -1,5 +1,6 @@
 import React from 'react';
 import {useRoute} from 'wouter';
+import {toast} from 'react-toastify';
 import {ArticleDTO} from '@instinct-prj/interface';
 import {NewsArticleEditor} from './editor/NewsArticleEditor';
 import {
@@ -17,7 +18,14 @@ export function EditNewsArticle() {
   const article = useFetchArticleByID(params!.articleID);
 
   async function onSave(article: ArticleDTO) {
-    await articleService.updateByID(params!.articleID, article);
+    try {
+      await articleService.updateByID(params!.articleID, article);
+      toast.success(`Your changes to ${article.title} have been published`);
+    } catch {
+      toast.error(
+        `Your changes to ${article.title} could not be saved at this time`
+      );
+    }
   }
 
   if (!article) {

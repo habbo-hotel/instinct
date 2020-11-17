@@ -36,11 +36,17 @@ export function CreateCategoryModal({onCreation}: CreateCategoryModalProps) {
   }
 
   async function onSubmit() {
-    await articleService.createCategory(category.name, category.color);
-    setCategory(exampleArticleCategoryDTO);
-    setModal(false);
-    toast.success('Category has been created');
-    onCreation();
+    try {
+      await articleService.createCategory(category.name, category.color);
+      setCategory(exampleArticleCategoryDTO);
+      setModal(false);
+      toast.success(`Category ${category.name} has been created`);
+      onCreation();
+    } catch {
+      toast.error(
+        `Category ${category.name} could not be created at this time`
+      );
+    }
   }
 
   return (

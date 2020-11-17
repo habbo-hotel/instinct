@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {UsersLayout} from '../UsersLayout';
 import {EditUserModal} from './edit-user-modal';
 import {
+  APIWrapper,
   createFetchHook,
   Icon,
   manageUsersService,
@@ -31,16 +32,23 @@ export function ListUsers() {
           onChange={e => setFilter(e.target.value.toLowerCase())}
         />
       </FormGroup>
-      <div className="row mt-5" style={{maxHeight: 500, overflowY: 'scroll'}}>
-        {!users && <Icon className="fa-spin" type="spinner" />}
-        {users
-          ?.filter(_ => _.username.toLowerCase().includes(filter))
-          .map(_ => (
-            <div className="col-4" key={_.id}>
-              <EditUserModal user={_} onUpdated={onUpdated} />
-            </div>
-          ))}
-      </div>
+      <APIWrapper promise={manageUsersService.getAll} params={refresh}>
+        {users => (
+          <div
+            className="row mt-5"
+            style={{maxHeight: 500, overflowY: 'scroll'}}
+          >
+            {!users && <Icon className="fa-spin" type="spinner" />}
+            {users
+              ?.filter(_ => _.username.toLowerCase().includes(filter))
+              .map(_ => (
+                <div className="col-4" key={_.id}>
+                  <EditUserModal user={_} onUpdated={onUpdated} />
+                </div>
+              ))}
+          </div>
+        )}
+      </APIWrapper>
     </UsersLayout>
   );
 }

@@ -57,4 +57,7 @@ export class RankEntity {
 
   @Column({name: 'website_manage_emulator', type: 'enum', default: '0'})
   websiteManageEmulator!: PermissionStatus;
+
+  @Column({name: 'acc_room_creator', type: 'enum', default: '0'})
+  accRoomCreator!: PermissionStatus;
 }
