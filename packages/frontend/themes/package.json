@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/themes",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -13,9 +13,9 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/frontend": "^1.10.0",
-    "@instinct-prj/interface": "^1.8.0",
-    "@instinct-prj/interface-rp": "^1.10.0",
+    "@instinct-prj/frontend": "^1.10.1",
+    "@instinct-prj/interface": "^1.8.1",
+    "@instinct-prj/interface-rp": "^1.10.1",
     "react-select": "^3.1.0",
     "react-toggle": "^4.1.1",
     "websocket": "^1.0.32"
@@ -32,6 +32,7 @@
     "@types/react-google-recaptcha": "^2.1.0",
     "@types/react-select": "3.0.23",
     "@types/styled-components": "^5.1.4",
+    "@types/websocket": "^1.0.1",
     "acorn-jsx": "^5.3.1",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
@@ -45,20 +46,19 @@
     "react-loading-skeleton": "^2.1.1",
     "react-toastify": "^6.0.9",
     "reactstrap": "^8.7.0",
+    "reconnecting-websocket": "^4.4.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.33.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-terser": "^7.0.2",
     "sass-loader": "^10.0.4",
+    "swfobject": "^2.2.1",
     "thread-loader": "^3.0.1",
     "ts-loader": "^8.0.7",
     "tslib": "^2.0.3",
     "typescript": "^4.0.5",
-    "wouter": "^2.5.3",
-    "@types/websocket": "^1.0.1",
-    "reconnecting-websocket": "^4.4.0",
-    "swfobject": "^2.2.1"
+    "wouter": "^2.5.3"
   },
   "peerDependencies": {
     "axios": "^0.21.0",
@@ -71,10 +71,10 @@
     "react-google-recaptcha": "^2.1.0",
     "react-loading-skeleton": "^2.1.1",
     "react-toastify": "^6.0.9",
+    "swfobject": "^2.2.1",
     "tslib": "^2.0.3",
     "typescript": "^4.0.5",
-    "wouter": "^2.5.3",
-    "swfobject": "^2.2.1"
+    "wouter": "^2.5.3"
   },
   "gitHead": "66b61bc221ace5230cd659bc3631eb6331da51e6"
 }
