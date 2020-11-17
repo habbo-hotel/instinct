@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -16,7 +16,7 @@
     "@instinct-prj/admin": "^1.10.1",
     "@instinct-prj/admin-rp": "^1.10.1",
     "@instinct-prj/frontend": "^1.10.1",
-    "@instinct-prj/themes": "^1.10.2"
+    "@instinct-prj/themes": "^1.10.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
