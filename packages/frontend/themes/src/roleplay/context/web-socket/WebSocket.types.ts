@@ -14,6 +14,8 @@ export interface WebSocketContext {
     event: K,
     data: WebSocketOutgoingEvents[K]
   ): void;
+  getConnectionStatus(): boolean;
+  retry(): void;
 }
 
 export const defaultWebSocketContext: WebSocketContext = {
@@ -22,6 +24,10 @@ export const defaultWebSocketContext: WebSocketContext = {
     callback: WebSocketSubscriber<K>
   ) {},
   sendEvent(event: string, data: object) {},
+  getConnectionStatus(): boolean {
+    return false;
+  },
+  retry() {},
 };
 
 export type WebSocketSubscriber<K extends WebSocketIncomingEvent> = (

@@ -14,6 +14,8 @@ export interface WebSocketServiceBase {
     event: K,
     payload: WebSocketOutgoingEvents[K]
   ): void;
+  getConnectionStatus(): boolean;
+  retry(): void;
 }
 
 export type WebSocketSubscriber<T> = (payload: T) => void | Promise<void>;

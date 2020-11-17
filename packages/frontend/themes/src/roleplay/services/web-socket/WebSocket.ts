@@ -1,3 +1,4 @@
+import WebSocketRetry from 'reconnecting-websocket';
 import {WebSocketServiceBase, WebSocketSubscriber} from './WebSocket.types';
 import {
   WebSocketIncomingEvent,
@@ -7,14 +8,13 @@ import {
 } from '@instinct-prj/interface-rp';
 
 export class WebSocketService implements WebSocketServiceBase {
-  readonly connection: WebSocket;
+  readonly connection: WebSocketRetry;
 
   subscribers: Record<string, WebSocketSubscriber<any>[]> = {};
 
   constructor(ip: string, port: string, readonly sso: string) {
-    this.connection = new WebSocket(`${ip}:${port}`);
+    this.connection = new WebSocketRetry(`${ip}:${port}`);
     this.connection.onopen = this.onConnectionStarted;
-    this.connection.onclose = this.onConnectionClosed;
     this.connection.onmessage = this.onMessage;
   }
 
@@ -60,5 +60,13 @@ export class WebSocketService implements WebSocketServiceBase {
         event_data: payload,
       })
     );
+  };
+
+  getConnectionStatus = (): boolean => {
+    return !!this.connection;
+  };
+
+  retry = () => {
+    this.connection.reconnect();
   };
 }

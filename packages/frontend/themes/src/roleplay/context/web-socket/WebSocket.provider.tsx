@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react';
 import {webSocketContext} from './WebSocket';
+import React, {useContext, useEffect, useState} from 'react';
 import {WebSocketService, WebSocketSubscriber} from '../../services/web-socket';
 import {
   configContext,
@@ -43,8 +43,27 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
     connection.sendEvent(event, data);
   }
 
+  function retry() {
+    if (connection) {
+      connection.retry();
+      return;
+    }
+
+    if (sso) {
+      setConnection(
+        new WebSocketService(config.websocketIP, config.websocketPort, sso!)
+      );
+    }
+  }
+
+  function getConnectionStatus() {
+    return !!connection?.getConnectionStatus();
+  }
+
   return (
-    <webSocketContext.Provider value={{onEvent, sendEvent}}>
+    <webSocketContext.Provider
+      value={{onEvent, sendEvent, getConnectionStatus, retry}}
+    >
       {children}
     </webSocketContext.Provider>
   );

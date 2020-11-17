@@ -7,7 +7,7 @@ import {WebSocketIncomingUpdateProgressBarsEvent} from '@instinct-prj/interface-
 
 export function UserStatusWidget() {
   const rpStats = useFetchRPStats();
-  const {user} = useContext(sessionContext);
+  const {user, online} = useContext(sessionContext);
   const [status, setStatus] = useState<
     WebSocketIncomingUpdateProgressBarsEvent
   >();
@@ -24,7 +24,7 @@ export function UserStatusWidget() {
     }
   }, [rpStats]);
 
-  if (!status || !user) {
+  if (!status || !user || !online) {
     return null;
   }
 
