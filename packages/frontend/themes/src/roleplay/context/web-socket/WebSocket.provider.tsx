@@ -57,7 +57,7 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
   }
 
   function getConnectionStatus() {
-    return !!connection?.getConnectionStatus();
+    return connection?.getConnectionStatus() === true;
   }
 
   return (

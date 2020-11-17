@@ -63,7 +63,7 @@ export class WebSocketService implements WebSocketServiceBase {
   };
 
   getConnectionStatus = (): boolean => {
-    return !!this.connection;
+    return this.connection.readyState === this.connection.OPEN;
   };
 
   retry = () => {

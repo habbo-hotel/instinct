@@ -17,6 +17,8 @@ export function PlayPage() {
     setStore({showClient: true});
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  console.log(getConnectionStatus());
+
   if (!getConnectionStatus() && flashEnabled) {
     return (
       <div
