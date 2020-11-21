@@ -1,6 +1,6 @@
 import React from 'react';
 import './Disconnected.scss';
-import {useLocation} from 'wouter';
+import {Link, useLocation} from 'wouter';
 import {Button} from '@instinct-prj/frontend';
 import {UserGuard, setURL} from '@instinct-prj/frontend';
 
@@ -12,10 +12,24 @@ export function Disconnected() {
   return (
     <UserGuard>
       <div className="disconnected">
-        <p>You been disconnected</p>
-        <Button color="info" onClick={() => setLocation('play')}>
-          Try Again
-        </Button>
+        <div>
+          <div className="text-center mb-3">
+            <img alt="" src="/img/logo/regular.png" style={{height: '3em'}} />
+          </div>
+          <h2>You been disconnected</h2>
+          <Button
+            className="btn-block"
+            color="info"
+            onClick={() => setLocation('play')}
+          >
+            Try Again
+          </Button>
+          <Link to="/me">
+            <span style={{cursor: 'pointer', fontSize: '.7em'}}>
+              Go Back to Site
+            </span>
+          </Link>
+        </div>
       </div>
     </UserGuard>
   );
