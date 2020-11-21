@@ -1,3 +1,4 @@
+import './News.scss';
 import Moment from 'moment';
 import {Link} from 'wouter';
 import {uniqBy} from 'lodash';
@@ -98,7 +99,7 @@ export function News() {
             </MiniJumbotron>
           </div>
         </Row>
-        <div className="row" style={{maxHeight: 500, overflowY: 'scroll'}}>
+        <div className="hotel-news row">
           {filteredArticles?.map(_ => (
             <div className="col-6 mb-4" key={_.id}>
               <Link to={`/community/news/${_.id}`}>
@@ -109,20 +110,20 @@ export function News() {
                       cursor: 'pointer',
                     }}
                   >
-                    <div className="row p-2">
+                    <div className="article-content">
                       <img
+                        alt=""
                         src={_.thumbnailImage}
-                        height={120}
-                        width={120}
-                        style={{borderRadius: 5, cursor: 'pointer'}}
+                        className="article-image"
                       />
                       <div className="ml-4">
-                        <h2 style={{cursor: 'pointer', marginBottom: 0}}>
-                          {_.title}
-                        </h2>
-                        <p style={{fontSize: 14, marginBottom: 0}}>
-                          Posted {Moment(_.datePosted).format('MMMM DD, YYYY')}
-                        </p>
+                        <div className="article-title">{_.title}</div>
+                        <div className="article-body">
+                          Posted{' '}
+                          <span>
+                            {Moment(_.datePosted).format('MMMM DD, YYYY')}
+                          </span>
+                        </div>
                         <p>{_.description}</p>
                       </div>
                     </div>
