@@ -19,8 +19,8 @@ export interface Article {
 export const exampleArticle: Article = {
   id: 1,
   title: 'Test Article',
-  description: 'Testing the news',
-  content: 'I am testing the news',
+  description: 'Testing the list-articles',
+  content: 'I am testing the list-articles',
   datePosted: +new Date() / 1000,
   headerImage: '/img/article-1.png',
   thumbnailImage: '/img/article-1.png',

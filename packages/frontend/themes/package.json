@@ -18,7 +18,8 @@
     "@instinct-prj/interface-rp": "^1.10.1",
     "react-select": "^3.1.0",
     "react-toggle": "^4.1.1",
-    "websocket": "^1.0.32"
+    "websocket": "^1.0.32",
+    "react-markdown": "5.0.3"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",

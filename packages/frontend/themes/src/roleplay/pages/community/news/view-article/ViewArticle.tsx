@@ -1,8 +1,9 @@
-import './NewsArticle.scss';
+import './ViewArticle.scss';
 import Moment from 'moment';
 import {Link, useRoute} from 'wouter';
 import React, {useContext} from 'react';
-import {UserLayout} from '../../../components/layout/user';
+import ReactMarkdown from 'react-markdown';
+import {UserLayout} from '../../../../components/layout/user';
 import {
   Avatar,
   Card,
@@ -17,9 +18,9 @@ import {
   Icon,
 } from '@instinct-prj/frontend';
 
-setURL('community/news/:articleID', <NewsArticle />);
+setURL('community/news/:articleID', <ViewArticle />);
 
-export function NewsArticle() {
+export function ViewArticle() {
   const {config} = useContext(configContext);
   const [match, params] = useRoute<{articleID: string}>(
     '/community/news/:articleID'
@@ -69,9 +70,7 @@ export function NewsArticle() {
             <div className="col-8">
               <Card style={{fontSize: 18}}>
                 {article?.content ? (
-                  <div
-                    dangerouslySetInnerHTML={{__html: article?.content ?? ''}}
-                  />
+                  <ReactMarkdown>{article.content}</ReactMarkdown>
                 ) : (
                   <>
                     <Skeleton height={20} isLoading />

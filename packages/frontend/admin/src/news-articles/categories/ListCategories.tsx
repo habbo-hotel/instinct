@@ -4,7 +4,7 @@ import {NewsArticleLayout} from '../NewsArticlesLayout';
 import {CreateCategoryModal} from './create-category-modal';
 import {APIWrapper, articleService, setURL} from '@instinct-prj/frontend';
 
-setURL('admin/news/categories', <ListCategories />);
+setURL('admin/list-articles/categories', <ListCategories />);
 
 export function ListCategories() {
   const [reload, setReload] = useState(0);

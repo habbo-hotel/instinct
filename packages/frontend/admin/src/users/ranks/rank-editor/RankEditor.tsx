@@ -69,7 +69,7 @@ export function RankEditor({
     websiteShowStaff: 'Show as Staff',
     websiteShowAdminPanel: 'Use Admin Panel',
     websiteManageEmulator: 'Manage Emulator',
-    websiteManageNews: 'Manage News',
+    websiteManageNews: 'Manage ListArticles',
     websiteManageRanks: 'Manage Ranks',
     websiteManageUsers: 'Manage Users',
     websiteManageBans: 'Manage Bans',

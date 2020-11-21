@@ -1,10 +1,10 @@
-import './News.scss';
+import './ListArticles.scss';
 import Moment from 'moment';
 import {Link} from 'wouter';
 import {uniqBy} from 'lodash';
 import {Article} from '@instinct-prj/interface';
 import React, {useContext, useState} from 'react';
-import {UserLayout} from '../../../components/layout/user';
+import {UserLayout} from '../../../../components/layout/user';
 import {
   Card,
   configContext,
@@ -18,9 +18,9 @@ import {
 
 type NewsFilter = (article: Article) => boolean;
 
-setURL('community/news', <News />);
+setURL('community/news', <ListArticles />);
 
-export function News() {
+export function ListArticles() {
   const {config} = useContext(configContext);
   const [name, setName] = useState('');
   const [category, setCategory] = useState<Number>();

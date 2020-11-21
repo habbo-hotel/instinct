@@ -18,7 +18,7 @@ export function NewsArticleLayout({children}: {children: Children}) {
         <Link to="/admin/news/articles">
           <li
             className={
-              location === '/admin/news/articles'
+              location === '/admin/list-articles/articles'
                 ? 'nav-link active'
                 : 'nav-link'
             }
@@ -30,7 +30,7 @@ export function NewsArticleLayout({children}: {children: Children}) {
         <Link to="/admin/news/categories">
           <li
             className={
-              location === '/admin/news/categories'
+              location === '/admin/list-articles/categories'
                 ? 'nav-link active'
                 : 'nav-link'
             }
@@ -45,7 +45,7 @@ export function NewsArticleLayout({children}: {children: Children}) {
 
   return (
     <AdminLayout permission="websiteManageNews">
-      <Jumbotron style={{background: '#263238'}} title="Hotel News">
+      <Jumbotron style={{background: '#263238'}} title="Hotel ListArticles">
         <p>Manage your hotel's articles.</p>
       </Jumbotron>
       <Container>

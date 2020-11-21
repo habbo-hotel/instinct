@@ -10,7 +10,7 @@ export function ArticleList() {
 
   return (
     <>
-      <Jumbotron title="Latest News">
+      <Jumbotron title="Latest ListArticles">
         <p>Stay updated with our latest news!</p>
       </Jumbotron>
       <Container>

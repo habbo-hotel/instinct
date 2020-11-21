@@ -25,7 +25,7 @@ export function RecentNews() {
   }, []);
 
   return (
-    <Card header="Recent News">
+    <Card header="Recent ListArticles">
       <Loading isLoading={state.isLoading}>
         <div
           className="related-articles-container"

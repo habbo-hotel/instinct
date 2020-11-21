@@ -16,7 +16,7 @@ import {
   Skeleton,
 } from '@instinct-prj/frontend';
 
-setURL('community/news/:articleID', <NewsArticle />);
+setURL('community/list-articles/:articleID', <NewsArticle />);
 
 export function NewsArticle() {
   const [match, params] = useRoute<{articleID: string}>(

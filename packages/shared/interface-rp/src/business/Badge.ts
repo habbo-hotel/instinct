@@ -24,7 +24,7 @@ export const businessBadges: string[] = [
   'kfc',
   'leone',
   'mall',
-  'news',
+  'list-articles',
   'nightclub',
   'none',
   'npa',
