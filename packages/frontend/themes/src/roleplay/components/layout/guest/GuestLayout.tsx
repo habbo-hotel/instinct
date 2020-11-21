@@ -10,9 +10,19 @@ export function GuestLayout({children, style}: GuestLayoutProps) {
         <main>
           <section className="page-content" style={style}>
             <div className="login-page">
-              <div>
-                <img className="header-logo" src="/img/logo/regular.png" />
-                <Card>{children}</Card>
+              <div className="row">
+                <div className="col-12">
+                  <img
+                    className="header-logo"
+                    src="/img/logo/regular.png"
+                    style={{width: '100%'}}
+                  />
+                  <Card>
+                    {children}
+                    <br />
+                    <br />
+                  </Card>
+                </div>
               </div>
             </div>
           </section>
