@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/interface-rp",
-  "version": "1.10.2",
+  "version": "1.11.0",
   "main": "dist/index.js",
   "types": "dist/index",
   "files": [
@@ -13,7 +13,7 @@
     "compile:types": "tsc -d -p tsconfig.build.json --emitDeclarationOnly --declarationDir dist/types"
   },
   "dependencies": {
-    "@instinct-prj/interface": "^1.8.2"
+    "@instinct-prj/interface": "^1.9.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
