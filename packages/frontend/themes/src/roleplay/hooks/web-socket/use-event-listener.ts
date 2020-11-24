@@ -1,7 +1,7 @@
 import {useContext, useEffect} from 'react';
-import {sessionContext} from '@instinct-prj/frontend';
 import {webSocketContext} from '../../context/web-socket';
 import {WebSocketSubscriber} from '../../services/web-socket';
+import {configContext, sessionContext} from '@instinct-prj/frontend';
 import {
   WebSocketIncomingEvent,
   WebSocketIncomingEvents,
@@ -11,6 +11,7 @@ export function useWebSocketEventListener<K extends WebSocketIncomingEvent>(
   incomingEvent: K,
   callback: WebSocketSubscriber<WebSocketIncomingEvents[K]>
 ) {
+  const {config} = useContext(configContext);
   const {online} = useContext(sessionContext);
   const {onEvent} = useContext(webSocketContext);
 
@@ -19,10 +20,10 @@ export function useWebSocketEventListener<K extends WebSocketIncomingEvent>(
       onEvent(incomingEvent, callback);
     }
 
-    if (online) {
+    if (online && config.websocketEnabled) {
       registerEventListener();
     }
-  }, [online]);
+  }, [online, config.websocketEnabled]);
 
   return null;
 }

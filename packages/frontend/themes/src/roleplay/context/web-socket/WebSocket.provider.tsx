@@ -19,7 +19,7 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
   const [connection, setConnection] = useState<WebSocketService>();
 
   useEffect(() => {
-    if (sso) {
+    if (sso && config.websocketEnabled) {
       setConnection(
         new WebSocketService(config.websocketIP, config.websocketPort, sso)
       );
