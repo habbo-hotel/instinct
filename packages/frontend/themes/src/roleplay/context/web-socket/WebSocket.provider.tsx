@@ -30,13 +30,18 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
     event: K,
     callback: WebSocketSubscriber<WebSocketIncomingEvents[K]>
   ) {
-    connection!.addSubscriber(event, callback);
+    if (config.websocketEnabled) {
+      connection!.addSubscriber(event, callback);
+    }
   }
 
   function sendEvent<K extends WebSocketOutgoingEvent>(
     event: K,
     data: WebSocketOutgoingEvents[K]
   ) {
+    if (!config.websocketEnabled) {
+      return;
+    }
     if (!connection) {
       throw new Error('Web Socket connection has not been started');
     }
@@ -44,6 +49,9 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
   }
 
   function retry() {
+    if (!config.websocketEnabled) {
+      return;
+    }
     if (connection) {
       connection.retry();
       return;
