@@ -1,6 +1,6 @@
 {
   "name": "@instinct-prj/rp-web-demo",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "files": [
     "dist"
   ],
@@ -12,7 +12,7 @@
     "update:interface": " yarn add @instinct-prj/interface@latest && yarn add @instinct-prj/interface-rp@latest"
   },
   "dependencies": {
-    "@instinct-prj/rp-web": "^1.12.0",
+    "@instinct-prj/rp-web": "^1.13.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
