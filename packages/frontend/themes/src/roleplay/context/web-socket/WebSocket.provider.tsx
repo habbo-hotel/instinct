@@ -65,6 +65,9 @@ export function WebSocketContextProvider({children}: ContextProvidersProps) {
   }
 
   function getConnectionStatus() {
+    if (!config.websocketEnabled) {
+      return false;
+    }
     return connection?.getConnectionStatus() === true;
   }
 
