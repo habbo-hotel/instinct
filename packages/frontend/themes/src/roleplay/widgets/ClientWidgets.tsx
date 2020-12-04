@@ -1,27 +1,15 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {GangInfoWidget} from './gang/GangInfo';
+import {BetaNotice} from './notice/BetaNotice';
 import {GangInviteWidget} from './gang/GangInvite';
 import {JobOfferWidget} from './job-offer/JobOffer';
 import {BottomBar} from './ui/bottom-bar/BottomBar';
 import {GangDisbandWidget} from './gang/GangDisband';
-import {
-  ClientEvent,
-  clientService,
-  configContext,
-  Icon,
-  sessionContext,
-} from '@instinct-prj/frontend';
+import {configContext, Icon} from '@instinct-prj/frontend';
 import {UserStatusWidget} from './ui/user-status/UserStatus';
-import {BetaNotice} from './notice/BetaNotice';
 
 export function ClientWidgets() {
   const {config} = useContext(configContext);
-  const {setOnline} = useContext(sessionContext);
-
-  useEffect(() => {
-    setOnline(true);
-    clientService.eventListener.emit(ClientEvent.LOADING_PROGRESS, 100);
-  }, [new Date()]);
 
   if (!config.websocketEnabled) {
     return (
