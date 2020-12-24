@@ -1,11 +1,19 @@
-import React from 'react';
+import {Game} from './game/Game';
 import {Room} from './room/Room';
-import {GameContextProvider} from './game/GameContextProvider';
+import React, {useRef} from 'react';
 
 export function Client() {
+  const gameRef = useRef(null);
   return (
-    <GameContextProvider>
-      <Room />
-    </GameContextProvider>
+    <>
+      <canvas style={{width: '100%', height: '100%'}} ref={gameRef} />
+      {gameRef && (
+        <Game canvas={gameRef.current as any}>
+          <Room>
+            <p>test room</p>
+          </Room>
+        </Game>
+      )}
+    </>
   );
 }

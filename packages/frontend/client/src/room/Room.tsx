@@ -1,23 +1,7 @@
-import {gameContext} from '../game/GameContext';
-import {Room as RoomImpl, Avatar} from '@jankuss/shroom';
-import React, {useContext, useEffect, useState} from 'react';
+import React from 'react';
+import {RoomProps} from './Room.types';
+import {RoomContextProvider} from './context/RoomContext.provider';
 
-export function Room() {
-  const {client, game} = useContext(gameContext);
-  const [room, setRoom] = useState<RoomImpl>();
-
-  useEffect(() => {
-    setRoom(
-      RoomImpl.create(game, {
-        tilemap: `
-   xxxxxxxxxxxxxxxxxxxxx
-   x00000000000000000000
-   x00000000000000000000
-   x00000000000000000000
-   `,
-      })
-    );
-  }, []);
-
-  return null;
+export function Room({children}: RoomProps) {
+  return <RoomContextProvider>{children}</RoomContextProvider>;
 }

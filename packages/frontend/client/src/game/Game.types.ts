@@ -1,5 +1,6 @@
 import {ReactNode} from 'react';
 
-export interface RoomProps {
+export interface GameProps {
+  canvas: HTMLCanvasElement;
   children: ReactNode;
 }
