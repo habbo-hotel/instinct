@@ -8,10 +8,10 @@ export interface ShroomEnvironment {
 }
 
 export function initShroom(): ShroomEnvironment {
-  const view = document.querySelector('#client') as HTMLCanvasElement;
+  const view = document.querySelector('#game') as HTMLCanvasElement;
   const application = new PIXI.Application({
     view,
-    antialias: true,
+    antialias: false,
     resolution: window.devicePixelRatio,
     autoDensity: true,
     width: window.innerWidth,
