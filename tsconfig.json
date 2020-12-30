@@ -7,7 +7,6 @@
       "@instinct-prj/admin-rp": ["packages/frontend/admin-rp/src"],
       "@instinct-prj/themes": ["packages/frontend/themes/src"],
       "@instinct-prj/backend":  ["packages/backend/backend/src"],
-      "@instinct-prj/cerberus": ["packages/backend/cerberus/src"],
       "@instinct-prj/interface": ["packages/shared/interface/src"],
       "@instinct-prj/frontend": ["packages/frontend/frontend/src"],
       "@instinct-prj/backend-rp":  ["packages/backend/backend-rp/src"],

@@ -1,5 +1,5 @@
 import {terser} from 'rollup-plugin-terser';
-import cerberusPackage from './package.json';
+import interfacePackage from './package.json';
 import commonJS from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import resolveDependencies from '@rollup/plugin-node-resolve';
@@ -46,7 +46,7 @@ export default {
     }),
   ],
   external: [
-    ...Object.keys(cerberusPackage.dependencies || {}),
-    ...Object.keys(cerberusPackage.peerDependencies || {}),
+    ...Object.keys(interfacePackage.dependencies || {}),
+    ...Object.keys(interfacePackage.peerDependencies || {}),
   ],
 };
