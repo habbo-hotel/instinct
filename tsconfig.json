@@ -12,8 +12,7 @@
       "@instinct-prj/backend-rp":  ["packages/backend/backend-rp/src"],
       "@instinct-prj/interface-rp": ["packages/shared/interface-rp/src"],
       "@instinct-prj/rp-api": ["packages/production/rp-api/src"],
-      "@instinct-prj/rp-web": ["packages/production/rp-web/src"],
-      "@instinct-prj/client": ["packages/frontend/client/src"]
+      "@instinct-prj/rp-web": ["packages/production/rp-web/src"]
     },
     "noEmit": true
   },

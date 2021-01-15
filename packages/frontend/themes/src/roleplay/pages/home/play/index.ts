@@ -1,2 +1,1 @@
 import './Play';
-import './PlayBeta';
