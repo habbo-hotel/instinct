@@ -27,6 +27,8 @@ import {
   databasePass,
   databaseUser,
 } from '@instinct-api/common';
+import {MediaModule} from '@instinct-api/media';
+import {AWSModule} from '@instinct-api/aws';
 
 @Module({
   imports: [
@@ -41,6 +43,8 @@ import {
     GoogleModule,
     GroupModule,
     HealthModule,
+    AWSModule,
+    MediaModule,
     PhotoModule,
     RankModule,
     RoomModule,

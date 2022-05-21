@@ -14,11 +14,12 @@ import {MediaService} from './media.service';
     MulterModule,
     AWSModule,
     MulterModule.registerAsync({
+      imports: [DatabaseModule],
       useClass: MediaMulterService,
     }),
   ],
   controllers: [MediaController],
-  providers: [MediaMulterService],
+  providers: [MediaMulterService, MediaService],
   exports: [MediaService],
 })
-export class UserMediaModule {}
+export class MediaModule {}

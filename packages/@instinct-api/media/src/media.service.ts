@@ -1,6 +1,6 @@
-import {AWSS3Service} from '@impending-success/aws-core';
-import {MediaEntity, MediaRepository} from '@impending-success/database-core';
 import {Injectable} from '@nestjs/common';
+import {AWSS3Service} from '@instinct-api/aws';
+import {MediaEntity, MediaRepository} from '@instinct-api/database';
 
 @Injectable()
 export class MediaService {
