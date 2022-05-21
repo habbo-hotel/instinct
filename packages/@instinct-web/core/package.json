@@ -1,6 +1,6 @@
 {
   "name": "@instinct-web/core",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -29,7 +29,7 @@
     "wouter": "2.7.4"
   },
   "devDependencies": {
-    "@instinct-prj/interface": "^5.0.1",
+    "@instinct-prj/interface": "^5.2.0",
     "@rollup/plugin-commonjs": "19.0.0",
     "@rollup/plugin-image": "2.0.6",
     "@rollup/plugin-json": "4.1.0",
