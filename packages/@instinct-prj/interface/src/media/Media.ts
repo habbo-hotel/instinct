@@ -7,3 +7,11 @@ export interface Media {
   createdAt: string;
   updatedAt: string;
 }
+
+export const exampleMedia: Media = {
+  id: 1,
+  url: '',
+  type: 'photo',
+  createdAt: '',
+  updatedAt: '',
+};
