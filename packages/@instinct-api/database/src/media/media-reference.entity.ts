@@ -24,9 +24,6 @@ export class MediaReferenceEntity {
   @Column({name: 'user_id'})
   userID!: number;
 
-  @Column({name: 'profile_id'})
-  profileID!: number;
-
   @Column()
   feature!: string;
 

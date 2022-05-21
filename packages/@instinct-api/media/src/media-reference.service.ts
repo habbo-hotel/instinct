@@ -10,14 +10,14 @@ export class MediaReferenceService {
 
   createReference(
     userID: number,
-    profileID: number,
     mediaID: number,
+    feature: string,
     description: string
   ): Promise<MediaReferenceEntity> {
     return this.mediaReferenceRepo.create({
       userID,
-      profileID,
       mediaID,
+      feature,
       description,
     });
   }
