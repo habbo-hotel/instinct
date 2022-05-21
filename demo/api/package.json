@@ -1,6 +1,6 @@
 {
   "name": "@instinct-client/demo-api",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "scripts": {
     "start": "node_modules/.bin/ts-node -r tsconfig-paths/register src/index.ts"
   },
