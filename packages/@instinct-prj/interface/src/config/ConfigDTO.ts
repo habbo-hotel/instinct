@@ -30,6 +30,7 @@ export interface ConfigDTO {
   stripePublicKey: string;
   stripeSecretKey: string;
   logoURL: string;
+  awsS3Bucket: string;
 }
 
 export const exampleConfigDTO: ConfigDTO = {
@@ -64,4 +65,5 @@ export const exampleConfigDTO: ConfigDTO = {
   stripePublicKey: '',
   stripeSecretKey: '',
   logoURL: '',
+  awsS3Bucket: '',
 };

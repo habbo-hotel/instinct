@@ -12,5 +12,6 @@ export * from './rank';
 export * from './room';
 export * from './user';
 export * from './health';
+export * from './media';
 export * from './utility';
 export * from './web-store';

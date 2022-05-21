@@ -1,5 +1,5 @@
 {
-  "name": "@instinct-api/config",
+  "name": "@instinct-api/media",
   "version": "5.0.0",
   "main": "dist/index.js",
   "types": "dist/types",
@@ -12,27 +12,29 @@
     "compile": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "aws-sdk": "^2.1140.0"
+    "uuid": "^8.3.2",
+    "multer-s3": "^2.10.0"
   },
   "devDependencies": {
-    "@instinct-api/common": "^5.0.0",
-    "@instinct-api/database": "^5.0.0",
     "@instinct-api/session": "^5.0.0",
+    "@instinct-api/database": "^5.0.0",
     "@instinct-prj/interface": "^5.0.0",
     "@nestjs/common": "7.6.18",
     "@nestjs/core": "7.6.18",
-    "class-validator": "0.13.1",
-    "typescript": "~4.2.3"
+    "@nestjs/platform-express": "^8.4.5",
+    "typescript": "~4.2.3",
+    "@types/multer-s3": "^2.7.12",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/uuid": "^8.3.4"
   },
   "peerDependencies": {
-    "@instinct-api/common": "*",
+    "@instinct-api/session": "^5.0.0",
     "@instinct-api/database": "*",
-    "@instinct-api/session": "*",
     "@instinct-prj/interface": "*",
     "@nestjs/common": "7.6.18",
     "@nestjs/core": "7.6.18",
-    "class-validator": "0.13.1",
-    "typescript": "~4.2.3"
+    "typescript": "~4.2.3",
+    "@nestjs/platform-express": "^8.4.5"
   },
   "gitHead": "024ede3a92ac02b34c1d3eb0ac3cffad2c6a7fd0"
 }

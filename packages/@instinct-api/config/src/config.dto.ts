@@ -155,4 +155,8 @@ export class UpdateConfigDTO implements ConfigDTO {
   @IsUrl()
   @IsOptional()
   logoURL!: string;
+
+  @IsString()
+  @IsOptional()
+  awsS3Bucket!: string;
 }

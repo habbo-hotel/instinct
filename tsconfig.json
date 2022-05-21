@@ -11,6 +11,8 @@
       "@instinct-web/flash-client": ["packages/@instinct-web/flash-client/src"],
       "@instinct-theme/cosmic": ["packages/@instinct-theme/cosmic/src"],
       "@instinct-theme/roleplay": ["packages/@instinct-theme/roleplay/src"],
+      "@instinct-api/aws":  ["packages/@instinct-api/aws/src"],
+      "@instinct-api/media":  ["packages/@instinct-api/media/src"],
       "@instinct-api/users":  ["packages/@instinct-api/user/src"],
       "@instinct-api/emails":  ["packages/@instinct-api/email/src"],
       "@instinct-api/health":  ["packages/@instinct-api/health/src"],

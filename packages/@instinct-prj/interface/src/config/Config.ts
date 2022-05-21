@@ -26,6 +26,7 @@ export interface Config {
   findRetrosUsername?: string;
   stripePublicKey: string;
   logoURL: string;
+  awsS3Bucket: string;
 }
 
 export const defaultConfig: Config = {
@@ -56,4 +57,5 @@ export const defaultConfig: Config = {
   findRetrosUsername: undefined,
   stripePublicKey: '',
   logoURL: '',
+  awsS3Bucket: '',
 };
