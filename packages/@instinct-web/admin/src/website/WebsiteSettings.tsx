@@ -6,7 +6,7 @@ import {ServerSettings} from './views/ServerSettings';
 import {GoogleSettings} from './views/GoogleSettings';
 import {NavTabs} from '../components/nav-tabs/NavTabs';
 import {SitePreferences} from './views/SitePreferences';
-import {WebStoreSettings} from './views/WebStoreSettings';
+import {IntegrationSettings} from './views/IntegrationSettings';
 import {Jumbotron} from '../components/jumbotron/Jumbotron';
 import {AdminLayout} from '../components/admin-layout/AdminLayout';
 import {WebsiteSettingsProvider} from './context/WebsiteSettings.provider';
@@ -48,7 +48,7 @@ export function WebsiteSettings() {
               },
               {
                 text: <Icon type="shopping-cart" />,
-                children: <WebStoreSettings />,
+                children: <IntegrationSettings />,
               },
             ]}
           />

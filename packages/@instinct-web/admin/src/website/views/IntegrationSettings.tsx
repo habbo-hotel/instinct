@@ -3,13 +3,22 @@ import React, {useContext} from 'react';
 import {Form, Input} from '@instinct-web/core';
 import {websiteSettingsContext} from '../context/WebsiteSettings';
 
-export function WebStoreSettings() {
+export function IntegrationSettings() {
   const {config, showSpinner, saveChanges, setConfig} = useContext(
     websiteSettingsContext
   );
   return (
     <Form className="" onSubmit={saveChanges}>
-      <h2>Web Store Settings</h2>
+      <h2>Integration Settings</h2>
+      <FormGroup>
+        <h4>AWS S3 Bucket</h4>
+        <Input
+          type="text"
+          name="awsS3Bucket"
+          onChange={setConfig}
+          value={config.awsS3Bucket}
+        />
+      </FormGroup>
       <FormGroup>
         <h4>Stripe Public Key</h4>
         <Input
