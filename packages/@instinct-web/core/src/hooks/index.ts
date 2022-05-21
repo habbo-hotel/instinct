@@ -6,6 +6,7 @@ export * from './emulator';
 export * from './forum';
 export * from './group';
 export * from './guestbook';
+export * from './media';
 export * from './rank';
 export * from './room';
 export * from './session';

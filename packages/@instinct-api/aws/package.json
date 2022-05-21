@@ -11,6 +11,9 @@
     "clean": "rimraf -rf ./dist && rimraf -rf ./build",
     "compile": "tsc -p tsconfig.build.json"
   },
+  "dependencies": {
+    "aws-sdk": "^2.1140.0"
+  },
   "devDependencies": {
     "@instinct-api/database": "^5.0.0",
     "@instinct-prj/interface": "^5.0.0",

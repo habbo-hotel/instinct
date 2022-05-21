@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import {MediaReferenceEntity} from './media-reference.entity';
 
-@Entity('media')
+@Entity('instinct_media')
 export class MediaEntity {
   @PrimaryGeneratedColumn()
   id?: number;

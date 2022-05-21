@@ -47,7 +47,7 @@ export function WebsiteSettings() {
                 children: <MailSettings />,
               },
               {
-                text: <Icon type="shopping-cart" />,
+                text: <Icon type="cloud" />,
                 children: <IntegrationSettings />,
               },
             ]}

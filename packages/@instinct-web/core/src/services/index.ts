@@ -9,6 +9,7 @@ export * from './group';
 export * from './guestbook';
 export * from './local-storage';
 export * from './manage-users';
+export * from './media';
 export * from './photo';
 export * from './rank';
 export * from './room';
