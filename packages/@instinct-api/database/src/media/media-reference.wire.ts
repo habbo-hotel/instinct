@@ -11,7 +11,7 @@ export function mediaReferenceWire(
     media: mediaWire(entity.media!, photoURL),
     feature: entity.feature,
     description: entity.description,
-    createdAt: entity.createdAt,
-    updatedAt: entity.updatedAt,
+    createdAt: entity.createdAt!.toString(),
+    updatedAt: entity.updatedAt!.toString(),
   };
 }
