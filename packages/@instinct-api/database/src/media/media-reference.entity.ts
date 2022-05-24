@@ -5,7 +5,6 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  Unique,
   UpdateDateColumn,
 } from 'typeorm';
 import {MediaEntity} from './media.entity';
@@ -13,7 +12,6 @@ import {UserEntity} from '../user/user/user.entity';
 import {UserEntityStruct} from '../user/user/user.types';
 
 @Entity('instinct_media_references')
-@Unique(['profileID', 'mediaID'])
 export class MediaReferenceEntity {
   @PrimaryGeneratedColumn()
   id?: number;

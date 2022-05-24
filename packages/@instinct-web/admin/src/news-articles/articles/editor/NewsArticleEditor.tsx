@@ -20,11 +20,14 @@ import {
   NewsArticleEditorProps,
   NewsArticleEditorState,
 } from './NewsArticleEdtitor.types';
+import {Dropzone} from '../../../components/dropzone/Dropzone';
 
 export function NewsArticleEditor({
   defaultArticle,
   onSave,
 }: NewsArticleEditorProps) {
+  const [headerImage, setHeaderImage] = useState<File>();
+  const [thumbnailImage, setThumbnailImage] = useState<File>();
   const categories = useFetchAllNewsCategories();
   const [state, setState] = useState<NewsArticleEditorState>({
     ...defaultNewsArticleEditorState,
@@ -135,38 +138,28 @@ export function NewsArticleEditor({
               </Skeleton>
             </div>
             <div className="mt-3" style={{padding: 2}}>
-              <h4>
-                Header
-                <small>
-                  <PreviewImage
-                    className="ml-2"
-                    image={state.article.headerImage}
-                  />
-                </small>
-              </h4>
-              <Input
-                type="text"
-                name="headerImage"
-                onChange={setArticleValue}
-                value={state.article.headerImage}
-              />
+              <h4>Header</h4>
+              <div style={{width: '80%'}}>
+                <Dropzone
+                  files={headerImage ? [headerImage] : []}
+                  onChange={files => setHeaderImage(files[0])}
+                  acceptedType="image"
+                >
+                  <h1>Drag file here</h1>
+                </Dropzone>
+              </div>
             </div>
             <div className="mt-3" style={{padding: 2}}>
-              <h4>
-                Thumbnail
-                <small>
-                  <PreviewImage
-                    className="ml-2"
-                    image={state.article.thumbnailImage}
-                  />
-                </small>
-              </h4>
-              <Input
-                type="text"
-                name="thumbnailImage"
-                onChange={setArticleValue}
-                value={state.article.thumbnailImage}
-              />
+              <h4>Thumbnail</h4>
+              <div style={{width: '80%'}}>
+                <Dropzone
+                  files={thumbnailImage ? [thumbnailImage] : []}
+                  onChange={files => setThumbnailImage(files[0])}
+                  acceptedType="image"
+                >
+                  <h1>Drag file here</h1>
+                </Dropzone>
+              </div>
             </div>
             <div className="mt-3">
               <h4>Content</h4>

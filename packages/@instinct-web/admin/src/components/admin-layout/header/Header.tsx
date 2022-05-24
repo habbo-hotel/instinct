@@ -1,10 +1,9 @@
 import {Link} from 'wouter';
 import React, {useContext} from 'react';
 import {NavBar} from './navbar/NavBar';
-import {configContext, healthContext, Icon} from '@instinct-web/core';
+import {healthContext, Icon} from '@instinct-web/core';
 
 export function Header() {
-  const {config} = useContext(configContext);
   const {health} = useContext(healthContext);
   return (
     <>
@@ -14,9 +13,31 @@ export function Header() {
       >
         <div className="header-content row">
           <div className="col-6 text-left">
-            <Link to="/">
-              <img className="header-logo" src={config.logoURL} />
-            </Link>
+            <div style={{float: 'left', width: 'fit-content'}}>
+              <div
+                style={{
+                  color: '#0D7776',
+                  fontSize: 35,
+                  fontWeight: 'bold',
+                  letterSpacing: 1.4,
+                  width: '100%',
+                }}
+              >
+                INSTINCT
+              </div>
+              <div
+                style={{
+                  color: 'white',
+                  fontSize: 15,
+                  fontWeight: 'bold',
+                  letterSpacing: 1.4,
+                  float: 'right',
+                  marginTop: -15,
+                }}
+              >
+                Admin Panel
+              </div>
+            </div>
           </div>
           <div className="col-6 text-right">
             <div id="account-buttons" className="account-buttons">
