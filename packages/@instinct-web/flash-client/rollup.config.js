@@ -16,6 +16,7 @@ export default {
     {
       dir: './dist',
       format: 'umd',
+      name: 'flash-client',
       sourcemap: false,
     },
   ],

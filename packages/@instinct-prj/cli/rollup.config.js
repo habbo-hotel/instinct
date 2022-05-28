@@ -11,6 +11,7 @@ export default {
     {
       dir: './dist',
       format: 'umd',
+      name: 'cli',
       sourcemap: false,
     },
   ],

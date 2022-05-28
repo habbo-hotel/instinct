@@ -16,6 +16,7 @@ export default {
     {
       dir: './dist',
       format: 'umd',
+      name: 'nitro-client',
       sourcemap: false,
     },
   ],

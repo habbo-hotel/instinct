@@ -17,6 +17,7 @@ export default {
     {
       dir: './dist',
       format: 'umd',
+      name: 'core',
       sourcemap: false,
     },
   ],
