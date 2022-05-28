@@ -18,6 +18,7 @@ export default {
       format: 'umd',
       name: 'flash-client',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   acornInjectPlugins: [jsx()],

@@ -17,6 +17,7 @@ export default {
       format: 'umd',
       name: 'admin',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   acornInjectPlugins: [jsx()],

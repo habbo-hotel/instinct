@@ -19,6 +19,7 @@ export default {
       format: 'umd',
       name: 'core',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   acornInjectPlugins: [jsx()],

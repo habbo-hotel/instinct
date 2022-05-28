@@ -18,6 +18,7 @@ export default {
       format: 'umd',
       name: 'nitro-client',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   acornInjectPlugins: [jsx()],

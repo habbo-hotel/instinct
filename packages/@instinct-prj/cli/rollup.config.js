@@ -13,6 +13,7 @@ export default {
       format: 'umd',
       name: 'cli',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   plugins: [

@@ -13,6 +13,7 @@ export default {
       format: 'umd',
       name: 'interface',
       sourcemap: false,
+      inlineDynamicImports: true,
     },
   ],
   plugins: [
