@@ -4,6 +4,7 @@ import SkeletonBase from 'react-loading-skeleton';
 
 export function Skeleton(props: SkeletonProps) {
   if (props.isLoading || props.children === undefined) {
+    // @ts-ignore
     return <SkeletonBase {...props} />;
   }
 
