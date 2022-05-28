@@ -1,6 +1,6 @@
 {
   "name": "@instinct-web/flash-client",
-  "version": "5.2.1",
+  "version": "5.2.2",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -16,8 +16,8 @@
     "swfobject": "2.2.1"
   },
   "devDependencies": {
-    "@instinct-prj/interface":  "*",
-    "@instinct-web/core":  "*",
+    "@instinct-prj/interface": "^5.2.2",
+    "@instinct-web/core": "^5.2.2",
     "@rollup/plugin-commonjs": "19.0.0",
     "@rollup/plugin-image": "2.0.6",
     "@rollup/plugin-json": "4.1.0",
