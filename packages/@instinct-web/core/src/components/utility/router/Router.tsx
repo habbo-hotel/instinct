@@ -4,7 +4,7 @@ import {Switch, Route, RouteProps} from 'wouter';
 const routes: RouteProps[] = [];
 let notFound: ReactNode;
 
-export function Router() {
+export const Router = () => {
   return (
     <Switch>
       <>
@@ -17,15 +17,19 @@ export function Router() {
       </>
     </Switch>
   );
-}
+};
 
-export function setURL(url: string, component: ReactNode): void {
+export const setURL = (url: string, component: ReactNode): void => {
   routes.push({
     path: `/${url}`,
     children: <>{component}</>,
   });
-}
+};
 
-export function setNotFound(component: ReactNode) {
+export const setNotFound = (component: ReactNode): void => {
   notFound = component;
-}
+};
+
+export const getURLs = (): RouteProps[] => {
+  return [...routes];
+};
