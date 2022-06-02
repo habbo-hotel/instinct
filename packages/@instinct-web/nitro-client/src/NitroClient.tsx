@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {
   useRenewSessionSSO,
   sessionContext,
@@ -7,12 +7,8 @@ import {
 
 export function NitroClient() {
   useRenewSessionSSO();
-  const {sso, setUser} = useContext(sessionContext);
+  const {sso} = useContext(sessionContext);
   const {config} = useContext(configContext);
-
-  useEffect(() => {
-    setUser({clientType: 'nitro'});
-  }, []);
 
   return (
     <iframe
