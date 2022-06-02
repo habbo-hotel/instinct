@@ -1,14 +1,12 @@
+import {toast} from 'react-toastify';
 import {useContext, useEffect} from 'react';
-import {themeContext} from '../../context/theme';
 import {sessionContext} from '../../context/session';
 import {sessionService} from '../../services/session';
-import {toast} from 'react-toastify';
 
 export function useRenewSessionSSO() {
-  const {user, setSSO} = useContext(sessionContext);
-  const {showClient} = useContext(themeContext);
+  const {user, sso, setSSO} = useContext(sessionContext);
   useEffect(() => {
-    if (!showClient) {
+    if (sso) {
       return;
     }
 
@@ -25,5 +23,5 @@ export function useRenewSessionSSO() {
     }
 
     fetchSSO();
-  }, [user]);
+  }, [user?.id]);
 }
