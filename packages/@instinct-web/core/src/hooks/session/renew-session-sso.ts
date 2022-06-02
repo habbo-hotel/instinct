@@ -7,10 +7,12 @@ export function useRenewSessionSSO() {
   const {user, sso, setSSO} = useContext(sessionContext);
   useEffect(() => {
     if (sso) {
+      console.log('SSO already generated.  Skipping creation.');
       return;
     }
 
     async function fetchSSO() {
+      console.log('Fetching new SSO');
       const currentUserStatus = await sessionService.getCurrentUser();
 
       if (currentUserStatus.online) {
@@ -23,5 +25,5 @@ export function useRenewSessionSSO() {
     }
 
     fetchSSO();
-  }, [user?.id]);
+  }, [user?.username, sso]);
 }

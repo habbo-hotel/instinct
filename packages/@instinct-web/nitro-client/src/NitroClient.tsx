@@ -1,14 +1,13 @@
 import React, {useContext} from 'react';
-import {
-  useRenewSessionSSO,
-  sessionContext,
-  configContext,
-} from '@instinct-web/core';
+import {sessionContext, configContext} from '@instinct-web/core';
 
 export function NitroClient() {
-  useRenewSessionSSO();
   const {sso} = useContext(sessionContext);
   const {config} = useContext(configContext);
+
+  if (!sso) {
+    return null;
+  }
 
   return (
     <iframe
