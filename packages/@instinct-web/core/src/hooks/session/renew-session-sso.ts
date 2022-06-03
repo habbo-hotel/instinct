@@ -1,4 +1,3 @@
-import {toast} from 'react-toastify';
 import {useContext, useEffect} from 'react';
 import {sessionContext} from '../../context/session';
 import {sessionService} from '../../services/session';
@@ -11,13 +10,6 @@ export function useRenewSessionSSO() {
     }
 
     async function fetchSSO() {
-      const currentUserStatus = await sessionService.getCurrentUser();
-
-      if (currentUserStatus.online) {
-        toast.error("You're already online!");
-        return;
-      }
-
       setUser({online: true});
 
       const sso = await sessionService.createSSO();
