@@ -37,10 +37,11 @@
   "name": "instinct",
   "engines": {
     "node": ">=16.0.0"
-  }, "resolutions": {
-  "react": "17.0.1",
-  "react-dom": "17.0.1",
-  "@types/react": "17.0.1",
-  "@types/react-dom": "17.0.1"
-}
+  },
+  "resolutions": {
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "@types/react": "17.0.1",
+    "@types/react-dom": "17.0.1"
+  }
 }

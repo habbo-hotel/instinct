@@ -17,10 +17,10 @@
     "@stripe/stripe-js": "^1.31.0"
   },
   "devDependencies": {
-    "@instinct-prj/interface": "^5.2.2",
-    "@instinct-web/core": "^5.2.9",
-    "@instinct-web/flash-client": "^5.2.9",
-    "@instinct-web/nitro-client": "^5.2.9",
+    "@instinct-prj/interface": "*",
+    "@instinct-web/core": "*",
+    "@instinct-web/flash-client": "*",
+    "@instinct-web/nitro-client": "*",
     "@material-ui/core": "4.11.4",
     "@material-ui/icons": "4.11.2",
     "@material-ui/lab": "4.0.0-alpha.58",
