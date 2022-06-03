@@ -32,6 +32,8 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
+import {isValidUsername} from './is-valid-username';
+import {ValidationError} from 'class-validator';
 
 @Controller('users')
 export class UserController {
@@ -58,7 +60,10 @@ export class UserController {
     @Body() newUser: UserDTOClass,
     @Ip() ipAddress: string
   ): Promise<User> {
-    console.log('wtf');
+    if (!isValidUsername(newUser.username)) {
+      throw new ValidationError('Invalid Username');
+    }
+
     const alreadyRegistered = await this.userRepo.find({ipCurrent: ipAddress});
 
     if (alreadyRegistered.length >= maxAccountsPerIP) {
