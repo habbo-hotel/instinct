@@ -1,6 +1,6 @@
 {
   "name": "@instinct-plugin/manage-users-api",
-  "version": "5.2.2",
+  "version": "5.2.3",
   "main": "dist/index.js",
   "types": "dist/types",
   "files": [
@@ -15,7 +15,7 @@
     "@instinct-api/common": "^5.2.2",
     "@instinct-api/database": "^5.2.2",
     "@instinct-api/session": "^5.2.2",
-    "@instinct-api/users": "^5.2.2",
+    "@instinct-api/users": "^5.2.3",
     "@instinct-api/validator": "^5.2.2",
     "@instinct-prj/interface": "^5.2.2",
     "@nestjs/common": "7.6.18",
