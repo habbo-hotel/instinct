@@ -29,11 +29,11 @@ import {
   Get,
   Ip,
   NotFoundException,
+  BadRequestException,
   Param,
   Post,
 } from '@nestjs/common';
 import {isValidUsername} from './is-valid-username';
-import {ValidationError} from 'class-validator';
 
 @Controller('users')
 export class UserController {
@@ -61,7 +61,7 @@ export class UserController {
     @Ip() ipAddress: string
   ): Promise<User> {
     if (!isValidUsername(newUser.username)) {
-      throw new ValidationError('Invalid Username');
+      throw new BadRequestException('Invalid Username');
     }
 
     const alreadyRegistered = await this.userRepo.find({ipCurrent: ipAddress});
